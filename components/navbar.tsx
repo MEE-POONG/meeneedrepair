@@ -1,4 +1,3 @@
-
 import Serve from "@/components/dropdown/serve";
 import React, { useState } from "react";
 import Language from "./dropdown/language";
@@ -11,17 +10,14 @@ const ComponentsNavbar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleDropdown1 = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <div className="max-w-full mx-auto">
       <div className=" bg-black w-full h-10 ">
-        <span className="font-serif sm:text-sm">
-          <p className="mr-5" style={{ float: "right" }}>
+        <span className="font-serif sm:text-sm " style={{ float: "right" }}>
+         
           <Language/>
-          </p>
+         
         </span>
       </div>
 
@@ -102,7 +98,13 @@ const ComponentsNavbar: React.FC = () => {
                 >
                   สินค้า
                 </a>
+                <a
+                  href="faculty"
+                  className=" hover:bg-[#18BCEB] hover: px-3 py-2 rounded-md text-20 font-medium"
+                >
                   <Serve/>
+                </a>
+                  
                 <a
                   href="welfare"
                   className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
