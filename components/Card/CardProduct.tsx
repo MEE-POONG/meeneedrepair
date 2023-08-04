@@ -1,6 +1,6 @@
 export default function CardProduct() {
 	return (
-	  <div className="flex justify-evenly">
+	  <div className="flex justify-evenly container">
 		
 	  {/* // ----------Card 1---------- */}
 	  <div className="bg-[#214a8b] text-white shadow-md rounded-lg max-w-[300px] dark:bg-gray-800 dark:border-gray-700 w-[300px]">

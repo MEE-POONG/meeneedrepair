@@ -1,6 +1,6 @@
 import Language from "@/components/Dropdown/Language";
-import Serve from "@/components/Dropdown/Serve";
 import React, { useState } from "react";
+import Serve from "./Dropdown/Serve";
 
 
 
@@ -18,6 +18,7 @@ const ComponentsNavbar: React.FC = () => {
     <div>
      <div className=" bg-black w-full text-right">
     {/* <Language/> */}
+    <Language/>
       </div>
 
       <nav className=" bg-[#1E293B] sm/h-[130px] font-fontTH ">
@@ -89,6 +90,7 @@ const ComponentsNavbar: React.FC = () => {
                 className=" hover:bg-[#18BCEB] hover: px-3 py-2 rounded-md text-20 font-medium"
               >
               {/* <Serve/> */}
+              <Serve/>
               </div>
               <a
                 href="/"
