@@ -1,6 +1,5 @@
 import Serve from "@/components/dropdown/serve";
 import React, { useState } from "react";
-import Language from "./dropdown/language";
 
 
 const ComponentsNavbar: React.FC = () => {
@@ -9,7 +8,6 @@ const ComponentsNavbar: React.FC = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
 
   return (
     <div className="max-w-full mx-auto">
@@ -113,14 +111,11 @@ const ComponentsNavbar: React.FC = () => {
                 </a>
                 <p className=" bg-cyan-500 w-[2px] h-10"></p>
                 <a
-                  href="welfare"
-                  className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
-                >
-                 เข้าสู่ระบบ
-                </a>
-             
-
-              </ul>
+                href=""
+                className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
+              >
+                เข้าสู่ระบบ
+              </a>
             </div>
           </div>
         </div>
@@ -128,5 +123,4 @@ const ComponentsNavbar: React.FC = () => {
     </div>
   );
 };
-
 export default ComponentsNavbar;
