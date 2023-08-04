@@ -3,7 +3,7 @@ export default function CardProduct() {
 	  <div className="flex justify-evenly container">
 		
 	  {/* // ----------Card 1---------- */}
-	  <div className="bg-[#214a8b] text-white shadow-md rounded-lg max-w-[300px] dark:bg-gray-800 dark:border-gray-700 w-[300px]">
+	  <div className=" bg-sky-800 text-white shadow-md rounded-lg max-w-[300px] dark:bg-gray-800 dark:border-gray-700 w-[300px]">
 		<a href="#">
 		  <img src="../images/computer.jpg" alt="" />
 		</a>

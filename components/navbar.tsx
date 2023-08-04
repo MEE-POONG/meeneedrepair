@@ -2,8 +2,6 @@ import Language from "@/components/Dropdown/Language";
 import React, { useState } from "react";
 import Serve from "./Dropdown/Serve";
 
-
-
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -16,11 +14,11 @@ const ComponentsNavbar: React.FC = () => {
 
   return (
     <div>
-     <div className=" bg-black w-full text-right">
-    {/* <Language/> */}
-    <Language/>
+      <div className=" bg-black w-full text-right">
+        {/* <Language/> */}
+        <Language />
       </div>
-
+ 
       <nav className=" bg-[#1E293B] sm/h-[130px] font-fontTH ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-wrap  h-[100%] justify-between ">
           <img src="../images/LOGO.png" className=" w-[100px] " alt="" />
@@ -85,12 +83,9 @@ const ComponentsNavbar: React.FC = () => {
               >
                 สินค้า
               </a>
-              <div
-                
-                className=" hover:bg-[#18BCEB] hover: px-3 py-2 rounded-md text-20 font-medium"
-              >
-              {/* <Serve/> */}
-              <Serve/>
+              <div className=" hover:bg-[#18BCEB] hover: px-3 py-2 rounded-md text-20 font-medium">
+                {/* <Serve/> */}
+                <Serve />
               </div>
               <a
                 href="/"
@@ -99,11 +94,9 @@ const ComponentsNavbar: React.FC = () => {
                 ติดต่อ
               </a>
               <p className=" bg-cyan-500 w-[2px] h-10 sm:w-[0px] sm:h-[0px]"></p>
-            
-             
             </ul>
             <div className=" flex">
-            <a
+              <a
                 href="/"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
               >
