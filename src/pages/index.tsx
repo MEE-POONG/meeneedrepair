@@ -1,4 +1,5 @@
 import RootLayout  from '@/components/layout'
+import Body from '@/container/body'
 import SlideComponents from '@/pages/slider'
 
 // import Image from 'next/image'
@@ -7,7 +8,8 @@ import SlideComponents from '@/pages/slider'
 export default function Home() {
   return (
  <RootLayout>
-    <SlideComponents/>
+
+   <Body/>
 
 
  </RootLayout>

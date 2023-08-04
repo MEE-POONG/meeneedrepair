@@ -1,4 +1,4 @@
-export default function Language() {
+export default function Serve() {
   return (
     <div className="group inline-block">
       <button className="outline-none focus:outline-none text-white px-3 rounded-sm flex items-center min-w-32">
