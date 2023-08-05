@@ -1,7 +1,7 @@
 
 
 
-export default function Menu() {
+export default function Menuservice() {
     return (
       <div className=" w-full h-[130px] flex justify-evenly items-center container ">
         <a href="" className=" text-white flex justify-items-center ">
