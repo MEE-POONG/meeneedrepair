@@ -1,6 +1,8 @@
-import Language from "@/components/Dropdown/Language";
 import React, { useState } from "react";
-import Serve from "./Dropdown/Serve";
+// import Serve from "./Dropdown/Serve";
+import Link from "next/link";
+import Serve from "./dropdown/serve";
+import Language from "./dropdown/language";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -16,7 +18,7 @@ const ComponentsNavbar: React.FC = () => {
     <div>
       <div className=" bg-black w-full text-right">
         {/* <Language/> */}
-        <Language />
+        <Language/>
       </div>
  
       <nav className=" bg-[#1E293B] sm/h-[130px] font-fontTH ">
@@ -77,31 +79,31 @@ const ComponentsNavbar: React.FC = () => {
               >
                 เกี่ยวกับเรา
               </a>
-              <a
+              <Link
                 href="/"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium "
               >
                 สินค้า
-              </a>
+              </Link>
               <div className=" hover:bg-[#18BCEB] hover: px-3 py-2 rounded-md text-20 font-medium">
                 {/* <Serve/> */}
-                <Serve />
+                <Serve/>
               </div>
-              <a
+              <Link
                 href="/"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
               >
                 ติดต่อ
-              </a>
+              </Link>
               <p className=" bg-cyan-500 w-[2px] h-10 sm:w-[0px] sm:h-[0px]"></p>
             </ul>
             <div className=" flex">
-              <a
+              <Link
                 href="/"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
               >
                 สมัครสมาชิก
-              </a>
+              </Link>
               <p className=" bg-white w-[2px] h-10"></p>
               <a
                 href=""

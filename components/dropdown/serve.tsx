@@ -6,7 +6,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Language() {
+export default function Serve() {
   return (
     <Menu as="div" className="relative inline-block">
       <div>
