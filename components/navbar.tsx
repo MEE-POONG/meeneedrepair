@@ -17,19 +17,22 @@ const ComponentsNavbar: React.FC = () => {
   return (
     <div>
       <div className=" bg-black w-full text-right">
+<<<<<<< HEAD
         {/* <Language/> */}
         <Language/>
+=======
+        <Language />
+>>>>>>> 9bcc2bc1ec8354419906cb937ddc230675cc1e43
       </div>
  
-      <nav className=" bg-[#1E293B] sm/h-[130px] font-fontTH ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-wrap  h-[100%] justify-between ">
+      <nav className=" bg-[#1E293B] sm/h-[130px] font-fontTH sm:px-6 lg:px-8  ">
+        <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap  h-[] justify-between ">
           <img src="../images/LOGO.png" className=" w-[100px] " alt="" />
           {/*------------------------ mobile -----------------*/}
           <button
             onClick={toggleDropdown}
             data-collapse-toggle="mobile-menu-3"
             type="button"
-            // className="md:hidden text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
             className="md:hidden text-white  focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex justify-between items-center "
             aria-controls="mobile-menu-3"
             aria-expanded={isOpen ? "true" : "false"}
@@ -60,6 +63,10 @@ const ComponentsNavbar: React.FC = () => {
               ></path>
             </svg>
           </button>
+
+
+
+
           <div
             className={`md:flex justify-between items-center w-full md:w-auto md:order-1 ${
               isOpen ? "" : "hidden"

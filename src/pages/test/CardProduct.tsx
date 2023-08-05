@@ -1,9 +1,9 @@
 export default function CardProduct() {
   return (
-    <div className="flex justify-evenly">
+    <div className="flex justify-evenly bg-[#1E293B]">
       
     {/* // ----------Card 1---------- */}
-    <div className="bg-[#214a8b] text-white shadow-md rounded-lg max-w-[300px] dark:bg-gray-800 dark:border-gray-700 w-[300px]">
+    <div className="bg-[#2f425c] text-white shadow-md rounded-lg max-w-[300px] py-2 dark:bg-gray-800 dark:border-gray-700 w-[300px]">
       <a href="#">
         <img src="../images/computer.jpg" alt="" />
       </a>
@@ -29,7 +29,7 @@ export default function CardProduct() {
     </div>
 
     {/* // ----------Card 2---------- */}
-    <div className="bg-[#214a8b] text-white shadow-md rounded-lg max-w-[300px] dark:bg-gray-800 dark:border-gray-700 w-[300px]">
+    <div className="bg-[#2f425c] text-white shadow-md rounded-lg max-w-[300px] py-2 dark:bg-gray-800 dark:border-gray-700 w-[300px]">
       <a href="#">
         <img src="../images/computer.jpg" alt="" />
       </a>
@@ -55,7 +55,7 @@ export default function CardProduct() {
     </div>
 
 {/* // ----------Card 3---------- */}
-<div className="bg-[#214a8b] text-white shadow-md rounded-lg max-w-[300px] dark:bg-gray-800 dark:border-gray-700 w-[300px]">
+<div className="bg-[#2f425c] text-white shadow-md rounded-lg max-w-[300px] py-2 dark:bg-gray-800 dark:border-gray-700 w-[300px]">
       <a href="#">
         <img src="../images/computer.jpg" alt="" />
       </a>
@@ -81,7 +81,7 @@ export default function CardProduct() {
     </div>
 
 {/* // ----------Card 4---------- */}
-<div className="bg-[#214a8b] text-white shadow-md rounded-lg max-w-[300px] dark:bg-gray-800 dark:border-gray-700 w-[300px]">
+<div className="bg-[#2f425c] text-white shadow-md rounded-lg max-w-[300px] py-2 dark:bg-gray-800 dark:border-gray-700 w-[300px]">
       <a href="#">
         <img src="../images/computer.jpg" alt="" />
       </a>
