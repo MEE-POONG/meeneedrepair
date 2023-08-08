@@ -1,7 +1,7 @@
 export default function CardMeeNeed() {
   return (
-    <div className="py-6">
-      <div className="bg-[#1E293B] md:flex justify-center py-9 rounded-lg">
+    <div className="container mx-auto py-6">
+      {/* <div className="bg-[#1E293B] md:flex justify-center py-9 rounded-lg">
 
         <img
           src="../images/LOGO.png"
@@ -34,11 +34,11 @@ export default function CardMeeNeed() {
             </p>
           </div>
         </div>
-      </div>
-      <button className="bg-[#18BCEB] text-white px-6 py-2 rounded-md ">
+      </div> */}
+      {/* <button className="bg-[#18BCEB] text-white px-6 py-2 rounded-md ">
         <a href="">เพิ่มเติม</a>
-      </button>
-      {/* <div className="p-4 items-center justify-center rounded-xl group sm:flex space-x-6 bg-[#1E293B] shadow-xl hover:rounded-2xl">
+      </button> */}
+      <div className="p-4 items-center justify-center rounded-xl group sm:flex space-x-6 bg-[#1E293B] shadow-xl hover:rounded-2xl">
         <img
           src="../images/LOGO.png"
           className=" w-[300px] mx-auto block p-5 rounded-lg"
@@ -76,7 +76,7 @@ export default function CardMeeNeed() {
             <a href="">เพิ่มเติม</a>
           </button>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
