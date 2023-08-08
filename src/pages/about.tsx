@@ -4,6 +4,14 @@ import Image from "next/image";
 export default function AboutPage() {
     return (
         <RootLayout>
+            <div className='mb-10 relative bg-fixed'>
+                <img src="../images/imgslider/banner4.jpg" className='w-full md:h-[640px] ' alt="" />
+                <div className="absolute text-white text-center md:top-2/4 md:left-32 p-12 rounded-lg ">
+                    <h2 className="hidden md:block text-7xl font-semibold text-white">เกี่ยวกับเรา</h2>
+                    {/* <h2 className="hidden md:block text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#CA0808]  to-[#0FC0E7]  bg-transparent text-clip">เกี่ยวกับเรา</h2> */}
+                    {/* <h2 className="md:hidden text-3xl inset-0 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#CA0808]  to-[#0FC0E7]  bg-transparent text-clip">เกี่ยวกับเรา</h2> */}
+                </div>
+            </div>
             <div className="container mx-auto my-24">
                 <div className="text-center">
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
@@ -17,7 +25,7 @@ export default function AboutPage() {
                         src="/images/LOGO.png" alt=""
                         width={300}
                         height={300}
-                        className="w-[300px] mx-auto mt-8" />
+                        className="w-[300px] mx-auto my-10 " />
                 </div>
 
                 <div className="bg-[#1E293B] p-8 md:p-11 rounded-lg ">
