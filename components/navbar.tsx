@@ -83,7 +83,7 @@ const ComponentsNavbar: React.FC = () => {
                 เกี่ยวกับเรา
               </a>
               <Link
-                href="/"
+                href="products"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium "
               >
                 สินค้า
@@ -93,7 +93,7 @@ const ComponentsNavbar: React.FC = () => {
                 <Serve/>
               </div>
               <Link
-                href="/"
+                href="contact"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
               >
                 ติดต่อ
@@ -101,12 +101,12 @@ const ComponentsNavbar: React.FC = () => {
               <p className=" bg-cyan-500 w-[2px] h-10 sm:w-[0px] sm:h-[0px]"></p>
             </ul>
             <div className=" flex">
-              <Link
+              {/* <Link
                 href="/"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
               >
                 สมัครสมาชิก
-              </Link>
+              </Link> */}
               <p className=" bg-white w-[2px] h-10"></p>
               <a
                 href=""
