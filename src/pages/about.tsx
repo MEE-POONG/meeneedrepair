@@ -1,5 +1,5 @@
-import RootLayout from "@/components/layout";
 import Image from "next/image";
+import RootLayout from "../components/layout";
 
 export default function AboutPage() {
     return (

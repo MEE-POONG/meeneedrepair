@@ -1,6 +1,7 @@
-import RootLayout from "@/components/layout";
-import Mailform from "@/container/Contact/Mailform";
+
 import Image from 'next/image';
+import RootLayout from '../components/layout';
+import Mailform from '../container/Contact/Mailform';
 
 export default function ContactPage() {
     return (
