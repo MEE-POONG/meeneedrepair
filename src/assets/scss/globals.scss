@@ -2,17 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'newscard.scss';
 
-body{
+
+body {
     background-color: #0F172A;
 }
-*{
+
+* {
     font-family: 'Prompt';
 }
+
 .product-category {
-    svg{
+    svg {
         margin: auto;
     }
 }
 
-  

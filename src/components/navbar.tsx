@@ -28,7 +28,7 @@ const ComponentsNavbar: React.FC = () => {
           <button
             onClick={toggleDropdown}
             data-collapse-toggle="mobile-menu-3"
-            type="button"gap-5
+            type="button" 
             className="md:hidden text-white  focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex justify-between items-center "
             aria-controls="mobile-menu-3"
             aria-expanded={isOpen ? "true" : "false"}
