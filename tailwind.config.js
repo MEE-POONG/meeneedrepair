@@ -12,7 +12,17 @@ module.exports = {
     extend: {
       fontFamily:{
         fontTH:"'Prompt', sans-serif"
-      }
+      },
+      colors:{
+        primary: '#0F172A',
+        'regal-blue': '#243c5a',
+        'secondary1': '#1E293B',
+        'secondary2': '#F4F5F5',
+        'natural01': '#FFCD4B',
+        'natural02': '#9CE425',
+        'natural03': '#FF5C74',
+        'natural04': '#18BCEB',
+      },
     },
   },
   plugins: [
