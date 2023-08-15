@@ -10,10 +10,10 @@ export default function CardNews() {
                         <img src="./images/computer.jpg" alt="" />
 
                         <div className="px-4 mt-5">
-                            <p className="text-xl font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
+                            <p className="text-xl line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
                                 News Topic
                             </p>
-                            <p className="text-secondary2 truncate">description, description,description
+                            <p className="text-secondary2 line-clamp-2">description, description,description
                                 description, description......
                             </p>
                         </div>

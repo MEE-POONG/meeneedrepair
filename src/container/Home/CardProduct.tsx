@@ -11,7 +11,7 @@ export default function CardProduct() {
 
 					<div className="p-4">
 						<p className="text-white text-xl">Product Name</p>
-						<p className="text-white">description, description,description
+						<p className="text-white line-clamp-2">description, description,description
 							description, description......
 						</p>
 
