@@ -15,7 +15,7 @@ const Mailform = () => {
                             <input type="text"
                                 name=""
                                 id=""
-                                className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm" />
+                                className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm" />
                         </div>
 
                         <div className="mt-3 grid grid-cols-1 gap-6 sm:grid-cols-6">
@@ -29,7 +29,7 @@ const Mailform = () => {
                                         name="first-name"
                                         id="first-name"
                                         autoComplete="given-name"
-                                        className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
+                                        className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
                                     />
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ const Mailform = () => {
                                         name="last-name"
                                         id="last-name"
                                         autoComplete="family-name"
-                                        className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
+                                        className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
                                     />
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ const Mailform = () => {
                                     name="email"
                                     type="email"
                                     autoComplete="email"
-                                    className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm"
+                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm"
                                 />
                             </div>
                         </div>
@@ -75,18 +75,21 @@ const Mailform = () => {
                                     id="about"
                                     name="about"
                                     rows={3}
-                                    className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
                                     defaultValue={''}
                                 />
                             </div>
                             <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about topic.</p>
                         </div>
-                        <button
-                            type="submit"
-                            className="rounded-md bg-sky-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                            ส่งข้อความ
-                        </button>
+                        <div className="text-center mt-5">
+                            <button
+                                type="submit"
+                                className="rounded-md bg-sky-400 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                                ส่งข้อความ
+                            </button>
+                            
+                        </div>
                     </form>
                 </div>
             </div>

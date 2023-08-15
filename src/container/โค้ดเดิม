@@ -249,3 +249,28 @@ export default function CardProduct() {
 		</div>
 	</div>
 </div>
+
+<div className="max-w-xs rounded-lg overflow-hidden shadow-lg hover:shadow-xl">
+	<img src="https://images.workpointtoday.com/workpointnews/2023/08/07110220/1691380935_60132_web-.png" alt=""
+		className="w-full" />
+	<div className="px-4 py-4 bg-[#1E293B]">
+		<div className="mb-2">
+			<h2 className="text-xl font-bold 
+							text-transparent bg-clip-text bg-gradient-to-r from-[#081FF0]  to-[#13D1D1]  
+							bg-transparent text-clip"
+			>
+				กล้องมิเรอร์เลส กลับมาขายดี ท่องเที่ยวฟื้น กล้องดีขึ้น เบาลง
+			</h2>
+			<p className="text-white mt-3 truncate font-thin text-sm">
+				ตลาดกล้องมิเรอร์เลส ซบเซาจากสองปัจจัยใหญ่ๆ คือโควิด-19 คนไม่ได้ออกไปเที่ยวร่วมสองปี กับพัฒนาการของกล้องสมาร์ทโฟน
+			</p>
+			<div className="text-center mt-7">
+				<Link href=''
+					className="bg-sky-400 py-2 px-8 rounded-full">
+					อ่าน
+				</Link>
+
+			</div>  
+		</div>
+	</div>
+</div>
