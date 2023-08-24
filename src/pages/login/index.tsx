@@ -1,23 +1,27 @@
 import { FaFacebook, FaInstagram, FaYoutube, FaGoogle } from "react-icons/fa";
-import RootLayout from "../../components/layout";
-import ComponentsNavbar from "../../components/Thenavbar";
 import Link from 'next/link';
 
-export default function Login() {
+
+
+export default function LoginPages() {
     return (
         <>
-            <div>
-
-       
-
-
+            <div >
+           
                 <div className="flex flex-wrap min-h-screen w-full content-center justify-center py-10 ">
-                    <div className="relative">
+                {/* <img src="/images/bgmee.png" alt="backgroud" className="relative h-[900px] w-full"/> */}
+                <img
+  src="/images/bgmee.png"
+  alt="background"
+  className="relative h-[900px] w-full filter "
+/>
+
+                    <div className="absolute my-[100px]">
                         <img className="bg-center w-full h-[700px]" src="images/bgmee.png" />
 
                         <div className="absolute top-[50px] justify-items-center">
                             <div className="absolute text-white  left-[50px]">
-                                <h1 className=" text-3xl">Me Need repair</h1>
+                                <h1 className=" text-2xl font-bold">Me Need repair</h1>
                                 <div className=" text-center my-[100px] font-bold">
                                     <p className=" text-5xl mt-10 my-[10px]">Welcome!</p>
                                     <p className=" text-5xl mx-[10px] my-[20px]">to Our Website</p>
