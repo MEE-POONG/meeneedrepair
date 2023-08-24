@@ -37,9 +37,6 @@ export default function Login() {
                             </div>
 
 
-
-
-
                             <div className="absolute left-[650px] ">
                                 <h1 className="absolute w-[400px] text-white text-center text-3xl  font-bold">เข้าสู่ระบบ</h1>
                                 <div className="absolute w-[400px] top-[100px] text-white text-1xl ">
@@ -95,7 +92,6 @@ export default function Login() {
                                         </span>
                                         <span>เข้าสู่ระบบด้วย Google</span>
                                     </button>
-
 
                                     {/* <p className="absolute text-white top-[500px] ">ลืมรหัสผ่าน</p> */}
                                     <button className="absolute top-[260px] justify-center flex w-[350px] text-white text-center text-1xl my-[140px] md:px-4 md:py-3 font-medium ">
