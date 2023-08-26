@@ -9,7 +9,7 @@ const Mailform = () => {
                     <Image className="mx-auto drop-shadow-lg" src="/images/service.png" width={400} height={400} alt="Picture of Contact page" />
                 </div>
                 <div>
-                    <form action="" className="bg-[#D9D9D9] p-5 rounded-lg">
+                    <form action="" className="bg-[#D9D9D9] p-5 rounded-lg mx-5">
                         <div>
                             <label htmlFor="" className="">หัวข้อ</label>
                             <input type="text"
