@@ -1,32 +1,14 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { css } from "@emotion/css";
-import { Button, Popover } from "tailwindcss";
+import RootLayout from "../layout";
 
 const ShoppingCart = () => {
-    const PopoverExample = () => {
-        const [open, setOpen] = useState(false);
-
-        const handleClick = () => {
-            setOpen(!open);
-        };
-        return (
-            <div>
-                <Button onClick={handleClick}>Show popover</Button>
-                <Popover
-                    open={open}
-                    placement="right"
-                    trigger="click"
-                    css={css`
-          max-width: 200px;
-          padding: 1rem;
-          background-color: #fff;
-          border-radius: 0.25rem;
-        }
-      >
-        This is a popover!
-      </Popover>
+  return (
+    <div className="container mx-auto my-24">
+      <h3 className="text-4xl text-secondary2">รายการสินค้า <span className="">(2)</span></h3>
+      <div className="grid md:grid-cols-7 gap-10 mt-10">
+        <div className="col-span-5 bg-secondary2"></div>
+        <div className="col-span-2 bg-secondary1">2</div>
+      </div>
     </div>
-    )
+  )
 }
 export default ShoppingCart;
