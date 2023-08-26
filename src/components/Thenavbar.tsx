@@ -16,12 +16,8 @@ const ComponentsNavbar: React.FC = () => {
 
   return (
     <div>
-      <div className=" bg-[#1E293B] w-full text-right">
-        {/* <Language/> */}
-        <Language/>
-      </div>
- 
       <nav className=" bg-[#0F172A] sm/h-[130px] font-fontTH sm:px-6 lg:px-8  shadow-xl">
+        {/* <nav className="bg-opacity-50  sm:h-[130px] font-fontTH sm:px-6 lg:px-8 shadow-xl"> */}
         <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap  h-[] justify-between ">
           <img src="../images/LOGO.png" className=" w-[100px] " alt="" />
           {/*------------------------ mobile -----------------*/}
