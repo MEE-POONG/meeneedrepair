@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -32,7 +33,7 @@ export default function Serve() {
           <div className="py-1 text-center">
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   href="/services/reairservice"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
@@ -40,12 +41,12 @@ export default function Serve() {
                   )}
                 >
                   ซ่อมอุปกรณ์
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   href="/services/adviseservice"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
@@ -53,7 +54,7 @@ export default function Serve() {
                   )}
                 >
                   ปรึกษาปัญหา
-                </a>
+                </Link>
               )}
             </Menu.Item>
 
