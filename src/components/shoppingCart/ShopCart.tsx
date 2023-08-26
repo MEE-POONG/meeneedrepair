@@ -1,6 +1,7 @@
 import Image from "next/image";
 import RootLayout from "../layout";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Link from "next/link";
 const ShoppingCart = () => {
   return (
     <div className="container mx-auto my-24 text-center md:text-left">
@@ -44,7 +45,7 @@ const ShoppingCart = () => {
           <button type="submit"
             className="bg-natural01 py-2 md:py-3 w-full text-center mt-3 rounded-xl hover:bg-natural01/80 text-sm md:text-lg"
           >
-            ดำเนินการสั้งซื้อ
+            <Link href="./payment" >ดำเนินการสั้งซื้อ</Link>
           </button>
         </div>
       </div>
