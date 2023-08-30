@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model UserName {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+username String?
+
+}
+
+
+model Category {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId 
+categoryname String?
+categorybrand String?
+categoryprice String?
+
+// product Product[]
+}
+
+model Product {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+productname String?
+productbrand String?
+productmodel String?
+productdetail String? 
+producttype String?
+productcost String?
+productprice String?
+productremaining String?
+productimg String?
+productim1 String?
+productim2 String?
+productim3 String?
+productim4 String?
+
+
+// categoryId String? @db.ObjectId
+// category Category? @relation(fields: [categoryId], references: [id])
+
+}
+
+
+model  News {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+title String?
+subtitle String?
+detail String? 
+img String?
+img1 String?
+
+}
+
+
+model Promote {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+name String?
+img  String?
+img1 String?
+
+}
+
+
