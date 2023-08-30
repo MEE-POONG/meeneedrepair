@@ -20,7 +20,7 @@ const StepOneSelectAdress = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> 
         </div>
     )
 }
