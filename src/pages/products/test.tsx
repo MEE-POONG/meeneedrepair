@@ -1,9 +1,4 @@
-import React from 'react';
-
-const CardProductAll = () => {
-  return (
-    // <div className="flex flex-col ">
-      <div className="relative  rounded-[20px] max-w-[500px] bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-[#1E293B] text-white undefined">
+ <div className="relative  rounded-[20px] max-w-[500px] bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-[#1E293B] text-white undefined">
         <div className="h-full w-full relative">
           <img
             src="images/joystick.png"
@@ -49,8 +44,3 @@ const CardProductAll = () => {
           </button>
         </div>
       </div>
-    // </div>
-  );
-};
-
-export default CardProductAll;
