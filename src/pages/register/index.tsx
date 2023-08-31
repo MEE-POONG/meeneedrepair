@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaFacebook, FaInstagram, FaYoutube, FaGoogle } from "react-icons/fa";
 
 
@@ -138,9 +139,12 @@ export default function FormRegister() {
 
                             <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center justify-center ">
                                 <p>มีบัญชีผู้ใช้แล้ว?</p>
-                                <a href="#" className="flex-2 underline mx-2 text-[#18BCEB]">
+                                <Link className="mx-3 " href="./login">
+                                <p className="flex-2 underline mx-2 text-[#18BCEB]">
                                     เข้าสู่ระบบ
-                                </a>
+                                </p>
+                                </Link>
+                               
                             </div>
                         </form>
                     </div>
