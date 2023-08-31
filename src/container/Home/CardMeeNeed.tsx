@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function CardMeeNeed() {
   return (
     <div className="container mx-auto py-6">
-      <div className="bg-[#1E293B] p-6 rounded-lg lg:w-[1389px] lg:h-[502px] mx-5 md:mx-auto">
+      <div className="bg-[#1E293B] p-6 rounded-lg lg:h-[502px] mx-5 md:mx-auto">
         <div className="grid md:grid-cols-3 items-center gap-8">
           <div>
             <Image
