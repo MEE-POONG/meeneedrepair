@@ -1,4 +1,6 @@
 import React from 'react';
+import Appointment from '../appointment';
+import Link from 'next/link';
 
 const YourComponent: React.FC = () => {
     return (
@@ -21,9 +23,14 @@ const YourComponent: React.FC = () => {
                 <option value="DE">อื่นๆ</option>
  
             </select>
-
+            <Link href="./"
+                className=" text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium "
+              >  test
+              </Link>
              
         </div>
+
+        
     );
 };
 

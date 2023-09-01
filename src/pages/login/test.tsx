@@ -15,11 +15,20 @@ const LoginComponent: React.FC = () => {
                     <ComponentsNavbar />
                 </div>
 
-                {/* <div className=''>
-      <img className='absolute  top-1/2  w-[590px] ' src="/images/bgmee.png" alt="background" />
-      </div> */}
+                <div className="absolute my-[200px] mx-auto  top-0 transform  ">
+                    <img className="bg-center w-full h-[700px]" src="../images/bgmee.png" />
 
 
+                </div>
+            </div>
+
+            <div className="flex flex-col justify-center items-center top-0 w-full h-screen relative">
+                <img src="/images/bgmee.png" alt="background" className="w-full" />
+                <div className="absolute top-0 transform w-full ">
+                    <ComponentsNavbar />
+                </div>
+                <div className="absolute my-[200px] mx-auto top-0 transform">
+                    <img className="bg-center w-full h-[700px] " src="../images/bgmee.png" />
 
 
 

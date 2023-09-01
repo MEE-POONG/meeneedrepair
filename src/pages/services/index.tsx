@@ -9,13 +9,14 @@ export default function AdviserService() {
                 <img src="../images/bgtest.png" alt="" className=" w-screen h-[400px]" />
 
                 <div className="text-center my-[50px]">
-                    <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
                     <div className="text-white text-5xl font-bold">
                         บริการของเรา
                     </div>
-
                 </div>
-                <div className="w-full flex md:grid-cols-2 grid-flow-row justify-center items-center gap-6 px-5 ">
+
+
+                
+                <div className="w-full flex md:grid-cols-2 grid-flow-row justify-center items-center gap-6 px-5  ">
                     <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
 
                         <svg className="mx-auto my-5" xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
@@ -70,9 +71,14 @@ export default function AdviserService() {
                         </p>
                     </div>
                 </div>
-                <div className=" flex justify-center my-10">
 
- 
+
+
+          
+
+
+
+                <div className=" flex justify-center my-10">
                 <Link href="./"
                 className=" text-white  hover:text-white py-2 rounded-md mx-5 text-20 font-medium  ">   
                 <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
@@ -113,6 +119,40 @@ export default function AdviserService() {
 
                 <div>
                 </div>
+
+
+
+                <div className="flex justify-center items-center min-h-screen">
+                <div className="w-full flex md:grid-cols-2 grid-flow-row justify-center items-center gap-6 px-5 ">
+                    <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
+                         <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
+
+                        <svg className="mx-auto my-5" xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
+                            <g clipPath="url(#clip0_240_17)">
+                                <path d="M122.326 110.558C123.807 110.56 125.233 111.127 126.31 112.145C127.388 113.162 128.036 114.552 128.123 116.031C128.21 117.511 127.729 118.967 126.778 120.104C125.826 121.24 124.477 121.97 123.006 122.145L122.326 122.186H17.6745C16.1926 122.184 14.7673 121.617 13.6898 120.6C12.6122 119.582 11.9638 118.192 11.8769 116.713C11.7901 115.234 12.2714 113.777 13.2225 112.641C14.1736 111.504 15.5227 110.774 16.9942 110.599L17.6745 110.558H122.326ZM110.698 23.3489C113.631 23.3479 116.457 24.4559 118.608 26.4506C120.759 28.4453 122.077 31.1794 122.297 34.1047L122.326 34.9768V93.1163C122.327 96.0499 121.219 98.8754 119.224 101.026C117.229 103.178 114.495 104.495 111.57 104.715L110.698 104.744H29.3024C26.3688 104.745 23.5433 103.637 21.3922 101.643C19.2411 99.6478 17.9235 96.9137 17.7035 93.9884L17.6745 93.1163V34.9768C17.6735 32.0432 18.7815 29.2177 20.7762 27.0666C22.7709 24.9156 25.5049 23.598 28.4303 23.3779L29.3024 23.3489H110.698Z" fill="#F4F5F5" />
+                            </g>
+                            <defs>
+                                <linearGradient id="paint0_linear_240_15" x1="6.9602" y1="39.8678" x2="63.2227" y2="39.8678" gradientUnits="userSpaceOnUse">
+                                    <stop stopColor="#ffff" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <h3 className="text-2xl md:text-4xl font-bold">บริการติดตั้งโปรแกรม</h3>
+                        <p className="text-md mt-8">
+                            ให้บริการติดตั้งโปรแกรม ออนไลน์และออนไซต์
+                        </p>
+                    </div>
+                    </div>
+                    <div className="text-[#1E293B] text-center bg-[#F4F5F5] p-6 md:p-16 rounded-xl">
+                        {/* ... (Second column content) */}
+                    </div>
+                    <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
+                        {/* ... (Third column content) */}
+                    </div>
+                </div>
+            </div>
+
 
 
 

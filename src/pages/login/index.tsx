@@ -21,7 +21,11 @@ const LoginComponent: React.FC = () => {
 
 
 
-                <div className="absolute my-[200px]  top-0 transform left-1/4  ">
+                <div className="absolute my-[200px] mx-auto  top-0 transform  ">
+
+
+
+                    
                     <img className="bg-center w-full h-[700px]" src="../images/bgmee.png" />
 
                     <div className="absolute top-[50px] justify-items-center">
