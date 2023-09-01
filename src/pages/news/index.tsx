@@ -1,6 +1,7 @@
 import RootLayout from "../../components/layout";
 import { newsTest } from '../../../data/News';
 import Link from "next/link";
+import SlideNews from "../../container/News/Slidenews";
 
 interface NewsData {
     id: string;
@@ -15,6 +16,9 @@ export default function NewsPage() {
 
     return (
         <RootLayout>
+            <div className="mb-24">
+            <SlideNews />
+            </div>
             <div className="container mx-auto my-24">
                 <div className="flex items-center justify-center">
                     <div className="h-0.5 w-full bg-white"></div>
@@ -25,7 +29,7 @@ export default function NewsPage() {
                 </div>
 
                 {/* Card  */}
-                <div className="mt-10">
+                {/* <div className="mt-10">
                     <div className="flex flex-wrap lg:justify-start justify-center gap-8">
                         <div className="bg-[#F4F5F5] rounded-[20px] max-w-[320px] h-[360px]">
                             <div className="p-3 ">
@@ -52,7 +56,7 @@ export default function NewsPage() {
                         </div>
 
                     </div>
-                </div>
+                </div> */}
             </div>
         </RootLayout>
     )
