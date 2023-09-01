@@ -10,7 +10,7 @@ export default function ProductPage() {
             <div className="flex flex-col ">    
             <div className="grid place-items-center mx-2 my-20 sm:my-auto">
 
-            <img src="images/pictureproduct.jpg" alt="" className=" w-screen    " />
+            {/* <img src="images/pictureproduct.jpg" alt="" className=" w-screen    " /> */}
             <ProductCategory />
 
 

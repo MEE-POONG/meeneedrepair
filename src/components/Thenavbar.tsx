@@ -16,7 +16,7 @@ const ComponentsNavbar: React.FC = () => {
 
   return (
     <div>
-      <nav className=" bg-[#0F172A] sm/h-[130px] font-fontTH sm:px-6 lg:px-8  shadow-xl">
+      <nav className=" sm/h-[130px] font-fontTH sm:px-6 lg:px-8  shadow-xl">
         {/* <nav className="bg-opacity-50  sm:h-[130px] font-fontTH sm:px-6 lg:px-8 shadow-xl"> */}
         <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap  h-[] justify-between ">
           <img src="../images/LOGO.png" className=" w-[100px] " alt="" />
@@ -105,7 +105,7 @@ const ComponentsNavbar: React.FC = () => {
               </Link> */}
               <p className=" bg-white w-[2px] h-10"></p>
               <a
-                href=""
+                href="login"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
               >
                 เข้าสู่ระบบ

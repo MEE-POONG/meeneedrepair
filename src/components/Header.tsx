@@ -1,41 +1,64 @@
 import React, { useState } from 'react';
 
 export default function Header() {
-    const [dropdownOpen, setDropdownOpen] = useState(true);
 
-    const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);
-    };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const closeDropdown = () => {
-        setDropdownOpen(false);
-    };
-
-    return (
-        <div className="w-full h-[40px] text-right bg-[#1E293B] ">
-            <div className=" justify-center absolute top-4 right-10 ">
-                    <button onClick={toggleDropdown} className=" flex rounded-md ">
-                        <p className=" flex text-white">ไทย</p>
-                        <svg className="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                    </button>
-                    {dropdownOpen && <div onClick={closeDropdown} className="fixed inset-0 h-full w-full z-10"></div>}
-
-                    {dropdownOpen && (
-                        <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-                            <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
-                                ไทย
-                            </a>
-                            <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
-                                อังกฤษ
-                            </a>
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
 
-                        </div>
-                    )}
+  return (
+    <div className="w-full h-[40px] text-right bg-[#1E293B] ">
+
+
+      <div className="relative inline-block  justify-center  right-10  text-left">
+        <div>
+          <button
+            type="button"
+            className="inline-flex w-full justify-center gap-x-1.5  text-white px-3 py-2 text-sm font-semibold  "
+            id="menu-button"
+            aria-expanded={isMenuOpen}
+            aria-haspopup="true"
+            onClick={toggleMenu}
+          >
+            ภาษา
+            <svg
+              className="-mr-1 h-5 w-5 "
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        {isMenuOpen && (
+          <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
+            <div className="py-1" role="none">
+              <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex={-1} id="menu-item-0">
+                ไทย
+              </a>
+              <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex={-1} id="menu-item-1">
+                อังกฤษ
+              </a>
+
 
             </div>
-        </div>
-    )
+          </div>
+        )}
+      </div>
+
+
+
+
+
+
+    </div>
+  )
 }
