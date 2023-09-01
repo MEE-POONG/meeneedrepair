@@ -83,15 +83,17 @@ export default function AdviserService() {
                 <div className=" bg-white w-full h-[500px] mt-[100px]">
 
 
-                    <div className="text-center my-[50px]">
+                    <div className="text-center my-[50px] ">
                         <h1 className="text-black text-5xl font-bold ">
                             บริการของเรา
                         </h1>
-                        <div>
-                            <img src="" alt="" />
-
-                        </div>
-
+                    <div className=" flex justify-center my-5 ">
+                     <img src="../images/imgsevice/s1.jpg" alt="" className="w-[250px] mx-5 "/>
+                     <img src="../images/imgsevice/s2.jpg" alt="" className="w-[250px] mx-5 "/>
+                     <img src="../images/imgsevice/s3.jpg" alt="" className="w-[250px] mx-5 "/>
+                     <img src="../images/imgsevice/s5.jpg" alt="" className="w-[250px] mx-5 "/>
+                     <img src="../images/imgsevice/s6 .jpg" alt="" className="w-[250px] mx-5 "/>
+                    </div>
 
 
                     </div>
