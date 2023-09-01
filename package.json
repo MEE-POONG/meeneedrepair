@@ -28,6 +28,7 @@
     "sass": "^1.66.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.5",
+    "tom-select": "^2.2.2",
     "tw-elements": "^1.0.0-beta2",
     "typescript": "5.1.6"
   },

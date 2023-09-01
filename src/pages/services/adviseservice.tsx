@@ -1,3 +1,4 @@
+import Link from "next/link";
 import RootLayout from "../../components/layout";
 
 export default function AdviserService() {
@@ -73,8 +74,19 @@ export default function AdviserService() {
                     </div>
                 </div>
                 <div className=" flex justify-center my-10">
-                    <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
-                    <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl mx-10">ปรึกษา </button>
+
+ 
+                <Link href="./"
+                className=" text-white  hover:text-white py-2 rounded-md mx-5 text-20 font-medium  ">   
+                <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
+              </Link>
+              <Link href="./"
+                className=" text-white  hover:text-white py-2 rounded-md text-20 font-medium  ">   
+                <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl">ปรึกษา </button>
+              </Link>
+
+                    {/* <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button> */}
+                    {/* <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl mx-10">ปรึกษา </button> */}
                 </div>
 
 
