@@ -25,31 +25,31 @@ export default function Slide() {
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img src="./images/banner 1.png" alt="" />
                         </div>
-                        <div className="absolute bottom-0 left-0 text-white p-2">
-                        </div>
+                        <h1 className="absolute bottom-0 left-0 text-white p-2">
+                        </h1>
 
-                        <div className="absolute bottom-0 right-0 text-white p-2">
-                        </div>
+                        <h1 className="absolute bottom-0 right-0 text-white p-2">
+                        </h1>
                     </div>
                     <div className="keen-slider__slide number-slide2 relative">
                         <div className="absolute inset-0 flex items-center justify-center">
                         <img src="./images/banner 2.png" alt="" />
                         </div>
-                        <div className="absolute bottom-0 left-0 text-white p-2">                           
-                        </div>
-                        <div className="absolute bottom-0 right-0 text-white p-2">
-                        </div>
+                        <h1 className="absolute bottom-0 left-0 text-white p-2">                           
+                        </h1>
+                        <h1 className="absolute bottom-0 right-0 text-white p-2">
+                        </h1>
                     </div>
                     <div className="keen-slider__slide number-slide3 relative">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg" alt="" />
                         </div>
-                        <div className="absolute bottom-0 left-0 text-white p-2">
+                        <h1 className="absolute bottom-0 left-0 text-white p-2">
                             Title/Name 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </div>
-                        <div className="absolute bottom-0 right-0 text-white p-2">
+                        </h1>
+                        <h1 className="absolute bottom-0 right-0 text-white p-2">
                            Link อ่านต่อ 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </div>
+                        </h1>
                     </div>
                     {/* และทำเช่นนี้กับแต่ละรูปภาพใน Slider */}
 
