@@ -28,16 +28,6 @@ const ReadBlogsDetail = () => {
         </div>
       </div>
 
-<div className="container mx-auto">
-<h1 className=" text-white mt-72 p-4 underline">ข่าวเพิ่มเติม</h1>
-      <div className="grid grid-cols-4 gap-4   ">
-     
-  <div>01</div>
-  <div>01</div>
-
-</div>
-</div>
-
     </RootLayout>
   )
 }
