@@ -37,16 +37,22 @@ export default function App() {
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" alt="" />
                         </div>
-                        <div className="absolute top-0 left-0 bg-black text-white p-2">
+                        <div className="absolute bottom-0 left-0 text-white p-2">
                             Title/Name 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
+                        <div className="absolute bottom-0 right-0 text-white p-2">
+                           Link อ่านต่อ 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </div>
                     </div>
                     <div className="keen-slider__slide number-slide3 relative">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg" alt="" />
                         </div>
-                        <div className="absolute top-0 left-0 bg-black text-white p-2">
+                        <div className="absolute bottom-0 left-0 text-white p-2">
                             Title/Name 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
+                        <div className="absolute bottom-0 right-0 text-white p-2">
+                           Link อ่านต่อ 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </div>
                     </div>
                     {/* และทำเช่นนี้กับแต่ละรูปภาพใน Slider */}
