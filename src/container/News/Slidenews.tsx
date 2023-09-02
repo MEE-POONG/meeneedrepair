@@ -1,59 +1,131 @@
-const SlideNews = () => {
+import * as React from "react"
+
+import { useKeenSlider } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
+import { useState } from "react"
+
+export default function App() {
+    const [currentSlide, setCurrentSlide] = React.useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+        initial: 0,
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
+        created() {
+            setLoaded(true)
+        },
+    })
+
     return (
         <>
+            <div className="navigation-wrapper">
+                <div ref={sliderRef} className="keen-slider">
+                    <div className="keen-slider__slide number-slide1 relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg" alt="" />
+                        </div>
+                        <div className="absolute bottom-0 left-0 text-white p-2">
+                            Title/Name 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
 
-            <div id="default-carousel" className="relative w-full" data-carousel="slide">
-                {/* <!-- Carousel wrapper --> */}
-                <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-                    {/* <!-- Item 1 --> */}
-                    <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://thaipbs-program.s3-ap-southeast-1.amazonaws.com/content/images/video-display-image/1/QB/wN/1QBwNMHHOcIB-large.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                        <div className="absolute bottom-0 right-0 text-white p-2">
+                           Link อ่านต่อ 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
                     </div>
-                    {/* <!-- Item 2 --> */}
-                    <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://img.pptvhd36.com/thumbor/2023/08/31/news-50880d6.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                    <div className="keen-slider__slide number-slide2 relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" alt="" />
+                        </div>
+                        <div className="absolute bottom-0 left-0 text-white p-2">
+                            Title/Name 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
+                        <div className="absolute bottom-0 right-0 text-white p-2">
+                           Link อ่านต่อ 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
                     </div>
-                    {/* <!-- Item 3 --> */}
-                    <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                    <div className="keen-slider__slide number-slide3 relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg" alt="" />
+                        </div>
+                        <div className="absolute bottom-0 left-0 text-white p-2">
+                            Title/Name 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
+                        <div className="absolute bottom-0 right-0 text-white p-2">
+                           Link อ่านต่อ 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
                     </div>
-                    {/* <!-- Item 4 --> */}
-                    <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                    </div>
-                    {/* <!-- Item 5 --> */}
-                    <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                    </div>
+                    {/* และทำเช่นนี้กับแต่ละรูปภาพใน Slider */}
+
+                    <div className="keen-slider__slide number-slide4">4</div>
+                    <div className="keen-slider__slide number-slide5">5</div>
+                    <div className="keen-slider__slide number-slide6">6</div>
                 </div>
-                {/* <!-- Slider indicators --> */}
-                <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-                </div>
-                {/* <!-- Slider controls --> */}
-                <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                        </svg>
-                        <span className="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span className="sr-only">Next</span>
-                    </span>
-                </button>
+                {loaded && instanceRef.current && (
+                    <>
+                        <Arrow
+                            left
+                            onClick={(e: any) =>
+                                e.stopPropagation() || instanceRef.current?.prev()
+                            }
+                            disabled={currentSlide === 0}
+                        />
+
+                        <Arrow
+                            onClick={(e: any) =>
+                                e.stopPropagation() || instanceRef.current?.next()
+                            }
+                            disabled={
+                                currentSlide ===
+                                instanceRef.current.track.details.slides.length - 1
+                            }
+                        />
+                    </>
+                )}
             </div>
+            {loaded && instanceRef.current && (
+                <div className="dots">
+                    <div className="dots">
+                        {Array.from({ length: instanceRef.current.track.details.slides.length }).map((_, idx) => {
+                            return (
+                                <button
+                                    key={idx}
+                                    onClick={() => {
+                                        instanceRef.current?.moveToIdx(idx)
+                                    }}
+                                    className={"dot" + (currentSlide === idx ? " active" : "")}
+                                ></button>
+                            )
+                        })}
+                    </div>
 
+                </div>
+            )}
         </>
     )
 }
-export default SlideNews;
+
+function Arrow(props: {
+    disabled: boolean
+    left?: boolean
+    onClick: (e: any) => void
+}) {
+    const disabeld = props.disabled ? " arrow--disabled" : ""
+    return (
+        <svg
+            onClick={props.onClick}
+            className={`arrow ${props.left ? "arrow--left" : "arrow--right"
+                } ${disabeld}`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
+            {props.left && (
+                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+            )}
+            {!props.left && (
+                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+            )}
+        </svg>
+    )
+}
+
