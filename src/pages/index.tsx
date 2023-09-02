@@ -1,3 +1,4 @@
+
 import RootLayout from "../components/layout";
 import CardMeeNeed from "../container/Home/CardMeeNeed";
 import CardProduct from "../container/Home/CardProduct";
@@ -16,9 +17,11 @@ export default function Home() {
         <Menuservice />
         <CardMeeNeed />
         {/* <CardProduct /> */}
-        <Cardsevice/>
-        <CardNews/>
+        <Cardsevice />
+        <CardNews />
       </div>
+
+
     </RootLayout>
   )
 }
