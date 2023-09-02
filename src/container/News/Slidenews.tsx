@@ -1,134 +1,125 @@
-const SlideNews = () => {
+import * as React from "react"
+
+import { useKeenSlider } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
+import { useState } from "react"
+
+export default function App() {
+    const [currentSlide, setCurrentSlide] = React.useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+        initial: 0,
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
+        created() {
+            setLoaded(true)
+        },
+    })
+
     return (
         <>
-            {/* <!-- component --> */}
-            {/* <!-- This is an example component --> */}
-            <div className="max-w-full mx-auto">
-                <div id="default-carousel" className="relative" data-carousel="static">
-                    {/* <!-- Carousel wrapper --> */}
-                    <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-                        {/* <!-- Item 1 --> */}
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                            <span className="absolute bottom-0 p-5 text-2xl font-semibold text-white  sm:text-3xl dark:text-gray-800 z-10">
-                                sdas
-                            </span>
-
-                            <span className="absolute bottom-0 right-0 p-5 text-2xl font-semibold text-white  sm:text-3xl dark:text-gray-800 z-10">
-                                อ่านต่อ
-                            </span>
-                            <img
-                                src="https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg"
-                                className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 z-0"
-                                alt="..."
-                            />
+            <div className="navigation-wrapper">
+                <div ref={sliderRef} className="keen-slider">
+                    <div className="keen-slider__slide number-slide1 relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg" alt="" />
                         </div>
-                        {/* <!-- Item 2 --> */}
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                            <span className="absolute bottom-0 p-5 text-2xl font-semibold text-white  sm:text-3xl dark:text-gray-800 z-10">
-                                Title / Name
-                            </span>
-
-                            <span className="absolute bottom-0 right-0 p-5 text-2xl font-semibold text-white  sm:text-3xl dark:text-gray-800 z-10">
-                                อ่านต่อ
-                            </span>
-                            <img
-                                src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg"
-                                className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 z-0"
-                                alt="..."
-                            />
+                        <div className="absolute bottom-0 left-0 text-white p-2">
+                            Title/Name 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </div>
-                        {/* <!-- Item 3 --> */}
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                            <span className="absolute bottom-0 p-5 text-2xl font-semibold text-white  sm:text-3xl dark:text-gray-800 z-10">
-                                Title / Name
-                            </span>
 
-                            <span className="absolute bottom-0 right-0 p-5 text-2xl font-semibold text-white  sm:text-3xl dark:text-gray-800 z-10">
-                                อ่านต่อ
-                            </span>
-                            <img
-                                src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg"
-                                className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 z-0"
-                                alt="..."
-                            />
+                        <div className="absolute bottom-0 right-0 text-white p-2">
+                           Link อ่านต่อ 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </div>
                     </div>
-                    {/* <!-- Slider indicators --> */}
-                    <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-                        <button
-                            type="button"
-                            className="w-3 h-3 rounded-full"
-                            aria-current="false"
-                            aria-label="Slide 1"
-                            data-carousel-slide-to="0"
-                        ></button>
-                        <button
-                            type="button"
-                            className="w-3 h-3 rounded-full"
-                            aria-current="false"
-                            aria-label="Slide 2"
-                            data-carousel-slide-to="1"
-                        ></button>
-                        <button
-                            type="button"
-                            className="w-3 h-3 rounded-full"
-                            aria-current="false"
-                            aria-label="Slide 3"
-                            data-carousel-slide-to="2"
-                        ></button>
+                    <div className="keen-slider__slide number-slide2 relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" alt="" />
+                        </div>
+                        <div className="absolute top-0 left-0 bg-black text-white p-2">
+                            Title/Name 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
                     </div>
-                    {/* <!-- Slider controls --> */}
-                    <button
-                        type="button"
-                        className="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
-                        data-carousel-prev
-                    >
-                        <span className="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg
-                                className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M15 19l-7-7 7-7"
-                                ></path>
-                            </svg>
-                            <span className="hidden">Previous</span>
-                        </span>
-                    </button>
-                    <button
-                        type="button"
-                        className="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
-                        data-carousel-next
-                    >
-                        <span className="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg
-                                className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M9 5l7 7-7 7"
-                                ></path>
-                            </svg>
-                            <span className="hidden">Next</span>
-                        </span>
-                    </button>
+                    <div className="keen-slider__slide number-slide3 relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg" alt="" />
+                        </div>
+                        <div className="absolute top-0 left-0 bg-black text-white p-2">
+                            Title/Name 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </div>
+                    </div>
+                    {/* และทำเช่นนี้กับแต่ละรูปภาพใน Slider */}
+
+                    <div className="keen-slider__slide number-slide4">4</div>
+                    <div className="keen-slider__slide number-slide5">5</div>
+                    <div className="keen-slider__slide number-slide6">6</div>
                 </div>
+                {loaded && instanceRef.current && (
+                    <>
+                        <Arrow
+                            left
+                            onClick={(e: any) =>
+                                e.stopPropagation() || instanceRef.current?.prev()
+                            }
+                            disabled={currentSlide === 0}
+                        />
 
-                <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+                        <Arrow
+                            onClick={(e: any) =>
+                                e.stopPropagation() || instanceRef.current?.next()
+                            }
+                            disabled={
+                                currentSlide ===
+                                instanceRef.current.track.details.slides.length - 1
+                            }
+                        />
+                    </>
+                )}
             </div>
+            {loaded && instanceRef.current && (
+                <div className="dots">
+                    <div className="dots">
+                        {Array.from({ length: instanceRef.current.track.details.slides.length }).map((_, idx) => {
+                            return (
+                                <button
+                                    key={idx}
+                                    onClick={() => {
+                                        instanceRef.current?.moveToIdx(idx)
+                                    }}
+                                    className={"dot" + (currentSlide === idx ? " active" : "")}
+                                ></button>
+                            )
+                        })}
+                    </div>
+
+                </div>
+            )}
         </>
-    );
-};
-export default SlideNews;
+    )
+}
+
+function Arrow(props: {
+    disabled: boolean
+    left?: boolean
+    onClick: (e: any) => void
+}) {
+    const disabeld = props.disabled ? " arrow--disabled" : ""
+    return (
+        <svg
+            onClick={props.onClick}
+            className={`arrow ${props.left ? "arrow--left" : "arrow--right"
+                } ${disabeld}`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
+            {props.left && (
+                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+            )}
+            {!props.left && (
+                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+            )}
+        </svg>
+    )
+}
+
