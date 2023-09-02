@@ -49,16 +49,11 @@
 //             </div>
 
 
-//         </>
 
 
-//     )
-// }
 
 
-import Link from "next/link";
 
-export default function Appointment() {
     return (
         <>
             <div className="flex justify-center items-center min-h-screen">
