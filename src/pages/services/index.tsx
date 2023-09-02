@@ -1,15 +1,17 @@
 import RootLayout from "../../components/layout";
+import SlideServices from "../../container/Services/SlideServices";
 
 export default function AdviserService() {
     return (
         <>
             <RootLayout>
 
-                <img src="../images/bgtest.png" alt="" className=" w-screen h-[400px]" />
+                {/* <img src="../images/bgtest.png" alt="" className=" w-screen h-[400px]" /> */}
+                <SlideServices />
 
                 <div className="text-center my-[50px]">
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
-                    <div className="text-white text-5xl font-bold">
+                    <div className="text-white text-4xl md:text-5xl font-bold">
                         บริการของเรา
                     </div>
 
@@ -17,7 +19,8 @@ export default function AdviserService() {
 
 
 
-                <div className="w-full flex md:grid-cols-2 grid-flow-row justify-center items-center gap-6 px-5 ">
+                <div className="space-y-5 mx-10 lg:flex lg:justify-center lg:space-x-5 lg:space-y-0">
+
                     <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
 
                         <svg className="mx-auto my-5" xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
@@ -31,11 +34,16 @@ export default function AdviserService() {
                             </defs>
                         </svg>
 
-                        <h3 className="text-2xl md:text-4xl font-bold">บริการติดตั้งโปรแกรม</h3>
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">บริการติดตั้งโปรแกรม</h3>
                         <p className="text-md mt-8">
                             ให้บริการติดตั้งโปรแกรม ออนไลน์และออนไซต์
                         </p>
                     </div>
+
+
+
+
+
                     <div className="text-[#1E293B] text-center bg-[#F4F5F5] p-6 md:p-16 rounded-xl">
 
                         <svg className="mx-auto my-5" xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
@@ -47,11 +55,18 @@ export default function AdviserService() {
                                 </linearGradient>
                             </defs>
                         </svg>
-                        <h3 className="text-2xl md:text-4xl font-bold">ให้คำปรึกษา</h3>
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">ให้คำปรึกษา</h3>
                         <p className="text-md mt-8">
                             ให้คำปรึกษา แก้ไขปัญหาเกี่ยวกับเทคโนโลยีและไอที
                         </p>
                     </div>
+
+
+
+
+
+
+
                     <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
 
                         <svg className="mx-auto my-5" xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
@@ -66,39 +81,51 @@ export default function AdviserService() {
                             </defs>
                         </svg>
 
-                        <h3 className="text-2xl md:text-4xl font-bold">บริการซ่อมบำรุง</h3>
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">บริการซ่อมบำรุง</h3>
                         <p className="text-md mt-8">
                             บริการซ่อมบำรุง ทั้งในและนอกสถานที่
                         </p>
                     </div>
+
+
+
+
                 </div>
-                <div className=" flex justify-center my-10">
+
+
+
+
+                <div className=" lg:flex lg:justify-center lg:items-center lg:space-x-10  md:space-x-10 md:space-y-0 my-10 space-y-10 text-center   ">
                     <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
-                    <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl mx-10">ปรึกษา </button>
+                    <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl">ปรึกษา </button>
                 </div>
 
 
 
 
-                <div className=" bg-white w-full h-[500px] mt-[100px]">
+                <div className=" bg-white w-full">
 
 
-                    <div className="text-center my-[50px] ">
-                        <h1 className="text-black text-5xl font-bold ">
-                            บริการของเรา
+                    <div className="">
+                        <h1 className="text-black text-3xl md:text-5xl font-bold text-center py-10">
+                            ตัวอย่างบริการของเรา
                         </h1>
-                    <div className=" flex justify-center my-5 ">
-                     <img src="../images/imgsevice/s1.jpg" alt="" className="w-[250px] mx-5 "/>
-                     <img src="../images/imgsevice/s2.jpg" alt="" className="w-[250px] mx-5 "/>
-                     <img src="../images/imgsevice/s3.jpg" alt="" className="w-[250px] mx-5 "/>
-                     <img src="../images/imgsevice/s5.jpg" alt="" className="w-[250px] mx-5 "/>
-                     <img src="../images/imgsevice/s6 .jpg" alt="" className="w-[250px] mx-5 "/>
-                    </div>
+                        {/* <div className=" flex justify-center my-5 ">
+                            <img src="../images/imgsevice/s1.jpg" alt="" className="w-[250px] mx-5 " />
+                            <img src="../images/imgsevice/s2.jpg" alt="" className="w-[250px] mx-5 " />
+                            <img src="../images/imgsevice/s3.jpg" alt="" className="w-[250px] mx-5 " />
+                            <img src="../images/imgsevice/s5.jpg" alt="" className="w-[250px] mx-5 " />
+                            <img src="../images/imgsevice/s6 .jpg" alt="" className="w-[250px] mx-5 " />
+                        </div> */}
+                        <div className="mx-20">
+                            <SlideServices />
+                        </div>
 
 
                     </div>
 
                 </div>
+
 
 
 
