@@ -8,7 +8,15 @@ const Navbar = () => {
 
   const Links = [
     { name: 'หน้าแรก', link: '/' },
-    { name: 'เกี่ยวกับเรา', link: 'about' },
+    {
+      name: 'เกี่ยวกับเรา',
+      link: 'about',
+      children: [
+        { name: 'ประวัติความเป็นมา', link: '/about' },
+        { name: 'วิสัยทัศน์และพันธกิจ', link: '/about' },
+        { name: 'ทีมของเรา', link: '/about/our-team' },
+      ],
+    },
     { name: 'บริการของเรา', link: 'services' },
     { name: 'สินค้า', link: 'product' },
     { name: 'ติดต่อ', link: 'contact' },
@@ -27,19 +35,21 @@ const Navbar = () => {
 
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const [open, setOpen] = useState(false);
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setOpen(!open);
   };
 
   return (
-    <nav>
+    <nav className="font-fontTH02">
       <div className="container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 md:py-2 " style={{ backgroundColor: scroll > 200 ? "#F4F5F5" : "" }}>
         <div className="flex items-center">
           <div onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-10 h-10"
+            className="md:hidden duration-700 ease-in-out"
             style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
             {
-              isOpen ? <HiOutlineXMark size={40} /> : <HiBars3BottomLeft size={40} />
+              isOpen ? <HiOutlineXMark size={35} /> : <HiBars3BottomLeft size={35} />
             }
 
           </div>
@@ -48,24 +58,66 @@ const Navbar = () => {
               src="/images/LOGO.png"
               width={100}
               height={100}
-              className="w-[90px]" alt="" />
+              className="w-[90px] md:w-[120px]" alt="" />
           </div>
         </div>
 
         {/* nav link here */}
-        <ul className="md:flex gap-10 hidden font-semibold items-center" >
+        {/* <ul className="md:flex gap-5 hidden font-semibold lg:text-xl items-center" >
           {Links.map((link) => (
             <li key={link.name} style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
               <a href={link.link} >{link.name}</a>
             </li>
           ))}
 
+        </ul> */}
+
+        <ul className="md:flex gap-5 hidden font-medium lg:text-xl items-center">
+          {Links.map((link) => (
+            <li key={link.name} style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
+              {link.children ? (
+                <div
+                  className="dropdown"
+                  onClick={toggleDropdown}
+                >
+                  <button
+                    className="btn btn-link"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : 'false'}
+                  >
+                    {link.name}
+                  </button>
+                  <ul
+                    className="dropdown-menu absolute bg-secondary1 p-5 rounded-lg drop-shadow-lg"
+                    aria-labelledby="dropdownMenuButton"
+                    style={{ display: open ? 'block' : 'none' }}
+                  >
+                    {link.children.map((child) => (
+                      <li key={child.name} className="my-2"
+                        style={{ color: scroll > 200 ? "#F4F5F5" : "" }}
+                      >
+                        <a href={child.link}>{child.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <a href={link.link}>{link.name}</a>
+              )}
+            </li>
+          ))}
         </ul>
+
+
+
+
         {/* login && badket */}
-        <ul className="flex gap-3 font-semibold items-center">
-          <li className="flex items-center">
-            <HiUser size={20} style={{ color: scroll > 200 ? "" : "#F4F5F5" }} />
-            <span className="hidden">เข้าสู่ระบบ</span>
+        <ul className="flex gap-3 font-semibold items-center lg:text-xl">
+          <li className="flex items-center" style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
+            <HiUser size={20} />
+            <span className="hidden lg:block">เข้าสู่ระบบ</span>
           </li>
           <div className="bg-natural04 w-[1px] h-10 "></div>
 
@@ -104,12 +156,19 @@ const Navbar = () => {
 
 
       </div>
+
+
+
+
       {/* nav link for mobile here */}
-      <div className={`p-5 absolute z-[-1] w-full backdrop-blur-xl bg-white/10 transition-all ease-in ${isOpen ? '':'hidden'}` }
+      <div className={`p-10 absolute z-[-1] w-full h-screen backdrop-blur-xl bg-white/10 transition-all duration-0 ease-in 
+           ${isOpen ? '' : 'hidden'}`}
         style={{ backgroundColor: scroll > 200 ? "#F4F5F5" : "" }}>
         <ul className="font-semibold items-center" >
           {Links.map((link) => (
-            <li key={link.name} style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
+            <li key={link.name} className="my-2"
+              style={{ color: scroll > 200 ? "" : "#F4F5F5" }}
+            >
               <a href={link.link} >{link.name}</a>
             </li>
             // 
