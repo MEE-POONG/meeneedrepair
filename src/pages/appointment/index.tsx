@@ -1,52 +1,133 @@
-// import Link from "next/link";
 
-// export default function Appointment() {
-//     return (
-//         <>
-//             <div className="flex justify-center items-center h-screen">
-//                 <div className="bg-white w-[1000px] h-[600px] p-6 rounded-lg shadow-lg">
-//                     <h2 className="text-lg font-semibold text-1xl lg:text-3xl text-gray-800">
-//                         สมัครสมาชิก
-//                     </h2>
-
-//                     {/* ดรอปดาวแบบเลือกและแสดงข้อมู, */}
-//                     <div className="max-w-2xl mx-auto">
-//                         <label
-//                             htmlFor="countries"
-//                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-//                         >
-//                             อุปกรณ์ที่ต้องการซ่อม
-//                         </label>
-//                         <select
-//                             id="countries"
-//                             className="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-//                         >
-//                             <option selected>เช็คอุปกรณ์ คอมพิวเตอร์,โน๊ตบุ๊ค</option>
-//                             <option value="US">ซีพียู</option>
-//                             <option value="CA">เมนบอร์ด</option>
-//                             <option value="FR">ฮาร์ดดิส / ssd</option>
-//                             <option value="DE">แรม</option>
-//                             <option value="DE">อื่นๆ</option>
-
-//                         </select>
-//                     </div>
+import Link from "next/link";
+import { useState } from "react";
+import useAxios from "axios-hooks";
+import axios from "axios"; 
 
 
-//                     {/* ฟรอมกรอกข้อมูล */}
-//                     <div className="flex flex-wrap my-10 max-w-2xl mx-auto ">
-//                         <div className="w-[700px] px-3">
-//                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
-//                                 อธิบายอาการของอุปกรณ์พอสังเขป
-//                             </label>
-//                             <textarea className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
-//                         </div>
-//                     </div>
+export default function Appointment() {
 
-
-//                 </div>
-//             </div>
-//             <div>
-//             </div>
+    const [{ error: errorMessage, loading: appointmentLoading }, executeappointment] = useAxios({ url: '/api/appointment', method: 'POST' }, { manual: true });
+    const [fname, setfname] = useState<string>("");
+    const [lname, setlname] = useState<string>("");
+    const [email, setemail] = useState<string>("");
+    const [tel, settel] = useState<string>("");
+    const [request, setrequest] = useState<string>("");
+    const [message, setmessage] = useState<string>("");
+    // const [appointmentimg, setappointmentimg] = useState<string>("");
+    const [appointmentimg, setappointmentimg] = useState<File | null>(null);
+  
+    
+  
+    const [alertForm, setAlertForm] = useState<string>("not");
+    const [inputForm, setInputForm] = useState<boolean>(false);
+    const [checkBody, setCheckBody] = useState<string>("");
+  
+  
+    const handleInputChange = (setter: any) => (event: any) => {
+      const newValue = event.target.value;
+      if (!isNaN(newValue) && !newValue.includes('.')) {
+        setter(newValue);
+      }
+    };
+    const reloadPage = () => {
+      clear();
+    };
+  
+    const clear = () => {
+      setfname("");
+      setlname("");
+      setemail("");
+      settel("");
+      setrequest("");
+      setmessage("");
+      // setappointmentimg("");
+  
+  
+      setappointmentimg(null);
+      // setrequest("");
+      
+      setAlertForm("not");
+      setInputForm(false);
+      setCheckBody("");
+    }
+  
+    const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files && event.target.files[0];
+      if (file) {
+        setappointmentimg(file); // Store the File object
+      }
+    };
+  
+    const handleSubmit = async (event: React.MouseEvent<HTMLElement>) => {
+      event.preventDefault();
+      event.stopPropagation();
+      let missingFields = [];
+      // Check for missing fields here...
+      if (!fname) missingFields.push("fname");
+      if (!lname) missingFields.push("lname");
+      if (!email) missingFields.push("email");
+      if (!tel) missingFields.push("tel");
+      if (!request) missingFields.push("request");
+      if (!message) missingFields.push("message");
+      if (!appointmentimg) missingFields.push("appointmentimg");
+  
+    
+      if (missingFields.length > 0) {
+        // Handle missing fields...
+        setAlertForm("warning");
+        setInputForm(true);
+        setCheckBody(`กรอกข้อมูลไม่ครบ: ${missingFields.join(', ')}`);
+      } else {
+        try {
+          setAlertForm("primary"); // set to loading
+    
+          // Upload the image
+          if (appointmentimg) {
+            const formData = new FormData();
+            formData.append("file", appointmentimg); // Assuming 'appointmentimg' is a File object
+            const uploadResponse = await axios.post(
+              "https://upload-image.me-prompt-technology.com/",
+              formData
+            );
+    
+            if (uploadResponse.status === 200) {
+              const responseData = uploadResponse.data;
+              const imageId = responseData.result.id;
+              
+              // Prepare the data to send
+              const data = {
+                fname,
+                lname,
+                email,
+                tel,
+                request,
+                message,
+                appointmentimg: imageId, // Use the uploaded image ID
+                // request,
+              };
+    
+              const response = await executeappointment({ data });
+              if (response && response.status === 201) {
+                setAlertForm("success");
+                setTimeout(() => {
+                  clear();
+                }, 5000);
+              } else {
+                setAlertForm("danger");
+                throw new Error('Failed to send data');
+              }
+            } else {
+              setAlertForm("danger");
+              throw new Error('Image upload failed');
+            }
+          }
+        } catch (error) {
+          setAlertForm("danger");
+        }
+      }
+    };
+  
 
 
 
@@ -67,7 +148,7 @@
 
                         <div className="flex justify-center">
                             <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
-                            <input
+                                <input
                                     type="text"
                                     className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                     id="exampleFormControlInput3"
@@ -80,7 +161,7 @@
                                 <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
                             </div>
                             <div className="relative mb-6" data-te-input-wrapper-init>
-                            <input
+                                <input
                                     type="text"
                                     className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                     id="exampleFormControlInput3"
@@ -98,7 +179,7 @@
 
                         <div className="flex justify-center">
                             <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
-                            <input
+                                <input
                                     type="text"
                                     className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                     id="exampleFormControlInput3"
@@ -111,7 +192,7 @@
                                 <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
                             </div>
                             <div className="relative mb-6" data-te-input-wrapper-init>
-                            <input
+                                <input
                                     type="text"
                                     className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                     id="exampleFormControlInput3"
@@ -123,7 +204,7 @@
                                 </label>
                                 <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
                             </div>
-                        </div>                  
+                        </div>
                     </form>
 
 
@@ -139,12 +220,12 @@
                             id="equipment"
                             className="w-full p-2 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                         >
-                            <option value="computers">เช็คอุปกรณ์ คอมพิวเตอร์,โน๊ตบุ๊ค</option>
-                            <option value="cpu">ซีพียู</option>
-                            <option value="motherboard">เมนบอร์ด</option>
-                            <option value="hdd">ฮาร์ดดิส / ssd</option>
-                            <option value="ram">แรม</option>
-                            <option value="others">อื่นๆ</option>
+                            <option value="computers" id="computers">เช็คอุปกรณ์ คอมพิวเตอร์,โน๊ตบุ๊ค</option>
+                            <option value="cpu" id="cpu">ซีพียู</option>
+                            <option value="motherboard" id="motherboard">เมนบอร์ด</option>
+                            <option value="hdd" id="hdd">ฮาร์ดดิส / ssd</option>
+                            <option value="ram" id="ram">แรม</option>
+                            <option value="others" id="others">อื่นๆ</option>
                         </select>
                     </div>
 
@@ -169,3 +250,5 @@
         </>
     );
 }
+
+
