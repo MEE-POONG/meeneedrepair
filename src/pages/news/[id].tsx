@@ -8,12 +8,12 @@ const ReadNewsDetail = () => {
             >
                 <div>
                     <img
-                        className="w-full h-[567px] object-cover"
+                        className="w-full h-[300px]md:h-[567px] object-cover"
                         src="https://images.yourstory.com/cs/wordpress/2017/02/52-Blog.jpg?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces"
                         alt=""
                     />
-                    <div className="mt-8">
-                        <h4 className="text-4xl font-semibold text-white">หัวข้อข่าว/หัวข้อบทความ</h4>
+                    <div className="mt-8 mx-4 xl:mx-0">
+                        <h4 className="text-2xl md:text-4xl font-semibold text-white">หัวข้อข่าว/หัวข้อบทความ</h4>
                         <div className="flex mt-8 gap-10">
                             <div className="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50" fill="none">
@@ -38,17 +38,17 @@ const ReadNewsDetail = () => {
                     </div>
 
                     {/* Content Detail  */}
-                    <div className="grid grid-cols-9 gap-6">
+                    <div className="xl:grid xl:grid-cols-9 xl:gap-6 mx-4 xl:mx-0">
 
                         {/* Left Content */}
                         <div className="col-span-7 bg-[#F4F5F5] mt-10 rounded-lg">
                             <div className="py-16">
                                 <img
-                                    className="w-[726px] mx-auto rounded-sm drop-shadow-lg"
+                                    className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg"
                                     src="https://images.yourstory.com/cs/wordpress/2017/02/52-Blog.jpg?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces"
                                     alt=""
                                 />
-                                <article className="prose lg:prose-md mx-auto mt-8">
+                                <article className="prose lg:prose-md md:mx-auto mt-8 px-2 md:px-0">
                                     <h1>Garlic bread with cheese: What the science tells us</h1>
                                     <p>
                                         For years parents have espoused the health benefits of eating garlic bread with cheese to their
