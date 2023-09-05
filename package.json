@@ -21,6 +21,7 @@
     "eslint-config-next": "13.4.9",
     "express": "^4.18.2",
     "flowbite": "^1.8.1",
+    "keen-slider": "^6.8.6",
     "next": "13.4.9",
     "postcss": "8.4.26",
     "react": "18.2.0",

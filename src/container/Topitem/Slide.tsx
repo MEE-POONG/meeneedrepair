@@ -4,7 +4,7 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { useState } from "react"
 
-export default function App() {
+export default function Slide() {
     const [currentSlide, setCurrentSlide] = React.useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -23,28 +23,24 @@ export default function App() {
                 <div ref={sliderRef} className="keen-slider">
                     <div className="keen-slider__slide number-slide1 relative">
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg" alt="" />
+                            <img src="./images/banner 1.png" alt="" />
                         </div>
                         <h1 className="absolute bottom-0 left-0 text-white p-2">
-                            Title/Name 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </h1>
 
                         <h1 className="absolute bottom-0 right-0 text-white p-2">
-                            Link อ่านต่อ 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </h1>
                     </div>
                     <div className="keen-slider__slide number-slide2 relative">
-                        <h1 className="absolute inset-0 flex items-center justify-center">
-                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" alt="" />
-                        </h1>
-                        <h1 className="absolute bottom-0 left-0 text-white p-2">
-                            Title/Name 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                        <img src="./images/banner 2.png" alt="" />
+                        </div>
+                        <h1 className="absolute bottom-0 left-0 text-white p-2">                           
                         </h1>
                         <h1 className="absolute bottom-0 right-0 text-white p-2">
-                            Link อ่านต่อ 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </h1>
                     </div>
-                    <div className="keen-slide  r__slide number-slide3 relative">
+                    <div className="keen-slider__slide number-slide3 relative">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg" alt="" />
                         </div>
@@ -52,7 +48,7 @@ export default function App() {
                             Title/Name 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </h1>
                         <h1 className="absolute bottom-0 right-0 text-white p-2">
-                            Link อ่านต่อ 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                           Link อ่านต่อ 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </h1>
                     </div>
                     {/* และทำเช่นนี้กับแต่ละรูปภาพใน Slider */}
