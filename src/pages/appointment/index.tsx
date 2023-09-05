@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import useAxios from "axios-hooks";
-import axios from "axios"; 
 
 
 export default function Appointment() {
