@@ -4,7 +4,7 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { useState } from "react"
 
-export default function Slide() {
+export default function SlideServices2() {
     const [currentSlide, setCurrentSlide] = React.useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -28,12 +28,12 @@ export default function Slide() {
                         <div
                             className="background-container"
                             style={{
-                                backgroundImage: `url("./images/banner 1.png")`,
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg")`,
                             }}
                         >
                         </div>
-                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]    ">
-                            <img src="./images/banner 1.png" alt="" />
+                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg" alt="" />
                         </div>
                         <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                             Title/Name 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
@@ -50,12 +50,12 @@ export default function Slide() {
                         <div
                             className="background-container"
                             style={{
-                                backgroundImage: `url("./images/banner 2.png")`,
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg")`,
                             }}
                         >
                         </div>
                         <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
-                            <img src="./images/banner 2.png" alt="" />
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" alt="" />
                         </div>
                         <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                             Title/Name 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
@@ -177,7 +177,6 @@ export default function Slide() {
                     </>
                 )}
             </div>
-
             {loaded && instanceRef.current && (
                 <div className="dots">
                     <div className="dots">
