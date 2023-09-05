@@ -10,9 +10,7 @@ export default function Header() {
 
 
   return (
-    <div className="w-full h-[40px] text-right bg-[#1E293B] ">
-
-
+    <div className="w-full h-[40px] text-right bg-[#1E293B] font-fontTH01">
       <div className="relative inline-block  justify-center  right-10  text-left">
         <div>
           <button
@@ -39,12 +37,12 @@ export default function Header() {
           </button>
         </div>
         {isMenuOpen && (
-          <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
+          <div className="absolute right-0 z-50 mt-2 origin-top-right rounded-md bg-secondary2 shadow-lg " role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
             <div className="py-1" role="none">
-              <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex={-1} id="menu-item-0">
+              <a href="#" className="text-secondary1 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabIndex={-1} id="menu-item-0">
                 ไทย
               </a>
-              <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex={-1} id="menu-item-1">
+              <a href="#" className="text-secondary1 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabIndex={-1} id="menu-item-1">
                 อังกฤษ
               </a>
 
