@@ -90,12 +90,12 @@ const Navbar = () => {
                   </button>
 
                   <ul
-                    className="dropdown-menu mt-2 absolute bg-secondary1 p-5 rounded-lg drop-shadow-lg"
+                    className="dropdown-menu mt-2 absolute bg-secondary1 p-3 rounded-lg drop-shadow-lg"
                     aria-labelledby="dropdownMenuButton"
                     style={{ display: open ? 'block' : 'none' }}
                   >
                     {link.children.map((child) => (
-                      <li key={child.name} className="my-2 pl-2 hover:border-l-2 hover:border-natural01"
+                      <li key={child.name} className="my-4 pl-2 hover:border-l-2 hover:border-natural01"
                         style={{ color: scroll > 50 ? "#F4F5F5" : "" }}
                       >
                         <a href={child.link}>{child.name}</a>
