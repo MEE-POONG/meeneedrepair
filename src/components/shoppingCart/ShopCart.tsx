@@ -17,8 +17,8 @@ const ShoppingCart = () => {
                 alt="Picture of Product"
               />
               <div className="md:flex text-left">
-              <p className="text-secondary2 ">GAMESIR T4W WIRED CONTROLLER</p>
-              <p className="text-natural03 md:ml-48">฿ 490.00 </p>
+                <p className="text-secondary2 ">GAMESIR T4W WIRED CONTROLLER</p>
+                <p className="text-natural03 md:ml-48">฿ 490.00 </p>
               </div>
               <div className="flex items-center">
                 <span className="cursor-pointer text-secondary2"> - </span>
@@ -42,11 +42,13 @@ const ShoppingCart = () => {
             <p className="flex justify-between"> <strong>ยอดรวมสุทธิ </strong><strong>฿900.00</strong></p>
 
           </div>
-          <button type="submit"
-            className="bg-natural01 py-2 md:py-3 w-full text-center mt-3 rounded-xl hover:bg-natural01/80 text-sm md:text-lg"
-          >
-            <Link href="./payment" >ดำเนินการสั้งซื้อ</Link>
-          </button>
+          <Link href="./payment" >
+            <button type="submit"
+              className="bg-natural01 py-2 md:py-3 w-full text-center mt-3 rounded-xl hover:bg-natural01/80 text-sm md:text-lg"
+            >
+              ดำเนินการสั้งซื้อ
+            </button>
+          </Link>
         </div>
       </div>
     </div>
