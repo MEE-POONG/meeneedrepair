@@ -39,11 +39,11 @@ const BlogsPage = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                         <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-                            <Link href="#">
+                            <Link href="/blogs/654656">
                                 <img className="rounded-t-lg" src="/images/b1.jpg" alt="" />
                             </Link>
                             <div className="p-5">
-                                <Link href="#">
+                                <Link href="/blogs/654656">
                                     <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">การ์ดจอคืออะไร อีกหนึ่ง Item ชิ้นสำคัญ</h5>
                                 </Link>
                                 <p className="font-normal text-gray-700 mb-3 dark:text-gray-400">การ์ดจอ (Graphic Card) หรือที่หลายๆคนเรียกว่า GPU เป็นอุปกรณ์ที่สำคัญอีกชิ้นของคอมพิวเตอร์</p>
