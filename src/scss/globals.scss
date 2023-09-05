@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'login.scss';
+
 @font-face {
     font-family: Prompt;
     src: url("./fonts/Prompt.ttf");
@@ -13,6 +15,7 @@
 }
 
 @import 'newscard.scss';
+
 
 body {
     background-color: #0F172A;
