@@ -7,133 +7,6 @@ import axios from "axios";
 
 export default function Appointment() {
 
-    const [{ error: errorMessage, loading: appointmentLoading }, executeappointment] = useAxios({ url: '/api/appointment', method: 'POST' }, { manual: true });
-    const [fname, setfname] = useState<string>("");
-    const [lname, setlname] = useState<string>("");
-    const [email, setemail] = useState<string>("");
-    const [tel, settel] = useState<string>("");
-    const [request, setrequest] = useState<string>("");
-    const [message, setmessage] = useState<string>("");
-    // const [appointmentimg, setappointmentimg] = useState<string>("");
-    const [appointmentimg, setappointmentimg] = useState<File | null>(null);
-  
-    
-  
-    const [alertForm, setAlertForm] = useState<string>("not");
-    const [inputForm, setInputForm] = useState<boolean>(false);
-    const [checkBody, setCheckBody] = useState<string>("");
-  
-  
-    const handleInputChange = (setter: any) => (event: any) => {
-      const newValue = event.target.value;
-      if (!isNaN(newValue) && !newValue.includes('.')) {
-        setter(newValue);
-      }
-    };
-    const reloadPage = () => {
-      clear();
-    };
-  
-    const clear = () => {
-      setfname("");
-      setlname("");
-      setemail("");
-      settel("");
-      setrequest("");
-      setmessage("");
-      // setappointmentimg("");
-  
-  
-      setappointmentimg(null);
-      // setrequest("");
-      
-      setAlertForm("not");
-      setInputForm(false);
-      setCheckBody("");
-    }
-  
-    const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files && event.target.files[0];
-      if (file) {
-        setappointmentimg(file); // Store the File object
-      }
-    };
-  
-    const handleSubmit = async (event: React.MouseEvent<HTMLElement>) => {
-      event.preventDefault();
-      event.stopPropagation();
-      let missingFields = [];
-      // Check for missing fields here...
-      if (!fname) missingFields.push("fname");
-      if (!lname) missingFields.push("lname");
-      if (!email) missingFields.push("email");
-      if (!tel) missingFields.push("tel");
-      if (!request) missingFields.push("request");
-      if (!message) missingFields.push("message");
-      if (!appointmentimg) missingFields.push("appointmentimg");
-  
-    
-      if (missingFields.length > 0) {
-        // Handle missing fields...
-        setAlertForm("warning");
-        setInputForm(true);
-        setCheckBody(`กรอกข้อมูลไม่ครบ: ${missingFields.join(', ')}`);
-      } else {
-        try {
-          setAlertForm("primary"); // set to loading
-    
-          // Upload the image
-          if (appointmentimg) {
-            const formData = new FormData();
-            formData.append("file", appointmentimg); // Assuming 'appointmentimg' is a File object
-            const uploadResponse = await axios.post(
-              "https://upload-image.me-prompt-technology.com/",
-              formData
-            );
-    
-            if (uploadResponse.status === 200) {
-              const responseData = uploadResponse.data;
-              const imageId = responseData.result.id;
-              
-              // Prepare the data to send
-              const data = {
-                fname,
-                lname,
-                email,
-                tel,
-                request,
-                message,
-                appointmentimg: imageId, // Use the uploaded image ID
-                // request,
-              };
-    
-              const response = await executeappointment({ data });
-              if (response && response.status === 201) {
-                setAlertForm("success");
-                setTimeout(() => {
-                  clear();
-                }, 5000);
-              } else {
-                setAlertForm("danger");
-                throw new Error('Failed to send data');
-              }
-            } else {
-              setAlertForm("danger");
-              throw new Error('Image upload failed');
-            }
-          }
-        } catch (error) {
-          setAlertForm("danger");
-        }
-      }
-    };
-  
-
-
-
-
-
-
 
     return (
         <>
@@ -174,6 +47,8 @@ export default function Appointment() {
                                 <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
                             </div>
                         </div>
+
+                 
 
 
 
