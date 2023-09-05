@@ -11,25 +11,16 @@ export default function AdviserService() {
                 <SlideServices />
 
                 <div className="text-center my-[50px]">
-<<<<<<< HEAD
-                    <div className="text-white text-5xl font-bold">
-=======
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
                     <div className="text-white text-4xl md:text-5xl font-bold">
->>>>>>> 64ff0d7b39e61dcf121d508db831a0ad4834ca52
                         บริการของเรา
                     </div>
                 </div>
 
 
-<<<<<<< HEAD
-                
-                <div className="w-full flex md:grid-cols-2 grid-flow-row justify-center items-center gap-6 px-5  ">
-=======
 
                 <div className="space-y-5 mx-10 lg:flex lg:justify-center lg:space-x-5 lg:space-y-0">
 
->>>>>>> 64ff0d7b39e61dcf121d508db831a0ad4834ca52
                     <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
 
                         <svg className="mx-auto my-5" xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
@@ -103,29 +94,10 @@ export default function AdviserService() {
 
 
 
-<<<<<<< HEAD
-          
-
-
-
-                <div className=" flex justify-center my-10">
-                <Link href="./"
-                className=" text-white  hover:text-white py-2 rounded-md mx-5 text-20 font-medium  ">   
-                <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
-              </Link>
-              <Link href="./"
-                className=" text-white  hover:text-white py-2 rounded-md text-20 font-medium  ">   
-                <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl">ปรึกษา </button>
-              </Link>
-
-                    {/* <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button> */}
-                    {/* <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl mx-10">ปรึกษา </button> */}
-=======
 
                 <div className=" lg:flex lg:justify-center lg:items-center lg:space-x-10  md:space-x-10 md:space-y-0 my-10 space-y-10 text-center   ">
                     <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
                     <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl">ปรึกษา </button>
->>>>>>> 64ff0d7b39e61dcf121d508db831a0ad4834ca52
                 </div>
 
 
