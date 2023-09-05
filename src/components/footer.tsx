@@ -7,7 +7,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 
 const Footer = () => {
     return (
-        <div className="">
+        <div className="font-fontTH01">
             <footer className="bg-[#F4F5F5] py-3 px-2 ">
                 <div className="md:grid grid-cols-3 lg:grid-cols-5 justify-center container mx-auto gap-4   ">
                     <img
@@ -23,9 +23,13 @@ const Footer = () => {
                             ">
                             Mee Need Repair
                         </p>
-                        <p className=" py-1">หน้าแรก</p>
-                        <p className=" py-1">เกี่ยวกับเรา</p>
-                        <p className=" py-1">ข่าวสาร</p>
+                        <Link href="./" className=" py-1"><p>หน้าแรก</p></Link>
+                        <Link href="./about" className=" py-1">
+                            <p>เกี่ยวกับเรา</p>
+                        </Link>
+                        <Link href="./news" className=" py-1">
+                            <p>ข่าวสาร</p>
+                        </Link>
                         <p className=" py-1">ติดต่อเรา</p>
                     </div>
 

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { HiBars3BottomLeft, HiOutlineXMark, HiUser, HiChevronDown, HiChevronUp, HiChevronRight } from "react-icons/hi2";
 
 
@@ -42,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="font-fontTH02">
+    <nav className="font-fontTH01">
       <div className=" container px-5 mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 md:py-2 " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
         <div className="flex items-center">
           <div onClick={() => setIsOpen(!isOpen)}
@@ -113,10 +112,10 @@ const Navbar = () => {
 
         {/* login && badket */}
         <ul className="flex gap-3 font-semibold items-center lg:text-xl">
-          <li style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
+          <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
             <button className="flex items-center">
               <HiUser size={20} />
-              <span className="hidden lg:block">เข้าสู่ระบบ</span>
+              <a href="./register" className="hidden lg:block">เข้าสู่ระบบ</a>
             </button>
 
           </li>
@@ -131,24 +130,24 @@ const Navbar = () => {
               <path d="M28.6051 9.5L23.6289 0H21.3711L26.3473 9.5H3.65269L8.62887 0H6.37113L1.39494 9.5H0V16.4667L2.6785 30H27.3198L30 16.599V9.5H28.6051ZM28 16.401L25.6802 28H4.3215L2 16.2708V16H28V16.401ZM28 14H2V11.5H28V14Z" fill="url(#paint4_linear_220_322)" />
               <defs>
                 <linearGradient id="paint0_linear_220_322" x1="6.5" y1="21.9835" x2="8.3642" y2="21.9835" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#CA0808" />
-                  <stop offset="1" stop-color="#0FC0E7" />
+                  <stop stopColor="#CA0808" />
+                  <stop offset="1" stopColor="#0FC0E7" />
                 </linearGradient>
                 <linearGradient id="paint1_linear_220_322" x1="11.5" y1="21.9835" x2="13.3642" y2="21.9835" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#CA0808" />
-                  <stop offset="1" stop-color="#0FC0E7" />
+                  <stop stopColor="#CA0808" />
+                  <stop offset="1" stopColor="#0FC0E7" />
                 </linearGradient>
                 <linearGradient id="paint2_linear_220_322" x1="16.5" y1="21.9835" x2="18.3642" y2="21.9835" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#CA0808" />
-                  <stop offset="1" stop-color="#0FC0E7" />
+                  <stop stopColor="#CA0808" />
+                  <stop offset="1" stopColor="#0FC0E7" />
                 </linearGradient>
                 <linearGradient id="paint3_linear_220_322" x1="21.5" y1="21.9835" x2="23.3642" y2="21.9835" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#CA0808" />
-                  <stop offset="1" stop-color="#0FC0E7" />
+                  <stop stopColor="#CA0808" />
+                  <stop offset="1" stopColor="#0FC0E7" />
                 </linearGradient>
                 <linearGradient id="paint4_linear_220_322" x1="-2.48931e-07" y1="14.9383" x2="27.963" y2="14.9383" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#CA0808" />
-                  <stop offset="1" stop-color="#0FC0E7" />
+                  <stop stopColor="#CA0808" />
+                  <stop offset="1" stopColor="#0FC0E7" />
                 </linearGradient>
               </defs>
             </svg>
@@ -174,9 +173,9 @@ const Navbar = () => {
             // 
           ))}
         </ul> */}
-        <ul className="gap-5 ">
+        <ul className="">
           {Links.map((link) => (
-            <li key={link.name} className="my-2">
+            <li key={link.name} className="my-2 px-2 hover:border-b-2 hover:border-natural04">
               {link.children ? (
                 <div
                   className="dropdown"
@@ -198,12 +197,12 @@ const Navbar = () => {
                     </span>
                   </button>
                   <ul
-                    className=" px-5 py-2 duration-150 ease-in"
+                    className=" py-1 border-t-2"
                     aria-labelledby=""
                     style={{ display: open ? 'block' : 'none' }}
                   >
                     {link.children.map((child) => (
-                      <li key={child.name} className="my-2">
+                      <li key={child.name} className="my-2 pl-3 hover:border-l-2 hover:border-natural01">
                         <a href={child.link}>{child.name}</a>
                       </li>
                     ))}
