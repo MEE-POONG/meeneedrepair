@@ -21,29 +21,139 @@ export default function SlideServices() {
         <>
             <div className="navigation-wrapper">
                 <div ref={sliderRef} className="keen-slider">
+
+
+                    {/* 1 */}
                     <div className="keen-slider__slide number-slide1 relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
+                        <div
+                            className="background-container"
+                            style={{
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg")`,
+                            }}
+                        >
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
                             <img src="https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg" alt="" />
                         </div>
-                     
+                        <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Title/Name 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+
+                        <h1 className="absolute bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Link อ่านต่อ 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
                     </div>
+
+
+                    {/* 2 */}
                     <div className="keen-slider__slide number-slide2 relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
+                        <div
+                            className="background-container"
+                            style={{
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg")`,
+                            }}
+                        >
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
                             <img src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" alt="" />
                         </div>
-                      
+                        <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Title/Name 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+                        <h1 className="absolute bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Link อ่านต่อ 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
                     </div>
+
+
+                    {/* 3 */}
                     <div className="keen-slider__slide number-slide3 relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
+                        <div
+                            className="background-container"
+                            style={{
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg")`,
+                            }}
+                        >
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
                             <img src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg" alt="" />
                         </div>
-                  
+                        <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Title/Name 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+                        <h1 className="absolute bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Link อ่านต่อ 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
                     </div>
                     {/* และทำเช่นนี้กับแต่ละรูปภาพใน Slider */}
 
-                    <div className="keen-slider__slide number-slide4">4</div>
+
+                    {/* 4 */}
+                    <div className="keen-slider__slide number-slide4 relative">
+                        <div
+                            className="background-container"
+                            style={{
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/09/Redmi-12.jpg")`,
+                            }}
+                        >
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
+                            <img src="https://assets.beartai.com/uploads/2023/09/Redmi-12.jpg" alt="" />
+                        </div>
+                        <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Title/Name 4 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+
+                        <h1 className="absolute bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Link อ่านต่อ 4 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+                    </div>
+
+
+                    {/* 5 */}
+                    <div className="keen-slider__slide number-slide5 relative">
+                        <div
+                            className="background-container"
+                            style={{
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg")`,
+                            }}
+                        >
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" alt="" />
+                        </div>
+                        <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Title/Name 5 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+                        <h1 className="absolute bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Link อ่านต่อ 5 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+                    </div>
+
+
+                    {/* 6 */}
+                    <div className="keen-slider__slide number-slide6 relative">
+                        <div
+                            className="background-container"
+                            style={{
+                                backgroundImage: `url("https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg")`,
+                            }}
+                        >
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]">
+                            <img src="https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg" alt="" />
+                        </div>
+                        <h1 className="absolute bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Title/Name 6 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+                        <h1 className="absolute bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            Link อ่านต่อ 6 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>
+                    </div>
+
+                    {/* <div className="keen-slider__slide number-slide4">4</div>
                     <div className="keen-slider__slide number-slide5">5</div>
-                    <div className="keen-slider__slide number-slide6">6</div>
+                    <div className="keen-slider__slide number-slide6">6</div> */}
                 </div>
                 {loaded && instanceRef.current && (
                     <>
@@ -104,10 +214,10 @@ function Arrow(props: {
             viewBox="0 0 24 24"
         >
             {props.left && (
-                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" stroke="black" stroke-width="1" />
             )}
             {!props.left && (
-                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" stroke="black" stroke-width="1" />
             )}
         </svg>
     )
