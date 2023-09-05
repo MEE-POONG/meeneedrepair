@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { HiBars3BottomLeft, HiOutlineXMark, HiUser } from "react-icons/hi2";
+import { HiBars3BottomLeft, HiOutlineXMark, HiUser, HiChevronDown, HiChevronUp, HiChevronRight } from "react-icons/hi2";
 
 
 const Navbar = () => {
@@ -43,13 +43,13 @@ const Navbar = () => {
 
   return (
     <nav className="font-fontTH02">
-      <div className="container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 md:py-2 " style={{ backgroundColor: scroll > 200 ? "#F4F5F5" : "" }}>
+      <div className=" container px-5 mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 md:py-2 " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
         <div className="flex items-center">
           <div onClick={() => setIsOpen(!isOpen)}
             className="md:hidden duration-700 ease-in-out"
-            style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
+            style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
             {
-              isOpen ? <HiOutlineXMark size={35} /> : <HiBars3BottomLeft size={35} />
+              isOpen ? <HiOutlineXMark size={38} /> : <HiBars3BottomLeft size={38} />
             }
 
           </div>
@@ -63,40 +63,40 @@ const Navbar = () => {
         </div>
 
         {/* nav link here */}
-        {/* <ul className="md:flex gap-5 hidden font-semibold lg:text-xl items-center" >
-          {Links.map((link) => (
-            <li key={link.name} style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
-              <a href={link.link} >{link.name}</a>
-            </li>
-          ))}
-
-        </ul> */}
-
         <ul className="md:flex gap-5 hidden font-medium lg:text-xl items-center">
           {Links.map((link) => (
-            <li key={link.name} style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
+            <li key={link.name} className="hover:border-b-2 hover:border-natural04"
+              style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
               {link.children ? (
                 <div
                   className="dropdown"
                   onClick={toggleDropdown}
                 >
                   <button
-                    className="btn btn-link"
+                    className="btn btn-link flex items-center"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : 'false'}
                   >
                     {link.name}
+
+                    <span
+                      className="">
+                      {
+                        open ? <HiChevronUp size={20} /> : <HiChevronDown size={20} />
+                      }
+                    </span>
                   </button>
+
                   <ul
-                    className="dropdown-menu absolute bg-secondary1 p-5 rounded-lg drop-shadow-lg"
+                    className="dropdown-menu mt-2 absolute bg-secondary1 p-5 rounded-lg drop-shadow-lg"
                     aria-labelledby="dropdownMenuButton"
                     style={{ display: open ? 'block' : 'none' }}
                   >
                     {link.children.map((child) => (
-                      <li key={child.name} className="my-2"
-                        style={{ color: scroll > 200 ? "#F4F5F5" : "" }}
+                      <li key={child.name} className="my-2 pl-2 hover:border-l-2 hover:border-natural01"
+                        style={{ color: scroll > 50 ? "#F4F5F5" : "" }}
                       >
                         <a href={child.link}>{child.name}</a>
                       </li>
@@ -111,18 +111,19 @@ const Navbar = () => {
         </ul>
 
 
-
-
         {/* login && badket */}
         <ul className="flex gap-3 font-semibold items-center lg:text-xl">
-          <li className="flex items-center" style={{ color: scroll > 200 ? "" : "#F4F5F5" }}>
-            <HiUser size={20} />
-            <span className="hidden lg:block">เข้าสู่ระบบ</span>
+          <li style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
+            <button className="flex items-center">
+              <HiUser size={20} />
+              <span className="hidden lg:block">เข้าสู่ระบบ</span>
+            </button>
+
           </li>
           <div className="bg-natural04 w-[1px] h-10 "></div>
 
           <li className="mr-5 ">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
+            <svg xmlns="http://www.w3.org/500/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
               <path d="M8.5 18H6.5V26H8.5V18Z" fill="url(#paint0_linear_220_322)" />
               <path d="M13.5 18H11.5V26H13.5V18Z" fill="url(#paint1_linear_220_322)" />
               <path d="M18.5 18H16.5V26H18.5V18Z" fill="url(#paint2_linear_220_322)" />
@@ -153,25 +154,65 @@ const Navbar = () => {
             </svg>
           </li>
         </ul>
-
-
       </div>
 
 
 
 
       {/* nav link for mobile here */}
-      <div className={`p-10 absolute z-[-1] w-full h-screen backdrop-blur-xl bg-white/10 transition-all duration-0 ease-in 
+
+      <div className={`px-10 pt-5 absolute z-[-1] w-full h-screen bg-secondary2 transition-all animate-flip-down
            ${isOpen ? '' : 'hidden'}`}
-        style={{ backgroundColor: scroll > 200 ? "#F4F5F5" : "" }}>
-        <ul className="font-semibold items-center" >
+      >
+        {/* <ul className="font-semibold items-center duration-700 ease-in" >
           {Links.map((link) => (
-            <li key={link.name} className="my-2"
-              style={{ color: scroll > 200 ? "" : "#F4F5F5" }}
+            <li key={link.name} className="my-3"
+              style={{ color: scroll > 50 ? "" : "#F4F5F5" }}
             >
               <a href={link.link} >{link.name}</a>
             </li>
             // 
+          ))}
+        </ul> */}
+        <ul className="gap-5 ">
+          {Links.map((link) => (
+            <li key={link.name} className="my-2">
+              {link.children ? (
+                <div
+                  className="dropdown"
+                  onClick={toggleDropdown}
+                >
+                  <button
+                    className="btn btn-link flex items-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : 'false'}
+                  >
+                    {link.name}
+                    <span
+                      className="">
+                      {
+                        open ? <HiChevronUp size={15} /> : <HiChevronDown size={15} />
+                      }
+                    </span>
+                  </button>
+                  <ul
+                    className=" px-5 py-2 duration-150 ease-in"
+                    aria-labelledby=""
+                    style={{ display: open ? 'block' : 'none' }}
+                  >
+                    {link.children.map((child) => (
+                      <li key={child.name} className="my-2">
+                        <a href={child.link}>{child.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <a href={link.link}>{link.name}</a>
+              )}
+            </li>
           ))}
         </ul>
       </div>

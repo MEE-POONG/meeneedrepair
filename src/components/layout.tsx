@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <>
       <Header />
-      <header className="sticky top-0 z-30 w-full sm:p-0 md:py-4 md:px-2 ">
+      <header className="sticky top-0 z-30 w-full sm:p-0 md:py-4 md:px-2">
         <Navbar/>
         {/* <ComponentsNavbar /> */}
       </header>

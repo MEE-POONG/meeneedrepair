@@ -33,7 +33,11 @@
     "sass": "^1.66.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.5",
+<<<<<<< HEAD
     "tom-select": "^2.2.2",
+=======
+    "tailwindcss-animated": "^1.0.1",
+>>>>>>> 89e42758915ea5e801aa3344c86a83e66c005804
     "tw-elements": "^1.0.0-beta2",
     "typescript": "5.1.6"
   },

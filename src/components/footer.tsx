@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { ImHome } from 'react-icons/im';
+import { BiLogoGmail } from 'react-icons/bi';
+import { FiPhoneCall } from 'react-icons/fi';
+
+
 
 const Footer = () => {
     return (
@@ -10,6 +15,7 @@ const Footer = () => {
                     src="../images/LOGO.png"
                     alt=""
                 />
+             
                 <div >
                     <p className="text-3xl font-extrabold text-transparent my-3
                                       bg-gradient-to-r from-blue-600 to-sky-400
@@ -36,13 +42,19 @@ const Footer = () => {
                     <p className=" py-1">การติดตามสถานะ</p>
                 </div>
 
-                <div>
+                <div> 
                     <p  className="text-2xl my-3">Mee Need Repair</p>
-                    <p className=" py-1">46/3 ถ.ราชนิกุล ต.ในเมือง อ.เมือง, Nakhon Ratchasima, Thailand, Nakhon Ratchasima</p>
-                    <p className=" py-1">me.prompt.tec@gmail.com</p>
-                    <p className=" py-1">0991641044</p>
-                    <p className=" py-1">0658214605</p>
+                    <div className="grid grid-rows-3 grid-flow-col gap-0 md:mt-5">
+                    <p className=" mt-1 mr-2"><ImHome/></p>
+                    <p className="md:mt-6 mt-1"><BiLogoGmail/></p>
+                    <p className=" mt-1"><FiPhoneCall/></p>
+                    <p className="">  46/3 ถ.ราชนิกุล ต.ในเมือง อ.เมือง, Nakhon Ratchasima, Thailand, Nakhon Ratchasima</p>
+                    <p className="md:mt-5"> me.prompt.tec@gmail.com </p>
+                    <p className=" md: "> 099-164-1044, 065-821-4605</p>
+
+                    </div>
                 </div>
+               
             </div>
         </footer>
 
