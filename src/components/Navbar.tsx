@@ -12,8 +12,8 @@ const Navbar = () => {
       link: 'about',
       children: [
         { name: 'ประวัติความเป็นมา', link: '/about' },
-        { name: 'วิสัยทัศน์และพันธกิจ', link: '/about' },
-        { name: 'ทีมของเรา', link: '/about/our-team' },
+        { name: 'ข่าวสาร', link: '/news' },
+        { name: 'บทความ', link: '/blogs' },
       ],
     },
     { name: 'บริการของเรา', link: 'services' },
@@ -122,6 +122,7 @@ const Navbar = () => {
           <div className="bg-natural04 w-[1px] h-10 "></div>
 
           <li className="mr-5 ">
+            <a href="./shoppingCart">
             <svg xmlns="http://www.w3.org/500/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
               <path d="M8.5 18H6.5V26H8.5V18Z" fill="url(#paint0_linear_220_322)" />
               <path d="M13.5 18H11.5V26H13.5V18Z" fill="url(#paint1_linear_220_322)" />
@@ -151,6 +152,7 @@ const Navbar = () => {
                 </linearGradient>
               </defs>
             </svg>
+            </a>
           </li>
         </ul>
       </div>

@@ -19,7 +19,7 @@ export default function RootLayout({
     <>
       <Header />
       <header className="sticky top-0 z-30 w-full sm:p-0 md:py-4 md:px-2">
-        <Navbar/>
+        <Navbar />
         {/* <ComponentsNavbar /> */}
       </header>
       <main className={inter.className}>{children}

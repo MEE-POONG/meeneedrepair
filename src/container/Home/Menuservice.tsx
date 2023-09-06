@@ -26,7 +26,7 @@ export default function Menuservice() {
       <div className="flex" >
         <Link href='' className="flex items-center rounded-md hover:bg-blue-950   text-white hover:border-4 border-indigo-500/100">
           <img src="../images/icon/support.png" className=" md:w-[80px] md:h-[80px] w-[40px] h-[40px]" alt="" />
-          <span className="md:ml-5 ml-2 md:text-2xl text-xs font-semibold">IT Support</span>
+          <span className="md:ml-3 ml-2 md:text-2xl text-xs font-semibold">IT Support</span>
         </Link>
       </div>
     </div>
