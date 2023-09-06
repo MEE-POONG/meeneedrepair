@@ -14,12 +14,12 @@ import 'swiper/css/effect-fade'; // เพิ่ม CSS effect-fade
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function Slide() {
-    const [img1, setImg1] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg'); // รูปภาพเริ่มต้น
-    const [img2, setImg2] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg');
-    const [img3, setImg3] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg');
-    const [img4, setImg4] = useState('https://assets.beartai.com/uploads/2023/09/Redmi-12.jpg');
-    const [img5, setImg5] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg');
-    const [img6, setImg6] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg');
+    const [img1, setImg1] = useState('./images/banner 1.png'); // รูปภาพเริ่มต้น
+    const [img2, setImg2] = useState('./images/banner 2.png');
+    const [img3, setImg3] = useState('./images/blog.jpg');
+    const [img4, setImg4] = useState('./images/imgslider/banner2.jpg');
+    const [img5, setImg5] = useState('./images/imgslider/banner3.jpg');
+    const [img6, setImg6] = useState('./images/imgslider/banner4.jpg');
     return (
         <>
             <div className='slidestyles'>
