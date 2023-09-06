@@ -11,9 +11,9 @@ const LoginComponent: React.FC = () => {
             <RootLayout>
                 <div className='container mx-auto '>
                     <div className=" top-0 transform my-24 flex items-center ">
-                        <div className='mb-12 md:mb-0 md:w-8/12 lg:w-full '>
+                        {/* <div className='mb-12 md:mb-0 md:w-8/12 lg:w-full '>
                             <img className="bg-center w-full" src="../images/bgmee.png" />
-                        </div>
+                        </div> */}
 
                         <div className="absolute top-[50px] justify-items-center">
 
