@@ -2,6 +2,8 @@ import { useState } from "react";
 import RootLayout from "../../components/layout";
 import CategoryList from "../../container/Product/CategoryList";
 import CardProductAll from "../../container/Product/CardProductAll";
+import { FiSearch } from "react-icons/fi";
+
 
 
 export default function ProductPage() {
@@ -66,21 +68,53 @@ export default function ProductPage() {
             
             </div> */}
 
-            <div className="container mx-auto">
-                <div className="grid grid-cols-12">
-                    <div><CategoryList/></div>
-                    <div className="lg:col-span-8">
-                        <div className="flex flex-wrap h-full ">
-                            <div className=" mx-3">
+            <div className="container mx-auto font-fontTH01">
+
+
+                {/* Card Product */}
+                <div className="grid md:grid-cols-12 gap-3">
+
+                    {/* Category */}
+                    <div className="col-span-3 hidden md:block">
+                        <CategoryList />
+                    </div>
+
+
+                    <div className="md:col-span-9">
+                        <div className="grid grid-rows-1 mb-3">
+                        {/* Search */}
+                            <div className="md:col-end-12 ">
+                                <div className="flex items-center bg-secondary1 rounded-lg p-2">
+                                    <p className="text-sm md:text-md text-secondary2 mr-2">ค้นหา:</p>
+                                    <input type="search" name="" id=""
+                                        className="px-2 bg-transparent border-b-2 w-full"
+                                    />
+                                    <span className="bg-natural01 rounded-lg p-2 ml-3"><FiSearch /></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Product */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                            <div className="">
                                 <CardProductAll />
                             </div>
-                            <div className=" mx-3">
+                            <div className="">
                                 <CardProductAll />
                             </div>
-                            <div className=" mx-3">
+                            <div className="">
                                 <CardProductAll />
                             </div>
-                            <div className=" mx-3">
+                            <div className="">
+                                <CardProductAll />
+                            </div>
+                            <div className="">
+                                <CardProductAll />
+                            </div>
+                            <div className="">
+                                <CardProductAll />
+                            </div>
+                            <div className="">
                                 <CardProductAll />
                             </div>
 

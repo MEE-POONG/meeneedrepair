@@ -12,14 +12,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const page: number = Number(req.query.page) || 1;
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
-                const product = await prisma.product.findMany({
+                const products = await prisma.products.findMany({
                     skip: (page - 1) * pageSize,
                     take: pageSize,
                 });
 
-                const totalproduct = await prisma.product.count();
+                const totalproduct = await prisma.products.count();
                 const totalPage: number = Math.ceil(totalproduct / pageSize);
-                res.status(200).json({ product });
+                res.status(200).json({ products });
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the product" });
             }
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         case 'POST':
             try {
-                const newproduct = await prisma.product.create({
+                const newproduct = await prisma.products.create({
                     data: req.body,
                 });
 

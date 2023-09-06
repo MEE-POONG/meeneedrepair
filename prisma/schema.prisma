@@ -18,33 +18,36 @@ model UserName {
 model Category {
   id             String        @id @default(auto()) @map("_id") @db.ObjectId
   categoryname   String?
-  ProductbrandId String?       @db.ObjectId
   createdAt      DateTime?     @default(now())
   updatedAt      DateTime?     @updatedAt
   deleted_at     DateTime?     @map("deleted_at")
   Subcategory    Subcategory[]
-  productbrand   Productbrand? @relation(fields: [ProductbrandId], references: [id])
+  Productbrand   Productbrand? @relation(fields: [productbrandId], references: [id])
+  productbrandId String?       @db.ObjectId
 }
 
 model Subcategory {
-  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
   subcategoryname String?
-  CategoryId      String?    @db.ObjectId
-  createdAt       DateTime?  @default(now())
-  updatedAt       DateTime?  @updatedAt
-  deleted_at      DateTime?  @map("deleted_at")
+  CategoryId      String?       @db.ObjectId
+  ProductbrandId  String?       @db.ObjectId
+  createdAt       DateTime?     @default(now())
+  updatedAt       DateTime?     @updatedAt
+  deleted_at      DateTime?     @map("deleted_at")
   products        Products[]
-  category        Category?  @relation(fields: [CategoryId], references: [id])
+  category        Category?     @relation(fields: [CategoryId], references: [id])
+  productbrand    Productbrand? @relation(fields: [ProductbrandId], references: [id])
 }
 
 model Productbrand {
-  id         String     @id @default(auto()) @map("_id") @db.ObjectId
-  Namebrand  String?
-  createdAt  DateTime?  @default(now())
-  updatedAt  DateTime?  @updatedAt
-  deleted_at DateTime?  @map("deleted_at")
-  products   Products[]
-  Category   Category[]
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  Namebrand   String?
+  createdAt   DateTime?     @default(now())
+  updatedAt   DateTime?     @updatedAt
+  deleted_at  DateTime?     @map("deleted_at")
+  products    Products[]
+  Category    Category[]
+  Subcategory Subcategory[]
 }
 
 model Products {

@@ -180,11 +180,11 @@ const Navbar = () => {
             <li key={link.name} className="my-2 px-2 hover:border-b-2 hover:border-natural04">
               {link.children ? (
                 <div
-                  className="dropdown"
+                  className="dropdown " 
                   onClick={toggleDropdown}
                 >
                   <button
-                    className="btn btn-link flex items-center"
+                    className="btn flex items-center "
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
