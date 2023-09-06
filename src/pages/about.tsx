@@ -1,5 +1,7 @@
 import Image from "next/image";
 import RootLayout from "../components/layout";
+import Link from "next/link";
+import { FaFacebook } from 'react-icons/fa';
 
 export default function AboutPage() {
     return (
@@ -18,7 +20,7 @@ export default function AboutPage() {
                     <div className="text-white text-5xl font-bold">
                         รู้จัก&nbsp;
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#081FF0] to-[#13D1D1]">
-                            &quot;Mee Need Repaur&quot;
+                            &quot;Mee Need Repair&quot;
                         </span>
                     </div>
                     <Image
@@ -32,7 +34,7 @@ export default function AboutPage() {
                     <div className="text-white text-2xl font-bold">
                         ทำความรู้จักกับ&nbsp;
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#081FF0] to-[#13D1D1]">
-                            &quot;Mee Need Repaur&quot;
+                            &quot;Mee Need Repair&quot;
                         </span>
                     </div>
                     <p className="mt-10 indent-8 text-white text-md">
@@ -47,6 +49,92 @@ export default function AboutPage() {
                         ในโลกเทคโนโลยีที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน ซึ่งธุรกิจต่าง ๆ ต้องพึ่งพาคอมพิวเตอร์ เครือข่าย และซอฟต์แวร์เป็นอย่างมาก บทบาทของการสนับสนุนด้านไอที จึงมีความสำคัญมากกว่าที่เคยเป็นมา
                     </p>
                 </div>
+
+
+            <h2 className="flex flex-row flex-nowrap items-center my-8">
+                <span className="flex-grow block border-t border-white" aria-hidden="true" role="presentation"></span>
+                <span className="flex-none block mx-4   px-4 py-2.5 text-xs leading-none font-medium uppercase text-white">
+                    Heading Text
+                </span>
+                <span className="flex-grow block border-t border-white" aria-hidden="true" role="presentation"></span>
+            </h2>
+
+        
+
+               
+<section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+    <div className="text-center pb-12">
+        <h2 className="text-xl font-bold text-indigo-600">
+            Team
+        </h2>
+        <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
+        Mee Need Repair
+        </h1>
+    </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+                <img className="object-center object-cover rounded-full h-36 w-36" src="/images/team/team1.jpg" alt="photo"/>
+            </div>
+            <div className="text-center">
+                <p className="text-xl text-gray-700 font-bold mb-2">วีรยุทธ เวสโมราดี้</p>
+                <p className="text-base text-gray-400 font-normal">ตําแหน่ง ซ่อมบํารุง ซอฟต์แวร์-ฮาร์ดแวร์</p>
+                <Link href='https://www.facebook.com/weerayutves?mibextid=D4KYlr'> <p className="text-base text-gray-400 font-normal hover:text-blue-700">Facebook</p></Link>
+
+            </div>
+        </div>
+        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+            <img className="object-center object-cover rounded-full h-36 w-36" src="/images/team/p2-1.jpg" alt="photo"/>
+            </div>
+            <div className="text-center">
+            <p className="text-xl text-gray-700 font-bold mb-2">ชลชาติ อินทรสูตร</p>
+                <p className="text-base text-gray-400 font-normal">ตําแหน่ง ซ่อมบํารุง ซอฟต์แวร์-ฮาร์ดแวร์</p>
+                <Link href='https://www.facebook.com/profile.php?id=100011457973926&mibextid=D4KYlr'> <p className="text-base text-gray-400 font-normal hover:text-blue-700">Facebook</p></Link>
+            </div>
+        </div>
+        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+                <img className="object-center object-cover rounded-full h-36 w-36" src="/images/team/nobody.png" alt="photo"/>
+            </div>
+            <div className="text-center">
+                <p className="text-xl text-gray-700 font-bold mb-2">Jade Bradley</p>
+                <p className="text-base text-gray-400 font-normal">Dev Ops</p>
+            </div>
+        </div>
+        {/* <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+                <img className="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="photo"/>
+            </div>
+            <div className="text-center">
+                <p className="text-xl text-gray-700 font-bold mb-2">Dany Bailey</p>
+                <p className="text-base text-gray-400 font-normal">Software Engineer</p>
+            </div>
+        </div>
+        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+                <img className="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="photo"/>
+            </div>
+            <div className="text-center">
+                <p className="text-xl text-gray-700 font-bold mb-2">Lucy Carter</p>
+                <p className="text-base text-gray-400 font-normal">Graphic Designer</p>
+            </div>
+        </div>
+        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+                <img className="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1176&q=80" alt="photo"/>
+            </div>
+            <div className="text-center">
+                <p className="text-xl text-gray-700 font-bold mb-2">Jade Bradley</p>
+                <p className="text-base text-gray-400 font-normal">Dev Ops</p>
+            </div> 
+         </div> */}
+    </div>
+</section>
+
+
+
+
             </div>
         </RootLayout>
     )

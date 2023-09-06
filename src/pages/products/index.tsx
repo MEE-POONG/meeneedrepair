@@ -1,16 +1,15 @@
 import { useState } from "react";
 import RootLayout from "../../components/layout";
-import ProductCategory from "../../container/Product/ProductCategory";
+import CategoryList from "../../container/Product/CategoryList";
 import CardProductAll from "../../container/Product/CardProductAll";
 
 
 export default function ProductPage() {
     return (
         <RootLayout>
-            <div className="flex flex-col ">    
+            {/* <div className="flex flex-col ">    
             <div className="grid place-items-center mx-2 my-20 sm:my-auto">
 
-            {/* <img src="images/pictureproduct.jpg" alt="" className=" w-screen    " /> */}
             <ProductCategory />
 
 
@@ -65,9 +64,34 @@ export default function ProductPage() {
 
 
             
+            </div> */}
+
+            <div className="container mx-auto">
+                <div className="grid grid-cols-12">
+                    <div><CategoryList/></div>
+                    <div className="lg:col-span-8">
+                        <div className="flex flex-wrap h-full ">
+                            <div className=" mx-3">
+                                <CardProductAll />
+                            </div>
+                            <div className=" mx-3">
+                                <CardProductAll />
+                            </div>
+                            <div className=" mx-3">
+                                <CardProductAll />
+                            </div>
+                            <div className=" mx-3">
+                                <CardProductAll />
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
         </RootLayout>
     )
-} 
+}
 
