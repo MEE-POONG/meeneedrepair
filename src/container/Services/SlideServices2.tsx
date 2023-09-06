@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 // import './styles.css';
 
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Autoplay,Pagination, Navigation } from 'swiper/modules';
 
 export default function App() {
     const [img1, setImg1] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg'); // รูปภาพเริ่มต้น
@@ -27,11 +27,15 @@ export default function App() {
                     slidesPerView={1}
                     spaceBetween={30}
                     loop={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
                     pagination={{
                         clickable: true,
                     }}
                     navigation={true}
-                    modules={[Pagination, Navigation]}
+                    modules={[Autoplay,Pagination, Navigation]}
                     className="mySwiper"
                 >
                     <SwiperSlide className="relative">
