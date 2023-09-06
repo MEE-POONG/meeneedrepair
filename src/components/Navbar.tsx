@@ -17,7 +17,7 @@ const Navbar = () => {
       ],
     },
     { name: 'บริการของเรา', link: 'services' },
-    { name: 'สินค้า', link: 'product' },
+    { name: 'สินค้า', link: 'products' },
     { name: 'ติดต่อ', link: 'contact' },
   ];
 

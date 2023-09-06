@@ -1,6 +1,6 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
-import ProductCategory from "../../container/Product/ProductCategory";
+import ProductCategory from "../../container/Product/CategoryList";
 import CustomerProfile from "./custom_profile";
 import EditProfile from "./EditProfile";
 import TabMenu from "../../container/Profile/TabMenu";

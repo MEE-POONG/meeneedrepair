@@ -11,85 +11,95 @@ datasource db {
 }
 
 model UserName {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-username String?
-
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  username String?
 }
-
 
 model Category {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId 
-categoryname String?
-categorybrand String?
-categoryprice String?
-
-// product Product[]
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  categoryname   String?
+  ProductbrandId String?       @db.ObjectId
+  createdAt      DateTime?     @default(now())
+  updatedAt      DateTime?     @updatedAt
+  deleted_at     DateTime?     @map("deleted_at")
+  Subcategory    Subcategory[]
+  productbrand   Productbrand? @relation(fields: [ProductbrandId], references: [id])
 }
 
-model Product {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-productname String?
-productbrand String?
-productmodel String?
-productdetail String? 
-producttype String?
-productcost String?
-productprice String?
-productremaining String?
-productimg String?
-productim1 String?
-productim2 String?
-productim3 String?
-productim4 String?
-
-
-// categoryId String? @db.ObjectId
-// category Category? @relation(fields: [categoryId], references: [id])
-
+model Subcategory {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  subcategoryname String?
+  CategoryId      String?    @db.ObjectId
+  createdAt       DateTime?  @default(now())
+  updatedAt       DateTime?  @updatedAt
+  deleted_at      DateTime?  @map("deleted_at")
+  products        Products[]
+  category        Category?  @relation(fields: [CategoryId], references: [id])
 }
 
-
-model  News {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-title String?
-subtitle String?
-detail String? 
-img String?
-img1 String?
-
+model Productbrand {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  Namebrand  String?
+  createdAt  DateTime?  @default(now())
+  updatedAt  DateTime?  @updatedAt
+  deleted_at DateTime?  @map("deleted_at")
+  products   Products[]
+  Category   Category[]
 }
 
+model Products {
+  id               String        @id @default(auto()) @map("_id") @db.ObjectId
+  productname      String?
+  productbrand     String?
+  productmodel     String?
+  productdetail    String?
+  producttype      String?
+  productcost      String?
+  productprice     String?
+  productremaining String?
+  productimg       String?
+  // categoryId String? @db.ObjectId
+  // category Category? @relation(fields: [categoryId], references: [id])
+  Subcategory      Subcategory?  @relation(fields: [subcategoryId], references: [id])
+  subcategoryId    String?       @db.ObjectId
+  createdAt        DateTime?     @default(now())
+  updatedAt        DateTime?     @updatedAt
+  deleted_at       DateTime?     @map("deleted_at")
+  Productbrand     Productbrand? @relation(fields: [productbrandId], references: [id])
+  productbrandId   String?       @db.ObjectId
+}
+
+model News {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  title    String?
+  subtitle String?
+  detail   String?
+  img      String?
+  img1     String?
+}
 
 model Promote {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-name String?
-img  String?
-img1 String?
-
+  id   String  @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  img  String?
+  img1 String?
 }
 
 model Blog {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-title String?
-subtitle String?
-detail String? 
-img String?
-img1 String?
-
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  title    String?
+  subtitle String?
+  detail   String?
+  img      String?
+  img1     String?
 }
 
-
-
-
-model Appointment{
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-fname String? 
-lname String?
-email String?
-tel String?
-request String?
-message String?
-
+model Appointment {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  fname   String?
+  lname   String?
+  email   String?
+  tel     String?
+  request String?
+  message String?
 }
-
-
