@@ -9,11 +9,14 @@ const LoginComponent: React.FC = () => {
     return (
         <div className='login-page'>
             <RootLayout>
-                <div className='container mx-auto'>
-                    <div className=" mx-auto top-0 transform my-24">
-                        <img className="bg-center w-full" src="../images/bgmee.png" />
+                <div className='container mx-auto '>
+                    <div className=" top-0 transform my-24 flex items-center ">
+                        <div className='mb-12 md:mb-0 md:w-8/12 lg:w-full '>
+                            <img className="bg-center w-full" src="../images/bgmee.png" />
+                        </div>
 
                         <div className="absolute top-[50px] justify-items-center">
+
                             <div className="absolute text-white  left-[50px]">
                                 <h1 className=" text-2xl font-bold">Me Need repair</h1>
                                 <div className=" text-center my-[100px] font-bold">
@@ -33,6 +36,8 @@ const LoginComponent: React.FC = () => {
                                     </Link>
                                 </div>
                             </div>
+
+
 
 
                             <div className="absolute left-[650px] ">
@@ -66,7 +71,7 @@ const LoginComponent: React.FC = () => {
                                         <p className=" bg-white w-[350px] h-[2px]"></p>
                                     </div>
 
-                                    ปุ่ม
+
                                     <div className="flex">
                                         <button className="group relative h-12 w-[350px] overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold text-white">
                                             เข้าสู่ระบบ
@@ -113,6 +118,8 @@ const LoginComponent: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
