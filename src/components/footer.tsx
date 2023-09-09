@@ -7,71 +7,82 @@ import { FiPhoneCall } from 'react-icons/fi';
 
 const Footer = () => {
     return (
-        <div className="font-fontTH01">
-            <footer className="bg-[#F4F5F5] py-3 px-2 ">
-                <div className="md:grid grid-cols-3 lg:grid-cols-5 justify-center container mx-auto gap-4   ">
-                    <img
-                        className="w-44"
-                        src="../images/LOGO.png"
-                        alt=""
-                    />
+        <div className="font-fontTH02 bg-[#F4F5F5]">
+            <footer className="container mx-auto py-5">
+                <div className="md:grid grid-flow-col gap-3 mx-5 md:mx-16">
+                    <div className="">
+                        <img
+                            className="w-28 lg:w-44 hidden md:block"
+                            src="../images/LOGO.png"
+                            alt=""
+                        />
+                    </div>
 
-                    <div >
-                        <p className="text-3xl font-extrabold text-transparent my-3
+                    {/* <div >
+                        <p className="text-base lg:text-3xl font-extrabold text-transparent my-3
                                       bg-gradient-to-r from-blue-600 to-sky-400
                                       bg-clip-text
                             ">
                             Mee Need Repair
                         </p>
-                        <Link href="./" className=" py-1"><p>หน้าแรก</p></Link>
-                        <Link href="./about" className=" py-1">
+                        <Link href="./" className=" py-1 text-xs lg:text-base"><p>หน้าแรก</p></Link>
+                        <Link href="./about" className=" py-1 text-xs lg:text-base">
                             <p>เกี่ยวกับเรา</p>
                         </Link>
-                        <Link href="./news" className=" py-1">
+                        <Link href="./news" className=" py-1 text-xs lg:text-base">
                             <p>ข่าวสาร</p>
                         </Link>
-                        <p className=" py-1">ติดต่อเรา</p>
-                    </div>
-
-                    <div>
-                        <p className="text-2xl my-3">บริกรของเรา</p>
-                        <p className=" py-1">รับซ่อมบำรุงอุปกรณ์ IT</p>
-                        <p className=" py-1">ให้คำปรึกษาปัญหาเกี่ยวกับอุปกรณ์ IT</p>
-                    </div>
-
-                    <div>
-                        <p className="text-2xl my-3">สนับสนุน</p>
-                        <p className=" py-1">วิธีการสมัครสมาชิก</p>
-                        <p className=" py-1">วิธีการสั่งซื้อ และชำระเงิน</p>
-                        <p className=" py-1">การติดตามสถานะ</p>
-                    </div>
-
-                    <div>
-                        <p className="text-2xl my-3">Mee Need Repair</p>
-                        <div className="flex items-start gap-2">
-                            <ImHome size={35} />
-                            <span className="">  46/3 ถ.ราชนิกุล ต.ในเมือง อ.เมือง, Nakhon Ratchasima, Thailand, Nakhon Ratchasima</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <BiLogoGmail /> 
-                            <span className=""> me.prompt.tec@gmail.com </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <FiPhoneCall />
-                            <span className=""> 099-164-1044, 065-821-4605</span>
-                        </div>
-                       
+                        <Link href="./contact" className=" py-1 text-xs lg:text-base"><p >ติดต่อเรา</p></Link>
                         
+                    </div> */}
 
+                    <div className="hidden md:block">
+                        <p className="text-base lg:text-3xl font-extrabold text-transparent 
+                                      bg-gradient-to-r from-blue-600 to-sky-400
+                                      bg-clip-text mb-1 "
+                        >Mee Need Repair
+                        </p>
+                        <div className=" lg:flex items-start gap-2 hidden">
+                            <ImHome />
+                            <span className="text-[10px] md:text-sm ">
+                                46/3 ถ.ราชนิกุล ต.ในเมือง อ.เมือง, Nakhon Ratchasima,
+                                Thailand, Nakhon Ratchasima
+                            </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <BiLogoGmail />
+                            <span className="text-[10px] md:text-sm"> me.prompt.tec@gmail.com </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <FiPhoneCall size={13} />
+                            <p className="text-[10px] md:text-sm"> 099-164-1044,
+                                <span className="text-[10px] md:text-sm"> 065-821-4605</span>
+                            </p>
 
+                        </div>
                     </div>
+
+                    <div className="">
+                        <p className="text-sm md:text-base font-semibold mb-1">บริกรของเรา</p>
+                        <p className="text-[10px] md:text-xs">รับซ่อมบำรุงอุปกรณ์ IT</p>
+                        <p className="text-[10px] md:text-xs">ให้คำปรึกษาปัญหาเกี่ยวกับอุปกรณ์ IT</p>
+                    </div>
+
+                    <div>
+                        <p className=" text-sm md:text-base font-semibold mb-1">สนับสนุน</p>
+                        <Link href="./" className="text-[10px] md:text-xs"><p >วิธีการสมัครสมาชิก</p></Link>
+                        <Link href="" className=" text-[10px] md:text-xs"><p >วิธีการสั่งซื้อ และชำระเงิน</p></Link>
+                        <Link href="" className=" text-[10px] md:text-xs"><p >การติดตามสถานะ</p></Link>
+                    </div>
+
+
 
                 </div>
             </footer>
 
-            <div className="bg-[#0F172A] text-white text-center py-2">
-                <div >©2023
-                    <Link className="text-natural01 hover:text-natural01/75"
+            <div className=" bg-[#0F172A] text-white text-center py-2">
+                <div className="text-[10px] md:text-sm">©2023
+                    <Link className="text-natural01 hover:text-natural04"
                         href=''> Me Prompt technology Co.
                     </Link>
                     &nbsp;,Ltd. All Rights Reserved.
