@@ -10,10 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model UserName {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  username String?
-}
 
 model Category {
   id             String        @id @default(auto()) @map("_id") @db.ObjectId
