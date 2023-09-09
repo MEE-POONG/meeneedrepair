@@ -95,30 +95,13 @@ export default function ProductPage() {
                         </div>
 
                         {/* Product */}
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                       
                             <div className="">
                                 <CardProductAll />
                             </div>
-                            <div className="">
-                                <CardProductAll />
-                            </div>
-                            <div className="">
-                                <CardProductAll />
-                            </div>
-                            <div className="">
-                                <CardProductAll />
-                            </div>
-                            <div className="">
-                                <CardProductAll />
-                            </div>
-                            <div className="">
-                                <CardProductAll />
-                            </div>
-                            <div className="">
-                                <CardProductAll />
-                            </div>
+                            
 
-                        </div>
+                 
                     </div>
 
                 </div>
