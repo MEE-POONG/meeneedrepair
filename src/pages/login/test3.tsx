@@ -1,36 +1,18 @@
 import Link from "next/link";
 import { FaFacebook, FaGoogle, FaInstagram, FaYoutube } from "react-icons/fa";
 import AboutPage from '../about';
+import RootLayout from "../../components/layout";
 
 export default function TEST() {
     return (
         <>
-
-            <div className="antialiased bg-gradient-to-br ">
+ <RootLayout>
+            <div className="login-page antialiased bg-gradient-to-br ">
                 <div className="container px-6 mx-auto">
                     <div
                         className="flex flex-col text-center md:text-left md:flex-row h-screen justify-evenly md:items-center"
                     >
-                        {/* <div className="flex flex-col w-full mx-auto my-auto">
-                            <h1 className="text-2xl text-white ">Me Need repair</h1>
-
-                            <p className="w-5/12 text-4xl mx-auto md:mx-0 text-white text-center font-bold">
-                                Welcome! to Our Website
-                            </p>
-                            <p className=" text-lg text-white">รายละเอียดย่อย</p>
-                            <div className=" flex items-center text-[40px] mx-auto my-auto">
-                                    <Link className="mx-3 " href="#">
-                                        <FaFacebook />
-                                    </Link>
-                                    <Link className="mx-3" href="#">
-                                        <FaInstagram />
-                                    </Link>
-                                    <Link className="mx-3" href="#">
-                                        <FaYoutube />
-                                    </Link>
-                                </div>
-
-                        </div> */}
+                    
                         <div className="flex flex-col w-full mx-auto mt-10 text-white ">
                             <h1 className=" text-2xl font-bold">Me Need repair</h1>
                             <div className=" text-center mx-auto my-[100px] font-bold">
@@ -55,10 +37,8 @@ export default function TEST() {
 
 
 
-
-
                         <div className="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
-                            <div className=" bg-gray-500 p-10 flex flex-col w-full h-[650px] shadow-xl rounded-xl">
+                            <div className=" bg-gray-800 bg-opacity-50  p-10 flex flex-col w-full h-[650px] shadow-xl rounded-xl">
                                 <h2 className="text-2xl text-center  font-bold text-white  mb-5">
                                     เข้าสู่ระบบ
                                 </h2>
@@ -146,7 +126,7 @@ export default function TEST() {
             </div>
 
 
-
+            </RootLayout>
         </>
     )
 }
