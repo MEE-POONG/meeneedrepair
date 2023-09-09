@@ -62,7 +62,7 @@ const Navbar = () => {
         </div>
 
         {/* nav link here */}
-        <ul className="md:flex gap-5 hidden font-medium lg:text-xl items-center">
+        <ul className="md:flex gap-5 hidden font-medium text-base items-center">
           {Links.map((link) => (
             <li key={link.name} className="hover:border-b-2 hover:border-natural04"
               style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
@@ -111,7 +111,7 @@ const Navbar = () => {
 
 
         {/* login && badket */}
-        <ul className="flex gap-3 font-semibold items-center lg:text-xl">
+        <ul className="flex gap-3 font-semibold items-center text-base">
           <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
             <button className="flex items-center">
               <HiUser size={20} />
