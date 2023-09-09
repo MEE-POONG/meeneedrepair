@@ -78,8 +78,8 @@ model News {
   subtitle String?
   detail   String?
   date String?
-  author String?
-  refer     String?
+  author String? //ผู้เขียน
+  refer     String? //อ้างอิง
   img      String?
 }
 

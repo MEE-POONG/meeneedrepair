@@ -32,13 +32,11 @@ export default function NewsPage() {
 
                 <div className="container mx-auto md:my-12">
                     <div className=" flex items-center justify-center ">
-                        <div className="md:grid md:grid-cols-2 lg:grid-cols-4 hidden" >
+                        <div className="" >
                             <NewsCard />
                         </div>
 
-                        <div className="md:hidden w-[90%]">
-                            <NewsCardsm />
-                        </div>
+                      
                     </div>
                 </div>
 
