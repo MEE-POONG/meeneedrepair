@@ -10,11 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model UserName {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  username String?
-}
-
 model Category {
   id             String        @id @default(auto()) @map("_id") @db.ObjectId
   categoryname   String?
@@ -77,9 +72,9 @@ model News {
   title    String?
   subtitle String?
   detail   String?
-  date String?
-  author String? //ผู้เขียน
-  refer     String? //อ้างอิง
+  date     String?
+  author   String? //ผู้เขียน
+  refer    String? //อ้างอิง
   img      String?
 }
 
@@ -107,4 +102,22 @@ model Appointment {
   tel     String?
   request String?
   message String?
+}
+
+model User {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  fname    String?
+  lname    String?
+  birthday String?
+  email    String?
+  password String?
+  tel      String?
+  facebook String?
+  google   String?
+}
+
+model Admin {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  email    String?
+  password String?
 }
