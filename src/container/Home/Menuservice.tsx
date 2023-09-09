@@ -4,30 +4,32 @@ import Link from "next/link";
 
 export default function Menuservice() {
   return (
-    
-    <div className="flex gap-1 md:flex justify-center py-10 md:gap-10">
-      <div className="flex  ">
-        <Link href='' className="flex items-center rounded-md hover:bg-blue-950   text-white hover:border-4 border-indigo-500/100 ">
-          <img src="../images/icon/responsive.png" className="md:w-[80px] md:h-[80px] w-[40px] h-[40px] " alt="" />
-          <span className="md:ml-5 ml-2  md:text-2xl text-xs font-semibold">Product</span>
+
+    <div className="flex gap-1 justify-center items-center py-10 md:gap-3 font-fontTH02">
+      <div className="flex">
+        <Link href='' className="md:flex items-center rounded-md text-white hover:bg-secondary1 p-2 text-center">
+          <img src="../images/icon/responsive.png" className="md:w-[50px] md:h-[50px] w-[40px] h-[40px] mx-auto" alt="" />
+          <span className="md:ml-5 ml-2 text-xs md:text-2xl font-semibold">Product</span>
         </Link>
-        <p className="md:ml-5 w-1 h-24 md:bg-gradient-to-b from-[#CA0808]  to-[#0FC0E7]"></p>
+        <div className="md:ml-5 w-0.5 h-24 md:bg-gradient-to-b from-[#CA0808] to-[#0FC0E7] hidden md:block"></div>
       </div>
 
       <div className="flex">
-        <Link href='' className="flex items-center rounded-md hover:bg-blue-950   text-white hover:border-4 border-indigo-500/100">
-          <img src="../images/icon/customer-service.png" className=" md:w-[80px] md:h-[80px] w-[40px] h-[40px]" alt="" />
-          <span className=" md:ml-5 ml-2 md:text-2xl text-xs font-semibold">IT Service</span>
+        <Link href='' className="md:flex items-center rounded-md text-white hover:bg-secondary1 p-2 text-center">
+          <img src="../images/icon/customer-service.png" className=" md:w-[55px] md:h-[55px] w-[40px] h-[40px] mx-auto" alt="" />
+          <span className=" md:ml-5 ml-2 text-xs md:text-2xl font-semibold">IT Service</span>
         </Link>
-        <p className="md:ml-5 w-1 h-24 md:bg-gradient-to-b from-[#CA0808]  to-[#0FC0E7]"></p>
+        <div className="md:ml-5 w-0.5 h-24 md:bg-gradient-to-b from-[#CA0808] to-[#0FC0E7] hidden md:block"></div>
 
       </div>
 
       <div className="flex" >
-        <Link href='' className="flex items-center rounded-md hover:bg-blue-950   text-white hover:border-4 border-indigo-500/100">
-          <img src="../images/icon/support.png" className=" md:w-[80px] md:h-[80px] w-[40px] h-[40px]" alt="" />
-          <span className="md:ml-3 ml-2 md:text-2xl text-xs font-semibold">IT Support</span>
+        <Link href='' className="md:flex items-center rounded-md text-white hover:bg-secondary1 px-2 py-4 text-center">
+          <img src="../images/icon/support.png" className=" md:w-[60px] md:h-[60px] w-[40px] h-[40px] mx-auto" alt="" />
+          <span className="md:ml-5 ml-2 text-xs md:text-2xl font-semibold">IT Support</span>
+          <div className="md:ml-5 w-0.5 h-24 md:bg-gradient-to-b from-[#CA0808] to-[#0FC0E7] hidden"></div>
         </Link>
+
       </div>
     </div>
   );
