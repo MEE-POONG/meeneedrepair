@@ -44,7 +44,7 @@ export default function App() {
                         <img src={img1} alt="img1" className="" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={img2} alt="img2" className="" />
+                        <img src={img1} alt="img2" className="" />
                     </SwiperSlide>
                     <SwiperSlide>
                         <img src={img3} alt="img1" className="" />

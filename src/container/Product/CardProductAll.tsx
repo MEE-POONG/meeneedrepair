@@ -76,7 +76,7 @@ const CardProductAll = () => {
                                             <FiHeart className="hover:fill-red-500" />
                                         </div>
                                     </button>
-
+                                    <Link key={products.id} href={`/products/${products.id}`} passHref>
                                     <img
                                         className="w-[150px] h-[150px] object-cover mx-auto"
                                         src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${products.productimg ? products.productimg : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'
@@ -96,6 +96,7 @@ const CardProductAll = () => {
                                             </button>
                                         </div>
                                     </div>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
