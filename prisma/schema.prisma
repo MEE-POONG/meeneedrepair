@@ -77,8 +77,10 @@ model News {
   title    String?
   subtitle String?
   detail   String?
+  date String?
+  author String? //ผู้เขียน
+  refer     String? //อ้างอิง
   img      String?
-  img1     String?
 }
 
 model Promote {
