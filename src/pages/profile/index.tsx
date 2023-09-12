@@ -4,19 +4,24 @@ import ProductCategory from "../../container/Product/CategoryList";
 import CustomerProfile from "./custom_profile";
 import EditProfile from "./EditProfile";
 import TabMenu from "../../container/Profile/TabMenu";
+import TabMenuMobile from "../../container/Profile/TabMenuMobile";
 
 export default function ProfilePage() {
     return (
         <RootLayout>
-            <ProductCategory />
-            <div className="container mx-auto">
-                <div className="grid grid-cols-12 gap-10">
-                    <div className="col-span-2">
-                        <h3 className="text-3xl text-secondary2 mb-8">จัดการบัญชีผู้ใช้</h3>
-
-                        <TabMenu/>
+            {/* <ProductCategory /> */}
+            <div className="xl:hidden">
+                <TabMenuMobile />
+            </div>
+            <div className="container mx-auto font-fontTH02">
+                <div className="grid grid-cols-12 md:gap-10 bg-[#1E293B] lg:bg-[#0F172A]">
+                    <div className="lg:col-span-2">
+                        <div className="hidden lg:block">
+                            <h3 className="text-3xl text-secondary2 mb-8">จัดการบัญชีผู้ใช้</h3>
+                            <TabMenu />
+                        </div>
                     </div>
-                    <div className="col-span-10">
+                    <div className="col-span-12 p-5 lg:p-0 lg:col-span-10 pt-5 mb-10 lg:mb-0 lg:pt-0">
                         <CustomerProfile />
                         {/* <EditProfile /> */}
                     </div>
