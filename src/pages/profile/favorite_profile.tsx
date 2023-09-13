@@ -10,54 +10,23 @@ const FavoriteProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">รายการโปรด</h3>
             </div>
 
-            <div className=" mt-10 rounded-lg p-8 text-secondary1">
+            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm">
 
                 <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12">
-                    <img src="/images/joystick.png" alt="" className="col-span-2 h-24 w-24 " />
-                    <p className="col-span-6 self-center ">ชื่อสินค้า</p>
-                    <p className="col-span-1 self-center text-[#FF5C74] ">฿ 490</p>
-                    <button className="col-span-2 bg-[#FFCD4B] rounded-xl h-10 self-center ">หยิบใส่ตระกร้า</button>
-                    <svg className="self-center items-center justify-center" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 32 32">
-                        <path d="M 15 4 C 14.476563 4 13.941406 4.183594 13.5625 4.5625 C 13.183594 4.941406 13 5.476563 13 6 L 13 7 L 7 7 L 7 9 L 8 9 L 8 25 C 8 26.644531 9.355469 28 11 28 L 23 28 C 24.644531 28 26 26.644531 26 25 L 26 9 L 27 9 L 27 7 L 21 7 L 21 6 C 21 5.476563 20.816406 4.941406 20.4375 4.5625 C 20.058594 4.183594 19.523438 4 19 4 Z M 15 6 L 19 6 L 19 7 L 15 7 Z M 10 9 L 24 9 L 24 25 C 24 25.554688 23.554688 26 23 26 L 11 26 C 10.445313 26 10 25.554688 10 25 Z M 12 12 L 12 23 L 14 23 L 14 12 Z M 16 12 L 16 23 L 18 23 L 18 12 Z M 20 12 L 20 23 L 22 23 L 22 12 Z"></path>
-                    </svg>
+                    <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
+                    <p className="col-span-4 md:col-span-6 self-center">ชื่อสินค้า</p>
+                    <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] ">฿ 490</p>
+                    <button className="col-span-3 md:col-span-2 bg-[#FFCD4B] rounded-xl h-14 md:h-10 self-center">หยิบใส่ตระกร้า</button>
+                    <div className="flex items-center justify-center">
+                        <svg className="self-center" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 32 32">
+                            <path d="M 15 4 C 14.476563 4 13.941406 4.183594 13.5625 4.5625 C 13.183594 4.941406 13 5.476563 13 6 L 13 7 L 7 7 L 7 9 L 8 9 L 8 25 C 8 26.644531 9.355469 28 11 28 L 23 28 C 24.644531 28 26 26.644531 26 25 L 26 9 L 27 9 L 27 7 L 21 7 L 21 6 C 21 5.476563 20.816406 4.941406 20.4375 4.5625 C 20.058594 4.183594 19.523438 4 19 4 Z M 15 6 L 19 6 L 19 7 L 15 7 Z M 10 9 L 24 9 L 24 25 C 24 25.554688 23.554688 26 23 26 L 11 26 C 10.445313 26 10 25.554688 10 25 Z M 12 12 L 12 23 L 14 23 L 14 12 Z M 16 12 L 16 23 L 18 23 L 18 12 Z M 20 12 L 20 23 L 22 23 L 22 12 Z"></path>
+                        </svg>
+                    </div>
+
                 </div>
 
 
-                <div>
-                    <div className="flex justify-between">
-                        <p className="text-lg font-semibold">ข้อมูลส่วนตัว</p>
-                        <Link
-                            href={'profile/EditProfile'}
-                            className="flex hover:text-natural04"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 7H6C5.46957 7 4.96086 7.21071 4.58579 7.58579C4.21071 7.96086 4 8.46957 4 9V18C4 18.5304 4.21071 19.0391 4.58579 19.4142C4.96086 19.7893 5.46957 20 6 20H15C15.5304 20 16.0391 19.7893 16.4142 19.4142C16.7893 19.0391 17 18.5304 17 18V17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M16 4.99998L19 7.99998M20.385 6.58499C20.7788 6.19114 21.0001 5.65697 21.0001 5.09998C21.0001 4.543 20.7788 4.00883 20.385 3.61498C19.9912 3.22114 19.457 2.99988 18.9 2.99988C18.343 2.99988 17.8088 3.22114 17.415 3.61498L9 12V15H12L20.385 6.58499Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            แก้ไข
-                        </Link>
-                    </div>
-                    <div className="mt-5 leading-loose">
-                        <p>
-                            <strong>ชื่อผู้รับ :</strong>
-                            สวัสดี วันจันทร์
-                        </p>
-                        <p>
-                            <strong>เบอร์โทรศัพท์ :</strong>
-                            0954982096
-                        </p>
-                        <p>
-                            <strong>อีเมล :</strong>
-                            อีเมล@mail.com
-                        </p>
-                        <p>
-                            <strong>ที่อยู่จัดส่ง :</strong>
-                            หอพักหญิงอยู่สบาย 193 ถนน 30กันยา , ในเมือง เมืองนครราชสีมา นครราชสีมา 30000
-                        </p>
-                    </div>
-                    <div className="w-full h-0.5 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mt-5"></div>
 
-                </div>
 
 
 
