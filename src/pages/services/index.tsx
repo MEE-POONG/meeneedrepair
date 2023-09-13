@@ -11,7 +11,7 @@ export default function AdviserService() {
 
                 {/* <img src="../images/bgtest.png" alt="" className=" w-screen h-[400px]" /> */}
                 {/* <SlideServices /> */}
-                <SlideServices/>
+                <SlideServices />
 
                 <div className="text-center my-[50px]">
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
