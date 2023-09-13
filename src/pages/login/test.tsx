@@ -43,7 +43,7 @@ const LoginComponent: React.FC = () => {
 
     useEffect(() => {
         // Fetch data from the API
-        fetch("/api/checkLogin")
+        fetch("/api/user")
             .then((response) => response.json())
             .then((data) => {
                 // Set the fetched data to the state
