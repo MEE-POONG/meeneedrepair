@@ -10,7 +10,7 @@ const FavoriteProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">รายการโปรด</h3>
             </div>
 
-            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm">
+            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base">
 
                 <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
