@@ -70,7 +70,7 @@ function YourComponent() {
     // เรียกใช้งานฟังก์ชันเมื่อกดปุ่ม "ยืนยัน"
     const handleConfirm = () => {
         
-        window.location.reload();
+        window.location.reload();  
         // ทำสิ่งที่คุณต้องการเมื่อยืนยัน
         // ตัวอย่าง: ปิด Modal
         setIsModalOpen(false);

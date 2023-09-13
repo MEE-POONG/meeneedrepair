@@ -2,44 +2,40 @@ import Link from "next/link";
 import RootLayout from "../../components/layout";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import LatestNews from "../../container/News/LatestNews";
 
 
 const ReadNewsDetail = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
-  
+
     const [newsData, setNewsData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
     const [isLoading, setIsLoading] = useState(true);
-  
+
     useEffect(() => {
         if (id) {
-          fetch(`/api/news/${id}`)
-            .then((response) => response.json())
-            .then((data) => {
-              setNewsData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
-              //console.log(data);
-              setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-    
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-              setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-    
-            });
+            fetch(`/api/news/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    setNewsData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
+                    //console.log(data);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                });
         }
-      }, [id]);
+    }, [id]);
 
     return (
         <RootLayout>
             <div className="container mx-auto"
             >
                 <div>
-                    {/* <img
-                        className="w-full h-[300px]md:h-[567px] object-cover"
-                        src="https://images.yourstory.com/cs/wordpress/2017/02/52-Blog.jpg?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces"
-                        alt=""
-                    /> */}
-                     <img  className="w-full h-[300px]md:h-[567px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
+                    <img className="w-full h-[300px]md:h-[567px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
                     <div className="mt-8 mx-4 xl:mx-0">
                         <h4 className="text-2xl md:text-4xl font-semibold text-white">{newsData.title}</h4>
                         <div className="flex mt-8 gap-10">
@@ -63,8 +59,8 @@ const ReadNewsDetail = () => {
                                 <span className="text-cyan-600"> {newsData.author}</span>
                             </div>
 
-                            <div className=" text-white flex items-center gap-2"> อ้างอิง : 
-                            {newsData.refer}
+                            <div className=" text-white flex items-center gap-2"> อ้างอิง :
+                                {newsData.refer}
                             </div>
 
 
@@ -78,16 +74,11 @@ const ReadNewsDetail = () => {
                         {/* Left Content */}
                         <div className="col-span-7 bg-[#F4F5F5] mt-10 rounded-lg">
                             <div className="py-16">
-                                {/* <img
-                                    className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg"
-                                    src="https://images.yourstory.com/cs/wordpress/2017/02/52-Blog.jpg?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces"
-                                    alt=""
-                                /> */}
-                                <img  className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
+                                <img className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
                                 <article className="prose lg:prose-md md:mx-auto mt-8 px-2 md:px-0">
                                     <h1>{newsData.subtitle}</h1>
                                     <p>
-                                    {newsData.detail}
+                                        {newsData.detail}
                                     </p>
                                 </article>
 
@@ -95,10 +86,17 @@ const ReadNewsDetail = () => {
                             </div>
                         </div>
 
+
+
+
                         {/* Right Content */}
-                        <div className="col-span-2 bg-[#1E293B] mt-10 rounded-lg p-6">
-                            <p className="text-white text-xl">ข่าวแนะนำ</p>
-                            <div className="bg-[#F4F5F5] rounded-[20px] mx-auto">
+                        {/* <div className="col-span-2 bg-[#1E293B] mt-10 rounded-lg p-6">
+                            <p className="text-white text-xl">ข่าวแนะนำ</p> */}
+
+                            <LatestNews />
+
+
+                            {/* <div className="bg-[#F4F5F5] rounded-[20px] mx-auto">
                                 <div className="p-3 ">
                                     <img className="rounded-[20px] w-full "
                                         src="https://res.cloudinary.com/practicaldev/image/fetch/s--99fg18pd--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/mtjqqj22x8g1nwubmb1c.png"
@@ -120,9 +118,20 @@ const ReadNewsDetail = () => {
                                 </div>
 
 
-                            </div>
+                            </div> */}
 
-                        </div>
+                        {/* </div> */}
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                 </div>
 
