@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import BlogsPage from '../../pages/blog/index';
+import BlogsPage from '../../pages/blogs/index';
 
 
 interface blog {
