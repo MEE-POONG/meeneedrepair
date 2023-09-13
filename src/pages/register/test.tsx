@@ -255,3 +255,91 @@ function YourComponent() {
 
 export default YourComponent;
 
+
+
+
+// <div>
+//     <form className="mt-10 " method="POST" onSubmit={handleSubmit}>
+
+
+//         <button type="submit"
+//             className="w-full py-3  bg-gray-800 rounded-lgfont-medium text-white uppercase focus:outline-none hover:bg-gray-700 hover:shadow-none">
+//             สมัครสมาชิก
+//         </button>
+//     </form>
+//     {/* Modal */}
+//     {showModal && (
+//         <div className="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 ">
+//             <div className="bg-white p-6 rounded-lg w-[500px] h-[300px] flex flex-col items-center justify-center">
+//                 <div className='text-8xl mx-auto my-5 text-green-500'><BsFillCheckCircleFill /></div>
+//                 <h2 className="text-4xl font-semibold mb-4">สมัครเสร็จสิ้น</h2>
+//                 <p>คุณได้ทำการสมัรเสร็จสิ้น</p>
+//                 <div className="mt-4">
+//                     <button
+//                         onClick={handleConfirm}
+//                         className="px-4 py-2 bg-green-500 text-white rounded-md"
+//                     >
+//                         ยืนยัน
+//                     </button>
+//                 </div>
+//             </div>
+//         </div>
+//     )}
+
+// </div>
+
+
+
+
+
+
+
+
+
+
+// {isModalOpen && (
+//     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+//         <div className="bg-white p-6 rounded-lg">
+//             <h2 className="text-2xl font-semibold mb-4">ยืนยันการจองคิว</h2>
+//             <p>คุณต้องการจองคิวหรือไม่?</p>
+//             <div className="mt-4 flex justify-end">
+//                 <button
+//                     onClick={handleCloseModal} // เรียกใช้งานเมื่อกดปุ่ม "ยกเลิก"
+//                     className="px-4 py-2 bg-red-500 text-white rounded-md mr-2"
+//                 >
+//                     ยกเลิก
+//                 </button>
+//                 <button
+//                     onClick={handleConfirm} // เรียกใช้งานเมื่อกดปุ่ม "ยืนยัน"
+//                     className="px-4 py-2 bg-green-500 text-white rounded-md"
+//                 >
+//                     ยืนยัน
+//                 </button>
+//             </div>
+//         </div>
+//     </div>
+// )}
+
+
+
+
+
+{/* <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+<input
+    type="text"
+    value={fname}
+    onChange={(e) => setFname(e.target.value)}
+    className=" text-white peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+    id="exampleFormControlInput3"
+    placeholder=""
+    pattern="^[A-Za-zก-๙\s]*$" // Only allows text characters and spaces
+    title="Please enter only text characters." // Error message if pattern doesn't match
+/>
+<label
+    htmlFor="exampleFormControlInput3"
+    className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-white peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none text-[#C6C6C6] dark:text-neutral-200 dark:peer-focus:text-primary"
+>ชื่อ
+</label>
+<p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
+
+</div> */}

@@ -21,7 +21,7 @@ const LoginComponent: React.FC = () => {
         event.preventDefault();
         try {
 
-            const response = await fetch("/api/checkLogin");
+            const response = await fetch("/api/user");
             const data = await response.json();
 
             const match = data?.user?.some((user: { email: string, password: string }) => {
@@ -32,11 +32,11 @@ const LoginComponent: React.FC = () => {
                 // Set login success and save to localStorage
                 setLoginSuccess(true);
                 localStorage.setItem("isLoggedIn", "true"); // Set the logged-in state
-                router.push("/");
+                router.push("/home/${user.id}");
             } else {
                 // Credentials do not match, show an error message
                 setLoginSuccess(false);
-                setLoginMessage("Invalid email or password");
+                setLoginMessage(" email หรือ password ไม่ถูกต้อง");
             }
         } catch (error) {
             console.error("An error occurred:", error);
@@ -46,18 +46,15 @@ const LoginComponent: React.FC = () => {
     useEffect(() => {
         // Fetch data from the API
         fetch("/api/checkLogin")
-          .then((response) => response.json())
-          .then((data) => {
-            // Set the fetched data to the state
-            setData(data);
-            //  console.log("Fetched data:", data);
-            // console.log(data.user.email);
-            // console.log(data.user.password);
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-          });
-      }, []);
+            .then((response) => response.json())
+            .then((data) => {
+                // Set the fetched data to the state
+                setData(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            });
+    }, []);
 
 
 
@@ -106,7 +103,7 @@ const LoginComponent: React.FC = () => {
                                             <label htmlFor="email" className="text-white mb-2"
                                             >อีเมล</label>
                                             <input
-                                               type="text" value={email} onChange={(e) => setEmail(e.target.value)}
+                                                type="text" value={email} onChange={(e) => setEmail(e.target.value)}
                                                 id="email"
                                                 placeholder="อีเมล"
                                                 className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2  focus:shadow-lg"
@@ -130,15 +127,52 @@ const LoginComponent: React.FC = () => {
                                         <div id="button" className="flex flex-col w-full my-5">
 
                                             <div className="flex">
-                                                <button className="group relative h-12 w-full overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold text-white"  type="submit" onClick={handleLogin}>
+                                                <button className="group relative h-12 w-full overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold text-white" type="submit" onClick={handleLogin}>
                                                     เข้าสู่ระบบ
                                                     <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
                                                 </button>
                                             </div>
 
-                                            {loginMessage && <p className={`text-${loginSuccess ? "success" : "danger"}`}>{loginMessage}</p>}
+                                            {loginMessage && <p className={`text-${loginSuccess ? "success" : "danger"}`}>{loginMessage} </p>}
+                                            {/* {loginMessage && <p className={`text-${loginSuccess ? "success" : "danger"}`}>{loginMessage} </p>} */}
 
                                         </div>
+                                        {/* href={`/news/${news.id}`} */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                                         <div className="flex my-5">
