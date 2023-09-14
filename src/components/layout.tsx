@@ -10,7 +10,9 @@ import Navbar from './Navbar';
 const fontMNR = Mitr({
   weight: "300",
   subsets: ['latin'],
+  variable: '--font-mitr',
 })
+
 
 export default function RootLayout({
   children,
@@ -24,7 +26,10 @@ export default function RootLayout({
         <Navbar />
         {/* <ComponentsNavbar /> */}
       </header>
-      <main className={fontMNR.className}>{children}</main>
+      <main className={fontMNR.className}>
+        {children}
+        <BackToTopButton />
+      </main>
       <FootPage />
       <Footer />
     </>

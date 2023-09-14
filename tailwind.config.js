@@ -12,7 +12,6 @@ module.exports = {
     extend: {
       fontFamily:{
         fontTH01:"'Prompt',' sans-serif'",
-        fontTH02: "'Mali',  cursive"
       },
       colors:{
         primary: '#0F172A',
