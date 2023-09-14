@@ -1,6 +1,5 @@
-import { Inter } from 'next/font/google'
+import { Mitr } from 'next/font/google'
 import React from "react";
-import ComponentsNavbar from './Thenavbar';
 import FootPage from './MenuFootPaage';
 import Header from './Header';
 import BackToTopButton from './BactToTop';
@@ -8,7 +7,12 @@ import Footer from './footer';
 import Navbar from './Navbar';
 
 
-const inter = Inter({ subsets: ['latin'] })
+const fontMNR = Mitr({
+  weight: "300",
+  subsets: ['latin'],
+  variable: '--font-mitr',
+})
+
 
 export default function RootLayout({
   children,
@@ -22,12 +26,12 @@ export default function RootLayout({
         <Navbar />
         {/* <ComponentsNavbar /> */}
       </header>
-      <main className={inter.className}>{children}
+      <main className={fontMNR.className}>
+        {children}
         <BackToTopButton />
       </main>
       <FootPage />
       <Footer />
-
     </>
   )
 }

@@ -1,6 +1,6 @@
 const FootPage = () => {
     return (
-        <div className="container mx-auto mt-60 mb-10 text-white">
+        <div className="container mx-auto mt-60 mb-10 text-white font-fontTH01">
             <div className="flex flex-wrap md:flex-nowrap place-content-center place-items-center gap-3 lg:gap-5 mx-4 ">
                 <div className="flex gap-3 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="55" viewBox="0 0 84 85" fill="none">

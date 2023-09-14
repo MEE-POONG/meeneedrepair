@@ -68,7 +68,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="font-fontTH02">
+    <nav className="font-fontTH01">
       <div className=" container px-5 mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 md:py-2 drop-shadow-lg" style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
         <div className="flex items-center">
           <div onClick={() => setIsOpen(!isOpen)}
