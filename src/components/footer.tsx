@@ -7,7 +7,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 
 const Footer = () => {
     return (
-        <div className="font-fontTH02 bg-[#F4F5F5]">
+        <div className="font-fontTH01 bg-[#F4F5F5]">
             <footer className="container mx-auto py-5">
                 <div className="md:grid grid-flow-col gap-3 mx-5 md:mx-16">
                     <div className="">
@@ -44,18 +44,18 @@ const Footer = () => {
                         </p>
                         <div className=" lg:flex items-start gap-2 hidden">
                             <ImHome />
-                            <span className="text-[10px] md:text-sm ">
+                            <span className="text-[10px] md:text-base ">
                                 46/3 ถ.ราชนิกุล ต.ในเมือง อ.เมือง, Nakhon Ratchasima,
                                 Thailand, Nakhon Ratchasima
                             </span>
                         </div>
                         <div className="flex items-center gap-2">
                             <BiLogoGmail />
-                            <span className="text-[10px] md:text-sm"> me.prompt.tec@gmail.com </span>
+                            <span className="text-[10px] md:text-base"> me.prompt.tec@gmail.com </span>
                         </div>
                         <div className="flex items-center gap-2">
                             <FiPhoneCall size={13} />
-                            <p className="text-[10px] md:text-sm"> 099-164-1044,
+                            <p className="text-[10px] md:text-base"> 099-164-1044,
                                 <span className="text-[10px] md:text-sm"> 065-821-4605</span>
                             </p>
 
@@ -64,15 +64,15 @@ const Footer = () => {
 
                     <div className="">
                         <p className="text-sm md:text-base font-semibold mb-1">บริกรของเรา</p>
-                        <p className="text-[10px] md:text-xs">รับซ่อมบำรุงอุปกรณ์ IT</p>
-                        <p className="text-[10px] md:text-xs">ให้คำปรึกษาปัญหาเกี่ยวกับอุปกรณ์ IT</p>
+                        <p className="text-[10px] md:text-sm">รับซ่อมบำรุงอุปกรณ์ IT</p>
+                        <p className="text-[10px] md:text-sm">ให้คำปรึกษาปัญหาเกี่ยวกับอุปกรณ์ IT</p>
                     </div>
 
                     <div>
                         <p className=" text-sm md:text-base font-semibold mb-1">สนับสนุน</p>
-                        <Link href="./" className="text-[10px] md:text-xs"><p >วิธีการสมัครสมาชิก</p></Link>
-                        <Link href="" className=" text-[10px] md:text-xs"><p >วิธีการสั่งซื้อ และชำระเงิน</p></Link>
-                        <Link href="" className=" text-[10px] md:text-xs"><p >การติดตามสถานะ</p></Link>
+                        <Link href="./" className="text-[10px] md:text-sm"><p >วิธีการสมัครสมาชิก</p></Link>
+                        <Link href="" className=" text-[10px] md:text-sm"><p >วิธีการสั่งซื้อ และชำระเงิน</p></Link>
+                        <Link href="" className=" text-[10px] md:text-sm"><p >การติดตามสถานะ</p></Link>
                     </div>
 
 

@@ -11,12 +11,10 @@ import Slide from "../container/Home/Slide";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Mee Need Repair</title>
-      </Head>
-
       <RootLayout>
+        <Head>
+          <title>Mee Need Repair</title>
+        </Head>
         <Slide />
         <div className=''>
           <Menuservice />
@@ -25,9 +23,6 @@ export default function Home() {
           <Cardsevice />
           <CardNews />
         </div>
-
-
       </RootLayout>
-    </>
   )
 }

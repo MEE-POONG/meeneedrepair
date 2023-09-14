@@ -53,7 +53,7 @@ const TabMenu = () => {
                 <button
 
                     className="text-secondary2 hover:underline text-[12px]"
-                >ใบเสร็จ/ใบกำกับภาษี
+                >รายการคำสั่งซื้อ
                 </button>
             </div>
 
