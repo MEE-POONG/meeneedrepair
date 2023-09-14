@@ -13,7 +13,7 @@ const Navbar = () => {
       children: [
         { name: 'ประวัติความเป็นมา', link: '/about' },
         { name: 'ข่าวสาร', link: '/news' },
-        { name: 'บทความ', link: '/blogs' },
+        { name: 'บทความ', link: '/blog' },
       ],
     },
     { name: 'บริการของเรา', link: 'services' },
