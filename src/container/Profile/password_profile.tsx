@@ -39,7 +39,7 @@ const PasswordProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">เปลี่ยนรหัสผ่าน</h3>
             </div>
 
-            <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1">
+            <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1 w-[1000px]">
                 <div>
                     <div className="flex justify-between">
                         <p className="text-lg font-semibold">เปลี่ยนรหัสผ่าน</p>

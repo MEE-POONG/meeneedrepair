@@ -58,19 +58,19 @@ export default function Information(){
                         <div className="mt-5 leading-loose">
                             <p>
                                 <strong>ชื่อผู้รับ :</strong>
-                                {/* {userData.fname} {userData.lname} */}
+                                {userData.fname} {userData.lname}
                             </p>
                             <p>
                                 <strong>อีเมล :</strong>
-                                {/* {userData.email} */}
+                                {userData.email}
                             </p>
                             <p>
                                 <strong>เบอร์โทรศัพท์ :</strong>
-                                {/* {userData.tel} */}
+                                {userData.tel}
                             </p>
                             <p>
                                 <strong>ที่อยู่จัดส่ง :</strong>
-                                {/* {userData.birthday} */}
+                                {/* {userData.loca} */}
                             </p>
                         </div>
                         <div className="w-full h-0.5 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mt-5"></div>

@@ -10,7 +10,7 @@ const ReceiptProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">ใบเสร็จ/ใบกำกับภาษี</h3>
             </div>
 
-            <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1">
+            <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1 w-[1000px]">
                 <div>
                     <p className="text-red-500 text-center mb-5">**แสดงเมื่อกดปุ่ม เพิ่มที่อยู่ หรือ แก้ไข**</p>
                     <div className="flex justify-between">

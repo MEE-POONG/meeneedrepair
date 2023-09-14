@@ -11,15 +11,15 @@ const OrderProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">รายการคำสั่งซื้อ</h3>
             </div>
 
-            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base">
+            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base w-[1000px]">
 
                 <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
-                    <p className="col-span-3 md:col-span-2 self-center flex justify-center flex-wrap">สถานะ:
+                    <div className="col-span-3 md:col-span-2 self-center flex justify-center flex-wrap">สถานะ:
                         <p className="self-center md:ml-1 text-green-500 text-center">สำเร็จ</p>
-                    </p>
+                    </div>
 
                     <div className="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-description" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -38,9 +38,9 @@ const OrderProfile = () => {
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า ถ้ายาวจะเป็นแบบนี้ อันนี้คือความยาวของตัวหนังสือ ถ้ายาว </p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
-                    <p className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
+                    <div className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
                         <p className="self-center md:ml-1 text-orange-500 text-center">เตรียม</p>
-                    </p>
+                    </div>
 
                     <div className="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-description" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -58,9 +58,9 @@ const OrderProfile = () => {
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
-                    <p className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
+                    <div className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
                         <p className="self-center md:ml-1 text-orange-500 text-center">กำลังส่ง</p>
-                    </p>
+                    </div>
 
                     <div className="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-description" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -79,9 +79,9 @@ const OrderProfile = () => {
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
-                    <p className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
+                    <div className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
                         <p className="self-center md:ml-1 text-red-500 text-centertext-center">ยกเลิก</p>
-                    </p>
+                    </div>
 
                     <div className="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-description" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
