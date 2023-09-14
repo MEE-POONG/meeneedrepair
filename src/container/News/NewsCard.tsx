@@ -52,7 +52,7 @@ export default function NewsCard() {
                     {newsData.slice(0, visibleItems).map((news) => (
                         <Link key={news.id} href={`/news/${news.id}`} passHref>
 
-                            <div key={news.id} className="bg-secondary1 rounded-lg overflow-hidden w-60 m-10 h-[250px]">
+                            <div key={news.id} className="bg-secondary1 rounded-lg overflow-hidden w-[310px] md:w-60 m-5 md:m-10 h-[250px]">
                                 <img
                                     className=' w-full h-24 object-cover'
                                     src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
@@ -60,10 +60,10 @@ export default function NewsCard() {
                                 />
                                
                                 <div className="px-4 mt-5">
-                                    <p className="text-xl line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
+                                    <p className=" text-base md:text-xl line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
                                     {news.title}
                                     </p>
-                                    <p className="text-secondary2 line-clamp-2 mb-5 truncate">{news.subtitle}
+                                    <p className="text-secondary2 md:text-sm line-clamp-2 mb-5 truncate">{news.subtitle}
                                     </p>
 
                                     <div className="flex justify-between mb-3">
