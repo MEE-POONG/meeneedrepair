@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
+
 <div className="absolute left-[650px] ">
 <h1 className="absolute w-[400px] text-white text-center text-3xl  font-bold">เข้าสู่ระบบ</h1>
 <div className="absolute w-[400px] top-[100px] text-white text-1xl ">
