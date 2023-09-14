@@ -35,9 +35,9 @@ export default function Tex() {
 
     return (
         <>
-            <div>
+            <div className="mt-10">
                 <div className="flex justify-between">
-                    <p className="text-lg font-semibold">ข้อมูลส่วนตัว</p>
+                    <p className="text-lg font-semibold">จัดการที่อยู่ใบเส็จ/ใบกำกับภาษี</p>
 
                     <Link
                         href={"/"}

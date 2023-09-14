@@ -1,31 +1,13 @@
-// import Link from "next/link";
-// import RootLayout from "../../components/layout";
-// import ProductCategory from "../../container/Product/CategoryList";
-// import CustomerProfile from "./custom_profile";
-// import EditProfile from "./EditProfile";
-// import TabMenu from "../../container/Profile/TabMenu";
-// import TabMenuMobile from "../../container/Profile/TabMenuMobile";
-
-// export default function ProfilePage() {
-//     return (
-//         <RootLayout>
-//             {/* <ProductCategory /> */}
-//             <div className="xl:hidden">
-//                 <TabMenuMobile />
-//             </div>
-
-
-            
-//             <div className="container mx-auto font-fontTH02">
-//                 <div className="grid grid-cols-12 md:gap-10 bg-[#1E293B] lg:bg-[#0F172A]">
-//                     <div className="lg:col-span-2">
-//                         <div className="hidden lg:block">
-//                             <h3 className="text-2xl text-secondary2 mb-8">จัดการบัญชีผู้ใช้</h3>
-//                             <TabMenu />
-//                         </div>
-//                     </div>
-
-
+import React, { useState } from 'react';
+import Personalinformation from '../../container/Profile/Personalinformation';
+import RootLayout from '../../components/layout';
+import EditPersonalData from '../../container/Profile/test/EditPersonalData';
+import PersonalData from '../../container/Profile/personaldata_profile';
+import ReceiptProfile from '../../container/Profile/receipt_profile';
+import AddressProfile from '../../container/Profile/address_profile';
+import OrderProfile from '../../container/Profile/order_profile';
+import FavoriteProfile from '../../container/Profile/favorite_profile';
+import PasswordProfile from '../../container/Profile/password_profile';
 
 
 
@@ -67,7 +49,7 @@ function Tabs() {
                     จัดการที่อยู่จัดส่ง
                 </div>
                 </button>
-                <button onClick={() => handleTabClick(2)} className={activeTab === 3 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
+                <button onClick={() => handleTabClick(3)} className={activeTab === 3 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 45 45" fill="none">
                         <path d="M15 13.125H30M15 20.625H30M15 28.125H22.5M37.5 39.375V9.375C37.5 8.38044 37.1049 7.42661 36.4016 6.72335C35.6984 6.02009 34.7446 5.625 33.75 5.625H11.25C10.2554 5.625 9.30161 6.02009 8.59835 6.72335C7.89509 7.42661 7.5 8.38044 7.5 9.375V39.375L12.1875 35.625L17.8125 39.375L22.5 35.625L27.1875 39.375L32.8125 35.625L37.5 39.375Z" stroke="#F4F5F5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -89,7 +71,7 @@ function Tabs() {
 
                 </div>
                 </button>
-                <button onClick={() => handleTabClick(2)} className={activeTab === 5 ? 'active' : ''}> <div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
+                <button onClick={() => handleTabClick(5)} className={activeTab === 5 ? 'active' : ''}> <div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 45 45" fill="none">
                         <path d="M9.375 31.875C9.375 32.8696 9.77009 33.8234 10.4733 34.5266C11.1766 35.2299 12.1304 35.625 13.125 35.625C14.1196 35.625 15.0734 35.2299 15.7766 34.5266C16.4799 33.8234 16.875 32.8696 16.875 31.875C16.875 30.8804 16.4799 29.9266 15.7766 29.2234C15.0734 28.5201 14.1196 28.125 13.125 28.125C12.1304 28.125 11.1766 28.5201 10.4733 29.2234C9.77009 29.9266 9.375 30.8804 9.375 31.875ZM28.125 31.875C28.125 32.8696 28.5201 33.8234 29.2234 34.5266C29.9266 35.2299 30.8804 35.625 31.875 35.625C32.8696 35.625 33.8234 35.2299 34.5266 34.5266C35.2299 33.8234 35.625 32.8696 35.625 31.875C35.625 30.8804 35.2299 29.9266 34.5266 29.2234C33.8234 28.5201 32.8696 28.125 31.875 28.125C30.8804 28.125 29.9266 28.5201 29.2234 29.2234C28.5201 29.9266 28.125 30.8804 28.125 31.875Z" stroke="#F4F5F5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M9.375 31.875H5.625V24.375M3.75 9.375H24.375V31.875M16.875 31.875H28.125M35.625 31.875H39.375V20.625M39.375 20.625H24.375M39.375 20.625L33.75 11.25H24.375M5.625 16.875H13.125" stroke="#F4F5F5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -97,7 +79,7 @@ function Tabs() {
                     รายการคำสั่งซื้อ
 
                 </div></button>
-                <button onClick={() => handleTabClick(2)} className={activeTab === 6 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
+                <button onClick={() => handleTabClick(6)} className={activeTab === 6 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 45 45" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd" d="M10.545 8.29501C7.43438 9.71626 5.15625 13.0988 5.15625 17.1319C5.15625 21.2513 6.84375 24.4275 9.25875 27.15C11.2519 29.3925 13.6631 31.2525 16.0144 33.0638C16.5731 33.495 17.1281 33.9244 17.6737 34.3538C18.66 35.1319 19.5394 35.8125 20.3888 36.3094C21.2362 36.8044 21.9188 37.0313 22.5 37.0313C23.0812 37.0313 23.7638 36.8063 24.6112 36.3094C25.4606 35.8125 26.34 35.1319 27.3263 34.3538C27.87 33.9225 28.4269 33.495 28.9856 33.0638C31.3369 31.2525 33.7481 29.3925 35.7412 27.15C38.1581 24.4275 39.8438 21.2513 39.8438 17.1319C39.8438 13.1006 37.5656 9.71626 34.455 8.29501C31.4325 6.91313 27.3713 7.27876 23.5125 11.2894C23.3813 11.4255 23.224 11.5337 23.0501 11.6077C22.8761 11.6816 22.689 11.7197 22.5 11.7197C22.311 11.7197 22.1239 11.6816 21.9499 11.6077C21.776 11.5337 21.6187 11.4255 21.4875 11.2894C17.6287 7.27876 13.5675 6.91313 10.545 8.29501ZM22.5 8.36251C18.165 4.48126 13.3106 3.93751 9.375 5.73563C5.22375 7.63876 2.34375 12.0488 2.34375 17.1338C2.34375 22.1306 4.425 25.9444 7.15687 29.0194C9.34312 31.4813 12.0188 33.5419 14.3831 35.3606C14.9194 35.7731 15.4387 36.1744 15.9319 36.5644C16.8937 37.3219 17.925 38.1281 18.9694 38.7394C20.0138 39.3488 21.2062 39.8456 22.5 39.8456C23.7938 39.8456 24.9862 39.3488 26.0306 38.7394C27.0769 38.1281 28.1063 37.3219 29.0681 36.5644C29.5817 36.1597 30.098 35.7584 30.6169 35.3606C32.9794 33.5419 35.6569 31.4794 37.8431 29.0194C40.575 25.9444 42.6562 22.1306 42.6562 17.1338C42.6562 12.0488 39.7781 7.63876 35.625 5.73938C31.6894 3.93938 26.835 4.48313 22.5 8.36251Z" fill="#F4F5F5" />
                     </svg>
@@ -105,7 +87,7 @@ function Tabs() {
 
                 </div>
                 </button>
-                <button onClick={() => handleTabClick(2)} className={activeTab === 7 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
+                <button onClick={() => handleTabClick(7)} className={activeTab === 7 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 45 45" fill="none">
                         <path d="M29.0625 18.75C30.6158 18.75 31.875 17.4908 31.875 15.9375C31.875 14.3842 30.6158 13.125 29.0625 13.125C27.5092 13.125 26.25 14.3842 26.25 15.9375C26.25 17.4908 27.5092 18.75 29.0625 18.75Z" fill="#F4F5F5" />
                         <path d="M9.375 30L19.0875 19.4025C18.8119 18.5156 18.75 17.8556 18.75 16.875C18.75 15.0208 19.2998 13.2082 20.33 11.6665C21.3601 10.1248 22.8243 8.92321 24.5373 8.21363C26.2504 7.50406 28.1354 7.31841 29.954 7.68014C31.7725 8.04188 33.443 8.93476 34.7541 10.2459C36.0652 11.557 36.9581 13.2275 37.3199 15.046C37.6816 16.8646 37.4959 18.7496 36.7864 20.4627C36.0768 22.1757 34.8752 23.6399 33.3335 24.67C31.7918 25.7002 29.9792 26.25 28.125 26.25C27.1444 26.25 26.4975 26.2313 25.6087 25.9538L22.5 29.0625H18.75V32.8125H15V36.5625H9.375V30Z" stroke="#F4F5F5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -115,7 +97,7 @@ function Tabs() {
 
                 </div>
                 </button>
-                <button onClick={() => handleTabClick(2)} className={activeTab === 8 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
+                <button onClick={() => handleTabClick(8)} className={activeTab === 8 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-secondary2 hover:underline text-[12px] ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 45 45" fill="none">
                         <path d="M36.5625 14.0625H16.875V9.84375C16.875 8.35191 17.4676 6.92117 18.5225 5.86627C19.5774 4.81138 21.0082 4.21875 22.5 4.21875C25.2018 4.21875 27.6328 6.15234 28.1531 8.71699C28.2304 9.07939 28.4475 9.39666 28.7574 9.59984C29.0673 9.80301 29.4448 9.87567 29.808 9.80202C30.1711 9.72837 30.4905 9.51437 30.6968 9.20652C30.903 8.89868 30.9794 8.52187 30.9094 8.15801C30.1148 4.24512 26.5781 1.40625 22.5 1.40625C20.2629 1.40858 18.1182 2.29827 16.5364 3.88011C14.9545 5.46194 14.0648 7.6067 14.0625 9.84375V14.0625H8.4375C7.69158 14.0625 6.97621 14.3588 6.44876 14.8863C5.92132 15.4137 5.625 16.1291 5.625 16.875V36.5625C5.625 37.3084 5.92132 38.0238 6.44876 38.5512C6.97621 39.0787 7.69158 39.375 8.4375 39.375H36.5625C37.3084 39.375 38.0238 39.0787 38.5512 38.5512C39.0787 38.0238 39.375 37.3084 39.375 36.5625V16.875C39.375 16.1291 39.0787 15.4137 38.5512 14.8863C38.0238 14.3588 37.3084 14.0625 36.5625 14.0625ZM36.5625 36.5625H8.4375V16.875H36.5625V36.5625ZM22.5 19.6875C21.318 19.6879 20.1757 20.1136 19.2818 20.8869C18.3878 21.6601 17.802 22.7292 17.6314 23.8988C17.4607 25.0683 17.7166 26.2603 18.3524 27.2567C18.9881 28.2531 19.9612 28.9875 21.0938 29.3256V32.3438C21.0938 32.7167 21.2419 33.0744 21.5056 33.3381C21.7694 33.6018 22.127 33.75 22.5 33.75C22.873 33.75 23.2306 33.6018 23.4944 33.3381C23.7581 33.0744 23.9062 32.7167 23.9062 32.3438V29.3256C25.0388 28.9875 26.0119 28.2531 26.6476 27.2567C27.2834 26.2603 27.5393 25.0683 27.3686 23.8988C27.198 22.7292 26.6122 21.6601 25.7182 20.8869C24.8243 20.1136 23.682 19.6879 22.5 19.6875ZM22.5 26.7188C22.0828 26.7188 21.675 26.595 21.3281 26.3633C20.9812 26.1315 20.7108 25.802 20.5512 25.4166C20.3915 25.0312 20.3498 24.607 20.4312 24.1979C20.5125 23.7887 20.7134 23.4128 21.0084 23.1178C21.3034 22.8228 21.6793 22.6219 22.0885 22.5405C22.4977 22.4591 22.9218 22.5009 23.3072 22.6606C23.6927 22.8202 24.0221 23.0906 24.2539 23.4375C24.4857 23.7844 24.6094 24.1922 24.6094 24.6094C24.6094 25.1688 24.3871 25.7053 23.9916 26.1009C23.596 26.4965 23.0594 26.7188 22.5 26.7188Z" fill="#F4F5F5" />
                     </svg>
@@ -129,10 +111,16 @@ function Tabs() {
 
 
 
-            <div className="tab-content mx-5 col-span-12 p-5 lg:p-0 lg:col-span-10 pt-5 mb-10 lg:mb-0 lg:pt-0 my-10">
+            <div className="tab-content mx-5 col-span-12 p-5 lg:p-0 lg:col-span-10 pt-5 mb-10 lg:mb-0 lg:pt-0 my-10 w-[1000px]">
                 {activeTab === 0 && <Personalinformation />}
-                {activeTab === 1 && <p>Content for Tab 2</p>}
-                {activeTab === 2 && <p>Content for Tab 3</p>}
+                {activeTab === 1 && <p><PersonalData /></p>}
+                {activeTab === 2 && <p><AddressProfile/></p>}
+                {activeTab === 3 && <p><ReceiptProfile/></p>}
+                {activeTab === 4 && <p></p>}
+                {activeTab === 5 && <p><OrderProfile/></p>}
+                {activeTab === 6 && <p><FavoriteProfile/></p>}
+                {activeTab === 7 && <p><PasswordProfile/></p>}
+                {activeTab === 8 && <p></p>}
             </div>
         </div>
         </RootLayout>

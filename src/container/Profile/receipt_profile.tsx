@@ -10,7 +10,7 @@ const ReceiptProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">ใบเสร็จ/ใบกำกับภาษี</h3>
             </div>
 
-            <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1">
+            <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1 w-[1000px]">
                 <div>
                     <p className="text-red-500 text-center mb-5">**แสดงเมื่อกดปุ่ม เพิ่มที่อยู่ หรือ แก้ไข**</p>
                     <div className="flex justify-between">
@@ -22,12 +22,12 @@ const ReceiptProfile = () => {
 
                         <div className="grid grid-cols-12 gap-5 md:ml-10 my-5">
 
-                            <div className="col-span-12 md:col-span-12 md:col-span-6">
+                            <div className="col-span-12  md:col-span-6">
                                 <p className="text-[#666363] my-2">ชื่อผู้รับ</p>
                                 <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
                             </div>
 
-                            <div className="col-span-12 md:col-span-12 md:col-span-6">
+                            <div className="col-span-12  md:col-span-6">
                                 <p className="text-[#666363] my-2">ชื่อผู้รับ</p>
                                 <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " />
                             </div>
