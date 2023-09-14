@@ -72,34 +72,34 @@ export default function AboutPage() {
         </h1>
     </div>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+        <div className="w-full bg-slate-700 rounded-lg p-12 flex flex-col justify-center items-center">
             <div className="mb-8">
                 <img className="object-center object-cover rounded-full h-36 w-36 shadow-xl" src="/images/team/team1.jpg" alt="photo"/>
             </div>
             <div className="text-center">
-                <p className="text-xl text-gray-700 font-bold mb-2 ">วีรยุทธ เวสโมราดี้</p>
-                <p className="text-base text-gray-400 font-normal ">ตําแหน่ง ซ่อมบํารุง ซอฟต์แวร์-ฮาร์ดแวร์</p>
+                <p className="text-xl text-white font-bold mb-2 ">วีรยุทธ เวสโมราดี้</p>
+                <p className="text-base text-white font-normal ">ตําแหน่ง ซ่อมบํารุง ซอฟต์แวร์-ฮาร์ดแวร์</p>
                 <Link href='https://www.facebook.com/weerayutves?mibextid=D4KYlr'> <p className="text-base text-gray-400 font-normal hover:text-blue-700">Facebook</p></Link>
 
             </div>
         </div>
-        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+        <div className="w-full bg-slate-700 rounded-lg p-12 flex flex-col justify-center items-center">
             <div className="mb-8">
             <img className="object-center object-cover rounded-full h-36 w-36  shadow-xl" src="/images/team/p2-1.jpg" alt="photo"/>
             </div>
             <div className="text-center">
-            <p className="text-xl text-gray-700 font-bold mb-2">ชลชาติ อินทรสูตร</p>
-                <p className="text-base text-gray-400 font-normal">ตําแหน่ง ซ่อมบํารุง ซอฟต์แวร์-ฮาร์ดแวร์</p>
+            <p className="text-xl text-white font-bold mb-2">ชลชาติ อินทรสูตร</p>
+                <p className="text-base text-white font-normal">ตําแหน่ง ซ่อมบํารุง ซอฟต์แวร์-ฮาร์ดแวร์</p>
                 <Link href='https://www.facebook.com/profile.php?id=100011457973926&mibextid=D4KYlr'> <p className="text-base text-gray-400 font-normal hover:text-blue-700">Facebook</p></Link>
             </div>
         </div>
-        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
+        <div className="w-full bg-slate-700 rounded-lg p-12 flex flex-col justify-center items-center">
             <div className="mb-8">
                 <img className="object-center object-cover rounded-full h-36 w-36" src="/images/team/nobody.png" alt="photo"/>
             </div>
             <div className="text-center">
-                <p className="text-xl text-gray-700 font-bold mb-2">Jade Bradley</p>
-                <p className="text-base text-gray-400 font-normal">Dev Ops</p>
+                <p className="text-xl text-white font-bold mb-2">Jade Bradley</p>
+                <p className="text-base text-white font-normal">Dev Ops</p>
             </div>
         </div>
         {/* <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
