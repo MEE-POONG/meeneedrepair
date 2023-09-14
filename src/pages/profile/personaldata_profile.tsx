@@ -82,12 +82,16 @@ const PersonalData = () => {
 
                     </div>
 
+
+
                 </div>
 
 
 
             </div>
-
+            <div className="flex justify-center my-5">
+                <button className="bg-[#18BCEB] h-10 w-24 rounded-3xl text-secondary2">บันทึก</button>
+            </div>
         </div>
     )
 }
