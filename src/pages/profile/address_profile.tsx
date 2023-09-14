@@ -22,12 +22,12 @@ const AddressProfile = () => {
 
                         <div className="grid grid-cols-12 gap-5 md:ml-10 my-5">
 
-                            <div className="col-span-12 md:col-span-12 md:col-span-6">
+                            <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">ชื่อผู้รับ</p>
                                 <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
                             </div>
 
-                            <div className="col-span-12 md:col-span-12 md:col-span-6">
+                            <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">นามสกุลผู้รับ</p>
                                 <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " />
                             </div>
