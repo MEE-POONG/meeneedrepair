@@ -109,15 +109,19 @@ model Appointment {
 }
 
 model User {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  fname    String?
-  lname    String?
-  birthday String?
-  email    String?
-  password String?
-  tel      String?
-  facebook String?
-  google   String?
+  id                 String            @id @default(auto()) @map("_id") @db.ObjectId
+  fname              String?
+  lname              String?
+  birthday           String?
+  email              String?
+  password           String?
+  tel                String?
+  facebook           String?
+  google             String?
+  DeliveryLocation   DeliveryLocation? @relation(fields: [deliveryLocationId], references: [id])
+  deliveryLocationId String?           @db.ObjectId
+  Taxinvoice         Taxinvoice?       @relation(fields: [TaxinvoiceId], references: [id])
+  TaxinvoiceId       String?           @db.ObjectId
 }
 
 model Admin {
@@ -130,17 +134,25 @@ model Messenger {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
   title    String?
   subtitle String?
-  detail String?
-  img String?
-  emoji String?
+  detail   String?
+  img      String?
+  emoji    String?
   chat     String?
   date     String?
 }
 
 model DeliveryLocation {
-   id       String  @id @default(auto()) @map("_id") @db.ObjectId
-   name String?
-   tel  String?
-   Location String?
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String?
+  tel      String?
+  Location String?
+  User     User[]
+}
 
+model Taxinvoice {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String?
+  tel      String?
+  Location String?
+  User     User[]
 }
