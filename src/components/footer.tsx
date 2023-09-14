@@ -7,7 +7,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 
 const Footer = () => {
     return (
-        <div className="font-fontTH02 bg-[#F4F5F5]">
+        <div className="font-mnr bg-[#F4F5F5]">
             <footer className="container mx-auto py-5">
                 <div className="md:grid grid-flow-col gap-3 mx-5 md:mx-16">
                     <div className="">
