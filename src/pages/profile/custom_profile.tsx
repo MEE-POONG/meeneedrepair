@@ -1,6 +1,34 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const CustomerProfile = () => {
+
+    const router = useRouter();
+    const { id } = router.query; // ดึงค่า id จาก query parameters
+
+    const [userData, setUserData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    setUserData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
+                    //console.log(data);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                });
+        }
+    }, [id]);
+
+
     return (
         <div className="">
             <div className="flex items-center">
@@ -28,11 +56,11 @@ const CustomerProfile = () => {
                     <div className="mt-5 leading-loose">
                         <p>
                             <strong>ชื่อผู้รับ :</strong>
-                            สวัสดี วันจันทร์
+                            {userData.fname} {userData.lname}
                         </p>
                         <p>
                             <strong>เบอร์โทรศัพท์ :</strong>
-                            0954982096
+                            {userData.tel}
                         </p>
                         <p>
                             <strong>อีเมล :</strong>

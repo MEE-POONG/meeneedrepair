@@ -4,7 +4,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import Link from "next/link";
 const ShoppingCart = () => {
   return (
-    <div className="container mx-auto my-24 font-fontTH02 px-3 lg:px-10">
+    <div className="container mx-auto my-24 font-fontTH02 px-3 lg:px-24">
       <title>ตะกร้าสินค้าของคุณ</title>
 
       <h3 className="text-lg md:text-2xl text-secondary2">รายการสินค้า <span className="">(2)</span></h3>
