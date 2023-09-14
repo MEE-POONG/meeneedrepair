@@ -14,7 +14,7 @@ const FavoriteProfile = () => {
 
                 <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
-                    <p className="col-span-4 md:col-span-6 self-center">ชื่อสินค้า</p>
+                    <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] ">฿ 490</p>
                     <button className="col-span-3 md:col-span-2 bg-[#FFCD4B] rounded-xl h-14 md:h-10 self-center">หยิบใส่ตระกร้า</button>
                     <div className="flex items-center justify-center">
@@ -28,7 +28,7 @@ const FavoriteProfile = () => {
 
                 <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
-                    <p className="col-span-4 md:col-span-6 self-center">ชื่อสินค้า</p>
+                    <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า ถ้ายาวจะเป็นแบบนี้ อันนี้คือความยาวของตัวหนังสือ ถ้ายาว </p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] ">฿ 490</p>
                     <button className="col-span-3 md:col-span-2 bg-[#FFCD4B] rounded-xl h-14 md:h-10 self-center">หยิบใส่ตระกร้า</button>
                     <div className="flex items-center justify-center">
@@ -41,7 +41,7 @@ const FavoriteProfile = () => {
 
                 <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
                     <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
-                    <p className="col-span-4 md:col-span-6 self-center">ชื่อสินค้า</p>
+                    <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] ">฿ 490</p>
                     <button className="col-span-3 md:col-span-2 bg-[#FFCD4B] rounded-xl h-14 md:h-10 self-center">หยิบใส่ตระกร้า</button>
                     <div className="flex items-center justify-center">
