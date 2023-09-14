@@ -130,18 +130,44 @@ model Messenger {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
   title    String?
   subtitle String?
-  detail String?
-  img String?
-  emoji String?
+  detail   String?
+  img      String?
+  emoji    String?
   chat     String?
   date     String?
 }
 
+model Address {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  // fname       String?
+  // lname       String?
+  // tel         String?
+  typeaddress String?
+  location    String?
+  zipcode     String?
+  province    String?
+  district    String?
+  Subdistrict String?
+  detail      String?
+}
 
-model DeliveryLocation {
-   id       String  @id @default(auto()) @map("_id") @db.ObjectId
-   name String?
-   tel  String?
-   Location String?
+model Tex {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  // fname String?
+  // lname String?
+  // tel  String?
+    typeaddress String?
+  location    String?
+  zipcode     String?
+  province    String?
+  district    String?
+  Subdistrict String?
+  detail      String?
 
 }
+
+model Taxinvoice {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+}
+

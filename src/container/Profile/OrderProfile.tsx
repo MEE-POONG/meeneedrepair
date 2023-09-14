@@ -9,9 +9,9 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
 import ProductCategory from "../../container/Product/CategoryList";
-import FavoriteProfile from "./favorite_profile";
-import TabMenu from "../../container/Profile/TabMenu";
-import TabMenuMobile from "../../container/Profile/TabMenuMobile";
+import OrderProfile from "./order_profile";
+import TabMenu from "../../container/Profile/test/TabMenu";
+import TabMenuMobile from "../../container/Profile/test/TabMenuMobile";
 
 export default function EditFavoritePage() {
     return (
@@ -29,7 +29,7 @@ export default function EditFavoritePage() {
                         </div>
                     </div>
                     <div className="col-span-12 p-5 lg:p-0 lg:col-span-10 pt-5 mb-10 lg:mb-0 lg:pt-0">
-                        <FavoriteProfile />
+                        <OrderProfile />
                         {/* <EditProfile /> */}
                     </div>
                 </div>

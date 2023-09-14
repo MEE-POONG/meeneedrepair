@@ -1,19 +1,11 @@
-// const  EditProfile = () => {
-//     return (
-//         <div></div>
-//     )
-
-// }
-// export default EditProfile;
-
 import Link from "next/link";
 import RootLayout from "../../components/layout";
 import ProductCategory from "../../container/Product/CategoryList";
-import AddressProfile from "./address_profile";
-import TabMenu from "../../container/Profile/TabMenu";
-import TabMenuMobile from "../../container/Profile/TabMenuMobile";
+import ReceiptProfile from "./receipt_profile";
+import TabMenu from "../../container/Profile/test/TabMenu";
+import TabMenuMobile from "../../container/Profile/test/TabMenuMobile";
 
-export default function EditAddressPage() {
+export default function EditReceiptPage() {
     return (
         <RootLayout>
             {/* <ProductCategory /> */}
@@ -29,7 +21,7 @@ export default function EditAddressPage() {
                         </div>
                     </div>
                     <div className="col-span-12 p-5 lg:p-0 lg:col-span-10 pt-5 mb-10 lg:mb-0 lg:pt-0">
-                        <AddressProfile />
+                        <ReceiptProfile />
                         {/* <EditProfile /> */}
                     </div>
                 </div>
