@@ -12,7 +12,7 @@ const Footer = () => {
                 <div className="md:grid grid-flow-col gap-3 mx-5 md:mx-16">
                     <div className="">
                         <img
-                            className="w-28 lg:w-44 hidden md:block"
+                            className="w-28 lg:w-36 hidden md:block"
                             src="../images/LOGO.png"
                             alt=""
                         />
