@@ -18,7 +18,7 @@ const OrderProfile = () => {
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
                     <p className="col-span-3 md:col-span-2 self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-green-500">สำเร็จ</p>
+                        <p className="self-center md:ml-1 text-green-500 text-center">สำเร็จ</p>
                     </p>
 
                     <div className="flex items-center justify-center">
@@ -39,7 +39,7 @@ const OrderProfile = () => {
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า ถ้ายาวจะเป็นแบบนี้ อันนี้คือความยาวของตัวหนังสือ ถ้ายาว </p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
                     <p className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-orange-500">เตรียม</p>
+                        <p className="self-center md:ml-1 text-orange-500 text-center">เตรียม</p>
                     </p>
 
                     <div className="flex items-center justify-center">
@@ -59,7 +59,7 @@ const OrderProfile = () => {
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
                     <p className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-orange-500">กำลังส่ง</p>
+                        <p className="self-center md:ml-1 text-orange-500 text-center">กำลังส่ง</p>
                     </p>
 
                     <div className="flex items-center justify-center">
@@ -80,7 +80,7 @@ const OrderProfile = () => {
                     <p className="col-span-4 md:col-span-6 self-center truncate">ชื่อสินค้า</p>
                     <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
                     <p className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-red-500">ยกเลิก</p>
+                        <p className="self-center md:ml-1 text-red-500 text-centertext-center">ยกเลิก</p>
                     </p>
 
                     <div className="flex items-center justify-center">
