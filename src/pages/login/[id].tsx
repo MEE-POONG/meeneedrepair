@@ -2,22 +2,22 @@ import Link from "next/link";
 import RootLayout from "../../components/layout";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import LatestNews from "../../container/News/LatestNews";
+// import LatestUser from "../../container/User/LatestUser";
 
 
-const ReadNewsDetail = () => {
+const ReadUserDetail = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
-    const [newsData, setNewsData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [userData, setUserData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (id) {
-            fetch(`/api/news/${id}`)
+            fetch(`/api/user/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    setNewsData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
+                    setUserData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
                     //console.log(data);
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
@@ -35,9 +35,9 @@ const ReadNewsDetail = () => {
             <div className="container mx-auto"
             >
                 <div>
-                    <img className="w-full h-[300px]md:h-[567px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
+                  
                     <div className="mt-8 mx-4 xl:mx-0">
-                        <h4 className="text-2xl md:text-4xl font-semibold text-white">{newsData.title}</h4>
+                        <h4 className="text-2xl md:text-4xl font-semibold text-white">{userData.fname}</h4>
                         <div className="flex mt-8 gap-10">
                             <div className="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50" fill="none">
@@ -49,18 +49,18 @@ const ReadNewsDetail = () => {
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                                <span className="text-amber-400">{newsData.date}</span>
+                                <span className="text-amber-400">{userData.date}</span>
                             </div>
 
                             <div className="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50" fill="none">
                                     <path d="M22.619 41.6665H41.6666M36.9047 15.476L39.2856 17.8569M40.4761 9.52361C40.9452 9.99256 41.3173 10.5493 41.5712 11.1621C41.8251 11.7749 41.9558 12.4317 41.9558 13.095C41.9558 13.7583 41.8251 14.4151 41.5712 15.0279C41.3173 15.6407 40.9452 16.1975 40.4761 16.6665L17.8571 39.2855L8.33325 41.6665L10.7142 32.276L33.3428 9.53313C34.2347 8.63687 35.431 8.10876 36.6942 8.05362C37.9574 7.99849 39.1952 8.42037 40.1618 9.23551L40.4761 9.52361Z" stroke="#F4F5F5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
-                                <span className="text-cyan-600"> {newsData.author}</span>
+                                <span className="text-cyan-600"> {userData.author}</span>
                             </div>
 
                             <div className=" text-white flex items-center gap-2"> อ้างอิง :
-                                {newsData.refer}
+                                {userData.refer}
                             </div>
 
 
@@ -74,11 +74,11 @@ const ReadNewsDetail = () => {
                         {/* Left Content */}
                         <div className="col-span-7 bg-[#F4F5F5] mt-10 rounded-lg">
                             <div className="py-16">
-                                <img className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
+                                <img className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${userData.img}/public`} alt={userData.img} />
                                 <article className="prose lg:prose-md md:mx-auto mt-8 px-2 md:px-0">
-                                    <h1>{newsData.subtitle}</h1>
+                                    <h1>{userData.subfname}</h1>
                                     <p>
-                                        {newsData.detail}
+                                        {userData.detail}
                                     </p>
                                 </article>
 
@@ -93,9 +93,7 @@ const ReadNewsDetail = () => {
                         {/* <div className="col-span-2 bg-[#1E293B] mt-10 rounded-lg p-6">
                             <p className="text-white text-xl">ข่าวแนะนำ</p> */}
 
-                            <LatestNews />
-
-
+                        
                             {/* <div className="bg-[#F4F5F5] rounded-[20px] mx-auto">
                                 <div className="p-3 ">
                                     <img className="rounded-[20px] w-full "
@@ -110,7 +108,7 @@ const ReadNewsDetail = () => {
                                         <p>2 ส.ค. 66</p>
                                     </div>
                                     <p className="mt-2 truncate">อธิบายรายละเอียด อธิบายรายละเอียดอธิบายรายละเอียดอธิบายรายละเอียดอธิบายรายละเอียดอธิบายรายละเอียดอธิบายรายละเอียดอธิบายรายละเอียด</p>
-                                    <Link href='news/readNews'>
+                                    <Link href='user/readUser'>
                                         <p className="bg-yellow-500 p-2 rounded-full text-center mt-3 ">
                                             อ่าน
                                         </p>
@@ -139,4 +137,4 @@ const ReadNewsDetail = () => {
         </RootLayout>
     )
 }
-export default ReadNewsDetail;
+export default ReadUserDetail;

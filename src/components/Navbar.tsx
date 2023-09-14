@@ -13,7 +13,7 @@ const Navbar = () => {
       children: [
         { name: 'ประวัติความเป็นมา', link: '/about' },
         { name: 'ข่าวสาร', link: '/news' },
-        { name: 'บทความ', link: '/blogs' },
+        { name: 'บทความ', link: '/blog' },
       ],
     },
     { name: 'บริการของเรา', link: 'services' },
@@ -115,7 +115,7 @@ const Navbar = () => {
           <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
             <button className="flex items-center">
               <HiUser size={20} />
-              <a href="./register" className="hidden lg:block">เข้าสู่ระบบ</a>
+              <a href="./login" className="hidden lg:block">เข้าสู่ระบบ</a>
             </button>
 
           </li>
