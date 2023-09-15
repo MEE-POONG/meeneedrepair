@@ -1,6 +1,8 @@
 import '../scss/globals.css'
 import "../scss/slidestyles.css"
 import "../scss/slidestyles2.css"
+import "../scss/slideproduct.css"
+
 import type { AppProps } from 'next/app'
 
 

@@ -34,7 +34,7 @@ const ReadBlogDetail = () => {
             >
                 <div>
                     <img
-                        className="w-full h-[300px]md:h-[567px] object-cover"
+                        className="w-full h-[300px] md:h-[400px] object-cover"
                         src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blogData.img}/public`} alt={blogData.img} />
                     
                     <div className="mt-8 mx-4 xl:mx-0">
@@ -50,14 +50,14 @@ const ReadBlogDetail = () => {
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                                <span className="text-amber-400">วันที่ 2 สิงหาคม 2566</span>
+                                <span className="text-amber-400">{blogData.date}</span>
                             </div>
 
                             <div className="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50" fill="none">
                                     <path d="M22.619 41.6665H41.6666M36.9047 15.476L39.2856 17.8569M40.4761 9.52361C40.9452 9.99256 41.3173 10.5493 41.5712 11.1621C41.8251 11.7749 41.9558 12.4317 41.9558 13.095C41.9558 13.7583 41.8251 14.4151 41.5712 15.0279C41.3173 15.6407 40.9452 16.1975 40.4761 16.6665L17.8571 39.2855L8.33325 41.6665L10.7142 32.276L33.3428 9.53313C34.2347 8.63687 35.431 8.10876 36.6942 8.05362C37.9574 7.99849 39.1952 8.42037 40.1618 9.23551L40.4761 9.52361Z" stroke="#F4F5F5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
-                                <span className="text-cyan-600"> โดย ผู้ที่เขียน</span>
+                                <span className="text-cyan-600">{blogData.author}</span>
                             </div>
                         </div>
                     </div>
