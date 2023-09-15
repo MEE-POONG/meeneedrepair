@@ -12,7 +12,6 @@ interface blog {
     detail: string;
     date: string;
     author: string;
-    refer: string;
     img: string;
     // Add other properties if there are more
 }
@@ -108,7 +107,6 @@ const LatestBlog = () => {
                             <p className="text-2xl truncate font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#081FF0] to-[#13D1D1] ">{blog.title}</p>
                             <p className="mt-2 truncate p-1">{blog.detail}</p>
                             <div className="flex justify-end px-2 text-sm">
-                                <p> By &nbsp; {blog.refer}</p>
                                 <p>{blog.date}</p>
                             </div>
                            
