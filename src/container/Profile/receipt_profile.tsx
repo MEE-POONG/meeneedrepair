@@ -43,8 +43,6 @@ const ReceiptProfile = () => {
                                 <input type="text" className=" w-full h-9 pl-2   border border-b-black focus:outline-none focus:border-b-blue-500 " />
                             </div>
 
-
-
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">รหัสไปรษณีย์</p>
                                 <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " />

@@ -9,8 +9,6 @@ import OrderProfile from '../../container/Profile/order_profile';
 import FavoriteProfile from '../../container/Profile/favorite_profile';
 import PasswordProfile from '../../container/Profile/password_profile';
 
-
-
 function Tabs() {
     const [activeTab, setActiveTab] = useState(0);
 

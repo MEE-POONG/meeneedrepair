@@ -7,7 +7,7 @@ import { PiWarningCircleFill } from "react-icons/pi";
 import RootLayout from "../../components/layout";
 
 
-function YourComponent() {
+function RegisterFrom() {
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
     const [tel, setTel] = useState('');
@@ -253,5 +253,5 @@ function YourComponent() {
     );
 }
 
-export default YourComponent;
+export default RegisterFrom;
 
