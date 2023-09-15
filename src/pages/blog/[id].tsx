@@ -34,7 +34,7 @@ const ReadBlogDetail = () => {
             >
                 <div>
                     <img
-                        className="w-full h-[300px]md:h-[567px] object-cover"
+                        className="w-full h-[300px] md:h-[400px] object-cover"
                         src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blogData.img}/public`} alt={blogData.img} />
                     
                     <div className="mt-8 mx-4 xl:mx-0">
