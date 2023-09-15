@@ -7,9 +7,10 @@ interface blog {
     title: string;
     subtitle: string;
     detail: string;
-    img: string;
     author:string;
     date:string;
+    img: string;
+    
     // Add other properties if there are more
 }
 
