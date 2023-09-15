@@ -24,7 +24,7 @@ export default function NewsPage() {
             <div className="container mx-auto my-24">
                 <div className="flex items-center justify-center">
                     <div className="h-0.5 w-full bg-white"></div>
-                    <h2 className="w-full text-4xl text-center p-3 font-semibold bg-gradient-to-b from-[#081FF0] to-[#13D1D1] text-transparent bg-clip-text">
+                    <h2 className="w-full text-xl md:text-4xl text-center p-3 font-semibold bg-gradient-to-b from-[#081FF0] to-[#13D1D1] text-transparent bg-clip-text">
                         News Update
                     </h2>
                     <div className="h-0.5 w-full bg-white"></div>

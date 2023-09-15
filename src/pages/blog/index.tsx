@@ -36,7 +36,7 @@ const BlogsPage = () => {
                 </div>
 
                 {/* Card  */}
-                <div className="mt-10 p-5">
+                <div className="md:mt-1 md:p-5">
                     <div className="max-w-2xl mx-auto">
                     </div>
                     <div className="container mx-auto md:my-12">
