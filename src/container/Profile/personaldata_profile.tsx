@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const PersonalData = () => {
-
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
     const [userData, setUserData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [deliveryLocationData, setDeliveryLocationData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
     const [isLoading, setIsLoading] = useState(true);
+
+
 
     useEffect(() => {
         if (id) {
@@ -25,8 +27,10 @@ const PersonalData = () => {
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 });
+                
         }
     }, [id]);
+
 
 
     return (
@@ -51,7 +55,7 @@ const PersonalData = () => {
                         </p>
                         {/* {userData.fname} {userData.lname} */}
                         <input type="text" defaultValue="พฤศพล คงทวี" className="  w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
-
+                        
 
 
                         <p className="">
