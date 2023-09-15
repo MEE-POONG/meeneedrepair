@@ -106,11 +106,12 @@ const LatestBlog = () => {
                         </div>
                         <div className="px-4 py-2">
                             <p className="text-2xl truncate font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#081FF0] to-[#13D1D1] ">{blog.title}</p>
-                            <div className="flex justify-between px-2 text-sm">
+                            <p className="mt-2 truncate p-1">{blog.detail}</p>
+                            <div className="flex justify-end px-2 text-sm">
                                 <p> By &nbsp; {blog.refer}</p>
                                 <p>{blog.date}</p>
                             </div>
-                            <p className="mt-2 truncate">{blog.detail}</p>
+                           
                             <Link href={`/blog/${blog.id}`} passHref>
                                 <p className="bg-yellow-500 p-2 rounded-full text-center mt-3 ">
                                     อ่าน
