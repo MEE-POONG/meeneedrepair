@@ -71,13 +71,16 @@ export default function NewsCard() {
                                         <p className="text-natural01 text-xs">
                                             By: &nbsp;{news.author}
                                         </p>
-                                        <button className="text-natural04 text-xs">
-                                            <Link href={`/news/${news.id}`}>อ่าน</Link>
-                                        </button>
+
+                                        <Link href={`/news/${news.id}`} 
+                                            className="text-natural04 text-xs">
+                                            อ่าน
+                                        </Link>
+
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     ))}
                 </div>
