@@ -3,7 +3,7 @@ import RootLayout from "../../components/layout";
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import { useRouter } from 'next/router';
 import { FiHeart, FiSearch } from "react-icons/fi";
-import { AiOutlineShareAlt } from "react-icons/ai";
+import { AiOutlineShareAlt, AiOutlineArrowUp } from "react-icons/ai";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css';
@@ -40,7 +40,7 @@ const ReadProductsDetail = () => {
     };
     const toggleFavorite = () => {
         setFavorite(!favorite);
-      };
+    };
 
     const [favorite, setFavorite] = useState(false);
 
@@ -241,7 +241,18 @@ const ReadProductsDetail = () => {
 
 
 
-
+                    <div className="flex justify-center my-24">
+                        <button className="bg-[#18BCEB] rounded-lg w-48 h-16 text-2xl text-secondary2 flex items-center justify-center gap-x-2 "
+                        onClick={() => {
+                            window.scrollTo({
+                              top: 0,
+                              behavior: 'smooth',
+                            });
+                          }}>
+                            <AiOutlineArrowUp />
+                            <p>กลับสู่ด้านบน</p>
+                        </button>
+                    </div>
 
 
 
