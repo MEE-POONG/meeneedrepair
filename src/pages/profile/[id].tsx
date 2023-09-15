@@ -10,8 +10,6 @@ import FavoriteProfile from '../../container/Profile/favorite_profile';
 import PasswordProfile from '../../container/Profile/password_profile';
 import RepairProfile from '../../container/Profile/repair_profile';
 
-
-
 function Tabs() {
     const [activeTab, setActiveTab] = useState(0);
 
