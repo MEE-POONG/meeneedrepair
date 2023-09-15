@@ -46,48 +46,42 @@ export default function NewsCard() {
 
     return (
         <>
-
-            <div className='flex justify-center'>
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+            <div className="container mx-auto mt-5 px-6">
+                <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
                     {newsData.slice(0, visibleItems).map((news) => (
-                        <Link key={news.id} href={`/news/${news.id}`} passHref>
-
-                            <div key={news.id} className="bg-secondary1 rounded-lg overflow-hidden w-[310px] md:w-60 m-5 md:m-10 h-[250px]">
-                                <img
-                                    className=' w-full h-24 object-cover'
-                                    src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
-                                    alt='indexActivity image'
-                                />
-                               
-                                <div className="px-4 mt-5">
-                                    <p className=" text-base md:text-xl line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
-                                    {news.title}
-                                    </p>
-                                    <p className="text-secondary2 md:text-sm line-clamp-2 mb-5 truncate">{news.subtitle}
-                                    </p>
-
-                                    <div className="flex justify-between mb-3">
-
-                                        <div className="flex text-[#18BCEB] text-sx">
-                                            <p>By &nbsp;</p>
-                                            <p>{news.author}</p>
-                                        </div>
-
-                                        <div className="flex text-[#FFCD4B] text-sx">
-                                            <p>{news.date}</p>
-                                        </div>
-                                    </div>
+                        <div key={news.id} className="bg-secondary1 shadow-xl rounded-md overflow-hidden p-2 md:p-4">
+                            <div className="flex md:flex-wrap items-center">
+                                <div className="w-[350px] md:w-full h-[80px] md:h-[150px] rounded-l-md md:rounded-lg overflow-hidden ">
+                                    <img className="w-full h-full object-cover"
+                                        src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
+                                        alt=""
+                                    />
                                 </div>
 
-                            </div>
+                                <div className="ml-3 md:ml-0 md:mt-2">
+                                    <p className="text-sm lg:text-lg line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
+                                        {news.title}
+                                    </p>
 
-                           
-                        </Link>
+                                    <div className="hidden md:block text-secondary2 text-xs md:text-sm mt-2 ">
+                                        <p className="line-clamp-2">{news.subtitle}</p>
+                                    </div>
+
+                                    <div className="flex justify-between mt-5">
+                                        <p className="text-natural01 text-xs">
+                                            By: &nbsp;{news.author}
+                                        </p>
+                                        <button className="text-natural04 text-xs">
+                                            <Link href={`/news/${news.id}`}>อ่าน</Link>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     ))}
                 </div>
             </div>
-
-
         </>
     )
 }
