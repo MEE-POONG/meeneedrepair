@@ -38,6 +38,11 @@ const ReadProductsDetail = () => {
         }
 
     };
+    const toggleFavorite = () => {
+        setFavorite(!favorite);
+      };
+
+    const [favorite, setFavorite] = useState(false);
 
 
     useEffect(() => {
@@ -197,8 +202,12 @@ const ReadProductsDetail = () => {
 
 
                                 <div className="flex space-x-2">
-                                    <button>
-                                        <FiHeart className="text-3xl hover:fill-red-500 text-red-500" />
+                                    <button onClick={toggleFavorite}>
+                                        {favorite ? (
+                                            <FiHeart className="text-3xl fill-red-500 hover:fill-transparent text-red-500" />
+                                        ) : (
+                                            <FiHeart className="text-3xl hover:fill-red-500 text-red-500" />
+                                        )}
                                     </button>
                                     <p className=" self-center">เพิ่มในรายการโปรด</p>
                                 </div>
