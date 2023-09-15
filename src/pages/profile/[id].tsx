@@ -8,6 +8,7 @@ import AddressProfile from '../../container/Profile/address_profile';
 import OrderProfile from '../../container/Profile/order_profile';
 import FavoriteProfile from '../../container/Profile/favorite_profile';
 import PasswordProfile from '../../container/Profile/password_profile';
+import RepairProfile from '../../container/Profile/repair_profile';
 
 
 
@@ -116,7 +117,7 @@ function Tabs() {
                 {activeTab === 1 && <p><PersonalData /></p>}
                 {activeTab === 2 && <p><AddressProfile/></p>}
                 {activeTab === 3 && <p><ReceiptProfile/></p>}
-                {activeTab === 4 && <p></p>}
+                {activeTab === 4 && <p><RepairProfile/></p>}
                 {activeTab === 5 && <p><OrderProfile/></p>}
                 {activeTab === 6 && <p><FavoriteProfile/></p>}
                 {activeTab === 7 && <p><PasswordProfile/></p>}

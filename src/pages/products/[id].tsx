@@ -2,9 +2,14 @@ import Link from "next/link";
 import RootLayout from "../../components/layout";
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import { useRouter } from 'next/router';
+import { FiHeart, FiSearch } from "react-icons/fi";
+import { AiOutlineShareAlt } from "react-icons/ai";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper/modules';
-
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 
 
 
@@ -18,6 +23,22 @@ const ReadProductsDetail = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     // const [productimg, setproductimg] = useState(`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`); 
     // const [productimg1, setproductimg1] = useState(`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`);
+    const [count, setCount] = useState(0);
+    const incrementCount = () => {
+        // Update state with incremented value
+        setCount(count + 1);
+    };
+    const deincrementCount = () => {
+        // Update state with incremented value
+        if (count > 0) {
+            setCount(count - 1);
+        }
+        else {
+
+        }
+
+    };
+
 
     useEffect(() => {
         if (id) {
@@ -43,74 +64,155 @@ const ReadProductsDetail = () => {
             >
                 <div>
 
-                    <img className=" h-[300px]md:h-[567px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
+                    {/* <img className=" h-[300px]md:h-[567px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} /> */}
 
-                    <div className='slideproduct'>
-                        <Swiper
-                    style={{
-                        '--swiper-navigation-color': '#fff',
-                        '--swiper-pagination-color': '#fff',
-                    } as CSSProperties}
-                    loop={true}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    }}
-                    spaceBetween={10}
-                    navigation={true}
-                    thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+                    <div className="grid grid-cols-1 lg:grid-cols-2">
+                        <div className='slideproduct'>
+                            <Swiper
+                                style={{
+                                    '--swiper-navigation-color': '#fff',
+                                    '--swiper-pagination-color': '#fff',
+                                } as CSSProperties}
+                                loop={true}
+                                autoplay={{
+                                    delay: 2500,
+                                    disableOnInteraction: false,
+                                }}
+                                spaceBetween={10}
+                                navigation={true}
+                                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
 
-                    modules={[Autoplay, FreeMode, Navigation, Thumbs]}
-                    className="mySwiper2"
-                >
-                    <SwiperSlide >
-          
-                        <img  src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-    
-                        <img  src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`} alt={productsData.productimg1} />
-                    </SwiperSlide>
-                  
+                                modules={[Autoplay, FreeMode, Navigation, Thumbs]}
+                                className="mySwiper2"
+                            >
+                                <SwiperSlide >
 
-                </Swiper>
-                        {/* <img src={img1} alt="img2" className="" /> */}
-                        <Swiper
-                            onSwiper={setThumbsSwiper}
-                            loop={true}
-                            spaceBetween={10}
-                            slidesPerView={4}
-                            freeMode={true}
-                            watchSlidesProgress={true}
-                            modules={[FreeMode, Navigation, Thumbs]}
-                            className="mySwiper"
-                        >
+                                    <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
+                                </SwiperSlide>
 
-                            <SwiperSlide>
-                                {/* <img src={img1} alt="img1" className="" /> */}
-                                <img className=" w-[100px] h-[100px]" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
-                                
+                                <SwiperSlide>
 
-                            </SwiperSlide> 
-                            
-                            <SwiperSlide>
-    
-                        <img  className=" w-[100px] h-[100px]" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`} alt={productsData.productimg1} />
-                    </SwiperSlide>
+                                    <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`} alt={productsData.productimg1} />
+                                </SwiperSlide>
 
-{/* 
+                                <SwiperSlide >
+
+                                    <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+
+                                    <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`} alt={productsData.productimg1} />
+                                </SwiperSlide>
+
+
+                            </Swiper>
+                            {/* <img src={img1} alt="img2" className="" /> */}
+                            <Swiper
+                                onSwiper={setThumbsSwiper}
+                                loop={true}
+                                spaceBetween={10}
+                                slidesPerView={4}
+                                freeMode={true}
+                                watchSlidesProgress={true}
+                                modules={[FreeMode, Navigation, Thumbs]}
+                                className="mySwiper"
+                            >
+
+                                <SwiperSlide>
+                                    {/* <img src={img1} alt="img1" className="" /> */}
+                                    <img className=" " src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
+
+
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+
+                                    <img className="" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`} alt={productsData.productimg1} />
+                                </SwiperSlide>
+
+                                <SwiperSlide >
+
+                                    <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+
+                                    <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`} alt={productsData.productimg1} />
+                                </SwiperSlide>
+
+                                {/* 
                             <SwiperSlide className="flex">
                                 <img className="w-[100px] h-[100px]" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`} alt={productsData.productimg} />
                                 <img className="w-[100px] h-[100px]" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`} alt={productsData.productimg1} />
                             </SwiperSlide> */}
 
 
-                        </Swiper>
+                            </Swiper>
 
 
 
 
 
+                        </div>
+
+                        <div className="text-secondary2 m-10">
+                            <p className="text-4xl">ชื่อสินค้า</p>
+                            <div className="flex space-x-5 mt-5 mb-10">
+                                <p className="text-xl ">แบรนด์: ชื่อแบรนด์</p>
+                                <p className="text-xl">รหัสสินค้า: XXX25185</p>
+                            </div>
+                            <p className="text-xl ">อธิบายเกี่ยวกับสินค้า</p>
+                            <p className="text-bas mt-5 mb-10">ไร้สาย LIGHTSPEED สำหรับทุกคน
+                                ระบบไร้สาย LIGHTSPEED เจเนอเรชันใหม่พร้อมสำหรับคอเกมทุกคนแล้ว
+                                G304 คือเมาส์เกมมิ่งไร้สาย LIGHTSPEED ที่ที่ได้รับการออกแบบมาเพื่อมอบประสิทธิภาพอย่างแท้จริงด้วยนวัตกรรมทางเทคโนโลยีล่าสุดในราคาที่ย่อมเยา
+                                เซ็นเซอร์
+                                ความละเอียด 12,000 DPI, ประสิทธิภาพดีขึ้น 10 เท่า
+                                เซ็นเซอร์ HERO คือเซ็นเซอร์ออปติคอลเจเนอเรชันใหม่สำหรับการเล่นเกมจาก Logitech Logitech G ที่มีทั้งประสิทธิภาพอันน่าทึ่งและความสามารถที่ไม่มีใครเทียบได้ เพราะในการเล่นเกมด้วยระบบไร้สาย ไม่มีคำว่าประนีประนอม กำหนด DPI ได้ตั้งแต่ 200 - 12,000 และบันทึกได้สูงสุด 5 โปรไฟล์บนหน่วยความจำออนบอร์ด1
+                            </p>
+                            {/* <p className="text-xl my-5">คุณสมบัติ</p> */}
+                            <ul className="text-base list-disc p-10">
+                                <li >Bluetooth Headphones</li>
+                                <li>20 Hz - 20 KHz</li>
+                                <li>40mm Neodymium</li>
+                            </ul>
+
+
+                            <p className="text-3xl text-[#18BCEB] my-10">฿890</p>
+
+                            <div className="text-xl flex">
+                                <p className="mr-5">จำนวน</p>
+                                <button onClick={incrementCount}>+</button>
+                                <input type="number" defaultValue={count} className="mx-3 text-black text-center w-14 rounded-lg" readOnly />
+                                <button onClick={deincrementCount}>-</button>
+                            </div>
+
+                            <div className="space-x-5 my-5 flex justify-center">
+                                <button className="bg-[#A2E1F3] w-32 h-16 md:w-48 xl:w-52 xl:h-20  text-xl text-black rounded-xl ring-2 hover:ring-[#18BCEB]">หยิบใส่ตะกร้า</button>
+                                <button className="bg-[#18BCEB] w-32 h-16 md:w-48 xl:w-52 xl:h-20 text-xl text-black rounded-xl ring-2 hover:ring-[#18BCEB]">ซื้อสินค้า</button>
+                            </div>
+
+
+                            <div className="flex space-x-2 justify-between">
+
+
+                                <div className="flex space-x-2">
+                                    <button>
+                                        <FiHeart className="text-3xl hover:fill-red-500 text-red-500" />
+                                    </button>
+                                    <p className=" self-center">เพิ่มในรายการโปรด</p>
+                                </div>
+
+                                <div className="flex space-x-2">
+                                    <button>
+                                        <AiOutlineShareAlt className="text-3xl" />
+                                    </button>
+                                    <p className=" self-center">แชร์</p>
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
 
 
@@ -118,8 +220,14 @@ const ReadProductsDetail = () => {
 
 
 
+                    <p className="text-[#FFCD4B] font-bold text-3xl my-10">คุณสมบัติสินค้า</p>
 
+                    <div className="grid place-items-center space-y-5">
+                        <img src="https://i.imgur.com/Gn1CojE.png" alt="" />
+                        <img src="https://www.jib.co.th/img_master/uploads/Aoy/Xiaomi/x1.jpg" alt="" />
+                        <img src="https://www.jib.co.th/img_master/uploads/Aoy/Xiaomi/x2.jpg" alt="" />
 
+                    </div>
 
 
 
