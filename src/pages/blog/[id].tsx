@@ -38,7 +38,7 @@ const ReadBlogDetail = () => {
                         src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blogData.img}/public`} alt={blogData.img} />
                     
                     <div className="mt-8 mx-4 xl:mx-0">
-                        <h4 className="text-2xl md:text-4xl font-semibold text-white">{blogData.title}</h4>
+                        <h4 className="text-xl md:text-4xl font-semibold text-white">{blogData.title}</h4>
                         <div className="flex mt-8 gap-10">
                             <div className="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50" fill="none">
@@ -73,7 +73,7 @@ const ReadBlogDetail = () => {
                                     src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blogData.img}/public`} alt={blogData.img}
                                 />
                                 <article className="prose lg:prose-md md:mx-auto mt-8 px-2 md:px-0">
-                                    <h1>{blogData.subtitle}</h1>
+                                    <h1 className=" text-xl md:text-2xl">{blogData.subtitle}</h1>
                                     <p>
                                     {blogData.detail}
                                     </p>
