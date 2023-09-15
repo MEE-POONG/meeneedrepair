@@ -35,7 +35,7 @@ const ReadNewsDetail = () => {
             <div className="container mx-auto"
             >
                 <div>
-                    <img className="w-full h-[300px]md:h-[567px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
+                    <img className="w-full h-[300px] md:h-[400px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
                     <div className="mt-8 mx-4 xl:mx-0">
                         <h4 className="text-2xl md:text-4xl font-semibold text-white">{newsData.title}</h4>
                         <div className="flex mt-8 gap-10">
