@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 // Import Swiper styles
 import 'swiper/css';
@@ -12,14 +13,40 @@ import 'swiper/css/effect-fade'; // เพิ่ม CSS effect-fade
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import Link from 'next/link';
+
+interface news {
+    id: number;
+    title:string;
+    img: string;
+}
 
 export default function SlideNews() {
-    const [img1, setImg1] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_17.jpg'); // รูปภาพเริ่มต้น
-    const [img2, setImg2] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg');
-    const [img3, setImg3] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg');
-    const [img4, setImg4] = useState('https://assets.beartai.com/uploads/2023/09/Redmi-12.jpg');
-    const [img5, setImg5] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg');
-    const [img6, setImg6] = useState('https://assets.beartai.com/uploads/2023/08/Apollo_15_Lunar_Rover_and_Irwin-1024x768.jpg');
+    const initialVisibleItems = 4;
+    const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
+    const [newsData, setnewsData] = useState<news[]>([]); // Use the defined interface here
+    //   const [sliderRef, setSliderRef] = useState<Slider | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+
+    const handleLoadMore = () => {
+        setVisibleItems(visibleItems + 4);
+    };
+
+    useEffect(() => {
+        fetch('/api/news')
+            .then((response) => response.json())
+            .then((data) => {
+                setnewsData(data.news);
+                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+            });
+    }, []);
     return (
         <>
             <div className='slidestyles'>
@@ -28,7 +55,7 @@ export default function SlideNews() {
                     centeredSlides={true}
                     loop={true}
                     autoplay={{
-                        delay: 2500,
+                        delay: 120000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
@@ -40,72 +67,25 @@ export default function SlideNews() {
                 >
 
 
-
+{newsData.slice(0, visibleItems).map((news) => (
                     <SwiperSlide className="relative">
-                        <img src={img1} alt="img1" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img1} alt="img1" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                        <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Title/Name 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
+                        <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`} alt="img1" className="absolute inset-0 w-full h-full  object-cover blur-xl" />
+                        <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`} alt="img1" className="absolute inset-0 w-full h-full  object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
+                       
+                        <Link key={news.id} href={`/news/${news.id}`} passHref>
+                            <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                            {news.title} {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                        </h1>            
+                        
+                   
+                        
                         <h1 className="absolute md:text-2xl bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Link อ่านต่อ 1 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
+                             อ่านต่อ  {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
                         </h1>
+                        </Link>
                     </SwiperSlide>
-
-                    <SwiperSlide className="relative">
-                        <img src={img2} alt="img2" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img2} alt="img2" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                        <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Title/Name 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                        <h1 className="absolute md:text-2xl bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Link อ่านต่อ 2 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                    </SwiperSlide>
-
-                    <SwiperSlide className="relative">
-                        <img src={img3} alt="img3" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img3} alt="img3" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                        <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Title/Name 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                        <h1 className="absolute md:text-2xl bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Link อ่านต่อ 3 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                    </SwiperSlide>
-
-                    <SwiperSlide className="relative">
-                        <img src={img4} alt="img4" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img4} alt="img4" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                        <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Title/Name 4 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                        <h1 className="absolute md:text-2xl bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Link อ่านต่อ 4 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                    </SwiperSlide>
-
-                    <SwiperSlide className="relative">
-                        <img src={img5} alt="img5" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img5} alt="img5" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                        <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Title/Name 5 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                        <h1 className="absolute md:text-2xl bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Link อ่านต่อ 5 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                    </SwiperSlide>
-
-                    <SwiperSlide className="relative">
-                        <img src={img6} alt="img6" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img6} alt="img6" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                        <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Title/Name 6 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                        <h1 className="absolute md:text-2xl bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            Link อ่านต่อ 6 {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                    </SwiperSlide>
+                    ))}
+                
                 </Swiper>
             </div>
         </>
