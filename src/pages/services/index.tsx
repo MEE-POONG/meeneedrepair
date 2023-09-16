@@ -122,7 +122,7 @@ export default function AdviserService() {
                             <img src="../images/imgsevice/s5.jpg" alt="" className="w-[250px] mx-5 " />
                             <img src="../images/imgsevice/s6 .jpg" alt="" className="w-[250px] mx-5 " />
                         </div> */}
-                        <div className="p-10 md:p-20">
+                        <div className="lg:p-20">
                             <SlideServices2 />
                         </div>
 
