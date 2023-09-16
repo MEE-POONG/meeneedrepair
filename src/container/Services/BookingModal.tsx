@@ -47,7 +47,7 @@ export default function BookingModal() {
 
 
 
-                                        <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1 lg:w-[1000px] font-fontTH01">
+                                        <div className="bg-secondary2 mt-32  rounded-lg p-8 text-secondary1 lg:w-[1000px] font-fontTH01 ">
                                             <div>
 
                                                 <div className="flex justify-between">
