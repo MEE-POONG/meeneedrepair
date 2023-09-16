@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="">
                         <img
                             className="w-28 lg:w-36 hidden md:block"
-                            src="../images/LOGO.png"
+                            src="../images/logo/logoMR7.png"
                             alt=""
                         />
                     </div>
