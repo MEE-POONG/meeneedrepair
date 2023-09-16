@@ -81,7 +81,7 @@ const Navbar = () => {
           </div>
           <div className="flex">
             <Image
-              src="/images/LOGO.png"
+              src="/images/logo/logoMR7.png"
               width={100}
               height={100}
               className="w-[90px] md:w-[120px]" alt="" />
