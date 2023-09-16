@@ -8,7 +8,7 @@ export default function CardMeeNeed() {
           <div>
             <Image
               className='mx-auto mt-10 md:w-[200px]'
-              src="/images/LOGOO.png"
+              src="/images/logo/logoMR3.png"
               width={130}
               height={130}
               alt="Picture of the author"

@@ -81,15 +81,15 @@ const Navbar = () => {
           </div>
           <div className="flex">
             <Image
-              src="/images/LOGO.png"
+              src="/images/logo/logoMR7.png"
               width={100}
               height={100}
-              className="w-[90px] md:w-[120px]" alt="" />
+              className="w-[80px] md:w-[120px] p-2" alt="" />
           </div>
         </div>
 
         {/* nav link here */}
-        <ul className="md:flex gap-5 hidden font-medium text-base items-center">
+        <ul className="md:flex gap-5 hidden font-medium text-sm md:text-lg items-center">
           {Links.map((link) => (
             <li key={link.name} className="hover:border-b-2 hover:border-natural04"
               style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
@@ -159,7 +159,7 @@ const Navbar = () => {
             ) : (
               <button className="flex items-center">
                 <HiUser size={20} />
-                <a href="./login" className="hidden lg:block">เข้าสู่ระบบ</a>
+                <a href="./login" className="hidden lg:block text-sm md:text-lg ">เข้าสู่ระบบ</a>
               </button>
             )}
           </li>
