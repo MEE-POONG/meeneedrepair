@@ -2,6 +2,7 @@ import Link from "next/link";
 import RootLayout from "../../components/layout";
 import SlideServices from '../../container/Services/SlideServices';
 import SlideServices2 from '../../container/Services/SlideServices2';
+import BookingModal from "../../container/Services/BookingModal";
 
 
 export default function AdviserService() {
@@ -99,7 +100,8 @@ export default function AdviserService() {
 
 
                 <div className=" lg:flex lg:justify-center lg:items-center lg:space-x-10  md:space-x-10 md:space-y-0 my-10 space-y-10 text-center   ">
-                    <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
+                    {/* <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button> */}
+                    <BookingModal />
                     <button className=" w-[250px] h-[100px] bg-[#18BCEB] rounded-2xl text-2xl">ปรึกษา </button>
                 </div>
 
