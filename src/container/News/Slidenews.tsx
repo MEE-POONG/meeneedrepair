@@ -55,7 +55,7 @@ export default function SlideNews() {
                     centeredSlides={true}
                     loop={true}
                     autoplay={{
-                        delay: 120000,
+                        delay: 5000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
