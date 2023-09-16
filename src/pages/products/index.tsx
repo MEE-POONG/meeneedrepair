@@ -69,7 +69,7 @@ export default function ProductPage() {
             </div> */}
 
             <div className="container mx-auto font-fontTH01">
-
+                    <img src="/images/bannercomputer.png" alt="" className=" mx-auto my-10 w-[1300px]"/>
 
                 {/* Card Product */}
                 <div className="grid md:grid-cols-12 gap-3">
