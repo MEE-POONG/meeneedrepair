@@ -24,7 +24,7 @@ export default function AboutPage() {
                         </span>
                     </div>
                     <Image
-                        src="/images/LOGO.png" alt=""
+                        src="/images/logo/logoMR3.png" alt=""
                         width={300}
                         height={300}
                         className="w-[300px] mx-auto my-10 " />
