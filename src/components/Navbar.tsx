@@ -38,7 +38,7 @@ const Navbar = () => {
       name: 'เกี่ยวกับเรา',
       link: 'about',
       children: [
-        { name: 'ประวัติความเป็นมา', link: './../about' },
+        { name: 'เกี่ยวกับเรา', link: './../about' },
         { name: 'ข่าวสาร', link: './../news' },
         { name: 'บทความ', link: './../blog' },
       ],
