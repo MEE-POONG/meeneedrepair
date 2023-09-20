@@ -117,6 +117,7 @@ model User {
   birthday String?
   email    String?
   password String?
+  confirmPassword String?
   tel      String?
   facebook String?
   google   String?

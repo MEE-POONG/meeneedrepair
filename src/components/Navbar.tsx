@@ -68,16 +68,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="font-fontTH01">
-      <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 drop-shadow-lg" style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
-        <div className="flex items-center">
+    <nav className="font-fontTH01 h-24 mb-5 ">
+      <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 drop-shadow-lg " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
+      {/* <div className=" container  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}> */}
+        <div className="flex items-center ">
           <div onClick={() => setIsOpen(!isOpen)}
             className="md:hidden duration-700 ease-in-out"
             style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
             {
               isOpen ? <HiOutlineXMark size={38} /> : <HiBars3BottomLeft size={38} />
             }
-
           </div>
           <div className="flex">
             <Image
@@ -116,7 +116,7 @@ const Navbar = () => {
                   </button>
 
                   <ul
-                    className="dropdown-menu mt-2 absolute bg-secondary1 p-3 rounded-lg drop-shadow-lg"
+                    className="dropdown-menu absolute bg-secondary1 p-3 rounded-lg drop-shadow-lg"
                     aria-labelledby="dropdownMenuButton"
                     style={{ display: open ? 'block' : 'none' }}
                   >
@@ -139,17 +139,7 @@ const Navbar = () => {
 
         {/* login && badket */}
         <ul className="flex gap-3 font-semibold items-center text-base">
-          {/* <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
-            <button className="flex items-center">
-              <HiUser size={20} />
-              <a href="./login" className="hidden lg:block">เข้าสู่ระบบ</a>
-            </button>
-
-          </li> */}
-
-          {/* <a href="{`./profile/${profile.id}`}" className="hidden lg:block">โปรไฟล์</a>    */}
-          {/* href={`/news/${news.id}`} */}
-
+         
           <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
             {id ? (
                <Link href={`./../profile/${id}`} className="flex items-center">
@@ -209,16 +199,6 @@ const Navbar = () => {
       <div className={`px-10 pt-5 absolute z-[-1] w-full h-screen bg-secondary2 transition-all animate-flip-down
            ${isOpen ? '' : 'hidden'}`}
       >
-        {/* <ul className="font-semibold items-center duration-700 ease-in" >
-          {Links.map((link) => (
-            <li key={link.name} className="my-3"
-              style={{ color: scroll > 50 ? "" : "#F4F5F5" }}
-            >
-              <a href={link.link} >{link.name}</a>
-            </li>
-            // 
-          ))}
-        </ul> */}
         <ul className="">
           {Links.map((link) => (
             <li key={link.name} className="my-2 px-2 hover:border-b-2 hover:border-natural04">
