@@ -188,7 +188,7 @@ const ReadProductsDetail = () => {
                             <div className="text-xl flex">
                                 <p className="mr-5">จำนวน</p>
                                 <button onClick={incrementCount}>+</button>
-                                <input type="number" defaultValue={count} className="mx-3 text-black text-center w-14 rounded-lg" readOnly />
+                                <input type="number" value={count} className="mx-3 text-black text-center w-14 rounded-lg" readOnly />
                                 <button onClick={deincrementCount}>-</button>
                             </div>
 
