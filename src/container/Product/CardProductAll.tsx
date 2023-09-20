@@ -19,7 +19,7 @@ interface products {
 }
 
 
-const CardProductAll = () => {
+const CardProductAll = ({ searchText, setSearchText }:any) => {
     const [open, setOpen] = useState(false);
     const toggleDropdown = () => {
         setOpen(!open);
@@ -47,16 +47,30 @@ const CardProductAll = () => {
         fetch('/api/products')
             .then((response) => response.json())
             .then((data) => {
-                setproductsData(data.products);
-                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-
+                let filteredProducts = data.products;
+                if (searchText.trim() !== "") {
+                    // กรองข้อมูลสินค้าโดยใช้คำค้นหา
+                    filteredProducts = filteredProducts.filter((product:any) => {
+                        const search = searchText.toLowerCase();
+                        const productName = product.productname ? product.productname.toLowerCase() : "";
+                        const productDetail = product.productdetail ? product.productdetail.toLowerCase() : "";
+                        return (
+                            productName.includes(search) ||
+                            productDetail.includes(search)
+                        );
+                    });
+                }
+                setproductsData(filteredProducts);
+                setIsLoading(false);
             })
             .catch((error) => {
                 console.error('Error:', error);
-                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-
+                setIsLoading(false);
             });
-    }, []);
+    }, [searchText]);
+    
+    
+    
 
 
 
