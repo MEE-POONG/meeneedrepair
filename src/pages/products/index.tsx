@@ -7,6 +7,8 @@ import { FiSearch } from "react-icons/fi";
 
 
 export default function ProductPage() {
+    const [searchText, setSearchText] = useState("");
+
     return (
         <RootLayout>
             {/* <div className="flex flex-col ">    
@@ -69,7 +71,7 @@ export default function ProductPage() {
             </div> */}
 
             <div className="container mx-auto font-fontTH01">
-                    <img src="/images/bannercomputer.png" alt="" className=" mx-auto my-10 w-[1300px]"/>
+                <img src="/images/bannercomputer.png" alt="" className=" mx-auto my-10 w-[1300px]" />
 
                 {/* Card Product */}
                 <div className="grid md:grid-cols-12 gap-3">
@@ -82,12 +84,14 @@ export default function ProductPage() {
 
                     <div className="md:col-span-9">
                         <div className="grid grid-rows-1 mb-3">
-                        {/* Search */}
+                            {/* Search */}
                             <div className="md:col-end-12 ">
                                 <div className="flex items-center bg-secondary1 rounded-lg p-2">
                                     <p className="text-sm md:text-md text-secondary2 mr-2">ค้นหา:</p>
                                     <input type="search" name="" id=""
-                                        className="px-2 bg-transparent border-b-2 w-full"
+                                        className="px-2 bg-transparent border-b-2 w-full text-secondary2"
+                                        value={searchText}
+                                        onChange={(e) => setSearchText(e.target.value)}
                                     />
                                     <span className="bg-natural01 rounded-lg p-2 ml-3"><FiSearch /></span>
                                 </div>
@@ -95,13 +99,14 @@ export default function ProductPage() {
                         </div>
 
                         {/* Product */}
-                       
-                            <div className="">
-                                <CardProductAll />
-                            </div>
-                            
 
-                 
+                        <div className="">
+                            <CardProductAll searchText={searchText} setSearchText={setSearchText} />
+
+                        </div>
+
+
+
                     </div>
 
                 </div>

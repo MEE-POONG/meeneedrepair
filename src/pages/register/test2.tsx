@@ -124,6 +124,7 @@ function RegisterFrom() {
                     className="w-full py-3  bg-gray-800 rounded-lgfont-medium text-white uppercase focus:outline-none hover:bg-gray-700 hover:shadow-none">
                     สมัครสมาชิก
                 </button>
+                
             </form>
             {showModal && (
                 <div className="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 ">
