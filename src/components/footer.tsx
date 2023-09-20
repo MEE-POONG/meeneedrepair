@@ -70,7 +70,7 @@ const Footer = () => {
 
                     <div>
                         <p className=" text-sm md:text-base font-semibold mb-1">สนับสนุน</p>
-                        <Link href="./" className="text-[10px] md:text-sm"><p >วิธีการสมัครสมาชิก</p></Link>
+                        <Link href="./howto_register" className="text-[10px] md:text-sm"><p >วิธีการสมัครสมาชิก</p></Link>
                         <Link href="" className=" text-[10px] md:text-sm"><p >วิธีการสั่งซื้อ และชำระเงิน</p></Link>
                         <Link href="" className=" text-[10px] md:text-sm"><p >การติดตามสถานะ</p></Link>
                     </div>
