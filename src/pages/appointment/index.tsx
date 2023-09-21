@@ -89,56 +89,60 @@ function YourComponent() {
                 {/* <form onSubmit={handleSubmit}> */}
                     <div className="flex justify-center">
                         <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+                            <div className='mb-2'>ชื่อ</div>
                             <input
                                 type="text" value={fname} onChange={(e) => setFname(e.target.value)}
-                                className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" />
-                            <label
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none" />
+                            {/* <label
                                 htmlFor="exampleFormControlInput3"
                                 className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-white peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none  text-slate-800 dark:text-neutral-200 dark:peer-focus:text-primary"
                             >ชื่อ
-                            </label>
-                            <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
+                            </label> */}
+                            {/* <p className=" bg-[#C6C6C6] w-full h-[1px]"></p> */}
                         </div>
                         <div className="relative mb-6" data-te-input-wrapper-init>
+                        <div className='mb-2'>นามสกุล</div>
                             <input
                                 type="text" value={lname} onChange={(e) => setLname(e.target.value)}
-                                className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                 id="exampleFormControlInput3"
-                                placeholder="Email address" />
-                            <label
+                                placeholder="" />
+                            {/* <label
                                 htmlFor="exampleFormControlInput3"
                                 className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-white peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none text-slate-800 dark:text-neutral-200 dark:peer-focus:text-primary"
                             >นามสกุล
-                            </label>
-                            <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
+                            </label> */}
+                            {/* <p className=" bg-[#C6C6C6] w-full h-[1px]"></p> */}
                         </div>
                     </div>
                     <div className="flex justify-center">
                         <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+                        <div className='mb-2'>อีเมล</div>
                             <input
                                 type="email" value={email} onChange={(e) => setEmail(e.target.value)}
-                                className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                 id="exampleFormControlInput3"
                                 placeholder="Email address" />
-                            <label
+                            {/* <label
                                 htmlFor="exampleFormControlInput3"
                                 className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-white peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none text-slate-800 dark:text-neutral-200 dark:peer-focus:text-primary"
                             >อีเมล
-                            </label>
-                            <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
+                            </label> */}
+                            {/* <p className=" bg-[#C6C6C6] w-full h-[1px]"></p> */}
                         </div>
                         <div className="relative mb-6" data-te-input-wrapper-init>
+                        <div className='mb-2'>เบอร์โทรติดต่อ</div>
                             <input
                                 type="text" value={tel} onChange={(e) => setTel(e.target.value)}
-                                className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                 id="exampleFormControlInput3"
-                                placeholder="Email address" />
-                            <label
+                                placeholder="" />
+                            {/* <label
                                 htmlFor="exampleFormControlInput3"
                                 className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-white peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none text-slate-800 dark:text-neutral-200 dark:peer-focus:text-primary"
                             >เบอร์โทรติดต่อ
-                            </label>
-                            <p className=" bg-[#C6C6C6] w-full h-[1px]"></p>
+                            </label> */}
+                            {/* <p className=" bg-[#C6C6C6] w-full h-[1px]"></p> */}
                         </div>
                     </div>
 
