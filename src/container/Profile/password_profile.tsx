@@ -28,6 +28,50 @@ const PasswordProfile = () => {
         }
     }, [id]);
 
+    const handleSave = () => {
+        const oldPasswordElement = document.getElementById('oldPassword') as HTMLInputElement;
+        const newPasswordElement = document.getElementById('newPassword') as HTMLInputElement;
+        const confirmPasswordElement = document.getElementById('confirmPassword') as HTMLInputElement;
+
+        if (oldPasswordElement && newPasswordElement && confirmPasswordElement) {
+            const oldPassword = oldPasswordElement.value;
+            const newPassword = newPasswordElement.value;
+            const confirmPassword = confirmPasswordElement.value;
+
+            // ตรวจสอบรหัสผ่านเดิม
+            if (oldPassword !== userData.password) {
+                alert('รหัสผ่านเดิมไม่ถูกต้อง');
+                return;
+            }
+
+            // ตรวจสอบรหัสผ่านใหม่และยืนยันรหัสผ่านใหม่
+            if (newPassword !== confirmPassword) {
+                alert('รหัสผ่านใหม่ไม่ตรงกัน');
+                return;
+            }
+
+            // ส่งข้อมูลไปยัง API เพื่อแก้ไขรหัสผ่าน
+            fetch(`/api/user/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ password: newPassword }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                    alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+
+    };
+
+
 
     return (
         <div className="">
@@ -51,7 +95,7 @@ const PasswordProfile = () => {
                             <strong>รหัสผ่านเดิม </strong>
                         </p>
                         {/* {userData.fname} {userData.lname} */}
-                        <input type="text" defaultValue="lawwwpss2" className="  w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                        <input id="oldPassword" type="text" defaultValue="lawwwpss2" className="  w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
 
 
 
@@ -59,7 +103,7 @@ const PasswordProfile = () => {
                             <strong>รหัสผ่านใหม่ </strong>
                         </p>
                         {/* {userData.tel} */}
-                        <input type="text" defaultValue="0884728951" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                        <input id="newPassword" type="text" defaultValue="0884728951" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
 
 
 
@@ -68,7 +112,7 @@ const PasswordProfile = () => {
                             <strong>ยืนยันรหัสผ่านใหม่ </strong>
                             {/* อีเมล@mail.com */}
                         </p>
-                        <input type="text" defaultValue="0884728951" className="w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                        <input id="confirmPassword" type="text" defaultValue="0884728951" className="w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
 
 
 
@@ -85,7 +129,7 @@ const PasswordProfile = () => {
 
             </div>
             <div className="flex justify-center my-5">
-                <button className="bg-[#18BCEB] h-10 w-24 rounded-3xl text-secondary2">บันทึก</button>
+                <button onClick={handleSave} className="bg-[#18BCEB] h-10 w-24 rounded-3xl text-secondary2">บันทึก</button>
             </div>
         </div>
     )
