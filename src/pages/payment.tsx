@@ -7,17 +7,20 @@ export default function Payment() {
         <RootLayout>
             <div className="container mx-auto my-24 text-center md:text-left font-fontTH01">
                 <div className="grid grid-flow-row md:grid-cols-7 gap-10 mt-10 mx-2">
-                    <div className="md:col-span-5 bg-secondary2 rounded-md">
-                        <StepOneSelectAdress/>
-                        
-                        <Link href="./payment" className="">
+                    <div className="md:col-span-5 p-5 bg-secondary2 rounded-md">
+                        <StepOneSelectAdress />
+
+
+                        {/*  ปุ่ม */}
+                        {/* <div className="text-center mt-10">
                             <button type="submit"
-                                className="bg-secondary1 text-white py-2 md:py-3 w-48 text-center mt-3 rounded-xl hover:bg-secondary1/90                                   text-xs md:text-sm"
+                                className="bg-secondary1 text-white p-2 text-center mt-3 rounded-xl hover:bg-secondary1/90                                   text-xs md:text-sm"
                             >
-                                ดำเนินการสั้งซื้อ
+                                <a href="./payment">ดำเนินการสั้งซื้อ</a>
                             </button>
-                        </Link>
+                        </div> */}
                     </div>
+
 
                     <div className="md:col-span-2 bg-secondary1 rounded-md p-5 text-center">
                         <div className="text-left text-xs md:text-sm text-secondary2">
