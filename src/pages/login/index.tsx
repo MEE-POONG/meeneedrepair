@@ -66,7 +66,6 @@ const LoginComponent: React.FC = () => {
                         <div
                             className="flex flex-col text-center md:text-left md:flex-row h-screen justify-evenly md:items-center"
                         >
-
                             <div className="flex flex-col w-full mx-auto mt-10 text-white ">
                                 <h1 className=" text-2xl font-bold">Me Need repair</h1>
                                 <div className=" text-center mx-auto my-[100px] font-bold">
