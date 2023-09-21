@@ -1,38 +1,52 @@
 import Link from "next/link";
+import { useState } from "react"
 
+type PizzaSize = "ส่งตามที่อยู่" | "รับเองสินค้าเอง" | "Get it yourself"
 const StepOneSelectAdress = () => {
+    const [topping, setTopping] = useState<PizzaSize>("ส่งตามที่อยู่")
+
+    const onOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTopping(e.target.value as PizzaSize)
+    }
     return (
-        <div className="container mx-auto my-24 text-center md:text-left font-fontTH01">
-            <div className="grid grid-flow-row md:grid-cols-7 gap-10 mt-10 mx-2">
-                <div className="md:col-span-5 bg-secondary2 rounded-md">
-
-
-
-
-                    <Link href="./payment" >
-                        <button type="submit"
-                            className="bg-secondary1 text-white py-2 md:py-3 w-48 text-center mt-3 rounded-xl hover:bg-secondary1/90                                   text-xs md:text-sm"
-                        >
-                            ดำเนินการสั้งซื้อ
-                        </button>
-                    </Link>
+        <>
+        {/* First Select */}
+            <div className="">
+                <div className="flex items-center p-5 text-lg">
+                    <p className="text-white px-3 py-0.5 bg-secondary1 rounded-full mr-2">
+                        1
+                    </p>
+                    <span>ข้อมูลสำหรับจัดส่ง</span>
                 </div>
-
-                <div className="md:col-span-2 bg-secondary1 rounded-md p-5 text-center">
-                    <div className="text-left text-xs md:text-sm text-secondary2">
-                        <p className="flex justify-between mb-2">ยอดรวม <strong>฿ 900.00</strong></p>
-                        <p className="flex justify-between">ส่วนลด <strong className="text-natural03">฿ - 0.00</strong></p>
-                        <p className="flex justify-between mt-2">ค่าจัดส่ง <strong>฿ 0.00</strong></p>
-
-                        <div className="w-full h-0.5 bg-secondary1 mt-5 mb-2"></div>
-                        <p className="flex justify-between"> <strong>ยอดรวมสุทธิ </strong><strong>฿ 900.00</strong></p>
-
-                    </div>
-
-
+                <div className="ml-14 ">
+                    <input
+                        className="cursor-pointer mr-2"
+                        type="radio"
+                        name="topping"
+                        value="ส่งตามที่อยู่"
+                        id="ส่งตามที่อยู่"
+                        checked={topping === "ส่งตามที่อยู่"}
+                        onChange={onOptionChange}
+                    />
+                    <label htmlFor="ส่งตามที่อยู่">ส่งตามที่อยู่</label>
+                </div>
+                <div className="ml-14">
+                    <input
+                        className="cursor-pointer mr-2"
+                        type="radio"
+                        name="topping"
+                        value="รับเองสินค้าเอง"
+                        id="รับเองสินค้าเอง"
+                        checked={topping === "รับเองสินค้าเอง"}
+                        onChange={onOptionChange}
+                    />
+                    <label htmlFor="ส่งตามที่อยู่">รับสินค้าเอง</label>
                 </div>
             </div>
-        </div>
+
+        {/* Second Select */}
+            <div></div>
+        </>
     )
 }
 export default StepOneSelectAdress;
