@@ -23,14 +23,14 @@ const ReadProductsDetail = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     // const [productimg, setproductimg] = useState(`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg}/public`); 
     // const [productimg1, setproductimg1] = useState(`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${productsData.productimg1}/public`);
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     const incrementCount = () => {
         // Update state with incremented value
         setCount(count + 1);
     };
     const deincrementCount = () => {
         // Update state with incremented value
-        if (count > 0) {
+        if (count > 1) {
             setCount(count - 1);
         }
         else {
