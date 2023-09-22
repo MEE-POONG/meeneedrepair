@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RootLayout from "../components/layout";
 import StepOneSelectAdress from "../container/PaymentStep/SelectAddress";
+import SelectShippings from "../container/PaymentStep/SelectShippingCard";
 
 export default function Payment() {
     return (
@@ -19,6 +20,8 @@ export default function Payment() {
                                 <a href="./payment">ดำเนินการสั้งซื้อ</a>
                             </button>
                         </div> */}
+
+                        <SelectShippings/>
                     </div>
 
 

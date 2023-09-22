@@ -18,7 +18,7 @@ const StepOneSelectAdress = () => {
                     </p>
                     <span>ข้อมูลสำหรับจัดส่ง</span>
                 </div>
-                
+
 
                 <div className="md:ml-10 text-sm md:text-base text-left">
                     <input
@@ -55,10 +55,11 @@ const StepOneSelectAdress = () => {
                     <span className="text-sm md:text-base">แก้ไข</span>
                 </div>
                 <div>
-                    
+                    <input type="checkbox" name="" id="" className="mr-2" />
+                    <label htmlFor="">ข้อมูลใบเสร็จใช้ที่อยู่เดียวกับที่อยู่จัดส่ง</label>
                 </div>
             </div>
-            
+
         </>
     )
 }
