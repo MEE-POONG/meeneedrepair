@@ -111,12 +111,12 @@ model Appointment {
 }
 
 model User {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  fname    String?
-  lname    String?
-  birthday String?
-  email    String?
-  password String?
+  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  fname           String?
+  lname           String?
+  birthday        String?
+  email           String?
+  password        String?
   confirmPassword String?
   tel      String?
   facebook String?
@@ -142,9 +142,6 @@ model Messenger {
 
 model Address {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  // fname       String?
-  // lname       String?
-  // tel         String?
   typeaddress String?
   location    String?
   zipcode     String?
@@ -166,11 +163,9 @@ model Tex {
   district    String?
   Subdistrict String?
   detail      String?
-
 }
 
 model Taxinvoice {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-
 }
 
