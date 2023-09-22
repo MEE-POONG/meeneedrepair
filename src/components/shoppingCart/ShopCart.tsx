@@ -2,7 +2,22 @@ import Image from "next/image";
 import RootLayout from "../layout";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Link from "next/link";
+import { useState } from "react";
+
+
+
 const ShoppingCart = () => {
+  const [quantity, setQuantity] = useState<number>(0);
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  }
   return (
     <div className="container mx-auto my-24 font-fontTH02 px-3 lg:px-24">
       <title>ตะกร้าสินค้าของคุณ</title>
@@ -24,9 +39,10 @@ const ShoppingCart = () => {
                 <p className="text-natural03 md:ml-48">฿ 490.00 </p>
               </div>
               <div className="flex items-center">
-                <span className="cursor-pointer text-secondary2"> - </span>
-                <input className="h-5 w-8 rounded-full border bg-white text-center outline-none mx-2 " type="number" defaultValue="1" min="1" />
-                <span className="cursor-pointer  text-secondary2"> + </span>
+                <span onClick={decreaseQuantity} className="cursor-pointer text-secondary2"> - </span>
+      <p className="h-5 w-8 rounded-full border bg-white text-center outline-none mx-2">{quantity}</p>
+                {/* <input className="h-5 w-8 rounded-full border bg-white text-center outline-none mx-2 " type="number" defaultValue="1" min="1" /> */}
+                <span onClick={increaseQuantity} className="cursor-pointer  text-secondary2"> + </span>
               </div>
 
               <button type="reset" className="text-secondary2 hover:text-red-500">
@@ -50,9 +66,10 @@ const ShoppingCart = () => {
                 <p className="text-natural03 md:ml-48">฿ 490.00 </p>
               </div>
               <div className="flex items-center">
-                <span className="cursor-pointer text-secondary2"> - </span>
-                <input className="h-5 w-8 rounded-full border bg-white text-center outline-none mx-2" type="number" defaultValue="1" min="1" />
-                <span className="cursor-pointer  text-secondary2"> + </span>
+              <span onClick={decreaseQuantity} className="cursor-pointer text-secondary2"> - </span>
+      <p className="h-5 w-8 rounded-full border bg-white text-center outline-none mx-2">{quantity}</p>
+                {/* <input className="h-5 w-8 rounded-full border bg-white text-center outline-none mx-2 " type="number" defaultValue="1" min="1" /> */}
+                <span onClick={increaseQuantity} className="cursor-pointer  text-secondary2"> + </span>
               </div>
 
               <button type="reset" className="text-secondary2 hover:text-red-500">
