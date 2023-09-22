@@ -111,16 +111,19 @@ model Appointment {
 }
 
 model User {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  fname    String?
-  lname    String?
-  birthday String?
-  email    String?
-  password String?
+  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  fname           String?
+  lname           String?
+  birthday        String?
+  email           String?
+  password        String?
   confirmPassword String?
-  tel      String?
-  facebook String?
-  google   String?
+  tel             String?
+  facebook        String?
+  google          String?
+  AddressId       String? @db.ObjectId
+  Address     Address? @relation(fields: [AddressId], references: [id])
+
 }
 
 model Admin {
@@ -142,9 +145,21 @@ model Messenger {
 
 model Address {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  // fname       String?
-  // lname       String?
-  // tel         String?
+  typeaddress String?
+  location    String?
+  zipcode     String?
+  province    String?
+  district    String?
+  Subdistrict String?
+  detail      String?
+  User User[]
+}
+
+model Tex {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  // fname String?
+  // lname String?
+  // tel  String?
   typeaddress String?
   location    String?
   zipcode     String?
@@ -154,23 +169,6 @@ model Address {
   detail      String?
 }
 
-model Tex {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  // fname String?
-  // lname String?
-  // tel  String?
-    typeaddress String?
-  location    String?
-  zipcode     String?
-  province    String?
-  district    String?
-  Subdistrict String?
-  detail      String?
-
-}
-
 model Taxinvoice {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-
 }
-

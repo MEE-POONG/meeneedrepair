@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import RootLayout from '../../components/layout';
-import ComponentsNavbar from '../../components/Thenavbar';
+
+
 import { FaFacebook, FaGoogle, FaInstagram, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
-import Navbar from '../../components/Navbar';
+
 import { useRouter } from 'next/router';
 
 
@@ -59,77 +59,12 @@ const LoginComponent: React.FC = () => {
 
 
     return (
-  
-            <RootLayout>
-               <div className="flex flex-col w-full mx-auto mt-10 text-white ">
-                                <h1 className=" text-2xl font-bold">Me Need repair</h1>
-                                <div className=" text-center mx-auto my-[100px] font-bold">
-                                    <p className=" text-5xl mt-10 my-[10px]">Welcome!</p>
-                                    <p className=" text-5xl ">to Our Website</p>
-                                    <p className=" text-xl">รายละเอียดย่อย</p>
-
-                                    <div className=" flex items-center text-[40px] mt-5">
-                                        <Link className="mx-auto " href="#">
-                                            <FaFacebook />
-                                        </Link>
-                                        <Link className="mx-auto" href="#">
-                                            <FaInstagram />
-                                        </Link>
-                                        <Link className="mx-auto" href="#">
-                                            <FaYoutube />
-                                        </Link>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div className='login-page'>
+          
                 <div className=" antialiased bg-gradient-to-br ">
-                    <div className="container px-6 mx-auto">
-                        <div className="flex flex-col text-center md:text-left md:flex-row h-screen justify-evenly md:items-center">
-                            <div className="flex flex-col w-full mx-auto mt-10 text-white ">
-                                <h1 className=" text-2xl font-bold">Me Need repair</h1>
-                                <div className=" text-center mx-auto my-[100px] font-bold">
-                                    <p className=" text-5xl mt-10 my-[10px]">Welcome!</p>
-                                    <p className=" text-5xl ">to Our Website</p>
-                                    <p className=" text-xl">รายละเอียดย่อย</p>
-
-                                    <div className=" flex items-center text-[40px] mt-5">
-                                        <Link className="mx-auto " href="#">
-                                            <FaFacebook />
-                                        </Link>
-                                        <Link className="mx-auto" href="#">
-                                            <FaInstagram />
-                                        </Link>
-                                        <Link className="mx-auto" href="#">
-                                            <FaYoutube />
-                                        </Link>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
+                    <div className="container ">
+                        <div className=" text-center md:text-left md:flex-row h-screen justify-evenly md:items-center w-[700px]">
+                    
 
                             <div className="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
                                 <div className=" bg-gray-800 bg-opacity-50  p-10 flex flex-col w-full h-[700px] shadow-xl rounded-xl">
@@ -223,8 +158,8 @@ const LoginComponent: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </RootLayout>
- 
+           
+        </div>
 
     );
 };
