@@ -118,9 +118,12 @@ model User {
   email           String?
   password        String?
   confirmPassword String?
-  tel      String?
-  facebook String?
-  google   String?
+  tel             String?
+  facebook        String?
+  google          String?
+  AddressId       String? @db.ObjectId
+  Address     Address? @relation(fields: [AddressId], references: [id])
+
 }
 
 model Admin {
@@ -149,14 +152,15 @@ model Address {
   district    String?
   Subdistrict String?
   detail      String?
+  User User[]
 }
 
 model Tex {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   // fname String?
   // lname String?
   // tel  String?
-    typeaddress String?
+  typeaddress String?
   location    String?
   zipcode     String?
   province    String?
@@ -168,4 +172,3 @@ model Tex {
 model Taxinvoice {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
-

@@ -10,6 +10,8 @@ interface User {
     // loca: string;
 }
 
+
+
 export default function Information() {
     const router = useRouter();
     const { id } = router.query;
@@ -82,6 +84,7 @@ export default function Information() {
         // เมื่อกด "ยกเลิก" ให้กลับค่า userData ให้เป็นค่าเริ่มต้น
         setUserData(initialUserData);
         setIsEditing(false);
+        
     };
 
     return (
