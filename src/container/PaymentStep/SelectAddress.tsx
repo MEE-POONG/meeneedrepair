@@ -10,15 +10,17 @@ const StepOneSelectAdress = () => {
     }
     return (
         <>
-        {/* First Select */}
+            {/* First Select */}
             <div className="">
-                <div className="flex items-center p-5 text-lg">
+                <div className="flex items-center text-sm md:text-lg mb-3">
                     <p className="text-white px-3 py-0.5 bg-secondary1 rounded-full mr-2">
                         1
                     </p>
                     <span>ข้อมูลสำหรับจัดส่ง</span>
                 </div>
-                <div className="ml-14 ">
+
+
+                <div className="md:ml-10 text-sm md:text-base text-left">
                     <input
                         className="cursor-pointer mr-2"
                         type="radio"
@@ -30,7 +32,7 @@ const StepOneSelectAdress = () => {
                     />
                     <label htmlFor="ส่งตามที่อยู่">ส่งตามที่อยู่</label>
                 </div>
-                <div className="ml-14">
+                <div className="md:ml-10 text-sm md:text-base text-left">
                     <input
                         className="cursor-pointer mr-2"
                         type="radio"
@@ -44,8 +46,20 @@ const StepOneSelectAdress = () => {
                 </div>
             </div>
 
-        {/* Second Select */}
-            <div></div>
+            <div className="w-full h-[1px] bg-secondary1 my-5"></div>
+
+            {/* Second Select */}
+            <div className="md:mx-10">
+                <div className="flex justify-between ">
+                    <p className="text-sm md:text-lg">ที่อยู่จัดส่ง</p>
+                    <span className="text-sm md:text-base">แก้ไข</span>
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="" className="mr-2" />
+                    <label htmlFor="">ข้อมูลใบเสร็จใช้ที่อยู่เดียวกับที่อยู่จัดส่ง</label>
+                </div>
+            </div>
+
         </>
     )
 }

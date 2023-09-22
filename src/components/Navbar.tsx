@@ -68,7 +68,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="font-fontTH01 h-24 mb-5 ">
+    <nav className="font-fontTH01 ">
       <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 drop-shadow-lg " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
       {/* <div className=" container  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}> */}
         <div className="flex items-center ">
@@ -84,7 +84,7 @@ const Navbar = () => {
               src="/images/logo/logoMR7.png"
               width={100}
               height={100}
-              className="w-[80px] md:w-[120px] p-2" alt="" />
+              className="w-[80px] md:w-[100px] p-2" alt="" />
           </div>
         </div>
 
