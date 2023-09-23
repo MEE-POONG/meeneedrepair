@@ -84,7 +84,7 @@ const Navbar = () => {
               src="/images/logo/logoMR7.png"
               width={100}
               height={100}
-              className="w-[80px] md:w-[100px] p-2" alt="" />
+              className="w-[80px]" alt="" />
           </div>
         </div>
 
