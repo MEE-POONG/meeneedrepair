@@ -1,15 +1,13 @@
 import React from "react";
 import ProductItem from "../components/shoppingCart/ProductItem";
-import RootLayout from '../components/layout';
-import { RiDeleteBin6Line } from "react-icons/ri";
-import Image from "next/image";
+
 
 
 const Product1: React.FC = () => {
   const initialProducts = [
     { id: 1, name: "สินค้าที่ 1" },
     { id: 2, name: "สินค้าที่ 2" },
-    { id: 3, name: "สินค้าที่ 3" },
+    // { id: 3, name: "สินค้าที่ 3" },
   ];
 
   return (
