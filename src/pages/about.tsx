@@ -93,42 +93,8 @@ export default function AboutPage() {
 
             </div>
         </div>
-        <div className="w-full bg-slate-700 rounded-lg p-12 flex flex-col justify-center items-center">
-            <div className="mb-8">
-                <img className="object-center object-cover rounded-full h-36 w-36" src="/images/team/nobody.png" alt="photo"/>
-            </div>
-            <div className="text-center">
-                <p className="text-xl text-white font-bold mb-2">Jade Bradley</p>
-                <p className="text-base text-white font-normal">Dev Ops</p>
-            </div>
-        </div>
-        {/* <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-            <div className="mb-8">
-                <img className="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="photo"/>
-            </div>
-            <div className="text-center">
-                <p className="text-xl text-gray-700 font-bold mb-2">Dany Bailey</p>
-                <p className="text-base text-gray-400 font-normal">Software Engineer</p>
-            </div>
-        </div>
-        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-            <div className="mb-8">
-                <img className="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="photo"/>
-            </div>
-            <div className="text-center">
-                <p className="text-xl text-gray-700 font-bold mb-2">Lucy Carter</p>
-                <p className="text-base text-gray-400 font-normal">Graphic Designer</p>
-            </div>
-        </div>
-        <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-            <div className="mb-8">
-                <img className="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1176&q=80" alt="photo"/>
-            </div>
-            <div className="text-center">
-                <p className="text-xl text-gray-700 font-bold mb-2">Jade Bradley</p>
-                <p className="text-base text-gray-400 font-normal">Dev Ops</p>
-            </div> 
-         </div> */}
+        
+        
     </div>
 </section>
 
