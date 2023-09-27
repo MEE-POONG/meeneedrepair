@@ -61,12 +61,13 @@ const LoginComponent: React.FC = () => {
     return (
         <div className='login-page '>
             <RootLayout>
-                <div className="flex  justify-center pages-bg-login h-[700px] "  >
-                    <div className="bg-gradient-to-br w-full xl:w-[30%] h-[500px]">
+                <div className="flex  justify-center pages-bg-login h-[700px] text-login"  >
+                    <div className="bg-gradient-to-br w-full xl:w-[35%] h-[500px]">
                   
 
-                        <div className=" bg-gray-800 bg-opacity-50  p-10 flex flex-col shadow-xl rounded-xl h-[700px]">
-                            <h2 className="text-4xl text-center  font-bold text-white  mb-5">
+                        {/* <div className=" bg-gray-800 bg-opacity-50  p-10 flex flex-col shadow-xl rounded-xl h-[700px]"> */}
+                        <div className="  p-10 flex flex-col shadow-xl rounded-xl h-[700px]">
+                            <h2 className="text-4xl text-center  font-bold text-white  mb-5 ">
                                 เข้าสู่ระบบ
                             </h2>
                             <form action="" className="w-full">
@@ -77,7 +78,7 @@ const LoginComponent: React.FC = () => {
                                         type="text" value={email} onChange={(e) => setEmail(e.target.value)}
                                         id="email"
                                         placeholder="อีเมล"
-                                        className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2  focus:shadow-lg "
+                                        className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2  focus:shadow-lg text-black "
                                     />
                                 </div>
                                 <div id="input" className="flex flex-col w-full my-5">
@@ -87,7 +88,7 @@ const LoginComponent: React.FC = () => {
                                         type="password" value={password} onChange={(e) => setPassword(e.target.value)}
                                         id="password"
                                         placeholder="รหัสผ่าน"
-                                        className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2  focus:shadow-lg "
+                                        className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2  focus:shadow-lg text-black"
                                     />
                                 </div>
                                 <div id="button" className="flex flex-col w-full my-5">
@@ -125,7 +126,7 @@ const LoginComponent: React.FC = () => {
                                         <span className="absolute left-4 text-[25px]">
                                             <FaGoogle />
                                         </span>
-                                        <span >เข้าสู่ระบบด้วย Facebook</span>
+                                        <span >เข้าสู่ระบบด้วย Google</span>
                                         <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
                                     </button>
                                 </div>
