@@ -18,24 +18,6 @@ const Footer = () => {
                         />
                     </div>
 
-                    {/* <div >
-                        <p className="text-base lg:text-3xl font-extrabold text-transparent my-3
-                                      bg-gradient-to-r from-blue-600 to-sky-400
-                                      bg-clip-text
-                            ">
-                            Mee Need Repair
-                        </p>
-                        <Link href="./" className=" py-1 text-xs lg:text-base"><p>หน้าแรก</p></Link>
-                        <Link href="./about" className=" py-1 text-xs lg:text-base">
-                            <p>เกี่ยวกับเรา</p>
-                        </Link>
-                        <Link href="./news" className=" py-1 text-xs lg:text-base">
-                            <p>ข่าวสาร</p>
-                        </Link>
-                        <Link href="./contact" className=" py-1 text-xs lg:text-base"><p >ติดต่อเรา</p></Link>
-                        
-                    </div> */}
-
                     <div className="hidden md:block">
                         <p className="text-base lg:text-3xl font-extrabold text-transparent 
                                       bg-gradient-to-r from-blue-600 to-sky-400
