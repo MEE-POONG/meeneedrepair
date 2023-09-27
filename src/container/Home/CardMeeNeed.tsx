@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 export default function CardMeeNeed() {
   return (
-    <div className="container mx-auto py-6 lg:px-24">
+    <div className="slide-fwd-center container mx-auto py-6 lg:px-24 ">
       <div className="bg-[#1E293B] p-6 rounded-lg h-auto mx-5 ">
         <div className="grid md:grid-cols-3 items-center gap-8">
           <div>

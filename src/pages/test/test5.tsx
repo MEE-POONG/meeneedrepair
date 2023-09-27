@@ -1,61 +1,238 @@
-export default function Test(){
-    return(
-        <>
-        <div className="max-w-2xl mx-auto bg-white p-16">
+import React, { useState } from 'react';
+import useAxios from "axios-hooks";
 
-<form>
-<div className="grid gap-6 mb-6 lg:grid-cols-2">
-    <div>
-        <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
-        <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
-    </div>
-    <div>
-        <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Last name</label>
-        <input type="text" id="last_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required/>
-    </div>
-    <div>
-        <label htmlFor="company" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Company</label>
-        <input type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Flowbite" required/>
-    </div>  
-    <div>
-        <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone number</label>
-        <input type="tel" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required/>
-    </div>
-    <div>
-        <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Website URL</label>
-        <input type="url" id="website" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="flowbite.com" required/>
-    </div>
-    <div>
-        <label htmlFor="visitors" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Unique visitors (per month)</label>
-        <input type="number" id="visitors" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required/>
-    </div>
-</div>
-<div className="mb-6">
-    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
-    <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required/>
-</div> 
-<div className="mb-6">
-    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
-    <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required/>
-</div> 
-<div className="mb-6">
-    <label htmlFor="confirm_password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Confirm password</label>
-    <input type="password" id="confirm_password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required/>
-</div> 
-<div className="flex items-start mb-6">
-    <div className="flex items-center h-5">
-    <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required/>
-    </div>
-    <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
-</div>
-<button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-</form>
-
-<p className="mt-5">These input field components is part of a larger, open-source library of Tailwind CSS components. Learn
-    more by going to the official <a className="text-blue-600 hover:underline"
-        href="https://flowbite.com/docs/getting-started/introduction/" target="_blank">Flowbite
-        Documentation</a>.
-</p>
-</div></>
+function YourComponent() {
+    const [{ error: errorMessage, loading: IndexActivityLoading }, executeIndexActivity] = useAxios(
+        { url: '/api/appointment', method: 'POST' },
+        { manual: true }
     )
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [fname, setFname] = useState<string>("");
+    const [lname, setLname] = useState<string>("");
+    const [tel, setTel] = useState<string>("");
+    const [time, setTime] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [request, setRequest] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
+
+
+    const [isLoading, setIsLoading] = useState(false);
+    const [isMissingModalOpen, setIsMissingModalOpen] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [missingFields, setMissingFields] = useState<string[]>([]);
+
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+
+        // ตรวจสอบว่าข้อมูลถูกกรอกครบถ้วน
+        if (!fname || !lname || !tel || !email || !time || !request || !message) {
+            // ถ้าข้อมูลไม่ครบถ้วน ให้แสดง modal แจ้งเตือน
+            setIsMissingModalOpen(true);
+            return;
+        }
+
+        // ส่งข้อมูลไปยัง API
+        try {
+            setIsLoading(true);
+            const response = await executeIndexActivity({
+                data: {
+                    fname,
+                    lname,
+                    tel,
+                    email,
+                    time,
+                    request,
+                    message
+                    // เพิ่มข้อมูลอื่น ๆ ตามที่ต้องการ
+                },
+            });
+            // ประมวลผลเมื่อสำเร็จ
+            setIsLoading(false);
+            setIsSuccess(true);
+            setMessage("สำเร็จ! คุณได้ทำการจองคิวเรียบร้อยแล้ว");
+
+            // setIsDataSent(true); 
+            // สร้าง state isDataSent และตั้งค่าเป็น true
+            setIsModalOpen(true);
+        } catch (error) {
+            // ประมวลผลเมื่อเกิดข้อผิดพลาด
+            setIsLoading(false);
+            setIsSuccess(false);
+            setMessage("เกิดข้อผิดพลาดในการจองคิว");
+        }
+    };
+
+    // เรียกใช้งานฟังก์ชันเมื่อกดปุ่ม "จองคิว"
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    // เรียกใช้งานฟังก์ชันเมื่อกดปุ่ม "ยกเลิก"
+    const handleCloseModal = () => {
+
+        window.location.reload();
+        setIsModalOpen(false);
+    };
+    const handleConfirm = () => {
+
+        window.location.reload();
+        // ทำสิ่งที่คุณต้องการเมื่อยืนยัน
+        // ตัวอย่าง: ปิด Modal
+        setIsModalOpen(false);
+
+    };
+
+    return (
+        <div className="flex justify-center items-center min-h-screen">
+            <div className="bg-white w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto p-6 rounded-lg shadow-lg">
+                <h2 className=" font-semibold text-xl lg:text-2xl text-gray-800 mb-4">
+                    จองคิวซ่อม
+                </h2>
+                <form >
+                    <div className="flex justify-center">
+                        <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+                            <div className='mb-2'>ชื่อ</div>
+                            <input
+                                type="text" value={fname} onChange={(e) => setFname(e.target.value)}
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none" 
+                                placeholder="ชื่อ"
+                                />       
+                        </div>
+                        <div className="relative mb-6" data-te-input-wrapper-init>
+                            <div className='mb-2'>นามสกุล</div>
+                            <input
+                                type="text" value={lname} onChange={(e) => setLname(e.target.value)}
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                id="exampleFormControlInput3"
+                                placeholder="นามสกุล" />
+
+                        </div>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+                            <div className='mb-2'>อีเมล</div>
+                            <input
+                                type="email" value={email} onChange={(e) => setEmail(e.target.value)}
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                placeholder="อีเมล" />
+
+                        </div>
+                        <div className="relative mb-6" data-te-input-wrapper-init>
+                            <div className='mb-2'>เบอร์โทรติดต่อ</div>
+                            <input
+                                type="number" value={tel} onChange={(e) => setTel(e.target.value)}
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                id="exampleFormControlInput3"
+                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                placeholder="เบอร์โทรติดต่อ" />
+
+                        </div>
+                    </div>
+                    <div className="max-w-md mx-auto mb-4" data-te-input-wrapper-init>
+                        <div className='mb-2'>ต้องการจองคิววันที่</div>
+                        <input
+                            type="date" value={time} onChange={(e) => setTime(e.target.value)}
+                            className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                            id="exampleFormControlInput3"
+                            />
+
+                    </div>
+
+                    <div className="max-w-md mx-auto mb-4">
+                        <label
+                            htmlFor="equipment"
+                            className="block mb-2 text-sm font-medium text-gray-900"
+                        >
+                            อุปกรณ์ที่ต้องการซ่อม
+                        </label>
+                        <select
+                            id="equipment"
+                            value={request}
+                            onChange={(e) => setRequest(e.target.value)}
+                            className="w-full p-2 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                        >
+                            <option value="computers" id="computers">
+                                เช็คอุปกรณ์ คอมพิวเตอร์,โน๊ตบุ๊ค
+                            </option>
+                            <option value="cpu" id="cpu">
+                                ซีพียู
+                            </option>
+                            <option value="motherboard" id="motherboard">
+                                เมนบอร์ด
+                            </option>
+                            <option value="hdd" id="hdd">
+                                ฮาร์ดดิส / ssd
+                            </option>
+                            <option value="ram" id="ram">
+                                แรม
+                            </option>
+                            <option value="others" id="others">
+                                อื่นๆ
+                            </option>
+                        </select>
+                        {/* เพิ่มปุ่มหรือเหตุการณ์เมื่อคลิกเพื่อบันทึกค่าในฐานข้อมูล */}
+                    </div>
+                    <div className="max-w-md mx-auto">
+                        <label className="block uppercase tracking-wide text-sm font-medium text-gray-900 mb-2" htmlFor="description">
+                            อธิบายอาการของอุปกรณ์พอสังเขป
+                        </label>
+                        <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="description"  placeholder="กรุณากรอกข้อมูล"></textarea>
+                    </div>
+
+                    <div className="flex justify-center mt-6">
+                        <button
+                            type="submit"
+                            disabled={isLoading}
+                            onClick={handleSubmit} // เรียกใช้ฟังก์ชัน handleSubmit ในการตรวจสอบข้อมูล
+                            className="w-[200px] py-3 bg-[#FFCD4B] rounded-lg font-medium text-white uppercase focus:outline-none hover:bg-gray-700 hover:shadow-none"
+                        >
+                            จองคิว
+                        </button>
+                    </div>
+
+                    {/* Modal แจ้งเตือน */}
+                    {isMissingModalOpen && (
+                        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-75">
+                            <div className="bg-white p-6 rounded-lg text-center">
+                                <p className="text-red-500 text-lg mb-4">กรุณากรอกข้อมูลให้ครบถ้วน</p>
+                                <button
+                                    onClick={() => setIsMissingModalOpen(false)}
+                                    className="px-4 py-2 bg-red-500 text-white rounded-md focus:outline-none"
+                                >
+                                    ปิด
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                    {isModalOpen && (
+                        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+                            <div className="bg-white p-6 rounded-lg">
+                                <p className="text-2xl font-semibold mb-4">ยืนยันการจองคิว</p>
+                                <p>คุณต้องการจองคิวหรือไม่?</p>
+                                <div className="mt-4 flex justify-end">
+                                    <button
+                                        onClick={handleCloseModal} // เรียกใช้งานเมื่อกดปุ่ม "ยกเลิก"
+                                        className="px-4 py-2 bg-red-500 text-white rounded-md mr-2"
+                                    >
+                                        ยกเลิก
+                                    </button>
+                                    <button
+                                        onClick={handleConfirm} // เรียกใช้งานเมื่อกดปุ่ม "ยืนยัน"
+                                        className="px-4 py-2 bg-green-500 text-white rounded-md"
+                                    >
+                                        ยืนยัน
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </form>
+
+            </div>
+        </div>
+    );
 }
+
+export default YourComponent;
