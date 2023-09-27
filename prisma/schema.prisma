@@ -101,17 +101,23 @@ model Blog {
 }
 
 model Appointment {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  fname   String?
-  lname   String?
-  email   String?
-  tel     String?
-  request String?
-  message String?
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  fname      String?
+  lname      String?
+  email      String?
+  tel        String?
+  request    String?
+  message    String?
+  date       String?
+  time       String?
+  status     String?   @default("ยังไม่ซ่อม") // กำหนดค่าเริ่มต้นเป็น "true"
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
 }
 
 model User {
-  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
   fname           String?
   lname           String?
   birthday        String?
@@ -121,8 +127,10 @@ model User {
   tel             String?
   facebook        String?
   google          String?
-  AddressId       String? @db.ObjectId
-  Address     Address? @relation(fields: [AddressId], references: [id])
+  AddressId       String?  @db.ObjectId
+  Address         Address? @relation(fields: [AddressId], references: [id])
+  FavoriteItems String[]
+  ProductsItems String[]
 
 }
 
@@ -152,7 +160,7 @@ model Address {
   district    String?
   Subdistrict String?
   detail      String?
-  User User[]
+  User        User[]
 }
 
 model Tex {

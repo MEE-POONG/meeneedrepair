@@ -83,7 +83,7 @@ function RegisterFrom() {
         <div className='login-page '>
             <RootLayout>
 
-                <div className="font-fontTH01 bg-gradient-to-br max-w-2xl mx-auto bg-gray-800 bg-opacity-50  w-[300px] sm:w-12 md:w-6/12 lg:w-6/12 2xl:w-5/12  px-6 py-10 sm:px-10 sm:py-6  rounded-lg shadow-md lg:shadow-lg ">
+                <div className="font-fontTH01 bg-gradient-to-br max-w-2xl mx-auto  bg-opacity-50  w-[300px] sm:w-12 md:w-6/12 lg:w-6/12 2xl:w-5/12  px-6 py-10 sm:px-10 sm:py-6  rounded-lg shadow-md lg:shadow-lg ">
                     {/* <div className="font-fontTH01 max-w-2xl mx-auto bg-gray-800 bg-opacity-50  mt-10 p-12 w-[300px] sm:w-12 md:w-6/12 lg:w-6/12 2xl:w-5/12  px-6 py-10 sm:px-10 sm:py-6  rounded-lg shadow-md lg:shadow-lg"> */}
                     <h2 className="text-lg text-1xl lg:text-3xl text-white ">
                         สมัครสมาชิก
