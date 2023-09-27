@@ -55,7 +55,7 @@ export default function Information() {
             tel: userData.tel,
             // loca: userData.loca, // ถ้าคุณต้องการส่งข้อมูล loca ด้วย
         };
-    
+
         // ทำการส่งข้อมูลไปแก้ไข API
         fetch(`/api/user/${id}`, {
             method: 'PUT', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
@@ -64,27 +64,27 @@ export default function Information() {
             },
             body: JSON.stringify(updatedUserData),
         })
-        .then((response) => {
-            if (response.ok) {
-                // หากสำเร็จในการแก้ไขข้อมูล
-                setIsEditing(false); // ปิดโหมดแก้ไข
-                setInitialUserData(updatedUserData); // อัปเดตข้อมูลเริ่มต้น
-            } else {
-                // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
-                console.error('Error:', response.status);
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+            .then((response) => {
+                if (response.ok) {
+                    // หากสำเร็จในการแก้ไขข้อมูล
+                    setIsEditing(false); // ปิดโหมดแก้ไข
+                    setInitialUserData(updatedUserData); // อัปเดตข้อมูลเริ่มต้น
+                } else {
+                    // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
+                    console.error('Error:', response.status);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     };
-    
+
 
     const handleCancel = () => {
         // เมื่อกด "ยกเลิก" ให้กลับค่า userData ให้เป็นค่าเริ่มต้น
         setUserData(initialUserData);
         setIsEditing(false);
-        
+
     };
 
     return (

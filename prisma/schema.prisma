@@ -127,8 +127,15 @@ model User {
   tel             String?
   facebook        String?
   google          String?
+<<<<<<< HEAD
   AddressId       String?  @db.ObjectId
   Address         Address? @relation(fields: [AddressId], references: [id])
+=======
+  AddressId       String? @db.ObjectId
+  Address     Address? @relation(fields: [AddressId], references: [id])
+  FavoriteItems String[]
+
+>>>>>>> b1fb25d9cd8129d4983ea433e2af7be87f90e2fb
 }
 
 model Admin {
