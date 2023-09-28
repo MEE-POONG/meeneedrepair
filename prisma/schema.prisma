@@ -127,7 +127,8 @@ model User {
   tel             String?
   facebook        String?
   google          String?
-  AddressId       String?   @db.ObjectId
+  // AddressId       String?   @db.ObjectId
+  AddressId       String? 
   // Address         Address? @relation(fields: [AddressId], references: [id])
   Address         Address[]
   FavoriteItems   String[]

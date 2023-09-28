@@ -31,7 +31,7 @@ export default function DeliveryLocation() {
             fetch(`/api/user/address/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                   
+
                     // console.log(data.AddressId);
                     // console.log(data.Address);
                     const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
@@ -122,6 +122,10 @@ export default function DeliveryLocation() {
                                 <strong>ชื่อผู้รับ :</strong>
                                 {/* {deliveryLocationData?.name} */}
                             </p>
+
+                            <p>
+                                <strong>นามสกุลผู้รับ :</strong>
+                            </p>
                             <p>
                                 <strong>เบอร์โทรศัพท์ :</strong>
 
@@ -143,6 +147,16 @@ export default function DeliveryLocation() {
                     <div className="mt-5 leading-loose">
                         <p>
                             <strong>ชื่อผู้รับ :</strong>
+                            <input
+                                type="text"
+                                value={"dsadsa"}
+                                // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
+                                className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
+                            />
+                        </p>
+
+                        <p>
+                            <strong>นามสกุลผู้รับ :</strong>
                             <input
                                 type="text"
                                 value={"dsadsa"}
