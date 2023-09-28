@@ -12,14 +12,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const page: number = Number(req.query.page) || 1;
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
-                const user = await prisma.address.findMany({
+                const address = await prisma.address.findMany({
                     // skip: (page - 1) * pageSize,
                     // take: pageSize,
+                    include: {
+                        User: true
+                    },
                 });
 
                 const totaluser = await prisma.address.count();
                 const totalPage: number = Math.ceil(totaluser / pageSize);
-                res.status(200).json({ user });
+                res.status(200).json({ address });
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the user" });
             }
@@ -28,6 +31,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'POST':
             try {
                 const newuser = await prisma.address.create({
+                    include: {
+                        User: true
+                    },
                     data: req.body,
                 });
 
