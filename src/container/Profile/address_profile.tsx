@@ -27,13 +27,13 @@ const AddressProfile = () => {
     const [CheckDefault, setCheckDefault] = useState(false);
     const [DefaultAddress, setDefaultAddress] = useState<String>("");
 
-    if (CheckDefault) {
-        // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
+    // if (CheckDefault) {
+    //     // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
 
 
-    } else {
-        // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
-    }
+    // } else {
+    //     // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
+    // }
 
     useEffect(() => {
         if (id) {
@@ -74,6 +74,88 @@ const AddressProfile = () => {
     }, [id]);
 
 
+    const UploadAndSetDefault = (UploadData: any) => {
+        // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
+
+        fetch(`/api/address`, {
+            method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(UploadData),
+        })
+            .then((response) => response.json())
+            .then((data2) => {
+
+                fetch(`/api/user/${id}`, {
+                    method: 'PUT', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ AddressId: data2.id }),
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            // หากสำเร็จในการแก้ไขข้อมูล
+                            alert("บันทึกข้อมูลสำเร็จ")
+                            console.log("บันทึกข้อมูลสำเร็จ")
+                            setIsLoading(false);
+                        } else {
+                            // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
+                            alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                            console.log("บันทึกข้อมูล ไม่ สำเร็จ")
+                            console.error('Error:', response.status);
+                            setIsLoading(false);
+                        }
+                    })
+                    .catch((error) => {
+                        alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                        console.error('Error:', error);
+                        setIsLoading(false);
+                    });
+
+            })
+            .catch((error) => {
+                alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                console.error('Error:', error);
+                setIsLoading(false);
+            });
+    }
+
+
+    const UploadNoDefault = (UploadData: any) => {
+
+
+        fetch(`/api/address`, {
+            method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(UploadData),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // หากสำเร็จในการแก้ไขข้อมูล
+                    alert("บันทึกข้อมูลสำเร็จ")
+                    console.log("บันทึกข้อมูลสำเร็จ")
+                    setIsLoading(false);
+                } else {
+                    // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
+                    alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                    console.log("แบันทึกข้อมูล ไม่ สำเร็จ")
+                    console.error('Error:', response.status);
+                    setIsLoading(false);
+                }
+            })
+            .catch((error) => {
+                alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                console.error('Error:', error);
+                setIsLoading(false);
+            });
+
+    }
+
+
     const SaveAddress = () => {
         setIsLoading(true);
 
@@ -94,82 +176,13 @@ const AddressProfile = () => {
         if (IsDefaultAddress) {
             if (CheckDefault) {
                 // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
-
-                fetch(`/api/address`, {
-                    method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(UploadData),
-                })
-                    .then((response) => response.json())
-                    .then((data2) => {
-
-                        fetch(`/api/user/${id}`, {
-                            method: 'PUT', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ AddressId: data2.id }),
-                        })
-                            .then((response) => {
-                                if (response.ok) {
-                                    // หากสำเร็จในการแก้ไขข้อมูล
-                                    alert("บันทึกข้อมูลสำเร็จ")
-                                    console.log("บันทึกข้อมูลสำเร็จ")
-                                    setIsLoading(false);
-                                } else {
-                                    // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
-                                    alert("บันทึก ไม่ ข้อมูลสำเร็จ")
-                                    console.log("บันทึกข้อมูล ไม่ สำเร็จ")
-                                    console.error('Error:', response.status);
-                                    setIsLoading(false);
-                                }
-                            })
-                            .catch((error) => {
-                                alert("บันทึก ไม่ ข้อมูลสำเร็จ")
-                                console.error('Error:', error);
-                                setIsLoading(false);
-                            });
-
-                    })
-                    .catch((error) => {
-                        alert("บันทึก ไม่ ข้อมูลสำเร็จ")
-                        console.error('Error:', error);
-                        setIsLoading(false);
-                    });
+                UploadAndSetDefault(UploadData);
 
 
             } else {
                 // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
 
-
-                fetch(`/api/address`, {
-                    method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(UploadData),
-                })
-                    .then((response) => {
-                        if (response.ok) {
-                            // หากสำเร็จในการแก้ไขข้อมูล
-                            alert("บันทึกข้อมูลสำเร็จ")
-                            console.log("บันทึกข้อมูลสำเร็จ")
-                            setIsLoading(false);
-                        } else {
-                            // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
-                            alert("บันทึก ไม่ ข้อมูลสำเร็จ")
-                            console.log("แบันทึกข้อมูล ไม่ สำเร็จ")
-                            console.error('Error:', response.status);
-                            setIsLoading(false);
-                        }
-                    })
-                    .catch((error) => {
-                        alert("บันทึก ไม่ ข้อมูลสำเร็จ")
-                        console.error('Error:', error);
-                        setIsLoading(false);
-                    });
+                UploadNoDefault(UploadData);
 
 
             }
@@ -177,6 +190,21 @@ const AddressProfile = () => {
 
         }
         else {
+
+
+            if (CheckDefault) {
+                UploadAndSetDefault(UploadData);
+
+
+            } else {
+                // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
+
+                UploadNoDefault(UploadData);
+
+
+            }
+
+
 
         }
 

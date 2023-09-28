@@ -163,7 +163,7 @@ model Address {
   province    String?
   district    String?
   subdistrict String?
-  detail      String?
+  note      String?
   // User        User[]
   userId      String?
   User User? @relation(fields: [userId], references: [id])
