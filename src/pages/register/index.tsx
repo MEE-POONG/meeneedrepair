@@ -5,6 +5,7 @@ import { FaFacebook, FaInstagram, FaYoutube, FaGoogle, FaLeaf } from "react-icon
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { PiWarningCircleFill } from "react-icons/pi";
 import RootLayout from '../../components/layout';
+import crypto from 'crypto';
 
 
 function RegisterFrom() {
@@ -17,6 +18,7 @@ function RegisterFrom() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
+    const [secretKey, setSecretKey] = useState('');
 
     const [errorText, setErrorText] = useState(false);
     const [showModal, setShowModal] = useState(false); // State for controlling modal visibility
@@ -33,45 +35,38 @@ function RegisterFrom() {
         // เมื่อรหัสผ่านเปลี่ยน ตรวจสอบว่ารหัสผ่านและรหัสผ่านยืนยันตรงกันหรือไม่
         setPasswordsMatch(e.target.value === confirmPassword);
     };
-
     const handleConfirmPasswordChange = (e: { target: { value: SetStateAction<string>; }; }) => {
         setConfirmPassword(e.target.value);
         // เมื่อรหัสผ่านยืนยันเปลี่ยน ตรวจสอบว่ารหัสผ่านและรหัสผ่านยืนยันตรงกันหรือไม่
         setPasswordsMatch(e.target.value === password);
     };
 
+
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
     };
 
-
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
-        e.preventDefault(); // Prevent the default form submission
+        e.preventDefault();
+        const newSecretKey = crypto.randomBytes(16).toString('hex');
+        setSecretKey(newSecretKey);
 
         if (!fname || !lname || !tel || !birthday || !email || !password) {
 
-            setErrorText(true); // Set the error message
+            setErrorText(true);
             return;
         }
-
-        // Send the data to the server using Axios
         try {
             const response = await executeIndexActivity({
-                data: { fname, lname, tel, birthday, email, password }, // Send the 'fname' data to the server
+                data: { fname, lname, tel, birthday, email, password },
             });
-
-            // Handle the response (e.g., show success message or handle errors)
             console.log('Response:', response);
-
-            // If the registration was successful, show the modal
             setShowModal(true);
         } catch (error) {
-            // Handle Axios error (e.g., show error message)
             console.error('Error:', error);
         }
     };
     const handleConfirm = () => {
-
         window.location.reload();
         // ทำสิ่งที่คุณต้องการเมื่อยืนยัน
         // ตัวอย่าง: ปิด Modal
@@ -79,12 +74,15 @@ function RegisterFrom() {
 
     };
 
+
+
+
+
     return (
         <div className='login-page '>
             <RootLayout>
 
                 <div className="font-fontTH01 bg-gradient-to-br max-w-2xl mx-auto  bg-opacity-50  w-[300px] sm:w-12 md:w-6/12 lg:w-6/12 2xl:w-5/12  px-6 py-10 sm:px-10 sm:py-6  rounded-lg shadow-md lg:shadow-lg ">
-                    {/* <div className="font-fontTH01 max-w-2xl mx-auto bg-gray-800 bg-opacity-50  mt-10 p-12 w-[300px] sm:w-12 md:w-6/12 lg:w-6/12 2xl:w-5/12  px-6 py-10 sm:px-10 sm:py-6  rounded-lg shadow-md lg:shadow-lg"> */}
                     <h2 className="text-lg text-1xl lg:text-3xl text-white ">
                         สมัครสมาชิก
                     </h2>
@@ -142,7 +140,7 @@ function RegisterFrom() {
                                     value={confirmPassword}
                                     onChange={handleConfirmPasswordChange}
                                     id="confirm_password"
-                                    className={`bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${passwordsMatch ? '' : 'border-red-500'}`}
+                                    className={`bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${passwordsMatch ? '' : 'border-red-500'}`}
                                     placeholder="•••••••••"
                                     required
                                 />
@@ -161,10 +159,19 @@ function RegisterFrom() {
 
                         </div>
                         <button type="submit"
-                            className="group relative h-12 w-full overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold text-white">
+                            className="group relative h-12 w-full overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold ">
                             สมัครสมาชิก
                         </button>
                     </form>
+                    {secretKey && (
+                        <div className="mb-4">
+                            <p className="text-white">Your secret key: {secretKey}</p>
+                            <p className="text-white">Please save this key securely.</p>
+                        </div>
+                    )}
+
+
+
                     <div className="flex justify-center mt-10 items-center w-full text-center text-white bg- text-1xl my-[20px]">
                         <span className="w-full border border-white"></span>
                         <span className="px-4 ">หรือ</span>

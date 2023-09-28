@@ -3,9 +3,7 @@ import RootLayout from '../../components/layout';
 import ComponentsNavbar from '../../components/Thenavbar';
 import { FaFacebook, FaGoogle, FaInstagram, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
-import Navbar from '../../components/Navbar';
 import { useRouter } from 'next/router';
-
 
 
 
@@ -27,12 +25,10 @@ const LoginComponent: React.FC = () => {
             });
 
             if (match) {
-                // Set login success and save to localStorage
                 setLoginSuccess(true);
-                localStorage.setItem("isLoggedIn", "true"); // Set the logged-in state
-                router.push(`home/${match.id}`); // Navigate to /home/:id
+            
+                router.push(`/home/${match.id}`);
             } else {
-                // Credentials do not match, show an error message
                 setLoginSuccess(false);
                 setLoginMessage("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
             }
@@ -42,11 +38,9 @@ const LoginComponent: React.FC = () => {
     };
 
     useEffect(() => {
-        // Fetch data from the API
         fetch("/api/user")
             .then((response) => response.json())
             .then((data) => {
-                // Set the fetched data to the state
                 setData(data);
             })
             .catch((error) => {
@@ -55,17 +49,12 @@ const LoginComponent: React.FC = () => {
     }, []);
 
 
-
-
-
     return (
         <div className='login-page '>
             <RootLayout>
                 <div className="flex  justify-center pages-bg-login h-[700px] text-login"  >
                     <div className="bg-gradient-to-br w-full xl:w-[35%] h-[500px]">
                   
-
-                        {/* <div className=" bg-gray-800 bg-opacity-50  p-10 flex flex-col shadow-xl rounded-xl h-[700px]"> */}
                         <div className="  p-10 flex flex-col shadow-xl rounded-xl h-[700px]">
                             <h2 className="text-4xl text-center  font-bold text-white  mb-5 ">
                                 เข้าสู่ระบบ
