@@ -115,22 +115,26 @@ const AddressProfile = () => {
                             .then((response) => {
                                 if (response.ok) {
                                     // หากสำเร็จในการแก้ไขข้อมูล
+                                    alert("บันทึกข้อมูลสำเร็จ")
                                     console.log("บันทึกข้อมูลสำเร็จ")
                                     setIsLoading(false);
                                 } else {
                                     // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
-                                    console.log("แบันทึกข้อมูล ไม่ สำเร็จ")
+                                    alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                                    console.log("บันทึกข้อมูล ไม่ สำเร็จ")
                                     console.error('Error:', response.status);
                                     setIsLoading(false);
                                 }
                             })
                             .catch((error) => {
+                                alert("บันทึก ไม่ ข้อมูลสำเร็จ")
                                 console.error('Error:', error);
                                 setIsLoading(false);
                             });
 
                     })
                     .catch((error) => {
+                        alert("บันทึก ไม่ ข้อมูลสำเร็จ")
                         console.error('Error:', error);
                         setIsLoading(false);
                     });
@@ -150,16 +154,19 @@ const AddressProfile = () => {
                     .then((response) => {
                         if (response.ok) {
                             // หากสำเร็จในการแก้ไขข้อมูล
+                            alert("บันทึกข้อมูลสำเร็จ")
                             console.log("บันทึกข้อมูลสำเร็จ")
                             setIsLoading(false);
                         } else {
                             // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
+                            alert("บันทึก ไม่ ข้อมูลสำเร็จ")
                             console.log("แบันทึกข้อมูล ไม่ สำเร็จ")
                             console.error('Error:', response.status);
                             setIsLoading(false);
                         }
                     })
                     .catch((error) => {
+                        alert("บันทึก ไม่ ข้อมูลสำเร็จ")
                         console.error('Error:', error);
                         setIsLoading(false);
                     });
