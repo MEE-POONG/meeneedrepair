@@ -117,7 +117,7 @@ model Appointment {
 }
 
 model User {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
   fname           String?
   lname           String?
   birthday        String?
@@ -127,11 +127,11 @@ model User {
   tel             String?
   facebook        String?
   google          String?
-  AddressId       String?  @db.ObjectId
-  Address         Address? @relation(fields: [AddressId], references: [id])
-  FavoriteItems String[]
-  ProductsItems String[]
-
+  AddressId       String?   @db.ObjectId
+  // Address         Address? @relation(fields: [AddressId], references: [id])
+  Address         Address[]
+  FavoriteItems   String[]
+  ProductsItems   String[]
 }
 
 model Admin {
@@ -160,7 +160,9 @@ model Address {
   district    String?
   Subdistrict String?
   detail      String?
-  User        User[]
+  // User        User[]
+  userId      String?
+  User User? @relation(fields: [userId], references: [id])
 }
 
 model Tex {
