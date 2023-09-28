@@ -1,6 +1,218 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const AddressProfile = () => {
+    const router = useRouter();
+    const { id } = router.query; // ดึงค่า id จาก query parameters
+
+    const [UserId, setUserId] = useState<String>();
+    const [AddressData, setAddressData] = useState<any>(); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [CurrentAddressId, setCurrentAddressId] = useState<String>();
+    const [IsDefaultAddress, setIsDefaultAddress] = useState<boolean>();
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    const [Name, setName] = useState<String>("");
+    const [Lname, setLname] = useState<String>("");
+    const [PhoneNumber, setPhoneNumber] = useState<String>("");
+    const [TypeAddress, setTypeAddress] = useState<String>("");
+    const [AddressLine, setAddressLine] = useState<String>("");
+    const [ZipCode, setZipCode] = useState<String>("");
+    const [Province, setProvince] = useState<String>("");
+    const [District, setDistrict] = useState<String>("");
+    const [SubDistrict, setSubDistrict] = useState<String>("");
+    const [Detail, setDetail] = useState<String>("");
+
+    const [CheckDefault, setCheckDefault] = useState(false);
+    const [DefaultAddress, setDefaultAddress] = useState<String>("");
+
+    // if (CheckDefault) {
+    //     // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
+
+
+    // } else {
+    //     // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
+    // }
+
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/address/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log(data.id);
+                    setUserId(data.id)
+                    console.log(data.AddressId);
+                    console.log(data.Address);
+                    const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
+                    if (foundId) {
+                        // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้ามีเป็น true
+                        setIsDefaultAddress(true);
+                        // ค้นเจอ ID ใน data.Address
+                        // ทำสิ่งที่คุณต้องการกับ foundId
+                        // console.log(foundId);
+                        console.log("เจอ id address");
+                        // ตั้งค่า ID ของ address ที่มีอยู่
+                        setCurrentAddressId(foundId)
+                    } else {
+                        // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้า ไม่มี เป็น false
+                        setIsDefaultAddress(false);
+                        // ไม่พบ ID ที่ตรงกันใน data.Address
+                        console.log('ID ไม่ตรงกับใน data.Address');
+                    }
+
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                });
+
+        }
+    }, [id]);
+
+
+    const UploadAndSetDefault = (UploadData: any) => {
+        // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
+
+        fetch(`/api/address`, {
+            method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(UploadData),
+        })
+            .then((response) => response.json())
+            .then((data2) => {
+
+                fetch(`/api/user/${id}`, {
+                    method: 'PUT', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ AddressId: data2.id }),
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            // หากสำเร็จในการแก้ไขข้อมูล
+                            alert("บันทึกข้อมูลสำเร็จ")
+                            console.log("บันทึกข้อมูลสำเร็จ")
+                            setIsLoading(false);
+                        } else {
+                            // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
+                            alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                            console.log("บันทึกข้อมูล ไม่ สำเร็จ")
+                            console.error('Error:', response.status);
+                            setIsLoading(false);
+                        }
+                    })
+                    .catch((error) => {
+                        alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                        console.error('Error:', error);
+                        setIsLoading(false);
+                    });
+
+            })
+            .catch((error) => {
+                alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                console.error('Error:', error);
+                setIsLoading(false);
+            });
+    }
+
+
+    const UploadNoDefault = (UploadData: any) => {
+
+
+        fetch(`/api/address`, {
+            method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(UploadData),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // หากสำเร็จในการแก้ไขข้อมูล
+                    alert("บันทึกข้อมูลสำเร็จ")
+                    console.log("บันทึกข้อมูลสำเร็จ")
+                    setIsLoading(false);
+                } else {
+                    // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
+                    alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                    console.log("แบันทึกข้อมูล ไม่ สำเร็จ")
+                    console.error('Error:', response.status);
+                    setIsLoading(false);
+                }
+            })
+            .catch((error) => {
+                alert("บันทึก ไม่ ข้อมูลสำเร็จ")
+                console.error('Error:', error);
+                setIsLoading(false);
+            });
+
+    }
+
+
+    const SaveAddress = () => {
+        setIsLoading(true);
+
+        const UploadData = {
+            name: Name,
+            lname: Lname,
+            phonenumber: PhoneNumber,
+            typeaddress: TypeAddress,
+            addressline: AddressLine,
+            zipcode: ZipCode,
+            province: Province,
+            district: District,
+            subdistrict: SubDistrict,
+            userId: UserId,
+        }
+
+
+        if (IsDefaultAddress) {
+            if (CheckDefault) {
+                // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
+                UploadAndSetDefault(UploadData);
+
+
+            } else {
+                // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
+
+                UploadNoDefault(UploadData);
+
+
+            }
+
+
+        }
+        else {
+
+
+            if (CheckDefault) {
+                UploadAndSetDefault(UploadData);
+
+
+            } else {
+                // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
+
+                UploadNoDefault(UploadData);
+
+
+            }
+
+
+
+        }
+
+
+
+    }
+
+
     return (
         <div className="">
             <div className="flex items-center">
@@ -24,17 +236,31 @@ const AddressProfile = () => {
 
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">ชื่อผู้รับ</p>
-                                <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                                <input
+
+                                    type="text"
+                                    className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500"
+                                    onChange={(e) => setName(e.target.value)}
+                                />
                             </div>
 
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">นามสกุลผู้รับ</p>
-                                <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " />
+                                <input
+                                    type="text"
+                                    className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setLname(e.target.value)}
+                                />
                             </div>
 
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">เบอร์โทรศัพท์</p>
-                                <input type="text" className=" w-full h-9 pl-2   border border-b-black focus:outline-none focus:border-b-blue-500 " />
+                                <input
+                                    type="text"
+                                    className=" w-full h-9 pl-2   border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+
+                                />
                             </div>
 
                         </div>
@@ -50,7 +276,10 @@ const AddressProfile = () => {
 
                             <div className="col-span-12">
                                 <p className="text-[#666363] my-2  ">ประเภทที่อยู่</p>
-                                <select className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 " >
+                                <select
+                                    className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setTypeAddress(e.target.value)}
+                                >
                                     <option value="" disabled selected hidden >กรุณาเลือก</option>
                                     <option value="บ้าน">บ้าน</option>
                                     <option value="ที่ทำงาน">ที่ทำงาน</option>
@@ -60,17 +289,29 @@ const AddressProfile = () => {
 
                             <div className="col-span-12">
                                 <p className="text-[#666363] my-2">ที่อยู่</p>
-                                <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " />
+                                <input
+                                    type="text"
+                                    className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setAddressLine(e.target.value)}
+
+                                />
                             </div>
 
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">รหัสไปรษณีย์</p>
-                                <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " />
+                                <input
+                                    type="text"
+                                    className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setZipCode(e.target.value)}
+                                />
                             </div>
 
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">จังหวัด</p>
-                                <select className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 " >
+                                <select
+                                    className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setProvince(e.target.value)}
+                                >
                                     <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกจังหวัด</option>
                                     <option value="บ้าน">บ้าน</option>
                                     <option value="ที่ทำงาน">ที่ทำงาน</option>
@@ -80,7 +321,11 @@ const AddressProfile = () => {
 
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">อำเภอ/เขต</p>
-                                <select className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 " >
+                                <select
+                                    className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setDistrict(e.target.value)}
+
+                                >
                                     <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกอำเภอ/เขต</option>
                                     <option value="บ้าน">บ้าน</option>
                                     <option value="ที่ทำงาน">ที่ทำงาน</option>
@@ -90,7 +335,11 @@ const AddressProfile = () => {
 
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">ตำบล/แขวง</p>
-                                <select className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " >
+                                <select
+                                    className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setSubDistrict(e.target.value)}
+
+                                >
                                     <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกตำบล/แขวง</option>
                                     <option value="บ้าน">บ้าน</option>
                                     <option value="ที่ทำงาน">ที่ทำงาน</option>
@@ -101,7 +350,12 @@ const AddressProfile = () => {
 
                             <div className="col-span-12">
                                 <p className="text-[#666363] my-2">จุดสังเกตุ (ถ้ามี)</p>
-                                <input type="text" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 " />
+                                <input
+                                    type="text"
+                                    className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
+                                    onChange={(e) => setDetail(e.target.value)}
+
+                                />
                             </div>
 
 
@@ -110,7 +364,11 @@ const AddressProfile = () => {
                         </div>
 
                         <div className="flex flex-row gap-4 ml-10">
-                            <input type="checkbox" className="self-center  w-5 h-5 pl-2 ring-2  ring-green-500" />
+                            <input
+                                type="checkbox"
+                                className="self-center  w-5 h-5 pl-2 ring-2  ring-green-500"
+                                onChange={(e) => setCheckDefault(e.target.checked)}
+                            />
                             <p className="text-[#666363] my-2">ตั้งเป็นที่อยู่ปัจจุบัน</p>
                         </div>
 
@@ -119,7 +377,12 @@ const AddressProfile = () => {
                 </div>
             </div>
             <div className="flex justify-center my-5">
-                <button className="bg-[#18BCEB] h-10 w-24 rounded-3xl text-secondary2">บันทึก</button>
+                <button
+                    onClick={SaveAddress}
+                    className="bg-[#18BCEB] h-10 w-24 rounded-3xl text-secondary2"
+                >
+                    บันทึก
+                </button>
             </div>
         </div>
     )

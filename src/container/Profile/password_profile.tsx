@@ -95,7 +95,7 @@ const PasswordProfile = () => {
                             <strong>รหัสผ่านเดิม </strong>
                         </p>
                         {/* {userData.fname} {userData.lname} */}
-                        <input id="oldPassword" type="text" defaultValue="lawwwpss2" className="  w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                        <input id="oldPassword" type="text" placeholder="รหัสผ่านเดิม" className="  w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
 
 
 
@@ -103,7 +103,7 @@ const PasswordProfile = () => {
                             <strong>รหัสผ่านใหม่ </strong>
                         </p>
                         {/* {userData.tel} */}
-                        <input id="newPassword" type="text" defaultValue="0884728951" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                        <input id="newPassword" type="text" placeholder="รหัสผ่านใหม่" className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
 
 
 
@@ -112,7 +112,7 @@ const PasswordProfile = () => {
                             <strong>ยืนยันรหัสผ่านใหม่ </strong>
                             {/* อีเมล@mail.com */}
                         </p>
-                        <input id="confirmPassword" type="text" defaultValue="0884728951" className="w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                        <input id="confirmPassword" type="text" placeholder="ยืนยันรหัสผ่านใหม่" className="w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
 
 
 

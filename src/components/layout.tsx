@@ -29,8 +29,10 @@ export default function RootLayout({
         {children}
         <BackToTopButton />
       </main>
-      <FootPage />
-      <Footer />
+      <footer className='bottom-0 w-full mt-24'>
+        <FootPage />
+        <Footer />
+      </footer>
     </>
   )
 }

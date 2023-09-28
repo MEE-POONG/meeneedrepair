@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { DeliveryLocation } from '@prisma/client';
 
 export default function DeliveryLocation() {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
-    const [deliveryLocationData, setDeliveryLocationData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [deliveryLocationData, setDeliveryLocationData] = useState<any>(); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [currentAddressId, setcurrentAddressId] = useState<String>();
     const [isLoading, setIsLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
     // const [initialUserData, setInitialUserData] = useState<User>({
@@ -28,11 +28,23 @@ export default function DeliveryLocation() {
 
     useEffect(() => {
         if (id) {
-            fetch(`/api/deliveryLocation/${id}`)
+            fetch(`/api/user/address/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    setDeliveryLocationData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
-                    //console.log(data);
+
+                    // console.log(data.AddressId);
+                    // console.log(data.Address);
+                    const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
+                    if (foundId) {
+                        // ค้นเจอ ID ใน data.Address
+                        // ทำสิ่งที่คุณต้องการกับ foundId
+                        // console.log(foundId);
+                        setcurrentAddressId(foundId)
+                    } else {
+                        // ไม่พบ ID ที่ตรงกันใน data.Address
+                        // console.log('ID ไม่ตรงกับใน data.Address');
+                    }
+
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 })
@@ -108,7 +120,11 @@ export default function DeliveryLocation() {
                         <div className="mt-5 leading-loose">
                             <p>
                                 <strong>ชื่อผู้รับ :</strong>
-                                {deliveryLocationData?.name}
+                                {/* {deliveryLocationData?.name} */}
+                            </p>
+
+                            <p>
+                                <strong>นามสกุลผู้รับ :</strong>
                             </p>
                             <p>
                                 <strong>เบอร์โทรศัพท์ :</strong>
@@ -131,6 +147,16 @@ export default function DeliveryLocation() {
                     <div className="mt-5 leading-loose">
                         <p>
                             <strong>ชื่อผู้รับ :</strong>
+                            <input
+                                type="text"
+                                value={"dsadsa"}
+                                // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
+                                className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
+                            />
+                        </p>
+
+                        <p>
+                            <strong>นามสกุลผู้รับ :</strong>
                             <input
                                 type="text"
                                 value={"dsadsa"}
