@@ -6,7 +6,8 @@ export default function DeliveryLocation() {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
-    // const [deliveryLocationData, setDeliveryLocationData] = useState<any>(); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [deliveryLocationData, setDeliveryLocationData] = useState<any>(); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [currentAddressId, setcurrentAddressId] = useState<String>();
     const [isLoading, setIsLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
     // const [initialUserData, setInitialUserData] = useState<User>({
@@ -27,11 +28,23 @@ export default function DeliveryLocation() {
 
     useEffect(() => {
         if (id) {
-            fetch(`/api/user/${id}`)
+            fetch(`/api/user/address/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    // setDeliveryLocationData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
-                    console.log(data);
+                   
+                    // console.log(data.AddressId);
+                    // console.log(data.Address);
+                    const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
+                    if (foundId) {
+                        // ค้นเจอ ID ใน data.Address
+                        // ทำสิ่งที่คุณต้องการกับ foundId
+                        // console.log(foundId);
+                        setcurrentAddressId(foundId)
+                    } else {
+                        // ไม่พบ ID ที่ตรงกันใน data.Address
+                        // console.log('ID ไม่ตรงกับใน data.Address');
+                    }
+
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 })

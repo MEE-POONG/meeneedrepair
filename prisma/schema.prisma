@@ -153,12 +153,15 @@ model Messenger {
 
 model Address {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name  String?
+  lname String?
+  phonenumber String?
   typeaddress String?
-  location    String?
+  addressline    String?
   zipcode     String?
   province    String?
   district    String?
-  Subdistrict String?
+  subdistrict String?
   detail      String?
   // User        User[]
   userId      String?
