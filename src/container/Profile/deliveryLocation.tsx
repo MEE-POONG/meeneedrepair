@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { DeliveryLocation } from '@prisma/client';
 
 export default function DeliveryLocation() {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
-    const [deliveryLocationData, setDeliveryLocationData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
+    // const [deliveryLocationData, setDeliveryLocationData] = useState<any>(); // กำหนดประเภทของข้อมูลบทความข่าว
     const [isLoading, setIsLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
     // const [initialUserData, setInitialUserData] = useState<User>({
@@ -28,11 +27,11 @@ export default function DeliveryLocation() {
 
     useEffect(() => {
         if (id) {
-            fetch(`/api/deliveryLocation/${id}`)
+            fetch(`/api/user/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    setDeliveryLocationData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
-                    //console.log(data);
+                    // setDeliveryLocationData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
+                    console.log(data);
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 })
@@ -108,7 +107,7 @@ export default function DeliveryLocation() {
                         <div className="mt-5 leading-loose">
                             <p>
                                 <strong>ชื่อผู้รับ :</strong>
-                                {deliveryLocationData?.name}
+                                {/* {deliveryLocationData?.name} */}
                             </p>
                             <p>
                                 <strong>เบอร์โทรศัพท์ :</strong>
