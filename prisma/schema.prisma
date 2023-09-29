@@ -127,20 +127,13 @@ model User {
   tel             String?
   facebook        String?
   google          String?
-<<<<<<< HEAD
   secretKey       String?
   AddressId       String? @db.ObjectId
-  Address     Address? @relation(fields: [AddressId], references: [id])
-  FavoriteItems String[]
-
-=======
-  AddressId       String?   @db.ObjectId
   // AddressId       String? 
   // Address         Address? @relation(fields: [AddressId], references: [id])
   Address         Address[]
   FavoriteItems   String[]
   ProductsItems   String[]
->>>>>>> 13009dd020cbb113783ee8a08f0c31c49b1a757e
 }
 
 model Admin {
