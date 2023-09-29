@@ -22,7 +22,7 @@ const AddressProfile = () => {
     const [Province, setProvince] = useState<String>("");
     const [District, setDistrict] = useState<String>("");
     const [SubDistrict, setSubDistrict] = useState<String>("");
-    const [Detail, setDetail] = useState<String>("");
+    const [Note, setNote] = useState<String>("");
 
     const [CheckDefault, setCheckDefault] = useState(false);
     const [DefaultAddress, setDefaultAddress] = useState<String>("");
@@ -33,6 +33,25 @@ const AddressProfile = () => {
 
     // } else {
     //     // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
+    // }
+    // const checkValue = () => {
+    //     if (
+    //         Name == "" ||
+    //         Lname == "" ||
+    //         PhoneNumber == "" ||
+    //         TypeAddress == "" ||
+    //         AddressLine == "" ||
+    //         ZipCode == "" ||
+    //         Province == "" ||
+    //         District == ""
+    //     ) {
+    //         {
+    //             alert("กรุณากรอกข้อมูลให้ครบ")
+    //             return;
+    //         }
+
+    //     }
+
     // }
 
     useEffect(() => {
@@ -76,6 +95,22 @@ const AddressProfile = () => {
 
     const UploadAndSetDefault = (UploadData: any) => {
         // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
+        if (
+            Name == "" ||
+            Lname == "" ||
+            PhoneNumber == "" ||
+            TypeAddress == "" ||
+            AddressLine == "" ||
+            ZipCode == "" ||
+            Province == "" ||
+            District == ""
+        ) {
+            {
+                alert("กรุณากรอกข้อมูลให้ครบ")
+                return;
+            }
+
+        }
 
         fetch(`/api/address`, {
             method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
@@ -124,7 +159,22 @@ const AddressProfile = () => {
 
 
     const UploadNoDefault = (UploadData: any) => {
+        if (
+            Name == "" ||
+            Lname == "" ||
+            PhoneNumber == "" ||
+            TypeAddress == "" ||
+            AddressLine == "" ||
+            ZipCode == "" ||
+            Province == "" ||
+            District == ""
+        ) {
+            {
+                alert("กรุณากรอกข้อมูลให้ครบ")
+                return;
+            }
 
+        }
 
         fetch(`/api/address`, {
             method: 'POST', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
@@ -169,6 +219,7 @@ const AddressProfile = () => {
             province: Province,
             district: District,
             subdistrict: SubDistrict,
+            note: Note,
             userId: UserId,
         }
 
@@ -237,7 +288,7 @@ const AddressProfile = () => {
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">ชื่อผู้รับ</p>
                                 <input
-
+                                    placeholder="ชื่อผู้รับ"
                                     type="text"
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500"
                                     onChange={(e) => setName(e.target.value)}
@@ -247,6 +298,7 @@ const AddressProfile = () => {
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">นามสกุลผู้รับ</p>
                                 <input
+                                    placeholder="นามสกุลผู้รับ"
                                     type="text"
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
                                     onChange={(e) => setLname(e.target.value)}
@@ -256,6 +308,7 @@ const AddressProfile = () => {
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">เบอร์โทรศัพท์</p>
                                 <input
+                                    placeholder="เบอร์โทรศัพท์"
                                     type="text"
                                     className=" w-full h-9 pl-2   border border-b-black focus:outline-none focus:border-b-blue-500 "
                                     onChange={(e) => setPhoneNumber(e.target.value)}
@@ -290,6 +343,7 @@ const AddressProfile = () => {
                             <div className="col-span-12">
                                 <p className="text-[#666363] my-2">ที่อยู่</p>
                                 <input
+                                    placeholder="ที่อยู่"
                                     type="text"
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
                                     onChange={(e) => setAddressLine(e.target.value)}
@@ -300,6 +354,7 @@ const AddressProfile = () => {
                             <div className="col-span-12 md:col-span-6">
                                 <p className="text-[#666363] my-2">รหัสไปรษณีย์</p>
                                 <input
+                                    placeholder="รหัสไปรษณีย์"
                                     type="text"
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
                                     onChange={(e) => setZipCode(e.target.value)}
@@ -351,9 +406,10 @@ const AddressProfile = () => {
                             <div className="col-span-12">
                                 <p className="text-[#666363] my-2">จุดสังเกตุ (ถ้ามี)</p>
                                 <input
+                                    placeholder="ข้อมูลเพิ่มเติม"
                                     type="text"
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
-                                    onChange={(e) => setDetail(e.target.value)}
+                                    onChange={(e) => setNote(e.target.value)}
 
                                 />
                             </div>
