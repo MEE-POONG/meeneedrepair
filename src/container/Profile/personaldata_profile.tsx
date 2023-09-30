@@ -1,142 +1,174 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import SelectAddress from "./selectaddress_personaldata_profile";
+
 
 const PersonalData = () => {
     const router = useRouter();
     const { id } = router.query;
 
-    const [userData, setUserData] = useState({});
+    const [UserAddressData, setUserAddressData] = useState([]);
+    const [UserData, setUserData] = useState({
+        fname: "",
+        lname: "",
+        tel: "",
+        email: "",
+    });
+
 
     const [isLoading, setIsLoading] = useState(true);
 
-    const [typeAddress, setTypeAddress] = useState("");
+    const [Address, setAddress] = useState("");
     const [Name, setName] = useState("");
     const [LastName, setLastName] = useState("");
     const [Telephone, setTelephone] = useState("");
     const [Email, setEmail] = useState("");
 
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [selectedAddress, setSelectedAddress] = useState(null);
+    const [selectedAddressId, setSelectedAddressId] = useState<string | null>(null);
 
-    const updateUserAndAddress = () => {
+
+    // Your UserAddressData and other code...
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const selectAddress = (address: any) => {
+        setSelectedAddress(address);
+        setIsDropdownOpen(false);
+    };
+
+
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/address/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log(data.id);
+                    setUserAddressData(data.Address)
+                    console.log(data.Address);
+
+
+                    // const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
+                    // if (foundId) {
+                    //     // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้ามีเป็น true
+                    //     setIsDefaultAddress(true);
+                    //     // ค้นเจอ ID ใน data.Address
+                    //     // ทำสิ่งที่คุณต้องการกับ foundId
+                    //     // console.log(foundId);
+                    //     console.log("เจอ id address");
+                    //     // ตั้งค่า ID ของ address ที่มีอยู่
+                    //     setCurrentAddressId(foundId)
+                    // } else {
+                    //     // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้า ไม่มี เป็น false
+                    //     setIsDefaultAddress(false);
+                    //     // ไม่พบ ID ที่ตรงกันใน data.Address
+                    //     console.log('ID ไม่ตรงกับใน data.Address');
+                    // }
+
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                });
+
+        }
+    }, [id]);
+
+    useEffect(() => {
         if (id) {
             fetch(`/api/user/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
+                    // console.log(data.id);
                     setUserData(data);
-                    setIsLoading(false);
-                    if (Name === "" || Telephone === "" || Email === "" || typeAddress === "") {
-                        alert("โปรดกรอกข้อมูลให้ครบทุกช่อง");
-                        return;
-                    }
-                    // Check if AddressId exists in userData
-                    if (data.AddressId) {
-                        // If AddressId exists, perform PUT request to update user and address
-                        fetch(`/api/user/${id}`, {
-                            method: 'PUT',
-                            body: JSON.stringify({
-                                fname: Name,
-                                lname: LastName,
-                                tel: Telephone,
-                                email: Email,
-                            }),
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                        })
-                            .then((response) => response.json())
-                            .then((userDataUpdated) => {
-                                // userDataUpdated now contains the updated user data
-                            })
-                            .catch((error) => {
-                                console.error('Error updating user:', error);
-                            });
+                    setName(data.fname);
+                    setLastName(data.lname);
+                    setTelephone(data.tel);
+                    setEmail(data.email);
+                    // setAddress(data);
+                    console.log(data);
 
-                        // Update address by making a PUT request to /api/address/${AddressId}
-                        const id2 = data.AddressId;
-                        fetch(`/api/address/${id2}`, {
-                            method: 'PUT',
-                            body: JSON.stringify({
-                                typeaddress: typeAddress,
-                            }),
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                        })
-                            .then((response) => response.json())
-                            .then((addressDataUpdated) => {
-                                // addressDataUpdated now contains the updated address data
-                                alert("บันทึกข้อมูลสำเร็จ");
-                            })
-                            .catch((error) => {
-                                console.error('Error updating address:', error);
-                            });
-                    } else {
-                        // If AddressId doesn't exist, perform PUT request to update user and POST request to create address
-                        fetch(`/api/user/${id}`, {
-                            method: 'PUT',
-                            body: JSON.stringify({
-                                fname: Name,
-                                lname: LastName,
-                                tel: Telephone,
-                                email: Email,
-                            }),
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                        })
-                            .then((response) => response.json())
-                            .then((userDataUpdated) => {
-                                // userDataUpdated now contains the updated user data
-                            })
-                            .catch((error) => {
-                                console.error('Error updating user:', error);
-                            });
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
-                        // Create a new address by making a POST request to /api/address
-                        fetch(`/api/address`, {
-                            method: 'POST',
-                            body: JSON.stringify({
-                                typeaddress: typeAddress,
-                            }),
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                        })
-                            .then((response) => response.json())
-                            .then((newAddressData) => {
-                                // newAddressData now contains the newly created address data
-                                // Update user's AddressId with the new address's id
-                                const newAddressId = newAddressData.id;
-                                fetch(`/api/user/${id}`, {
-                                    method: 'PUT',
-                                    body: JSON.stringify({
-                                        AddressId: newAddressId,
-                                    }),
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                })
-                                    .then((response) => response.json())
-                                    .then((userDataWithNewAddress) => {
-                                        // userDataWithNewAddress now contains the user with the new AddressId
-                                        alert("บันทึกข้อมูลสำเร็จ");
-                                    })
-                                    .catch((error) => {
-                                        console.error('Error updating user with new AddressId:', error);
-                                    });
-                            })
-                            .catch((error) => {
-                                console.error('Error creating address:', error);
-                            });
-                    }
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    setIsLoading(false);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
                 });
+
         }
-    };
+    }, [id]);
+
+
+    const UpdateUserData = () => {
+        if (id) {
+
+            if (selectedAddressId !== null) {
+                fetch(`/api/user/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+
+                        fname: Name,
+                        lname: LastName,
+                        tel: Telephone,
+                        email: Email,
+                        AddressId: selectedAddressId,
+
+
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                        alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+
+            } else {
+
+                fetch(`/api/user/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+
+                        fname: Name,
+                        lname: LastName,
+                        tel: Telephone,
+                        email: Email,
+
+
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                        alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+
+
+            }
+
+        }
+    }
 
 
     return (
@@ -157,19 +189,21 @@ const PersonalData = () => {
                     <div className="mt-5 leading-loose gap-y-2 flex flex-wrap">
 
                         <p className="">
-                            <strong>ชื่อผู้รับ </strong>
+                            <strong>ชื่อ </strong>
                         </p>
                         {/* {userData.fname} {userData.lname} */}
                         <input type="text"
+                            defaultValue={Name}
                             placeholder="กรุณากรอกชื่อ"
                             onChange={(e) => setName(e.target.value)}
                             className="  w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
-                      
+
                         <p className="">
-                            <strong>นามกุลผู้รับ </strong>
+                            <strong>นามกุล </strong>
                         </p>
                         {/* {userData.fname} {userData.lname} */}
                         <input type="text"
+                            defaultValue={LastName}
                             placeholder="กรุณากรอกนามสกุล"
                             onChange={(e) => setLastName(e.target.value)}
                             className="  w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
@@ -182,6 +216,7 @@ const PersonalData = () => {
                         {/* {userData.tel} */}
                         <input
                             type="text"
+                            defaultValue={Telephone}
                             placeholder="กรุณากรอกเบอร์โทรศัพท์"
                             onChange={(e) => setTelephone(e.target.value)}
                             className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
@@ -194,6 +229,7 @@ const PersonalData = () => {
                             {/* อีเมล@mail.com */}
                         </p>
                         <input type="text"
+                            defaultValue={Email}
                             placeholder="กรุณากรอกอีเมล"
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
@@ -204,10 +240,16 @@ const PersonalData = () => {
                             <strong>ที่อยู่จัดส่ง </strong>
                             {/* หอพักหญิงอยู่สบาย 193 ถนน 30กันยา , ในเมือง เมืองนครราชสีมา นครราชสีมา 30000 */}
                         </p>
-                        <input type="text"
+                        {/* <input type="text"
                             placeholder="กรุณากรอกที่อยู่"
-                            onChange={(e) => setTypeAddress(e.target.value)}
-                            className="w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500" />
+                            onChange={(e) => setAddress(e.target.value)}
+                            className="w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500"
+                        /> */}
+
+                        <div className="w-full">
+                            <SelectAddress UserAddressData={UserAddressData} onSelectAddress={(addressId) => setSelectedAddressId(addressId)} />
+
+                        </div>
 
 
 
@@ -222,7 +264,10 @@ const PersonalData = () => {
 
             </div>
             <div className="flex justify-center my-5">
-                <button onClick={updateUserAndAddress} className="bg-[#18BCEB] h-10 w-24 rounded-3xl text-secondary2">บันทึก</button>
+                <button
+                    // onClick={updateUserAndAddress} 
+                    onClick={UpdateUserData}
+                    className="bg-[#18BCEB] h-10 w-24 rounded-3xl text-secondary2">บันทึก</button>
             </div>
         </div>
     )

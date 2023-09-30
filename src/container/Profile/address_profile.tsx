@@ -70,14 +70,14 @@ const AddressProfile = () => {
                         // ค้นเจอ ID ใน data.Address
                         // ทำสิ่งที่คุณต้องการกับ foundId
                         // console.log(foundId);
-                        console.log("เจอ id address");
+                        // console.log("เจอ id address");
                         // ตั้งค่า ID ของ address ที่มีอยู่
                         setCurrentAddressId(foundId)
                     } else {
                         // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้า ไม่มี เป็น false
                         setIsDefaultAddress(false);
                         // ไม่พบ ID ที่ตรงกันใน data.Address
-                        console.log('ID ไม่ตรงกับใน data.Address');
+                        // console.log('ID ไม่ตรงกับใน data.Address');
                     }
 
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
