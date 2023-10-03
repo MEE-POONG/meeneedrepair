@@ -27,32 +27,57 @@ const AddressProfile = () => {
     const [CheckDefault, setCheckDefault] = useState(false);
     const [DefaultAddress, setDefaultAddress] = useState<String>("");
 
-    // if (CheckDefault) {
-    //     // กระทำอะไรบางอย่างเมื่อ checkbox ถูกเลือก
+
+    const [provinces, setProvinces] = useState<any[]>([]);
+    const [districts, setDistricts] = useState<any[]>([]);
+    const [subdistricts, setSubDistricts] = useState<any[]>([]);
 
 
-    // } else {
-    //     // กระทำอะไรบางอย่างเมื่อ checkbox ไม่ถูกเลือก
-    // }
-    // const checkValue = () => {
-    //     if (
-    //         Name == "" ||
-    //         Lname == "" ||
-    //         PhoneNumber == "" ||
-    //         TypeAddress == "" ||
-    //         AddressLine == "" ||
-    //         ZipCode == "" ||
-    //         Province == "" ||
-    //         District == ""
-    //     ) {
-    //         {
-    //             alert("กรุณากรอกข้อมูลให้ครบ")
-    //             return;
-    //         }
+    useEffect(() => {
+        fetch("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province.json")
+            .then((response) => response.json())
+            .then((data) => {
+                setProvinces(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching provinces:", error);
+            });
+    }, []);
 
-    //     }
+    const handleProvinceChange = (e: any) => {
+        const selectedProvinceName = e.target.value;
+        const selectedProvince = provinces.find((province) => province.name_th === selectedProvinceName);
+        if (selectedProvince) {
+            // ดึงข้อมูลอำเภอที่เกี่ยวข้องกับจังหวัดที่เลือก   
+            fetch(`https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_amphure.json`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const filteredDistricts = data.filter((district: any) => district.province_id === selectedProvince.id);
+                    setDistricts(filteredDistricts);
+                })
+                .catch((error) => {
+                    console.error("Error fetching districts:", error);
+                });
+        }
+    };
 
-    // }
+    const handleDistrictChange = (e: any) => {
+        const selectedAmphureName = e.target.value;
+        const selectedAmphure = districts.find((district) => district.name_th === selectedAmphureName);
+        if (selectedAmphure) {
+            // ดึงข้อมูลตำบลที่เกี่ยวข้องกับอำเภอที่เลือก
+            fetch(`https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_tambon.json`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const filteredSubDistricts = data.filter((subdistrict: any) => subdistrict.amphure_id === selectedAmphure.id);
+                    setSubDistricts(filteredSubDistricts);
+                })
+                .catch((error) => {
+                    console.error("Error fetching subdistricts:", error);
+                });
+        }
+    };
+
 
     useEffect(() => {
         if (id) {
@@ -61,8 +86,8 @@ const AddressProfile = () => {
                 .then((data) => {
                     // console.log(data.id);
                     setUserId(data.id)
-                    console.log(data.AddressId);
-                    console.log(data.Address);
+                    // console.log(data.AddressId);
+                    // console.log(data.Address);
                     const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
                     if (foundId) {
                         // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้ามีเป็น true
@@ -103,7 +128,8 @@ const AddressProfile = () => {
             AddressLine == "" ||
             ZipCode == "" ||
             Province == "" ||
-            District == ""
+            District == "" ||
+            SubDistrict == ""
         ) {
             {
                 alert("กรุณากรอกข้อมูลให้ครบ")
@@ -167,7 +193,8 @@ const AddressProfile = () => {
             AddressLine == "" ||
             ZipCode == "" ||
             Province == "" ||
-            District == ""
+            District == "" ||
+            SubDistrict == ""
         ) {
             {
                 alert("กรุณากรอกข้อมูลให้ครบ")
@@ -365,12 +392,14 @@ const AddressProfile = () => {
                                 <p className="text-[#666363] my-2">จังหวัด</p>
                                 <select
                                     className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 "
-                                    onChange={(e) => setProvince(e.target.value)}
+                                    onChange={(e) => { setProvince(e.target.value); handleProvinceChange(e); }}
                                 >
                                     <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกจังหวัด</option>
-                                    <option value="บ้าน">บ้าน</option>
-                                    <option value="ที่ทำงาน">ที่ทำงาน</option>
-                                    <option value="หอพัก/คอนโด">หอพัก/คอนโด</option>
+                                    {provinces.map((province) => (
+                                        <option key={province.id} value={province.name_th}>
+                                            {province.name_th}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
 
@@ -378,13 +407,15 @@ const AddressProfile = () => {
                                 <p className="text-[#666363] my-2">อำเภอ/เขต</p>
                                 <select
                                     className=" w-full h-9 pl-2  border border-b-black focus:outline-none focus:border-b-blue-500 "
-                                    onChange={(e) => setDistrict(e.target.value)}
+                                    onChange={(e) => {setDistrict(e.target.value); handleDistrictChange(e)}}
 
                                 >
                                     <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกอำเภอ/เขต</option>
-                                    <option value="บ้าน">บ้าน</option>
-                                    <option value="ที่ทำงาน">ที่ทำงาน</option>
-                                    <option value="หอพัก/คอนโด">หอพัก/คอนโด</option>
+                                    {districts.map((district) => (
+                                        <option key={district.id} value={district.name_th}>
+                                            {district.name_th}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
 
@@ -392,13 +423,15 @@ const AddressProfile = () => {
                                 <p className="text-[#666363] my-2">ตำบล/แขวง</p>
                                 <select
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
-                                    onChange={(e) => setSubDistrict(e.target.value)}
+                                    onChange={(e) => { setSubDistrict(e.target.value) }}
 
                                 >
-                                    <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกตำบล/แขวง</option>
-                                    <option value="บ้าน">บ้าน</option>
-                                    <option value="ที่ทำงาน">ที่ทำงาน</option>
-                                    <option value="หอพัก/คอนโด">หอพัก/คอนโด</option>
+                                    <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกตำบล</option>
+                                    {subdistricts.map((subdistrict) => (
+                                        <option key={subdistrict.id} value={subdistrict.name_th}>
+                                            {subdistrict.name_th}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
 
