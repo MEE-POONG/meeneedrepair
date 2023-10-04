@@ -50,7 +50,7 @@ const PersonalData = () => {
                 .then((data) => {
                     // console.log(data.id);
                     setUserAddressData(data.Address)
-                    console.log(data.Address);
+                    // console.log(data.Address);
 
 
                     // const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
@@ -94,7 +94,7 @@ const PersonalData = () => {
                     setTelephone(data.tel);
                     setEmail(data.email);
                     // setAddress(data);
-                    console.log(data);
+                    // console.log(data);
 
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
