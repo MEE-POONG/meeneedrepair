@@ -78,6 +78,16 @@ const AddressProfile = () => {
         }
     };
 
+    const handleSubDistrictChange = (e: any) => {
+        const selectedSubDistrictName = e.target.value;
+        const selectedSubDistrict = subdistricts.find((subdistrict) => subdistrict.name_th === selectedSubDistrictName);
+        if (selectedSubDistrict) {
+            // Update the zip code based on the selected subdistrict
+            setZipCode(selectedSubDistrict.zip_code.toString());
+            // console.log(selectedSubDistrict.zip_code);
+        }
+    };
+
 
     useEffect(() => {
         if (id) {
@@ -382,6 +392,7 @@ const AddressProfile = () => {
                                 <p className="text-[#666363] my-2">รหัสไปรษณีย์</p>
                                 <input
                                     placeholder="รหัสไปรษณีย์"
+                                     value={ZipCode.toString()}
                                     type="text"
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
                                     onChange={(e) => setZipCode(e.target.value)}
@@ -423,7 +434,7 @@ const AddressProfile = () => {
                                 <p className="text-[#666363] my-2">ตำบล/แขวง</p>
                                 <select
                                     className=" w-full h-9 pl-2 border border-b-black focus:outline-none focus:border-b-blue-500 "
-                                    onChange={(e) => { setSubDistrict(e.target.value) }}
+                                    onChange={(e) => { setSubDistrict(e.target.value);handleSubDistrictChange(e) }}
 
                                 >
                                     <option value="" disabled selected hidden className="text-gray-500">กรุณาเลือกตำบล</option>
