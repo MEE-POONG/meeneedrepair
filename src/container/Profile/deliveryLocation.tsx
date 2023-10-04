@@ -1,13 +1,20 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { User } from '@prisma/client';
+import SelectAddress from "./selectaddress_personaldata_profile";
 
 export default function DeliveryLocation() {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
     const [deliveryLocationData, setDeliveryLocationData] = useState<any>(); // กำหนดประเภทของข้อมูลบทความข่าว
-    const [currentAddressId, setcurrentAddressId] = useState<String>();
+    // const [CurrentAddressId, setCurrentAddressId] = useState<String>();
+    const [CurrentAddress, setCurrentAddress] = useState<any>({});
+    const [UserAddressData, setUserAddressData] = useState<any>({});
+    const [selectedAddressId, setSelectedAddressId] = useState<string | null>(null);
+
+
     const [isLoading, setIsLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
     // const [initialUserData, setInitialUserData] = useState<User>({
@@ -38,10 +45,14 @@ export default function DeliveryLocation() {
                     if (foundId) {
                         // ค้นเจอ ID ใน data.Address
                         // ทำสิ่งที่คุณต้องการกับ foundId
-                        // console.log(foundId);
-                        setcurrentAddressId(foundId)
+                        setCurrentAddress(foundId);
+                        setUserAddressData(data.Address);
+                        // console.log(foundId)
+
+
                     } else {
                         // ไม่พบ ID ที่ตรงกันใน data.Address
+                        setUserAddressData(data.Address);
                         // console.log('ID ไม่ตรงกับใน data.Address');
                     }
 
@@ -58,37 +69,43 @@ export default function DeliveryLocation() {
     }, [id]);
 
     const handleSave = () => {
-        // // สร้างข้อมูลที่จะส่งไปแก้ไข API
-        // const updatedUserData = {
-        //     fname: userData.fname,
-        //     lname: userData.lname,
-        //     email: userData.email,
-        //     tel: userData.tel,
-        //     // loca: userData.loca, // ถ้าคุณต้องการส่งข้อมูล loca ด้วย
-        // };
+        if (!selectedAddressId) { // ตรวจสอบว่า selectedAddressId เป็น falsy หรือ null
+            alert('กรุณาเลือกที่อยู่');
+            return; // จบการทำงานของฟังก์ชัน
+        }
 
-        // // ทำการส่งข้อมูลไปแก้ไข API
-        // fetch(`/api/user/${id}`, {
-        //     method: 'PUT', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(updatedUserData),
-        // })
-        //     .then((response) => {
-        //         if (response.ok) {
-        //             // หากสำเร็จในการแก้ไขข้อมูล
-        //             setIsEditing(false); // ปิดโหมดแก้ไข
-        //             setInitialUserData(updatedUserData); // อัปเดตข้อมูลเริ่มต้น
-        //         } else {
-        //             // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
-        //             console.error('Error:', response.status);
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
+        if (id) {
+
+            fetch(`/api/user/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+
+                    AddressId: selectedAddressId,
+
+
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                    alert('แก้ไขที่อยู่เริ่มต้นเรียบร้อยแล้ว');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+
+
+
+        }
+
+
+
         setIsEditing(false);
+        router.reload();
     };
 
 
@@ -97,6 +114,48 @@ export default function DeliveryLocation() {
         // setUserData(initialUserData);
         setIsEditing(false);
     };
+
+    const handleDelete = () => {
+        if (!selectedAddressId) { // ตรวจสอบว่า selectedAddressId เป็น falsy หรือ null
+            alert('กรุณาเลือกที่อยู่');
+            return; // จบการทำงานของฟังก์ชัน
+        }
+
+        if (id) {
+
+            fetch(`/api/address/${selectedAddressId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+
+                    AddressId: selectedAddressId,
+
+
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                    alert('ลบข้อมูลทีอยู่เรียบร้อยแลว');
+                    setIsEditing(false);
+                    router.reload();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+
+
+
+        }
+
+
+
+
+    };
+
 
 
     return (
@@ -119,23 +178,24 @@ export default function DeliveryLocation() {
                         </div>
                         <div className="mt-5 leading-loose">
                             <p>
-                                <strong>ชื่อผู้รับ :</strong>
+                                <strong>ชื่อผู้รับ : </strong> {CurrentAddress.name}  {CurrentAddress.lname}
                                 {/* {deliveryLocationData?.name} */}
+
+
+
+
+                            </p>
+
+
+                            <p>
+                                <strong>เบอร์โทรศัพท์ : </strong>
+                                {CurrentAddress.phonenumber}
+
                             </p>
 
                             <p>
-                                <strong>นามสกุลผู้รับ :</strong>
-                            </p>
-                            <p>
-                                <strong>เบอร์โทรศัพท์ :</strong>
-
-                            </p>
-                            <p>
-                                <strong>อีเมล :</strong>
-
-                            </p>
-                            <p>
-                                <strong>ที่อยู่จัดส่ง :</strong>
+                                <strong>ที่อยู่จัดส่ง : </strong>
+                                {CurrentAddress.addressline} {CurrentAddress.district}  {CurrentAddress.province}  {CurrentAddress.subdistrict}  {CurrentAddress.zipcode}  {CurrentAddress.note}
 
                             </p>
                         </div>
@@ -145,59 +205,55 @@ export default function DeliveryLocation() {
 
 
                     <div className="mt-5 leading-loose">
-                        <p>
+                        {/* <p>
                             <strong>ชื่อผู้รับ :</strong>
                             <input
                                 type="text"
-                                value={"dsadsa"}
+                                value={CurrentAddress.name}
+                                // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
+                                className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
+                            />
+
+                            <input
+                                type="text"
+                                value={CurrentAddress.lname}
                                 // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
                                 className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
                             />
                         </p>
 
-                        <p>
-                            <strong>นามสกุลผู้รับ :</strong>
-                            <input
-                                type="text"
-                                value={"dsadsa"}
-                                // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
-                                className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
-                            />
-                        </p>
+
 
                         <p>
                             <strong>เบอร์โทรศัพท์ :</strong>
                             <input
                                 type="text"
-                                value="2322"
+                                value={CurrentAddress.phonenumber}
                                 // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
                                 className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
                             />
 
-                        </p>
-                        <p>
-                            <strong>อีเมล :</strong>
-                            <input
-                                type="text"
-                                value="daa@asdaa"
-                                // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
-                                className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
-                            />
+                        </p> */}
 
-                        </p>
                         <p>
                             <strong>ที่อยู่จัดส่ง :</strong>
-                            <input
+                            {/* <input
                                 type="text"
                                 value="21/1 fde rd, wdasd"
                                 // onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
                                 className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
-                            />
+                            /> */}
+
+                            <SelectAddress UserAddressData={UserAddressData} onSelectAddress={(addressId) => setSelectedAddressId(addressId)} />
+
 
                         </p>
                         <div className="my-2">
                             <button onClick={handleSave} className="bg-green-500 text-white w-16 h-8 rounded">บันทึก</button>
+                            <button onClick={handleDelete} className="ml-2 bg-gray-500 text-white w-16 h-8 rounded">ลบ</button>
+
                             <button onClick={handleCancel} className="ml-2 bg-red-500 text-white w-16 h-8 rounded">ยกเลิก</button>
+
                         </div>
                     </div>
                 )}

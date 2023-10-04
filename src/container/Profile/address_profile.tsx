@@ -314,9 +314,10 @@ const AddressProfile = () => {
 
             <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1 w-[1000px]">
                 <div>
-                    <p className="text-red-500 text-center mb-5">**แสดงเมื่อกดปุ่ม เพิ่มที่อยู่ หรือ แก้ไข**</p>
+                    {/* <p className="text-red-500 text-center mb-5">**แสดงเมื่อกดปุ่ม เพิ่มที่อยู่ หรือ แก้ไข**</p> */}
                     <div className="flex justify-between">
-                        <p className="text-lg font-semibold">แก้ไขที่อยู่</p>
+                        {/* <p className="text-lg font-semibold">แก้ไขที่อยู่</p> */}
+                        <p className="text-lg font-semibold">เพิ่มที่อยู่</p>
 
                     </div>
                     <div className="mt-5 leading-loose">

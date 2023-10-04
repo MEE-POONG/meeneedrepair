@@ -103,7 +103,7 @@ export default function Information() {
                     </div>
                     <div className="mt-5 leading-loose">
                         <p>
-                            <strong>ชื่อผู้รับ :</strong> {userData.fname} {userData.lname}
+                            <strong>ชื่อ :</strong> {userData.fname} {userData.lname}
                         </p>
                         <p>
                             <strong>อีเมล :</strong> {userData.email}
