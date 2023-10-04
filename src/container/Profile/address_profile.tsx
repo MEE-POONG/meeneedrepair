@@ -171,6 +171,7 @@ const AddressProfile = () => {
                             alert("บันทึกข้อมูลสำเร็จ")
                             console.log("บันทึกข้อมูลสำเร็จ")
                             setIsLoading(false);
+                            router.reload();
                         } else {
                             // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
                             alert("บันทึก ไม่ ข้อมูลสำเร็จ")
@@ -226,6 +227,7 @@ const AddressProfile = () => {
                     alert("บันทึกข้อมูลสำเร็จ")
                     console.log("บันทึกข้อมูลสำเร็จ")
                     setIsLoading(false);
+                    router.reload();
                 } else {
                     // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
                     alert("บันทึก ไม่ ข้อมูลสำเร็จ")
