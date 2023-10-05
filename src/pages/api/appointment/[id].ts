@@ -15,6 +15,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     where: {
                         id: id as string,
                     },
+                    include:{
+                        user : true
+                    }
                 });
 
                 res.status(200).json(data);
@@ -30,6 +33,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const data = await prisma.appointment.update({
                     where: {
                         id: id as string,
+                    },
+                    include:{
+                        user : true
                     },
                     data: req.body,
                 });
@@ -47,6 +53,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const data = await prisma.appointment.delete({
                     where: {
                         id: id as string,
+                    },
+                    include:{
+                        user : true
                     },
                 });
 
