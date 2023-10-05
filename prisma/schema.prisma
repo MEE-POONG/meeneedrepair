@@ -71,7 +71,7 @@ model Products {
   productbrandId   String?       @db.ObjectId
 
   OrderId String? @db.ObjectId
-  Order   Order?  @relation(fields: [productbrandId], references: [id])
+  Order   Order?  @relation(fields: [OrderId], references: [id])
 }
 
 model News {
