@@ -21,9 +21,9 @@ const RepairProfile = () => {
             fetch(`/api/user/appointment/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log("ข้อมูลเริ่มต้นของ appointment");
-                    console.log(data);
-                    console.log(data.Appointment);
+                    // console.log("ข้อมูลเริ่มต้นของ appointment");
+                    // console.log(data);
+                    // console.log(data.Appointment);
                     setAppointmentData(data.Appointment);
                     // console.log(data.AddressId);
                     // console.log(data.Address);
