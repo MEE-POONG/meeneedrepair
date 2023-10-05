@@ -13,8 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
                 const appointment = await prisma.appointment.findMany({
-                    skip: (page - 1) * pageSize,
-                    take: pageSize,
+                    // skip: (page - 1) * pageSize,
+                    // take: pageSize,
+                    include:{
+                        user : true
+                    },
                 });
 
                 const totalappointment = await prisma.appointment.count();
@@ -28,6 +31,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'POST':
             try {
                 const newappointment = await prisma.appointment.create({
+                    include:{
+                        user : true
+                    },
                     data: req.body,
                 });
 
