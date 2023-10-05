@@ -13,8 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
                 const orders = await prisma.order.findMany({
-                    skip: (page - 1) * pageSize,
-                    take: pageSize,
+                    // skip: (page - 1) * pageSize,
+                    // take: pageSize,
+                    include: {
+                        Products: true,
+                      },
                 });
 
                 const totalorder = await prisma.order.count();
@@ -28,6 +31,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'POST':
             try {
                 const neworder = await prisma.order.create({
+                    include: {
+                        Products: true,
+                      },
                     data: req.body,
                 });
 

@@ -15,6 +15,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     where: {
                         id: id as string,
                     },
+                    include: {
+                        Order: true,
+                      },
                 });
 
                 res.status(200).json(data);
@@ -31,6 +34,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     where: {
                         id: id as string,
                     },
+                    include: {
+                        Order: true,
+                      },
                     data: req.body,
                 });
 
@@ -48,6 +54,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     where: {
                         id: id as string,
                     },
+                    include: {
+                        Order: true,
+                      },
                 });
 
                 res.status(200).json(data);

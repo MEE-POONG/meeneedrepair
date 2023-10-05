@@ -13,8 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
                 const orderlists = await prisma.orderList.findMany({
-                    skip: (page - 1) * pageSize,
-                    take: pageSize,
+                    // skip: (page - 1) * pageSize,
+                    // take: pageSize,
+                    include: {
+                        Order: true,
+                      },
                 });
 
                 const totalorderlists = await prisma.orderList.count();
@@ -28,6 +31,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'POST':
             try {
                 const neworderlists = await prisma.orderList.create({
+                    include: {
+                        Order: true,
+                      },
                     data: req.body,
                 });
 
