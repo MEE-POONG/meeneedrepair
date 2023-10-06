@@ -12,34 +12,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const page: number = Number(req.query.page) || 1;
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
-                const appointment = await prisma.appointment.findMany({
+                const orderlists = await prisma.orderList.findMany({
                     // skip: (page - 1) * pageSize,
                     // take: pageSize,
-                    include:{
-                        user : true
-                    },
+                    include: {
+                        Order: true,
+                      },
                 });
 
-                const totalappointment = await prisma.appointment.count();
-                const totalPage: number = Math.ceil(totalappointment / pageSize);
-                res.status(200).json({ appointment });
+                const totalorderlists = await prisma.orderList.count();
+                const totalPage: number = Math.ceil(totalorderlists / pageSize);
+                res.status(200).json({ orderlists });
             } catch (error) {
-                res.status(500).json({ error: "An error occurred while fetching the appointment" });
+                res.status(500).json({ error: "An error occurred while fetching the product" });
             }
             break;
 
         case 'POST':
             try {
-                const newappointment = await prisma.appointment.create({
-                    include:{
-                        user : true
-                    },
+                const neworderlists = await prisma.orderList.create({
+                    include: {
+                        Order: true,
+                      },
                     data: req.body,
                 });
 
-                res.status(201).json(newappointment);
+                res.status(201).json(neworderlists);
             } catch (error) {
-                res.status(500).json({ error: "An error occurred while creating the appointment" });
+                res.status(500).json({ error: "An error occurred while creating the product" });
             }
             break;
 

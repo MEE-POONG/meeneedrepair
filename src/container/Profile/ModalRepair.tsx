@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
-export default function ModalRepair() {
+export default function ModalRepair({ appointmentData }: any) {
     const [open, setOpen] = useState(false)
 
     const cancelButtonRef = useRef(null)
@@ -48,37 +48,42 @@ export default function ModalRepair() {
                                     <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                                         <div className='m-10 space-y-2'>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
-                                                <p className='col-span-3 row-span-2 text-right'>ชื่อบริการซ่อม :</p>
-                                                <p className='col-span-9 row-span-2'>คอมพิวเตอร์ตั้งโต๊ะเปิดไม่ติด</p>
+                                                <p className='col-span-3 row-span-2 text-right'>ชื่ออุปกรณ์ซ่อม :</p>
+                                                <p className='col-span-9 row-span-2'>{appointmentData.request}</p>
                                             </div>
-                                            <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
+                                            {/* <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>ราคา :</p>
                                                 <p className='col-span-9 row-span-2'>250 บาท</p>
-                                            </div>
+                                            </div> */}
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>วันที่จองคิวซ่อม :</p>
-                                                <p className='col-span-9 row-span-2'>15/8/2023</p>
+                                                <p className='col-span-9 row-span-2'>{new Date(appointmentData.time).toLocaleDateString('th-TH', {
+                                                    year: 'numeric',
+                                                    month: 'long',
+                                                    // month: 'long',
+                                                    day: 'numeric',
+                                                })}</p>
                                             </div>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>หมายเลขคิวซ่อม :</p>
-                                                <p className='col-span-9 row-span-2'>R0000003932</p>
+                                                <p className='col-span-9 row-span-2'>{appointmentData.id}</p>
                                             </div>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>สถานะคำสั่งซื้อ :</p>
-                                                <p className='col-span-9 row-span-2'>เตรียม</p>
+                                                <p className='col-span-9 row-span-2'>{appointmentData.status}</p>
                                             </div>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>ชื่อผู้ส่งซ่อม :</p>
-                                                <p className='col-span-9 row-span-2'>ชัยวุฒิ ขันธีระพล</p>
+                                                <p className='col-span-9 row-span-2'>{appointmentData.fname} {appointmentData.lname}</p>
                                             </div>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>เบอร์โทรศัพท์ :</p>
-                                                <p className='col-span-9 row-span-2'>09572827374</p>
+                                                <p className='col-span-9 row-span-2'>{appointmentData.tel}</p>
                                             </div>
-                                            <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
+                                            {/* <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>ที่อยู่ :</p>
                                                 <p className='col-span-9 row-span-2'>ร้านวันนี้ไม่มีขายพรุ่งนี้มาใหม่ บ้านเลขที่ 214/23 ซอยพัฒนาไทย ถนนพันธุระ ตำบลในเมือง อำเภอเมือง จังหวัดศรีษะเกษ 42150</p>
-                                            </div>
+                                            </div> */}
 
 
                                         </div>

@@ -1,7 +1,48 @@
 import Link from "next/link";
 import ModalRepair from "./ModalRepair";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { User } from '@prisma/client';
 
 const RepairProfile = () => {
+    const router = useRouter();
+    const { id } = router.query; // ดึงค่า id จาก query parameters
+
+
+    const [AppointmentData, setAppointmentData] = useState<any[]>([]);
+
+
+    const [isLoading, setIsLoading] = useState(true);
+
+
+
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/appointment/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log("ข้อมูลเริ่มต้นของ appointment");
+                    // console.log(data);
+                    // console.log(data.Appointment);
+                    setAppointmentData(data.Appointment);
+                    // console.log(data.AddressId);
+                    // console.log(data.Address);
+
+
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                });
+
+        }
+    }, [id]);
+
+
+
     return (
         <div className="">
             <div className="flex items-center">
@@ -18,69 +59,36 @@ const RepairProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">บริการซ่อมอุปกรณ์</h3>
             </div>
 
-            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base w-[1000px]">
+            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base ">
 
-                <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
-                    <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
-                    <p className="col-span-4 md:col-span-6 self-center truncate">ชิ่อบริการซ่อม</p>
-                    <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 200</p>
-                    <div className="col-span-3 md:col-span-2 self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-green-500 text-center">สำเร็จ</p>
+                {AppointmentData && AppointmentData.map((appointment: any, index: number) => (
+                    <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5" key={index}>
+                        <img src="https://bleuwire.com/wp-content/uploads/2019/03/computer-repair-services.jpg" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
+                        <div className="col-span-4 md:col-span-5 self-center flex flex-wrap">
+                            อุปกรณ์:
+                            <p className="md:ml-1 text-[#645cff]  self-center truncate">{appointment.request}</p>
+
+                        </div>
+                        <div className="col-span-2 md:col-span-2 self-center  flex justify-center flex-wrap">
+                            วันที่:
+                            <p className="md:ml-1 text-[#645cff] text-center"> {new Date(appointment.time).toLocaleDateString('th-TH', {
+                                year: 'numeric',
+                                month: 'long',
+                                // month: 'long',
+                                day: 'numeric',
+                            })} </p>
+
+                        </div>
+
+                        <div className="col-span-3 md:col-span-2 self-center flex justify-center flex-wrap">
+                            สถานะ:
+                            <p className={`self-center md:ml-1 text-${appointment.status === 'ยังไม่ซ่อม' ? 'orange-500' : appointment.status === 'ยกเลิก' ? 'red-500' : 'green-500'} text-center`}>{appointment.status}</p>
+                        </div>
+                        <div className="flex items-center justify-center">
+                            <ModalRepair appointmentData={appointment} />
+                        </div>
                     </div>
-
-                    <div className="flex items-center justify-center">
-                        <ModalRepair />
-                    </div>
-
-                </div>
-
-
-                <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
-                    <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
-                    <p className="col-span-4 md:col-span-6 self-center truncate">ชิ่อบริการซ่อม ถ้ายาวจะเป็นแบบนี้ อันนี้คือความยาวของตัวหนังสือ ถ้ายาว </p>
-                    <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
-                    <div className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-orange-500 text-center">กำลังซ่อม</p>
-                    </div>
-
-                    <div className="flex items-center justify-center">
-                        <ModalRepair />
-                    </div>
-
-                </div>
-
-                <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
-                    <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
-                    <p className="col-span-4 md:col-span-6 self-center truncate">ชิ่อบริการซ่อม</p>
-                    <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
-                    <div className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-orange-500 text-center">รอคิว</p>
-                    </div>
-
-                    <div className="flex items-center justify-center">
-                        <ModalRepair />
-                    </div>
-
-                </div>
-
-
-                <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5">
-                    <img src="/images/joystick.png" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
-                    <p className="col-span-4 md:col-span-6 self-center truncate">ชิ่อบริการซ่อม</p>
-                    <p className="col-span-2 md:col-span-1 self-center text-[#FF5C74] text-center">฿ 490</p>
-                    <div className="col-span-3 md:col-span-2  self-center flex justify-center flex-wrap">สถานะ:
-                        <p className="self-center md:ml-1 text-red-500 text-centertext-center">ยกเลิก</p>
-                    </div>
-
-                    <div className="flex items-center justify-center">
-                        <ModalRepair />
-                    </div>
-
-                </div>
-
-
-
-
+                ))}
 
 
 

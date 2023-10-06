@@ -12,34 +12,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const page: number = Number(req.query.page) || 1;
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
-                const appointment = await prisma.appointment.findMany({
+                const orders = await prisma.order.findMany({
                     // skip: (page - 1) * pageSize,
                     // take: pageSize,
-                    include:{
-                        user : true
-                    },
+                    include: {
+                        Products: true,
+                      },
                 });
 
-                const totalappointment = await prisma.appointment.count();
-                const totalPage: number = Math.ceil(totalappointment / pageSize);
-                res.status(200).json({ appointment });
+                const totalorder = await prisma.order.count();
+                const totalPage: number = Math.ceil(totalorder / pageSize);
+                res.status(200).json({ orders });
             } catch (error) {
-                res.status(500).json({ error: "An error occurred while fetching the appointment" });
+                res.status(500).json({ error: "An error occurred while fetching the product" });
             }
             break;
 
         case 'POST':
             try {
-                const newappointment = await prisma.appointment.create({
-                    include:{
-                        user : true
-                    },
+                const neworder = await prisma.order.create({
+                    include: {
+                        Products: true,
+                      },
                     data: req.body,
                 });
 
-                res.status(201).json(newappointment);
+                res.status(201).json(neworder);
             } catch (error) {
-                res.status(500).json({ error: "An error occurred while creating the appointment" });
+                res.status(500).json({ error: "An error occurred while creating the product" });
             }
             break;
 
