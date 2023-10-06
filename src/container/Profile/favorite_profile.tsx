@@ -81,7 +81,7 @@ const FavoriteProfile = () => {
                 <h3 className="text-2xl text-secondary2 ml-2">รายการโปรด</h3>
             </div>
 
-            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base w-[1000px]">
+            <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base">
 
                 {productData.map((product, index) => (
                     <div

@@ -6,7 +6,7 @@ function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function TabMenuMobile() {
+export default function TabMenuMobile({ activeTab, handleTabClick }: any) {
     return (
         <Menu as="div" className="relative my-5 font-fontTH02">
             <div>
@@ -35,7 +35,7 @@ export default function TabMenuMobile() {
                         <Menu.Item>
                             {({ active }) => (
                                 <a
-                                    href="#"
+                                    onClick={() => handleTabClick(0)}
                                     className={classNames(
                                         active ? 'bg-white text-white' : 'text-white',
                                         'block px-4 py-2 text-xl border-black border-b'
@@ -48,20 +48,7 @@ export default function TabMenuMobile() {
                         <Menu.Item>
                             {({ active }) => (
                                 <a
-                                    href="#"
-                                    className={classNames(
-                                        active ? 'bg-white text-white' : 'text-white',
-                                        'block px-4 py-2 text-xl border-black border-b'
-                                    )}
-                                >
-                                    Support
-                                </a>
-                            )}
-                        </Menu.Item>
-                        <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#"
+                                    onClick={() => handleTabClick(1)}
                                     className={classNames(
                                         active ? 'bg-white text-white' : 'text-white',
                                         'block px-4 py-2 text-xl border-black border-b'
@@ -74,7 +61,20 @@ export default function TabMenuMobile() {
                         <Menu.Item>
                             {({ active }) => (
                                 <a
-                                    href="#"
+                                    onClick={() => handleTabClick(2)}
+                                    className={classNames(
+                                        active ? 'bg-white text-white' : 'text-white',
+                                        'block px-4 py-2 text-xl border-black border-b'
+                                    )}
+                                >
+                                    เพิ่มที่อยู่ส่ง
+                                </a>
+                            )}
+                        </Menu.Item>
+                        <Menu.Item>
+                            {({ active }) => (
+                                <a
+                                    onClick={() => handleTabClick(3)}
                                     className={classNames(
                                         active ? 'bg-white text-white' : 'text-white',
                                         'block px-4 py-2 text-xl border-black border-b'
@@ -87,7 +87,34 @@ export default function TabMenuMobile() {
                         <Menu.Item>
                             {({ active }) => (
                                 <a
-                                    href="#"
+                                    onClick={() => handleTabClick(4)}
+                                    className={classNames(
+                                        active ? 'bg-white text-white' : 'text-white',
+                                        'block px-4 py-2 text-xl border-black border-b'
+                                    )}
+                                >
+                                    บริการซ่อมอุปกรณ์
+                                </a>
+                            )}
+                        </Menu.Item>
+                        <Menu.Item>
+                            {({ active }) => (
+                                <a
+                                    onClick={() => handleTabClick(5)}
+                                    className={classNames(
+                                        active ? 'bg-white text-white' : 'text-white',
+                                        'block px-4 py-2 text-xl border-black border-b'
+                                    )}
+                                >
+                                    รายการคำสั่งซื้อ
+                                </a>
+                            )}
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            {({ active }) => (
+                                <a
+                                    onClick={() => handleTabClick(6)}
                                     className={classNames(
                                         active ? 'bg-white text-white' : 'text-white',
                                         'block px-4 py-2 text-xl border-black border-b'
@@ -100,7 +127,7 @@ export default function TabMenuMobile() {
                         <Menu.Item>
                             {({ active }) => (
                                 <a
-                                    href="#"
+                                    onClick={() => handleTabClick(7)}
                                     className={classNames(
                                         active ? 'bg-white text-white' : 'text-white',
                                         'block px-4 py-2 text-xl border-black border-b'
@@ -110,21 +137,22 @@ export default function TabMenuMobile() {
                                 </a>
                             )}
                         </Menu.Item>
-                        <form method="POST" action="#" >
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        type="submit"
-                                        className={classNames(
-                                            active ? 'bg-white text-white' : 'text-white',
-                                            'block w-full px-4 py-2 text-center text-xl '
-                                        )}
-                                    >
-                                        ออกจากระบบ
-                                    </button>
-                                )}
-                            </Menu.Item>
-                        </form>
+                        <Menu.Item>
+                            {({ active }) => (
+                                <a
+                                    onClick={() => handleTabClick(8)}
+                                    className={classNames(
+                                        active ? 'bg-white text-white' : 'text-white',
+                                        'block px-4 py-2 text-xl border-black '
+                                    )}
+                                >
+                                    ออกจากระบบ
+                                </a>
+                            )}
+                        </Menu.Item>
+
+                       
+
                     </div>
                 </Menu.Items>
             </Transition>
