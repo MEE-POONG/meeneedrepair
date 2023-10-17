@@ -7,8 +7,8 @@ interface Step1Props {
 
 function Step1SelectAddress({ nextStep }: Step1Props) {
     return (
-        <div className='container mx-auto bg-secondary2 rounded-md '>
-            <div className="flex items-center text-sm md:text-lg mb-3">
+        <div className='container mx-auto bg-secondary2 rounded-md p-5'>
+            <div className="flex items-center text-sm md:text-lg mb-3">                            
                 <p className="text-white px-3 py-0.5 bg-secondary1 rounded-full mr-2">
                     1
                 </p>
