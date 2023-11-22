@@ -117,12 +117,12 @@ model Appointment {
   createdAt  DateTime? @default(now())
   updatedAt  DateTime? @updatedAt
   deleted_at DateTime? @map("deleted_at")
-  userId      String?                       
-  user        User?   @relation(fields: [userId], references: [id])
+  userId     String?
+  user       User?     @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
   fname           String?
   lname           String?
   birthday        String?
@@ -133,13 +133,13 @@ model User {
   facebook        String?
   google          String?
   secretKey       String?
-  AddressId       String?     @db.ObjectId
+  AddressId       String?       @db.ObjectId
   // AddressId       String? 
   // Address         Address? @relation(fields: [AddressId], references: [id])
   Address         Address[]
   FavoriteItems   String[]
   ProductsItems   String[]
-  OrderListId     String?     @db.ObjectId
+  OrderListId     String?       @db.ObjectId
   OrderList       OrderList[]
   Appointment     Appointment[]
 }
@@ -180,9 +180,6 @@ model Address {
 
 model Tex {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  // fname String?
-  // lname String?
-  // tel  String?
   typeaddress String?
   location    String?
   zipcode     String?
@@ -202,23 +199,20 @@ model Order {
   Products    Products[]
   OrderListId String?    @db.ObjectId
   OrderList   OrderList? @relation(fields: [OrderListId], references: [id])
-  
-  date        String?
-  status      String?    @default("ยังไม่ชำระ")
-  createdAt   DateTime?  @default(now())
-  updatedAt   DateTime?  @updatedAt
-  deleted_at  DateTime?  @map("deleted_at")
+
+  date       String?
+  status     String?   @default("ยังไม่ชำระ")
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
 }
 
 model OrderList {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
-  userId String?
-  user   User?   @relation(fields: [userId], references: [id])
-
-  OrderId String?
-  Order   Order[]
-
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String?
+  user       User?     @relation(fields: [userId], references: [id])
+  OrderId    String?
+  Order      Order[]
   date       String?
   status     String?   @default("ยังไม่ชำระ")
   createdAt  DateTime? @default(now())
