@@ -1,8 +1,5 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
-import SlideServices from '../../container/Services/SlideServices';
-import SlideServices2 from '../../container/Services/SlideServices2';
-import BookingModal from "../../container/Services/BookingModal";
 
 
 export default function AdviserService() {
@@ -12,7 +9,7 @@ export default function AdviserService() {
         <>
             <RootLayout>
 
-                <SlideServices />
+      
 
                 <div className="text-center my-[50px]">
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
@@ -108,7 +105,7 @@ export default function AdviserService() {
                             <img src="../images/imgsevice/s6 .jpg" alt="" className="w-[250px] mx-5 " />
                         </div> */}
                         <div className="lg:p-20">
-                            <SlideServices2 />
+                    
                         </div>
 
 
