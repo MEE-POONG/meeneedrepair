@@ -2,7 +2,7 @@ import Link from "next/link";
 import RootLayout from "../../components/layout";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import LatestBlog from "../../container/Blog/Latestblog";
+
 
 const ReadBlogDetail = () => {
     const router = useRouter();

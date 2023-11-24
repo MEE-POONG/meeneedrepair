@@ -10,7 +10,7 @@ export default function Header() {
 
 
   return (
-    <div className="w-full h-[40px] text-right bg-[#1E293B] font-fontTH01">
+    <div className="w-full h-[40px] text-right bg-[#de9c35] font-fontTH01">
       <div className="relative inline-block  justify-center  right-10  text-left">
         <div>
           <button

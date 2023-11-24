@@ -1,6 +1,6 @@
 const FootPage = () => {
     return (
-        <div className="container mx-auto mt-60 mb-10 text-white font-fontTH01">
+        <div className="container mx-auto mt-60 mb-10 text-black font-fontTH01">
             <div className="flex flex-wrap md:flex-nowrap place-content-center place-items-center gap-3 lg:gap-5 mx-4 ">
                 <div className="flex gap-3 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="55" viewBox="0 0 84 85" fill="none">
@@ -12,7 +12,7 @@ const FootPage = () => {
                             </linearGradient>
                         </defs>
                     </svg>
-                    <div className="text-white">
+                    <div className="">
                         <strong className="text-[12px] lg:text-[20px]">ส่งฟรีทั่วไทย</strong>
                         <p className="text-[10px] lg:text-[16px]">ซื้อขั้นต่ำ 3,000 บาท</p>
                     </div>
@@ -33,7 +33,7 @@ const FootPage = () => {
                             </clipPath>
                         </defs>
                     </svg>
-                    <div className="text-white">
+                    <div className="">
                         <strong className="text-[12px] lg:text-[20px]">สอบถามข้อมูล</strong>
                         <p className="text-[10px] lg:text-[16px]">รับที่สาขาใกล้บ้าน</p>
                     </div>
@@ -55,7 +55,7 @@ const FootPage = () => {
                             </clipPath>
                         </defs>
                     </svg>
-                    <div className="text-white">
+                    <div className="">
                         <strong className="text-[12px] lg:text-[20px]">รับเองที่ร้าน</strong>
                         <p className="text-[10px] lg:text-[16px]">แชทถามข้อมูลก่อนซื้อสินค้า</p>
                     </div>
@@ -81,7 +81,7 @@ const FootPage = () => {
                             </linearGradient>
                         </defs>
                     </svg>
-                    <div className="text-white">
+                    <div className="">
                         <strong className="text-[12px] lg:text-[20px]">คืนสินค้าง่าย</strong>
                         <p className="text-[10px] lg:text-[16px]">ภายใน 7 วัน</p>
                     </div>
