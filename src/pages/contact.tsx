@@ -1,13 +1,12 @@
 
 import Image from 'next/image';
 import RootLayout from '../components/layout';
-import Mailform from '../container/Contact/Mailform';
+// import Mailform from '../container/Contact/Mailform';
 
 export default function ContactPage() {
     return (
-        <RootLayout>
             <div className='mb-10 relative bg-fixed'>
-                <img src="../images/imgslider/banner3.jpg" className='w-full lg:h-[640px] ' alt="" />
+                {/* <img src="../images/imgslider/banner3.jpg" className='w-full lg:h-[640px] ' alt="" /> */}
                 {/* <div className="absolute text-white text-center md:top-[250px] md:left-[740px] rounded-lg bg-black/30 p-10">
                     <h2 className="hidden md:block text-7xl font-semibold text-white ">ติดต่อเรา</h2>
                 </div> */}
@@ -46,8 +45,8 @@ export default function ContactPage() {
                     </div>
                 </div>
 
-                <Mailform />
+          
             </div>
-        </RootLayout>
+       
     )
 }
