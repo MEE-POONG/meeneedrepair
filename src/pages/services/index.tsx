@@ -1,5 +1,7 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
+import SlideComponents from "../slider";
+import SlideNews from "../slide";
 
 
 export default function AdviserService() {
@@ -8,9 +10,15 @@ export default function AdviserService() {
     return (
         <>
             <RootLayout>
+                {/* สไลด์ */}
+<div className="container ">
+    <div className="mx-auto">
+    <SlideNews></SlideNews>
+    </div>
+</div>
 
-      
 
+                {/* บริการ */}
                 <div className="text-center my-[50px]">
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
                     <div className="text-white text-4xl md:text-5xl font-bold">
@@ -19,9 +27,7 @@ export default function AdviserService() {
                 </div>
 
                 <div className="space-y-5 mx-10 lg:flex lg:justify-center lg:space-x-5 lg:space-y-0">
-
                     <div className="text-white text-center bg-[#1E293B] p-6 md:p-16 rounded-xl">
-
                         <svg className="mx-auto my-5" xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
                             <g clipPath="url(#clip0_240_17)">
                                 <path d="M122.326 110.558C123.807 110.56 125.233 111.127 126.31 112.145C127.388 113.162 128.036 114.552 128.123 116.031C128.21 117.511 127.729 118.967 126.778 120.104C125.826 121.24 124.477 121.97 123.006 122.145L122.326 122.186H17.6745C16.1926 122.184 14.7673 121.617 13.6898 120.6C12.6122 119.582 11.9638 118.192 11.8769 116.713C11.7901 115.234 12.2714 113.777 13.2225 112.641C14.1736 111.504 15.5227 110.774 16.9942 110.599L17.6745 110.558H122.326ZM110.698 23.3489C113.631 23.3479 116.457 24.4559 118.608 26.4506C120.759 28.4453 122.077 31.1794 122.297 34.1047L122.326 34.9768V93.1163C122.327 96.0499 121.219 98.8754 119.224 101.026C117.229 103.178 114.495 104.495 111.57 104.715L110.698 104.744H29.3024C26.3688 104.745 23.5433 103.637 21.3922 101.643C19.2411 99.6478 17.9235 96.9137 17.7035 93.9884L17.6745 93.1163V34.9768C17.6735 32.0432 18.7815 29.2177 20.7762 27.0666C22.7709 24.9156 25.5049 23.598 28.4303 23.3779L29.3024 23.3489H110.698Z" fill="#F4F5F5" />
@@ -70,10 +76,6 @@ export default function AdviserService() {
                             บริการซ่อมบำรุง ทั้งในและนอกสถานที่
                         </p>
                     </div>
-
-
-
-
                 </div>
 
 
@@ -105,7 +107,7 @@ export default function AdviserService() {
                             <img src="../images/imgsevice/s6 .jpg" alt="" className="w-[250px] mx-5 " />
                         </div> */}
                         <div className="lg:p-20">
-                    
+
                         </div>
 
 

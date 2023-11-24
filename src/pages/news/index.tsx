@@ -1,10 +1,10 @@
 import RootLayout from "../../components/layout";
-import { newsTest } from '../../../data/News';
-import Link from "next/link";
-import SlideNews from "../../container/News/Slidenews";
-import NewsCard from "../../container/News/NewsCard";
-import NewsCardsm from "../../container/News/NewsCardsm";
-import CardNews from "../../container/Home/Cardnews";
+// import { newsTest } from '../../../data/News';
+// import Link from "next/link";
+// import SlideNews from "../../container/News/Slidenews";
+// import NewsCard from "../../container/News/NewsCard";
+// import NewsCardsm from "../../container/News/NewsCardsm";
+// import CardNews from "../../container/Home/Cardnews";
 
 interface NewsData {
     id: string;
@@ -20,7 +20,7 @@ export default function NewsPage() {
     return (
         <RootLayout>
             <div className="mb-24">
-                <SlideNews />
+             
             </div>
             <div className="container mx-auto px-6 md:px-24">
                 <div className="flex items-center justify-center">
@@ -33,7 +33,7 @@ export default function NewsPage() {
             </div>
 
             <div>
-                <NewsCard />
+               
             </div>
         </RootLayout>
     )
