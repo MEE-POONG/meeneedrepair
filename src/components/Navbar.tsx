@@ -84,7 +84,7 @@ const Navbar = () => {
               src="/images/logo/logoMR7.png"
               width={100}
               height={100}
-              className="w-[80px]" alt="" />
+              className="w-[50px]" alt="" />
           </div>
         </div>
 
@@ -92,7 +92,7 @@ const Navbar = () => {
         <ul className="md:flex gap-5 hidden font-medium text-sm md:text-lg items-center">
           {Links.map((link) => (
             <li key={link.name} className="hover:border-b-2 hover:border-natural04"
-              style={{ color: scroll > 50 ? "" : "#f2c279" }}>
+              style={{ color: scroll > 50 ? "" : "#0F172A" }}>
               {link.children ? (
                 <div
                   className="dropdown"
@@ -116,13 +116,13 @@ const Navbar = () => {
                   </button>
 
                   <ul
-                    className="dropdown-menu absolute bg-secondary1 p-3 rounded-lg drop-shadow-lg"
+                    className="dropdown-menu absolute bg-[#fce6ac] p-3 rounded-lg drop-shadow-lg"
                     aria-labelledby="dropdownMenuButton"
                     style={{ display: open ? 'block' : 'none' }}
                   >
                     {link.children.map((child) => (
                       <li key={child.name} className="my-4 pl-2 hover:border-l-2 hover:border-natural01"
-                        style={{ color: scroll > 50 ? "#f2c279" : "" }}
+                        style={{ color: scroll > 50 ? "#0F172A" : "" }}
                       >
                         <a href={child.link}>{child.name}</a>
                       </li>
@@ -140,7 +140,7 @@ const Navbar = () => {
         {/* login && badket */}
         <ul className="flex gap-3 font-semibold items-center text-base">
          
-          <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#f2c279" }}>
+          <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#0F172A" }}>
             {id ? (
                <Link href={`./../profile/${id}`} className="flex items-center">
                <HiUser size={20} />
