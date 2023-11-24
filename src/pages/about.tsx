@@ -9,7 +9,6 @@ export default function AboutPage() {
 
         <RootLayout>
             {/* โมเดิน เข้าใจง่าย ไม่ลกตา */}
-            {/*โลโก้*/}
 
             <div className="container mx-auto">
                 <div className="text-center">
@@ -22,7 +21,7 @@ export default function AboutPage() {
                     </div>
                 </div>
 
-                {/*Test*/}
+
                 <div className="bg-[#1E293B] p-8 md:p-11 rounded-lg ">
                     <div className="grid grid-cols-12">
                         <div className="col-span-4 my-auto mx-auto">
@@ -57,7 +56,7 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </div>
-                {/*Test*/}
+
 
 
                 <h2 className="flex flex-row flex-nowrap items-center my-8">

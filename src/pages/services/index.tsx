@@ -1,7 +1,8 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
-import SlideComponents from "../slider";
-import SlideNews from "../slide";
+
+import SlideNews from "../../container/Home/SlideNews";
+
 
 
 export default function AdviserService() {
@@ -11,13 +12,7 @@ export default function AdviserService() {
         <>
             <RootLayout>
                 {/* สไลด์ */}
-<div className="container ">
-    <div className="mx-auto">
-    <SlideNews></SlideNews>
-    </div>
-</div>
-
-
+                <SlideNews />
                 {/* บริการ */}
                 <div className="text-center my-[50px]">
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10"></div>
@@ -80,7 +75,6 @@ export default function AdviserService() {
 
 
 
-
                 <div className=" lg:flex lg:justify-center lg:items-center lg:space-x-10  md:space-x-10 md:space-y-0 my-10 space-y-10 text-center   ">
                     <Link href="/appointment">
                         <button className=" w-[250px] h-[100px] bg-[#FFCD4B] rounded-2xl text-2xl">จองซ่อม </button>
@@ -90,31 +84,83 @@ export default function AdviserService() {
                 </div>
 
 
+                <div className="container mx-auto">
+                    <div className=" bg-white w-full">
+                        <div className="">
+                            <h1 className="text-black text-3xl md:text-5xl font-bold text-center py-10">
+                                รูปแบบการบริการ
+                            </h1>
 
 
+                        </div>
+                    </div>
+
+
+                    <div className="bg-[#1E293B] p-8 md:p-11 rounded-lg ">
+
+                        {/* คำอธิบาย*/}
+                        <div className="text-white text-2xl font-bold">
+                            รูปแบบการบริการ&nbsp;
+                        </div>
+                        <div className="mt-10 indent-8 text-white text-md">
+                            <p >
+                                1. ในโลกเทคโนโลยีที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน ซึ่งธุรกิจต่าง ๆ ต้องพึ่งพาคอมพิวเตอร์ เครือข่าย และซอฟต์แวร์เป็นอย่างมาก บทบาทของการสนับสนุนด้านไอที จึงมีความสำคัญมากกว่าที่เคยเป็นมา
+                            </p>
+                            <p>
+                                2. ในโลกเทคโนโลยีที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน ซึ่งธุรกิจต่าง ๆ ต้องพึ่งพาคอมพิวเตอร์ เครือข่าย และซอฟต์แวร์เป็นอย่างมาก บทบาทของการสนับสนุนด้านไอที จึงมีความสำคัญมากกว่าที่เคยเป็นมา
+                            </p>
+                            <p>
+                                3. ในโลกเทคโนโลยีที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน ซึ่งธุรกิจต่าง ๆ ต้องพึ่งพาคอมพิวเตอร์ เครือข่าย และซอฟต์แวร์เป็นอย่างมาก บทบาทของการสนับสนุนด้านไอที จึงมีความสำคัญมากกว่าที่เคยเป็นมา
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className=" bg-white w-full">
+                        <div className="">
+                            <h1 className="text-black text-3xl md:text-5xl font-bold text-center py-10">
+                                การจอง/ใช้บริการ
+                            </h1>
+
+
+                        </div>
+                    </div>
+
+
+                    <div className="bg-[#1E293B] p-8 md:p-11 rounded-lg ">
+
+                        {/* คำอธิบาย*/}
+                        <div className="text-white text-2xl font-bold">
+                            การจอง/ใช้บริการ&nbsp;
+                        </div>
+                        <div className="mt-10 indent-8 text-white text-md">
+                            <p >
+                                1. ในโลกเทคโนโลยีที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน ซึ่งธุรกิจต่าง ๆ ต้องพึ่งพาคอมพิวเตอร์ เครือข่าย และซอฟต์แวร์เป็นอย่างมาก บทบาทของการสนับสนุนด้านไอที จึงมีความสำคัญมากกว่าที่เคยเป็นมา
+                            </p>
+                            <p>
+                                2. ในโลกเทคโนโลยีที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน ซึ่งธุรกิจต่าง ๆ ต้องพึ่งพาคอมพิวเตอร์ เครือข่าย และซอฟต์แวร์เป็นอย่างมาก บทบาทของการสนับสนุนด้านไอที จึงมีความสำคัญมากกว่าที่เคยเป็นมา
+                            </p>
+                            <p>
+                                3. ในโลกเทคโนโลยีที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน ซึ่งธุรกิจต่าง ๆ ต้องพึ่งพาคอมพิวเตอร์ เครือข่าย และซอฟต์แวร์เป็นอย่างมาก บทบาทของการสนับสนุนด้านไอที จึงมีความสำคัญมากกว่าที่เคยเป็นมา
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <div className=" bg-white w-full">
-
-
                     <div className="">
                         <h1 className="text-black text-3xl md:text-5xl font-bold text-center py-10">
                             ตัวอย่างบริการของเรา
                         </h1>
-                        {/* <div className=" flex justify-center my-5 ">
+                        <div className=" flex justify-center my-5 ">
                             <img src="../images/imgsevice/s1.jpg" alt="" className="w-[250px] mx-5 " />
                             <img src="../images/imgsevice/s2.jpg" alt="" className="w-[250px] mx-5 " />
                             <img src="../images/imgsevice/s3.jpg" alt="" className="w-[250px] mx-5 " />
                             <img src="../images/imgsevice/s5.jpg" alt="" className="w-[250px] mx-5 " />
                             <img src="../images/imgsevice/s6 .jpg" alt="" className="w-[250px] mx-5 " />
-                        </div> */}
-                        <div className="lg:p-20">
-
                         </div>
-
-
+                        <div className="lg:p-20">
+                        </div>
                     </div>
-
                 </div>
-
 
 
 
