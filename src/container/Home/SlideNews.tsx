@@ -12,7 +12,7 @@ export default class SlideNews extends Component {
       slidesToScroll: 1
     };
     return (
-      <div className="container w-[55%] mx-auto ">
+      <div className="container w-[70%] mx-auto ">
         <Slider {...settings}>
           <div >
            <img src="images/Banner.png" alt=""  />

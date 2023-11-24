@@ -1,7 +1,7 @@
 import { useState } from "react";
 import RootLayout from "../../components/layout";
-import CategoryList from "../../container/Product/CategoryList";
-import CardProductAll from "../../container/Product/CardProductAll";
+// import CategoryList from "../../container/Product/CategoryList";
+// import CardProductAll from "../../container/Product/CardProductAll";
 import { FiSearch } from "react-icons/fi";
 
 
@@ -78,7 +78,7 @@ export default function ProductPage() {
 
                     {/* Category */}
                     <div className="col-span-3 hidden md:block">
-                        <CategoryList />
+       
                     </div>
 
 
@@ -101,8 +101,7 @@ export default function ProductPage() {
                         {/* Product */}
 
                         <div className="">
-                            <CardProductAll searchText={searchText} setSearchText={setSearchText} />
-
+                            
                         </div>
 
 
