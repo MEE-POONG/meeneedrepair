@@ -1,7 +1,6 @@
 import RootLayout from "../../components/layout";
 import { newsTest } from '../../../data/News';
 import Link from "next/link";
-import BlogCard from "../../container/Blog/blogcard";
 
 interface NewsData {
     id: string;

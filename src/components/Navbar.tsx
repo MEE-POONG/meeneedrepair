@@ -69,12 +69,12 @@ const Navbar = () => {
 
   return (
     <nav className="font-fontTH01">
-      <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 drop-shadow-lg " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
+      <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 drop-shadow-lg " style={{ backgroundColor: scroll > 50 ? "#f2c279" : "" }}>
       {/* <div className=" container  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}> */}
         <div className="flex items-center  py-2">
           <div onClick={() => setIsOpen(!isOpen)}
             className="md:hidden duration-700 ease-in-out"
-            style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
+            style={{ color: scroll > 50 ? "" : "#f2c279" }}>
             {
               isOpen ? <HiOutlineXMark size={38} /> : <HiBars3BottomLeft size={38} />
             }
@@ -92,7 +92,7 @@ const Navbar = () => {
         <ul className="md:flex gap-5 hidden font-medium text-sm md:text-lg items-center">
           {Links.map((link) => (
             <li key={link.name} className="hover:border-b-2 hover:border-natural04"
-              style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
+              style={{ color: scroll > 50 ? "" : "#f2c279" }}>
               {link.children ? (
                 <div
                   className="dropdown"
@@ -122,7 +122,7 @@ const Navbar = () => {
                   >
                     {link.children.map((child) => (
                       <li key={child.name} className="my-4 pl-2 hover:border-l-2 hover:border-natural01"
-                        style={{ color: scroll > 50 ? "#F4F5F5" : "" }}
+                        style={{ color: scroll > 50 ? "#f2c279" : "" }}
                       >
                         <a href={child.link}>{child.name}</a>
                       </li>
@@ -140,7 +140,7 @@ const Navbar = () => {
         {/* login && badket */}
         <ul className="flex gap-3 font-semibold items-center text-base">
          
-          <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
+          <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#f2c279" }}>
             {id ? (
                <Link href={`./../profile/${id}`} className="flex items-center">
                <HiUser size={20} />
