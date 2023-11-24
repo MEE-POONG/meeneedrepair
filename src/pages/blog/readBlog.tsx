@@ -1,7 +1,6 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
-import SideBlog from "../../container/blog/sideBlog";
-import SideNews from "../../container/ืnews/sideNews";
+import SideNews from "../../container/news/sideNews";
 
 const ReadBlogsDetail = () => {
   return (
