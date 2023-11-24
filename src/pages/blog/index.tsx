@@ -1,6 +1,4 @@
 import RootLayout from "../../components/layout";
-import { newsTest } from '../../../data/News';
-import Link from "next/link";
 
 interface NewsData {
     id: string;
@@ -15,7 +13,6 @@ const BlogsPage = () => {
 
     return (
         <RootLayout>
-            <div className="container mx-auto">
              <div className='relative flex items-center justify-center bg-gray-800'>
                 <div className=" xl:px-32 ">
                     <img src="/images/blog3.jpg" alt="" /></div>
@@ -42,7 +39,7 @@ const BlogsPage = () => {
                     <div className="container mx-auto md:my-12">
                     <div className=" flex items-center justify-center ">
                         <div className="" >
-                            {/* <BlogCard /> */}
+                        
                         </div>
 
                       
@@ -50,7 +47,6 @@ const BlogsPage = () => {
                 </div>
                 </div>
             </div>
-    </div>
         </RootLayout>
     )
 }

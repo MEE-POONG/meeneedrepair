@@ -1,7 +1,8 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
+import SlideNews from "../../container/services/SlideNews";
 
-import SlideNews from "../../container/Home/SlideNews";
+
 
 
 
