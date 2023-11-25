@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface blog {
@@ -48,35 +49,34 @@ export default function BlogCard() {
             <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
                 {blogData.slice(0, visibleItems).map((blog) => (
                     <div className="bg-secondary1 shadow-xl rounded-md overflow-hidden p-2 md:p-4">
+
                         <div className="flex md:flex-wrap items-center">
-                            <div className="w-[350px] md:w-full h-[80px] md:h-[150px] rounded-l-md md:rounded-lg overflow-hidden ">
-                                <img className="w-full h-full object-cover"
-                                    src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blog.img ? blog.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
-                                    alt=""
-                                />
-                            </div>
-
-                            <div className="ml-3 md:ml-0 md:mt-2">
-                                <p className="text-sm lg:text-lg line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
-                                    {blog.title}
-                                </p>
-
-                                <div className="hidden md:block text-secondary2 text-xs md:text-sm mt-2 ">
-                                    <p className="line-clamp-2">{blog.subtitle}</p>
-                                </div>
-
-                                <div className="flex justify-between mt-5">
-                                    <p className="text-natural01 text-xs">
-                                        By: &nbsp;{blog.author}
+                            <Link href={`/blog/${blog.id}`}
+                                className="text-natural04 text-xs">
+                                <div className="w-[350px] md:w-full h-[80px] md:h-[150px] rounded-l-md md:rounded-lg overflow-hidden ">
+                                    <img className="w-full h-full object-cover"
+                                        src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blog.img ? blog.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
+                                        alt=""
+                                    />
+                                </div></Link>
+                            <Link href={`/blog/${blog.id}`}
+                                className="text-natural04 text-xs">
+                                <div className="ml-3 md:ml-0 md:mt-2">
+                                    <p className="text-sm lg:text-lg line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
+                                        {blog.title}
                                     </p>
 
-                                    {/* <Link href={`/blog/${blog.id}`} 
-                                            className="text-natural04 text-xs">
-                                            อ่าน
-                                        </Link> */}
+                                    <div className="hidden md:block text-secondary2 text-xs md:text-sm mt-2 ">
+                                        <p className="line-clamp-2">{blog.subtitle}</p>
+                                    </div>
 
-                                </div>
-                            </div>
+                                    <div className="flex justify-between mt-5">
+                                        <p className="text-natural01 text-xs">
+                                            By: &nbsp;{blog.author}
+                                        </p>
+                                        อ่าน
+                                    </div>
+                                </div></Link>
                         </div>
 
                     </div>
@@ -91,7 +91,7 @@ export default function BlogCard() {
             </div> */}
 
 
-        </div>
+        </div >
 
     )
 }
