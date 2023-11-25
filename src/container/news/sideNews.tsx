@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BsArrowUpCircleFill } from "react-icons/bs";
+
 
 const SideNews = () => {
 
@@ -22,13 +22,13 @@ const SideNews = () => {
             <div className="my-20 pt-12 ">
             <p className="text-[30px] text-black text-center"> ข่าวที่แนะนำ</p>
                 <div className="my-3 h-full w-full">
-                    <img src="/images/ข่าว1.png" alt="" />
+                    <img src="/images/ข่าว.png" alt="" />
                 </div>
                 <div className="my-12 h-full w-full">
-                    <img src="/images/ข่าว1.png" alt="" />
+                    <img src="/images/ข่าว.png" alt="" />
                 </div>
                 <div className="my-12 h-full w-full">
-                    <img src="/images/ข่าว1.png" alt="" />
+                    <img src="/images/ข่าว.png" alt="" />
                 </div>
             
             </div>
