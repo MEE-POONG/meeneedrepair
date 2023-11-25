@@ -5,7 +5,7 @@ import RootLayout from "../../components/layout";
 // import NewsCard from "../../container/News/NewsCard";
 // import NewsCardsm from "../../container/News/NewsCardsm";
 // import CardNews from "../../container/Home/Cardnews";
-import SlideBoxNews from "../../container/news/SlideBoxNews";
+import SlideBoxNews from "../../container/news/Newscard";
 
 interface NewsData {
     id: string;

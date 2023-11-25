@@ -15,9 +15,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const address = await prisma.address.findMany({
                     // skip: (page - 1) * pageSize,
                     // take: pageSize,
-                    include: {
-                        User: true
-                    },
+                    // include: {
+                    //     User: true
+                    // },
                 });
 
                 const totaluser = await prisma.address.count();
@@ -31,9 +31,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'POST':
             try {
                 const newuser = await prisma.address.create({
-                    include: {
-                        User: true
-                    },
+                    // include: {
+                    //     User: true
+                    // },
                     data: req.body,
                 });
 
