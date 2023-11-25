@@ -88,7 +88,7 @@ function RegisterFrom() {
                                 <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">User</label>
                                 <input type="text"
                                     value={username}
-                                    onChange={(e) => setusername(e.target.value)} id="first_name" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
+                                    onChange={(e) => setusername(e.target.value)} id="first_name" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
                             </div>
 
                         </div>                    
@@ -100,7 +100,7 @@ function RegisterFrom() {
                                     value={password}
                                     onChange={handlePasswordChange}
                                     id="password"
-                                    className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="•••••••••"
                                     required
                                 />
@@ -131,7 +131,7 @@ function RegisterFrom() {
 
                         </div>
                         <button type="submit"
-                            className="group relative h-12 w-full overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold ">
+                            className="group relative h-12 w-full text-white overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold ">
                             สมัครสมาชิก
                         </button>
                     </form>
