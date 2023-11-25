@@ -3,8 +3,8 @@ export default function SlideBoxNews() {
     return (
 
         <div className="container mx-auto  ">
-            <div className="grid grid-cols-12 ">
-                <div className="col-span-2 my-5">
+            <div className="grid grid-cols-12  ">
+                <div className="col-span-4 my-5">
                     <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                         <a href="/news/readNews">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -15,7 +15,7 @@ export default function SlideBoxNews() {
                         </a>
                     </div>
                 </div>
-                <div className="col-span-2 my-5">
+                <div className="col-span-4 my-5">
                     <a href="/news/readNews">
                         <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -26,7 +26,7 @@ export default function SlideBoxNews() {
                         </div>
                     </a>
                 </div>
-                <div className="col-span-2 my-5">
+                <div className="col-span-4 my-5">
                     <a href="/news/readNews">
                         <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -37,7 +37,7 @@ export default function SlideBoxNews() {
                         </div>
                     </a>
                 </div>
-                <div className="col-span-2 my-5">
+                <div className="col-span-4 my-5">
                     <a href="/news/readNews">
                         <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -48,7 +48,7 @@ export default function SlideBoxNews() {
                         </div>
                     </a>
                 </div>
-                <div className="col-span-2 my-5">
+                <div className="col-span-4 my-5">
                     <a href="/news/readNews">
                         <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -59,7 +59,7 @@ export default function SlideBoxNews() {
                         </div>
                     </a>
                 </div>
-                <div className="col-span-2 my-5">
+                <div className="col-span-4 my-5">
                     <a href="/news/readNews">
                         <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -70,7 +70,7 @@ export default function SlideBoxNews() {
                         </div>
                     </a>
                 </div>
-                <div className="col-span-2 my-5">
+                <div className="col-span-4 my-5">
                     <a href="/news/readNews">
                         <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -82,7 +82,7 @@ export default function SlideBoxNews() {
                     </a>
                 </div>
 
-                <div className="col-span-2 my-5">
+                <div className="col-span-4 my-5">
                     <a href="/news/readNews">
                         <div className="  text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
                             <img src="images/blog.jpg" alt="img-blur-shadow" />
@@ -106,7 +106,7 @@ export default function SlideBoxNews() {
 // <div className="container mx-auto">
 // <div className="grid grid-cols-12 ">
 //     <div className="relative   text-gray-700 bg-white shadow-md w-60 rounded-xl bg-clip-border">
-//         <div className="col-span-2">
+//         <div className="col-span-4">
 //             <div>
 //                 <img src="images/blog.jpg" alt="img-blur-shadow" />
 //             </div>

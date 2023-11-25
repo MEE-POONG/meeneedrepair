@@ -11,29 +11,35 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  username  String?
-  password  String?
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  username   String?
+  password   String?
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
   //Profile ดึงมา
-  profileid String?
-  Profile   Profile?  @relation(fields: [profileid], references: [id])
+  profileid  String?
+  Profile    Profile?  @relation(fields: [profileid], references: [id])
   //Reserve ดึงไป
-  Reserve   Reserve[]
+  Reserve    Reserve[]
 }
 
 model Profile {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  fname     String?
-  lname     String?
-  phone     String?
-  email     String?
-  img       String?
-  birthday  String?
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  fname      String?
+  lname      String?
+  phone      String?
+  email      String?
+  img        String?
+  birthday   String?
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
   //Address ดึงมา
-  addressid String?
-  Address   Address? @relation(fields: [addressid], references: [id])
+  addressid  String?
+  Address    Address?  @relation(fields: [addressid], references: [id])
   //User ดึงไป
-  User      User[]
+  User       User[]
 }
 
 model Address {
@@ -43,6 +49,9 @@ model Address {
   district    String?
   zipcode     String?
   addressno   String?
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  deleted_at  DateTime? @map("deleted_at")
   // Profile  ดึงไป
   Profile     Profile[]
 }
@@ -55,6 +64,9 @@ model Reserve {
   reserveDetailId      String?             @db.ObjectId
   ReserveProductTpye   ReserveProductTpye? @relation(fields: [reserveProductTpyeId], references: [id])
   reserveProductTpyeId String?             @db.ObjectId
+  createdAt            DateTime?           @default(now())
+  updatedAt            DateTime?           @updatedAt
+  deleted_at           DateTime?           @map("deleted_at")
 }
 
 model ReserveDetail {
@@ -62,6 +74,9 @@ model ReserveDetail {
   date        String?
   time        String?
   Description String?
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  deleted_at  DateTime? @map("deleted_at")
   //Reserve ดึงไป
   Reserve     Reserve[]
 }
@@ -69,6 +84,35 @@ model ReserveDetail {
 model ReserveProductTpye {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   reservename String?
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  deleted_at  DateTime? @map("deleted_at")
   //Reserve ดึงไป
   Reserve     Reserve[]
+}
+
+model Blog {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  date       String?
+  title      String?
+  img        String?
+  detail     String?
+  author     String?
+  refer      String?
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
+}
+
+model News {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  date       String?
+  title      String?
+  img        String?
+  detail     String?
+  author     String?
+  refer      String?
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
 }
