@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import RootLayout from '../../components/layout';
-import ComponentsNavbar from '../../components/Thenavbar';
+
 import { FaFacebook, FaGoogle, FaInstagram, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,8 +8,8 @@ import { useRouter } from 'next/router';
 
 
 const LoginComponent: React.FC = () => {
-    const [data, setData] = useState<{ user: { email: string, password: string } } | null>(null);
-    const [email, setEmail] = useState("");
+    const [data, setData] = useState<{ user: { username: string, password: string } } | null>(null);
+    const [username, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loginSuccess, setLoginSuccess] = useState(false);
     const [loginMessage, setLoginMessage] = useState("");
@@ -20,14 +20,14 @@ const LoginComponent: React.FC = () => {
         try {
             const response = await fetch("/api/user");
             const data = await response.json();
-            const match = data?.user?.find((user: { email: string, password: string, id: string }) => {
-                return user.email === email && user.password === password;
+            const match = data?.user?.find((user: { username: string, password: string, id: string }) => {
+                return user.username === username && user.password === password;
             });
 
             if (match) {
                 setLoginSuccess(true);
             
-                router.push(`/home/${match.id}`);
+                router.push(`/index/${match.id}`);
             } else {
                 setLoginSuccess(false);
                 setLoginMessage("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
@@ -61,11 +61,11 @@ const LoginComponent: React.FC = () => {
                             </h2>
                             <form action="" className="w-full">
                                 <div id="input" className="flex flex-col w-full my-5 ">
-                                    <label htmlFor="email" className="text-white mb-2"
+                                    <label htmlFor="username" className="text-white mb-2"
                                     >อีเมล</label>
                                     <input
-                                        type="text" value={email} onChange={(e) => setEmail(e.target.value)}
-                                        id="email"
+                                        type="text" value={username} onChange={(e) => setEmail(e.target.value)}
+                                        id="username"
                                         placeholder="อีเมล"
                                         className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2  focus:shadow-lg text-black "
                                     />

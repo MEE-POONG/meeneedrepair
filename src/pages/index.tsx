@@ -16,7 +16,9 @@ export default function Home() {
       <div className=''>
         <SlideHome />
         <MenuService />
-
+        <div className="text-[38px] mx-36">
+          ข่าว
+        </div>
       </div>
     </RootLayout>
   )

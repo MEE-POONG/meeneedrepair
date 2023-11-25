@@ -9,11 +9,7 @@ import crypto from 'crypto';
 
 
 function RegisterFrom() {
-    const [fname, setFname] = useState('');
-    const [lname, setLname] = useState('');
-    const [tel, setTel] = useState('');
-    const [birthday, setBirthday] = useState('');
-    const [email, setEmail] = useState('');
+    const [username, setusername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(true);
@@ -51,14 +47,14 @@ function RegisterFrom() {
         const newSecretKey = crypto.randomBytes(16).toString('hex');
         setSecretKey(newSecretKey);
 
-        if (!fname || !lname || !tel || !birthday || !email || !password) {
+        if (!username || !password) {
 
             setErrorText(true);
             return;
         }
         try {
             const response = await executeIndexActivity({
-                data: { fname, lname, tel, birthday, email, password },
+                data: { username,  password },
             });
             console.log('Response:', response);
             setShowModal(true);
@@ -89,37 +85,13 @@ function RegisterFrom() {
                     <form className="mt-10 " method="POST" onSubmit={handleSubmit}>
                         <div className=" top-[100px] flex gap-6 mb-6 lg:grid-cols-2">
                             <div className='w-[50%]'>
-                                <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">ชื่อ</label>
+                                <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">User</label>
                                 <input type="text"
-                                    value={fname}
-                                    onChange={(e) => setFname(e.target.value)} id="first_name" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรูณากรอกชื่อ" pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
-                            </div>
-                            <div className='w-[50%]'>
-                                <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">นามสกุล</label>
-                                <input type="text"
-                                    value={lname}
-                                    onChange={(e) => setLname(e.target.value)} id="last_name" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรูณากรอกนามสกุล" pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
+                                    value={username}
+                                    onChange={(e) => setusername(e.target.value)} id="first_name" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
                             </div>
 
-                        </div>
-                        <div className="mb-6 my-5">
-                            <label htmlFor="phone" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">เบอร์โทรศัพท์</label>
-                            <input type="number"
-                                value={tel}
-                                onChange={(e) => setTel(e.target.value)} id="phone" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" title="กรุณากรอกเบอร์โทรเป็นตัวเลขเท่านั้น" required />
-                        </div>
-                        <div>
-                            <label htmlFor="date" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">วัน/เดือน/ปี เกิด</label>
-                            <input type="date"
-                                value={birthday}
-                                onChange={(e) => setBirthday(e.target.value)} id="website" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-                        </div>
-                        <div className="mb-6 my-5">
-                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">Email address</label>
-                            <input type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)} id="email" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email address" required />
-                        </div>
+                        </div>                    
                         <div>
                             <div className="mb-6">
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">Password</label>
