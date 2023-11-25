@@ -44,11 +44,11 @@ const ReadUserDetail = () => {
       <div className=''>
         <SlideHome />
         <MenuService />
-        <div className="text-[38px] text-center py-10 mx-36">
+        <div className="text-[38px]  mx-52">
           ข่าว
         </div>
           <BlogCard/>
-          <div className="text-[38px] text-center py-5 mx-36">
+          <div className="text-[38px]  mx-52">
           ข่าว
         </div>
           <NewsCard/>
