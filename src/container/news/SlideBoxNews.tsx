@@ -1,4 +1,14 @@
 
+interface News {
+    id:         string;
+    date:       string;
+    title:      string;
+    img:        string;
+    detail:     string;
+    author:     string;
+    refer:      string;
+}
+
 export default function SlideBoxNews() {
     return (
 
