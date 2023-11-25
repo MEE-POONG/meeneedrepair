@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface news {
@@ -45,14 +46,19 @@ export default function NewsCard() {
             <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
                 {newsData.slice(0, visibleItems).map((news) => (
                     <div className="bg-secondary1 shadow-xl rounded-md overflow-hidden p-2 md:p-4">
+                        
                         <div className="flex md:flex-wrap items-center">
+                        <Link href={`/news/${news.id}`} 
+                                            className="text-natural04 text-xs">
                             <div className="w-[350px] md:w-full h-[80px] md:h-[150px] rounded-l-md md:rounded-lg overflow-hidden ">
                                 <img className="w-full h-full object-cover"
                                     src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
                                     alt=""
                                 />
-                            </div>
-
+                            </div>        </Link>
+                            <Link href={`/news/${news.id}`} 
+                                            className="text-natural04 text-xs">
+                                         
                             <div className="ml-3 md:ml-0 md:mt-2">
                                 <p className="text-sm lg:text-lg line-clamp-2 font-semibold bg-gradient-to-r from-[#081FF0] to-[#13D1D1] bg-clip-text text-transparent">
                                     {news.title}
@@ -67,13 +73,11 @@ export default function NewsCard() {
                                         By: &nbsp;{news.author}
                                     </p>
 
-                                    {/* <Link href={`/blog/${blog.id}`} 
-                                            className="text-natural04 text-xs">
-                                            อ่าน
-                                        </Link> */}
+                                       อ่าน
+                                       
 
                                 </div>
-                            </div>
+                            </div> </Link>
                         </div>
 
                     </div>

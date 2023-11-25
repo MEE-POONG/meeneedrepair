@@ -87,7 +87,7 @@ const ReadBlogDetail = () => {
                         {/* Right Content */}
                        
 
-                            <LatestBlog/>
+                            {/* <LatestBlog/> */}
 
                         </div>
                     </div>

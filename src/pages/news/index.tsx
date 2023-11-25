@@ -1,4 +1,5 @@
 import RootLayout from "../../components/layout";
+import SlideBlog from "../../container/blog/SlideBlog";
 // import { newsTest } from '../../../data/News';
 // import Link from "next/link";
 // import SlideNews from "../../container/News/Slidenews";
@@ -6,6 +7,8 @@ import RootLayout from "../../components/layout";
 // import NewsCardsm from "../../container/News/NewsCardsm";
 // import CardNews from "../../container/Home/Cardnews";
 import SlideBoxNews from "../../container/news/Newscard";
+import SlideNews from "../../container/news/SlideNews";
+// import SlideNews from "../slide";
 
 interface NewsData {
     id: string;
@@ -20,6 +23,7 @@ export default function NewsPage() {
 
     return (
         <RootLayout>
+            <SlideNews/>
             <div className="">
              <SlideBoxNews/>
             </div>

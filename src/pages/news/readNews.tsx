@@ -1,11 +1,12 @@
 import Link from "next/link";
 import RootLayout from "../../components/layout";
 import SideBlog from "../../container/blog/sideBlog";
+import SideNews from "../../container/news/sideNews";
 
 const ReadNewsDetail = () => {
     return (
         <RootLayout>
-               <SideBlog />
+               <SideNews />
       <div className="relative p-7 md:p-3">
         <div className="w-full md:w-3/5 mx-auto ">
           {/* <div className="mx-5 my-3 text-sm">
