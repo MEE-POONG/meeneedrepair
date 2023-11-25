@@ -27,7 +27,7 @@ const LoginComponent: React.FC = () => {
             if (match) {
                 setLoginSuccess(true);
             
-                router.push(`/index/${match.id}`);
+                router.push(`/home/${match.id}`);
             } else {
                 setLoginSuccess(false);
                 setLoginMessage("อีเมลหรือรหัสผ่านไม่ถูกต้อง");

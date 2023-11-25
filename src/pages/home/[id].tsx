@@ -9,15 +9,15 @@ const ReadUserDetail = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
-    const [userData, setUserData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
+    const [user, setUser] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (id) {
             fetch(`/api/user/${id}`)
                 .then((response) => response.json())
-                .then((data) => {
-                    setUserData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
+                .then((username) => {
+                    setUser(username); // กำหนดข้อมูลบทความข่าวที่ดึงมา
                     //console.log(data);
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
@@ -37,10 +37,10 @@ const ReadUserDetail = () => {
                 <div>
                   
                     <div className="mt-8 mx-4 xl:mx-0">
-                        <p className="text-2xl md:text-4xl font-semibold text-white">{userData.id}</p>
+                        <p className="text-2xl md:text-4xl font-semibold text-black">{user.username}</p>
 
-                            <div className=" text-white flex items-center gap-2"> ชื่อ :
-                                {userData.fname}
+                            <div className=" text-b flex items-center gap-2"> ชื่อ :
+                                {user.fname}
                             </div>
 
 
@@ -54,11 +54,11 @@ const ReadUserDetail = () => {
                         {/* Left Content */}
                         <div className="col-span-7 bg-[#F4F5F5] mt-10 rounded-lg">
                             <div className="py-16">
-                                <img className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${userData.img}/public`} alt={userData.img} />
+                                <img className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${user.img}/public`} alt={user.img} />
                                 <article className="prose lg:prose-md md:mx-auto mt-8 px-2 md:px-0">
-                                    <h1>{userData.subfname}</h1>
+                                    <h1>{user.username}</h1>
                                     <p>
-                                        {userData.detail}
+                                        {user.detail}
                                     </p>
                                 </article>
 
