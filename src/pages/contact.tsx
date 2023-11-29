@@ -5,13 +5,9 @@ import Mailform from '../container/Contact/Mailform';
 
 export default function ContactPage() {
     return (
-        <RootLayout>
+        
             <div className='mb-10 relative bg-fixed'>
-                <img src="../images/imgslider/banner3.jpg" className='w-full lg:h-[640px] ' alt="" />
-                {/* <div className="absolute text-white text-center md:top-[250px] md:left-[740px] rounded-lg bg-black/30 p-10">
-                    <h2 className="hidden md:block text-7xl font-semibold text-white ">ติดต่อเรา</h2>
-                </div> */}
-
+            
                 <div className="container mx-auto">
                     <div className="w-64 h-1 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mb-10 mt-24"></div>
                     <div className="grid grid-flow-row lg:grid-cols-12 gap-5 ">
@@ -45,9 +41,9 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
-
-                <Mailform />
+{/* 
+                <Mailform /> */}
             </div>
-        </RootLayout>
+        
     )
 }
