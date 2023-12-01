@@ -2,6 +2,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Taxinvoice } from '@prisma/client';
+interface User {
+    fname: string;
+    lname: string;
+    email: string;
+    tel: string;
+    // loca: string;
+}
 
 export default function Tex() {
 
@@ -12,20 +19,20 @@ export default function Tex() {
     const [deliveryLocationData, setDeliveryLocationData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
     const [isLoading, setIsLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
-    // const [initialUserData, setInitialUserData] = useState<User>({
-    //     fname: "",
-    //     lname: "",
-    //     email: "",
-    //     tel: "",
-    //     // loca: "",
-    // });
-    // const [userData, setUserData] = useState<User>({
-    //     fname: "",
-    //     lname: "",
-    //     email: "",
-    //     tel: "",
-    //     // loca: "",
-    // });
+    const [initialUserData, setInitialUserData] = useState<User>({
+        fname: "",
+        lname: "",
+        email: "",
+        tel: "",
+        // loca: "",
+    });
+    const [userData, setUserData] = useState<User>({
+        fname: "",
+        lname: "",
+        email: "",
+        tel: "",
+        // loca: "",
+    });
 
 
 
@@ -49,43 +56,43 @@ export default function Tex() {
     }, [id]);
 
     const handleSave = () => {
-        // // สร้างข้อมูลที่จะส่งไปแก้ไข API
-        // const updatedUserData = {
-        //     fname: userData.fname,
-        //     lname: userData.lname,
-        //     email: userData.email,
-        //     tel: userData.tel,
-        //     // loca: userData.loca, // ถ้าคุณต้องการส่งข้อมูล loca ด้วย
-        // };
+        // สร้างข้อมูลที่จะส่งไปแก้ไข API
+        const updatedUserData = {
+            fname: userData.fname,
+            lname: userData.lname,
+            email: userData.email,
+            tel: userData.tel,
+            // loca: userData.loca, // ถ้าคุณต้องการส่งข้อมูล loca ด้วย
+        };
 
-        // // ทำการส่งข้อมูลไปแก้ไข API
-        // fetch(`/api/user/${id}`, {
-        //     method: 'PUT', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(updatedUserData),
-        // })
-        //     .then((response) => {
-        //         if (response.ok) {
-        //             // หากสำเร็จในการแก้ไขข้อมูล
-        //             setIsEditing(false); // ปิดโหมดแก้ไข
-        //             setInitialUserData(updatedUserData); // อัปเดตข้อมูลเริ่มต้น
-        //         } else {
-        //             // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
-        //             console.error('Error:', response.status);
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
+        // ทำการส่งข้อมูลไปแก้ไข API
+        fetch(`/api/user/${id}`, {
+            method: 'PUT', // หรือเปลี่ยนเป็น 'POST' หากต้องการใช้การสร้างข้อมูลใหม่
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedUserData),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // หากสำเร็จในการแก้ไขข้อมูล
+                    setIsEditing(false); // ปิดโหมดแก้ไข
+                    setInitialUserData(updatedUserData); // อัปเดตข้อมูลเริ่มต้น
+                } else {
+                    // แสดงข้อผิดพลาดหรือดำเนินการเพิ่มเติมตามที่คุณต้องการ
+                    console.error('Error:', response.status);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         setIsEditing(false);
     };
 
 
     const handleCancel = () => {
         // // เมื่อกด "ยกเลิก" ให้กลับค่า userData ให้เป็นค่าเริ่มต้น
-        // setUserData(initialUserData);
+        setUserData(initialUserData);
         setIsEditing(false);
     };
 

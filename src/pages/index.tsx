@@ -8,10 +8,13 @@ import Menuservice from "../container/Home/Menuservice";
 import Slide from "../container/Home/Slide";
 import NewsCard from "../container/News/NewsCard";
 import BlogCard from "../container/Blog/blogcard";
-
+import CardProductAll from "../container/Product/CardProductAll";
+import { useState } from "react";
 
 
 export default function Home() {
+  const [searchText, setSearchText] = useState("");
+
   return (
     <RootLayout>
       <Head>
@@ -22,7 +25,7 @@ export default function Home() {
         <Menuservice />
      
         {/* <CardProduct /> */}
-        <Cardsevice />
+        {/* <CardProductAll searchText={searchText} setSearchText={setSearchText} /> */}
 
         {/* <CardNews /> */}
         <div className="container mx-auto my-auto py-6 px-5 lg:px-24">
@@ -33,6 +36,7 @@ export default function Home() {
           <p className="text-xl md:text-3xl font-bold text-white mb-5 text-center md:text-left">อัพเดทบทความ</p>
           <BlogCard />
         </div>
+        <Cardsevice />
       </div>
     </RootLayout>
   )
