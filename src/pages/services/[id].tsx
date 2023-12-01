@@ -32,10 +32,7 @@ const ServicesID = () => {
 
     return (
         <RootLayout>
-          
-
-          
-          
+        <></>
         </RootLayout>
     )
 }

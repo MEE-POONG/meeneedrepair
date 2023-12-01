@@ -92,11 +92,12 @@ const ComponentsNavbar: React.FC = () => {
                 {/* <Serve/> */}
                 <Serve/>
               </div>
+
               <Link
-                href="contact"
+                href="products"
                 className="text-white  hover:bg-[#18BCEB] hover:text-white px-3 py-2 rounded-md text-20 font-medium"
               >
-                ติดต่อ
+              ประวัติการจอง
               </Link>
               <p className=" bg-cyan-500 w-[2px] h-10 sm:w-[0px] sm:h-[0px]"></p>
             </ul>

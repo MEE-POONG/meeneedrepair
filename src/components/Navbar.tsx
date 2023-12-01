@@ -45,7 +45,7 @@ const Navbar = () => {
     },
     { name: 'บริการของเรา', link: './../services' },
     { name: 'สินค้า', link: './../products' },
-    { name: 'ติดต่อ', link: './../contact' },
+    { name: 'ประวัติการจอง', link: './../products' },
   ];
 
   const [scroll, setScroll] = useState(0);

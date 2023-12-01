@@ -10,68 +10,111 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Category {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  categoryname   String?
-  createdAt      DateTime?     @default(now())
-  updatedAt      DateTime?     @updatedAt
-  deleted_at     DateTime?     @map("deleted_at")
-  Subcategory    Subcategory[]
+model User {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  fname           String?
+  lname           String?
+  brithday        String?
+  email           String?
+  password        String?
+  comfirmPassword String?
+  tel             String?
+  facebook        String?
+  google          String?
+  Address         Address[]
+  Reservation     Reservation[]
+  Order           Order[]
+}
+
+model Address {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  typeaddress String?
+  addressline String?
+  zipcode     String?
+  province    String?
+  distict     String?
+  subdistict  String?
+  Reservation Reservation[]
+  User        User?         @relation(fields: [userId], references: [id])
+  userId      String?       @db.ObjectId
+}
+
+model Reservation {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  time        String?
+  request     String?
+  description String?
+  User        User?      @relation(fields: [userId], references: [id])
+  userId      String?    @db.ObjectId
+  Address     Address?   @relation(fields: [addressId], references: [id])
+  addressId   String?    @db.ObjectId
+  Repairman   Repairman? @relation(fields: [repairmanId], references: [id])
+  repairmanId String?    @db.ObjectId
+}
+
+model Repairman {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  fname       String?
+  lname       String?
+  brithday    String?
+  email       String?
+  tel         String?
+  Reservation Reservation[]
+}
+
+model Order {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  date      String?
+  status    String?
+  OrderList OrderList[]
+  User      User?       @relation(fields: [userId], references: [id])
+  userId    String?     @db.ObjectId
+  Payment   Payment?    @relation(fields: [paymentId], references: [id])
+  paymentId String?     @db.ObjectId
+}
+
+model OrderList {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  date      String?
+  discount  String?
+  Order     Order?   @relation(fields: [orderId], references: [id])
+  orderId   String?  @db.ObjectId
+  Product   Product? @relation(fields: [productId], references: [id])
+  productId String?  @db.ObjectId
+}
+
+model Product {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  name   String?
+  price  String?
+  amount String?
+  img    String?
+  detail String?
+
+  OrderList      OrderList[]
+  Category       Category?     @relation(fields: [categoryId], references: [id])
+  categoryId     String?       @db.ObjectId
   Productbrand   Productbrand? @relation(fields: [productbrandId], references: [id])
   productbrandId String?       @db.ObjectId
 }
 
-model Subcategory {
-  id              String        @id @default(auto()) @map("_id") @db.ObjectId
-  subcategoryname String?
-  CategoryId      String?       @db.ObjectId
-  ProductbrandId  String?       @db.ObjectId
-  createdAt       DateTime?     @default(now())
-  updatedAt       DateTime?     @updatedAt
-  deleted_at      DateTime?     @map("deleted_at")
-  products        Products[]
-  category        Category?     @relation(fields: [CategoryId], references: [id])
-  productbrand    Productbrand? @relation(fields: [ProductbrandId], references: [id])
-}
-
 model Productbrand {
-  id          String        @id @default(auto()) @map("_id") @db.ObjectId
-  Namebrand   String?
-  createdAt   DateTime?     @default(now())
-  updatedAt   DateTime?     @updatedAt
-  deleted_at  DateTime?     @map("deleted_at")
-  products    Products[]
-  Category    Category[]
-  Subcategory Subcategory[]
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  name    String?
+  Product Product[]
 }
 
-model Products {
-  id               String        @id @default(auto()) @map("_id") @db.ObjectId
-  productname      String?
-  productbrand     String?
-  productmodel     String?
-  productdetail    String?
-  producttype      String?
-  productcost      String?
-  productprice     String?
-  productremaining String?
-  productimg       String?
-  productimg1      String?
-  productimg2      String?
-  productimg3      String?
-  productimg4      String?
-  // categoryId String? @db.ObjectId
-  // category Category? @relation(fields: [categoryId], references: [id])
-  Subcategory      Subcategory?  @relation(fields: [subcategoryId], references: [id])
-  subcategoryId    String?       @db.ObjectId
-  createdAt        DateTime?     @default(now())
-  updatedAt        DateTime?     @updatedAt
-  deleted_at       DateTime?     @map("deleted_at")
-  Productbrand     Productbrand? @relation(fields: [productbrandId], references: [id])
-  productbrandId   String?       @db.ObjectId
+model Payment {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  img         String?
+  paymentType String?
+  Order       Order[]
+}
 
-  OrderId String? @db.ObjectId
-  Order   Order?  @relation(fields: [OrderId], references: [id])
+model Category {
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  name    String?
+  Product Product[]
 }
 
 model News {
@@ -85,13 +128,6 @@ model News {
   img      String?
 }
 
-model Promote {
-  id   String  @id @default(auto()) @map("_id") @db.ObjectId
-  name String?
-  img  String?
-  img1 String?
-}
-
 model Blog {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
   title    String?
@@ -101,127 +137,4 @@ model Blog {
   img1     String?
   date     String?
   author   String?
-}
-
-model Appointment {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  fname      String?
-  lname      String?
-  email      String?
-  tel        String?
-  request    String?
-  message    String?
-  date       String?
-  time       String?
-  status     String?   @default("ยังไม่ซ่อม") // กำหนดค่าเริ่มต้นเป็น "true"
-  createdAt  DateTime? @default(now())
-  updatedAt  DateTime? @updatedAt
-  deleted_at DateTime? @map("deleted_at")
-  userId      String?                       
-  user        User?   @relation(fields: [userId], references: [id])
-}
-
-model User {
-  id              String      @id @default(auto()) @map("_id") @db.ObjectId
-  fname           String?
-  lname           String?
-  birthday        String?
-  email           String?
-  password        String?
-  confirmPassword String?
-  tel             String?
-  facebook        String?
-  google          String?
-  secretKey       String?
-  AddressId       String?     @db.ObjectId
-  // AddressId       String? 
-  // Address         Address? @relation(fields: [AddressId], references: [id])
-  Address         Address[]
-  FavoriteItems   String[]
-  ProductsItems   String[]
-  OrderListId     String?     @db.ObjectId
-  OrderList       OrderList[]
-  Appointment     Appointment[]
-}
-
-model Admin {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  email    String?
-  password String?
-}
-
-model Messenger {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  title    String?
-  subtitle String?
-  detail   String?
-  img      String?
-  emoji    String?
-  chat     String?
-  date     String?
-}
-
-model Address {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  name        String?
-  lname       String?
-  phonenumber String?
-  typeaddress String?
-  addressline String?
-  zipcode     String?
-  province    String?
-  district    String?
-  subdistrict String?
-  note        String?
-  // User        User[]
-  userId      String?
-  User        User?   @relation(fields: [userId], references: [id])
-}
-
-model Tex {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  // fname String?
-  // lname String?
-  // tel  String?
-  typeaddress String?
-  location    String?
-  zipcode     String?
-  province    String?
-  district    String?
-  Subdistrict String?
-  detail      String?
-}
-
-model Taxinvoice {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model Order {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
-  Products    Products[]
-  OrderListId String?    @db.ObjectId
-  OrderList   OrderList? @relation(fields: [OrderListId], references: [id])
-  
-  date        String?
-  status      String?    @default("ยังไม่ชำระ")
-  createdAt   DateTime?  @default(now())
-  updatedAt   DateTime?  @updatedAt
-  deleted_at  DateTime?  @map("deleted_at")
-}
-
-model OrderList {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
-  userId String?
-  user   User?   @relation(fields: [userId], references: [id])
-
-  OrderId String?
-  Order   Order[]
-
-  date       String?
-  status     String?   @default("ยังไม่ชำระ")
-  createdAt  DateTime? @default(now())
-  updatedAt  DateTime? @updatedAt
-  deleted_at DateTime? @map("deleted_at")
 }
