@@ -2,7 +2,13 @@ import Link from "next/link";
 import RootLayout from "../../components/layout";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from "next/head";
+import Slide from "../../container/Home/Slide";
+import Menuservice from "../../container/Home/Menuservice";
+import NewsCard from "../../container/News/NewsCard";
 // import LatestUser from "../../container/User/LatestUser";
+import BlogCard from '../../container/Blog/Blogcard';
+import Cardsevice from "../../container/Home/Cardservice";
 
 
 const ReadUserDetail = () => {
@@ -32,49 +38,37 @@ const ReadUserDetail = () => {
 
     return (
         <RootLayout>
-            <div className="container mx-auto"
-            >
-                <div>
-                  
-                    <div className="mt-8 mx-4 xl:mx-0">
-                        <p className="text-2xl md:text-4xl font-semibold text-white">{userData.id}</p>
+            <Head>
+                <title>Mee Need Repair</title>
+            </Head>
+            <Slide />
+            <div className=''>
+                <Menuservice />
 
-                            <div className=" text-white flex items-center gap-2"> ชื่อ :
-                                {userData.fname}
-                            </div>
+                {/* <CardProduct /> */}
+                {/* <CardProductAll searchText={searchText} setSearchText={setSearchText} /> */}
 
-
-
-                        </div>
-                    </div>
-
-                    {/* Content Detail  */}
-                    <div className="xl:grid xl:grid-cols-9 xl:gap-6 mx-4 xl:mx-0">
-
-                        {/* Left Content */}
-                        <div className="col-span-7 bg-[#F4F5F5] mt-10 rounded-lg">
-                            <div className="py-16">
-                                <img className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${userData.img}/public`} alt={userData.img} />
-                                <article className="prose lg:prose-md md:mx-auto mt-8 px-2 md:px-0">
-                                    <h1>{userData.subfname}</h1>
-                                    <p>
-                                        {userData.detail}
-                                    </p>
-                                </article>
-
-
-                            </div>
-                        </div>
+                {/* <CardNews /> */}
+                <div className="container mx-auto my-auto py-6 px-5 lg:px-24">
+                    <p className="text-xl md:text-3xl font-bold text-white mb-5 text-center md:text-left">อัพเดทข่าวสาร</p>
+                    <NewsCard />
+                </div>
+                <div className="container mx-auto my-auto py-6 px-5 lg:px-24">
+                    <p className="text-xl md:text-3xl font-bold text-white mb-5 text-center md:text-left">อัพเดทบทความ</p>
+                    <BlogCard />
+                </div>
+                <Cardsevice />
+            </div>
 
 
 
 
-                        {/* Right Content */}
-                        {/* <div className="col-span-2 bg-[#1E293B] mt-10 rounded-lg p-6">
+            {/* Right Content */}
+            {/* <div className="col-span-2 bg-[#1E293B] mt-10 rounded-lg p-6">
                             <p className="text-white text-xl">ข่าวแนะนำ</p> */}
 
-                        
-                            {/* <div className="bg-[#F4F5F5] rounded-[20px] mx-auto">
+
+            {/* <div className="bg-[#F4F5F5] rounded-[20px] mx-auto">
                                 <div className="p-3 ">
                                     <img className="rounded-[20px] w-full "
                                         src="https://res.cloudinary.com/practicaldev/image/fetch/s--99fg18pd--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/mtjqqj22x8g1nwubmb1c.png"
@@ -98,7 +92,7 @@ const ReadUserDetail = () => {
 
                             </div> */}
 
-                        {/* </div> */}
+            {/* </div> */}
 
 
 
@@ -110,11 +104,11 @@ const ReadUserDetail = () => {
 
 
 
-                    </div>
-                </div>
 
-          
-        </RootLayout>
+
+
+
+        </RootLayout >
     )
 }
 export default ReadUserDetail;

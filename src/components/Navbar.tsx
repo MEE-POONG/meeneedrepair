@@ -32,19 +32,19 @@ const Navbar = () => {
   }, [id]);
 
   const Links = [
-    { name: 'หน้าแรก', link: `/../${id}` },
+    { name: 'หน้าแรก', link: `/home/${id}` },
     {
       name: 'เกี่ยวกับเรา',
       link: 'about',
       children: [
-        { name: 'บริการของเรา', link: './../about' },
-        { name: 'บริการของเรา', link: './../news' },
-        { name: 'บริการของเรา', link: './../blog' },
+        { name: 'บริการของเรา', link: `./../about/${id}` },
+        { name: 'บริการของเรา', link: `./../news/${id}` },
+        { name: 'บริการของเรา', link: `./../blog/${id}` },
       ],
     },
-    { name: 'บริการของเรา', link: './../services' },
-    { name: 'บริการของเรา', link: './../products' },
-    { name: 'บริการของเรา', link: './../products' },
+    { name: 'บริการของเรา', link: `./../services/${id}` },
+    { name: 'บริการของเรา', link: `./../products/${id}`},
+    { name: 'บริการของเรา', link: `./../products/${id}` },
   ];
 
   const [scroll, setScroll] = useState(0);
