@@ -31,21 +31,20 @@ const Navbar = () => {
     }
   }, [id]);
 
-
   const Links = [
-    { name: 'หน้าแรก', link: '/' },
+    { name: 'หน้าแรก', link: `/../${id}` },
     {
       name: 'เกี่ยวกับเรา',
       link: 'about',
       children: [
-        { name: 'เกี่ยวกับเรา', link: './../about' },
-        { name: 'ข่าวสาร', link: './../news' },
-        { name: 'บทความ', link: './../blog' },
+        { name: 'บริการของเรา', link: './../about' },
+        { name: 'บริการของเรา', link: './../news' },
+        { name: 'บริการของเรา', link: './../blog' },
       ],
     },
     { name: 'บริการของเรา', link: './../services' },
-    { name: 'สินค้า', link: './../products' },
-    { name: 'ประวัติการจอง', link: './../products' },
+    { name: 'บริการของเรา', link: './../products' },
+    { name: 'บริการของเรา', link: './../products' },
   ];
 
   const [scroll, setScroll] = useState(0);
@@ -150,6 +149,7 @@ const Navbar = () => {
               <button className="flex items-center">
                 <HiUser size={20} />
                 <a href="./login" className="hidden lg:block text-sm md:text-lg ">เข้าสู่ระบบ</a>
+
               </button>
             )}
           </li>
