@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 res.status(500).json({ error: "An error occurred while fetching the user" });
             }
             break;
-
+//
         case 'POST':
             try {
                 const newuser = await prisma.address.create({
