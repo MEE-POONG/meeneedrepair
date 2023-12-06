@@ -11,12 +11,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.address.findUnique({
+                const data = await prisma.user.findUnique({
                     where: {
                         id: id as string,
-                    },
-                    include:{
-                        User : true
                     },
                 });
 
@@ -30,12 +27,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.address.update({
+                const data = await prisma.user.update({
                     where: {
                         id: id as string,
-                    },
-                    include:{
-                        User : true
                     },
                     data: req.body,
                 });
@@ -45,12 +39,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 res.status(500).json({ error: "An error occurred while updating the data" });
             }
             break;
-
+//
         case 'DELETE':
             try {
                 const id = req.query.id;
 
-                const data = await prisma.address.delete({
+                const data = await prisma.user.delete({
                     where: {
                         id: id as string,
                     },
