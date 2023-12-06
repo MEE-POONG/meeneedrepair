@@ -31,12 +31,12 @@ const CardProductAll = ({ searchText, setSearchText }:any) => {
     const [activeSlide, setActiveSlide] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
-    const productsGroups = [];
+    const productGroups = [];
     const groupSize = 5;
 
     for (let i = 0; i < productsData.length; i += groupSize) {
         const group = productsData.slice(i, i + groupSize);
-        productsGroups.push(group);
+        productGroups.push(group);
     }
 
     // const handleLoadMore = () => {
@@ -80,7 +80,7 @@ const CardProductAll = ({ searchText, setSearchText }:any) => {
 
 
             <div className="flex flex-wrap justify-center">
-                {productsGroups.map((group, index) => (
+                {productGroups.map((group, index) => (
                     <div key={index} className="flex flex-wrap justify-center">
                         {group.map((products) => (
                             <div key={products.id} className="w-[300px] sm:w-[200px] md:w-[300px] lg:w-[200px] xl:w-[200px] p-1 mx-2 my-3">

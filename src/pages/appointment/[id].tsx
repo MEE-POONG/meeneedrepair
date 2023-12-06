@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import RootLayout from "../../components/layout";
 import React, { useState, useEffect } from 'react';
@@ -17,6 +18,12 @@ const ReadUserDetail = () => {
 
     const [user, setUser] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
     const [isLoading, setIsLoading] = useState(true);
+    const [UserData, setUserData] = useState({
+        fname: "",
+        lname: "",
+        tel: "",
+        email: "",
+    });
 
     useEffect(() => {
         console.log('ID:', id);
@@ -44,19 +51,21 @@ const ReadUserDetail = () => {
     const [request, setRequest] = useState<string>("");
     const [message, setMessage] = useState<string>("");
     const [isMissingModalOpen, setIsMissingModalOpen] = useState(false);
+    const [isMissSignIn, setIsMissSignIn] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [missingFields, setMissingFields] = useState<string[]>([]);
+    const [selectedAddressId, setSelectedAddressId] = useState<string | null>(null);
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
         // ตรวจสอบว่าข้อมูลถูกกรอกครบถ้วน
-        if (!fname || !lname || !tel || !email || !time || !request || !message) {
+        if ( !fname || !lname || !time || !request || !message) {
             // ถ้าข้อมูลไม่ครบถ้วน ให้แสดง modal แจ้งเตือน
             setIsMissingModalOpen(true);
             return;
         }
-
+       
         // ส่งข้อมูลไปยัง API
         try {
             setIsLoading(true);
@@ -64,8 +73,6 @@ const ReadUserDetail = () => {
                 data: {
                     fname,
                     lname,
-                    tel,
-                    email,
                     time,
                     request,
                     message
@@ -107,7 +114,96 @@ const ReadUserDetail = () => {
         setIsModalOpen(false);
 
     };
+//
+useEffect(() => {
+    if (id) {
+        fetch(`/api/user/${id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                // console.log(data.id);
+                setUserData(data);
+                setFname(data.fname);
+                setLname(data.lname);
+                setTel(data.tel);
+                setEmail(data.email);
+                setRequest(data.request)
+                // setAddress(data);
+                // console.log(data);
 
+                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+            });
+
+    }
+}, [id]);
+
+const UpdateUserData = () => {
+    if (id) {
+
+        if (selectedAddressId !== null) {
+            fetch(`/api/user/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+
+                    fname: fname,
+                    lname: lname,
+                    tel: tel,
+                    email: email,
+                    request: request,
+                    // AddressId: selectedAddressId,
+
+
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                    alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+        } else {
+
+            fetch(`/api/user/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+
+                    fname: fname,
+                    lname: lname,
+                    tel: tel,
+                    email: email,
+                    request:request,
+
+
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                    alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+
+        }
+
+    }
+}
     return (
         <RootLayout>
       
@@ -121,7 +217,7 @@ const ReadUserDetail = () => {
                         <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
                             <div className='mb-2'>ชื่อ</div>
                             <input
-                                type="text" defaultValue={user.fname} onChange={(e) => setFname(e.target.value)}
+                                type="text" defaultValue={fname} onChange={(e) => setFname(e.target.value)}
                                 className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none" 
                                 placeholder="ชื่อ"
                                 />       
@@ -129,7 +225,7 @@ const ReadUserDetail = () => {
                         <div className="relative mb-6" data-te-input-wrapper-init>
                             <div className='mb-2'>นามสกุล</div>
                             <input
-                                type="text" defaultValue={user.lname}  onChange={(e) => setLname(e.target.value)}
+                                type="text" defaultValue={lname}  onChange={(e) => setLname(e.target.value)}
                                 className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                 id="exampleFormControlInput3"
                                 placeholder="นามสกุล" />
@@ -139,7 +235,7 @@ const ReadUserDetail = () => {
                         <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
                             <div className='mb-2'>อีเมล</div>
                             <input
-                                type="email" defaultValue={user.email}  onChange={(e) => setEmail(e.target.value)}
+                                type="email" defaultValue={email}  onChange={(e) => setEmail(e.target.value)}
                                 className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                 placeholder="อีเมล" />
 
@@ -147,7 +243,7 @@ const ReadUserDetail = () => {
                         <div className="relative mb-6" data-te-input-wrapper-init>
                             <div className='mb-2'>เบอร์โทรติดต่อ</div>
                             <input
-                                type="number" defaultValue={user.tel}  onChange={(e) => setTel(e.target.value)}
+                                type="number" defaultValue={tel}  onChange={(e) => setTel(e.target.value)}
                                 className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                 id="exampleFormControlInput3"
                                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
