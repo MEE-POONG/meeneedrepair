@@ -17,11 +17,10 @@ model User {
   brithday        String?
   email           String?
   password        String?
-  confirmPassword String?
+  comfirmPassword String?
   tel             String?
   facebook        String?
   google          String?
-  secretKey       String?
   Address         Address[]
   Reservation     Reservation[]
   Order           Order[]
@@ -29,12 +28,17 @@ model User {
 
 model Address {
   id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  name        String?
+  lname       String?
+  phonenumber String?
   typeaddress String?
   addressline String?
   zipcode     String?
   province    String?
-  distict     String?
-  subdistict  String?
+  district    String?
+  subdistrict String?
+  note        String?
+  
   Reservation Reservation[]
   User        User?         @relation(fields: [userId], references: [id])
   userId      String?       @db.ObjectId
