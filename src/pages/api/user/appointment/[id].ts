@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         id: id as string,
                     },
                     include : {
-                        Appointment : true
+                        Reservation : true
                     },
                 });
 
@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         id: id as string,
                     },
                     include : {
-                        Appointment : true
+                        Reservation : true
                     },
                     data: req.body,
                 });
@@ -55,7 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         id: id as string,
                     },
                     include : {
-                        Appointment : true
+                        Reservation : true
                     },
                 });
 

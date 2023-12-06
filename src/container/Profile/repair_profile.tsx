@@ -7,28 +7,43 @@ import { User } from '@prisma/client';
 const RepairProfile = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
-
-
-    const [AppointmentData, setAppointmentData] = useState<any[]>([]);
-
-
+    const [appointment, setAppointmentData] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
 
+
+    // useEffect(() => {
+    //     if (id) {
+    //         fetch(`/api/user/appointment/${id}`)
+    //             .then((response) => response.json())
+    //             .then((data) => {
+    //                 // console.log("ข้อมูลเริ่มต้นของ appointment");
+    //                 // console.log(data);
+    //                 // console.log(data.Appointment);
+    //                 setAppointmentData(data.Appointment);
+    //                 // console.log(data.AddressId);
+    //                 // console.log(data.Address);
+
+
+    //                 setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Error:', error);
+    //                 setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+    //             });
+
+    //     }
+    // }, [id]);
 
     useEffect(() => {
         if (id) {
             fetch(`/api/user/appointment/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    // console.log("ข้อมูลเริ่มต้นของ appointment");
-                    // console.log(data);
-                    // console.log(data.Appointment);
-                    setAppointmentData(data.Appointment);
-                    // console.log(data.AddressId);
-                    // console.log(data.Address);
-
-
+                    setAppointmentData(data.appointment); // กำหนดข้อมูลบทความข่าวที่ดึงมา
+                    //console.log(data);
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 })
@@ -40,8 +55,7 @@ const RepairProfile = () => {
 
         }
     }, [id]);
-
-
+ 
 
     return (
         <div className="">
@@ -61,7 +75,7 @@ const RepairProfile = () => {
 
             <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base ">
 
-                {AppointmentData && AppointmentData.map((appointment: any, index: number) => (
+                {appointment && appointment.map((appointment: any, index: number) => (
                     <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5" key={index}>
                         <img src="https://bleuwire.com/wp-content/uploads/2019/03/computer-repair-services.jpg" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
                         <div className="col-span-4 md:col-span-5 self-center flex flex-wrap">

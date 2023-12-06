@@ -60,12 +60,12 @@ const ReadUserDetail = () => {
         e.preventDefault();
 
         // ตรวจสอบว่าข้อมูลถูกกรอกครบถ้วน
-        if ( !fname || !lname || !time || !request || !message) {
+        if (!fname || !lname || !time || !request || !message) {
             // ถ้าข้อมูลไม่ครบถ้วน ให้แสดง modal แจ้งเตือน
             setIsMissingModalOpen(true);
             return;
         }
-       
+
         // ส่งข้อมูลไปยัง API
         try {
             setIsLoading(true);
@@ -114,247 +114,250 @@ const ReadUserDetail = () => {
         setIsModalOpen(false);
 
     };
-//
-useEffect(() => {
-    if (id) {
-        fetch(`/api/user/${id}`)
-            .then((response) => response.json())
-            .then((data) => {
-                // console.log(data.id);
-                setUserData(data);
-                setFname(data.fname);
-                setLname(data.lname);
-                setTel(data.tel);
-                setEmail(data.email);
-                setRequest(data.request)
-                // setAddress(data);
-                // console.log(data);
-
-                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-
-            });
-
-    }
-}, [id]);
-
-const UpdateUserData = () => {
-    if (id) {
-
-        if (selectedAddressId !== null) {
-            fetch(`/api/user/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-
-                    fname: fname,
-                    lname: lname,
-                    tel: tel,
-                    email: email,
-                    request: request,
-                    // AddressId: selectedAddressId,
-
-
-                }),
-            })
+    //
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
-                    alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                    // console.log(data.id);
+                    setUserData(data);
+                    setFname(data.fname);
+                    setLname(data.lname);
+                    setTel(data.tel);
+                    setEmail(data.email);
+                    setRequest(data.request)
+                    // setAddress(data);
+                    // console.log(data);
+
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
                 })
                 .catch((error) => {
                     console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
                 });
-
-        } else {
-
-            fetch(`/api/user/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-
-                    fname: fname,
-                    lname: lname,
-                    tel: tel,
-                    email: email,
-                    request:request,
-
-
-                }),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
-                    alert('บันทึกข้อมูลเรียบร้อยแล้ว');
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-
 
         }
+    }, [id]);
 
-    }
-}//
+    const UpdateUserData = () => {
+        if (id) {
+
+            if (selectedAddressId !== null) {
+                fetch(`/api/user/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+
+                        fname: fname,
+                        lname: lname,
+                        tel: tel,
+                        email: email,
+                        request: request,
+                        // AddressId: selectedAddressId,
+
+
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                        alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+
+            } else {
+
+                fetch(`/api/user/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+
+                        fname: fname,
+                        lname: lname,
+                        tel: tel,
+                        email: email,
+                        request: request,
+
+
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // ทำอะไรกับข้อมูลที่ได้จาก API (เช่น แสดงข้อความสำเร็จ)
+                        alert('บันทึกข้อมูลเรียบร้อยแล้ว');
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+
+
+            }
+
+        }
+    }//
     return (
         <RootLayout>
-      
-      <div className="flex justify-center items-center min-h-screen">
-            <div className="bg-white w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto p-6 rounded-lg shadow-lg">
-                <h2 className=" font-semibold text-xl lg:text-2xl text-gray-800 mb-4">
-                    จองคิวซ่อม
-                </h2>
-                <form >
-                    <div className="flex justify-center">
-                        <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
-                            <div className='mb-2'>ชื่อ</div>
-                            <input
-                                type="text" defaultValue={fname} onChange={(e) => setFname(e.target.value)}
-                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none" 
-                                placeholder="ชื่อ"
-                                />       
-                        </div>
-                        <div className="relative mb-6" data-te-input-wrapper-init>
-                            <div className='mb-2'>นามสกุล</div>
-                            <input
-                                type="text" defaultValue={lname}  onChange={(e) => setLname(e.target.value)}
-                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
-                                id="exampleFormControlInput3"
-                                placeholder="นามสกุล" />
-                        </div>
-                    </div>
-                    <div className="flex justify-center">
-                        <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
-                            <div className='mb-2'>อีเมล</div>
-                            <input
-                                type="email" defaultValue={email}  onChange={(e) => setEmail(e.target.value)}
-                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
-                                placeholder="อีเมล" />
 
-                        </div>
-                        <div className="relative mb-6" data-te-input-wrapper-init>
-                            <div className='mb-2'>เบอร์โทรติดต่อ</div>
-                            <input
-                                type="number" defaultValue={tel}  onChange={(e) => setTel(e.target.value)}
-                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
-                                id="exampleFormControlInput3"
-                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                                placeholder="เบอร์โทรติดต่อ" />
-
-                        </div>
-                    </div>
-                    <div className="max-w-md mx-auto mb-4" data-te-input-wrapper-init>
-                        <div className='mb-2'>ต้องการจองคิววันที่</div>
-                        <input
-                            type="date" value={time} onChange={(e) => setTime(e.target.value)}
-                            className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
-                            id="exampleFormControlInput3"
-                            />
-
-                    </div>
-
-                    <div className="max-w-md mx-auto mb-4">
-                        <label
-                            htmlFor="equipment"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            อุปกรณ์ที่ต้องการซ่อม
-                        </label>
-                        <select
-                            id="equipment"
-                            value={request}
-                            onChange={(e) => setRequest(e.target.value)}
-                            className="w-full p-2 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                        >
-                            <option value="computers" id="computers">
-                                เช็คอุปกรณ์ คอมพิวเตอร์,โน๊ตบุ๊ค
-                            </option>
-                            <option value="cpu" id="cpu">
-                                ซีพียู
-                            </option>
-                            <option value="motherboard" id="motherboard">
-                                เมนบอร์ด
-                            </option>
-                            <option value="hdd" id="hdd">
-                                ฮาร์ดดิส / ssd
-                            </option>
-                            <option value="ram" id="ram">
-                                แรม
-                            </option>
-                            <option value="others" id="others">
-                                อื่นๆ
-                            </option>
-                        </select>
-                        {/* เพิ่มปุ่มหรือเหตุการณ์เมื่อคลิกเพื่อบันทึกค่าในฐานข้อมูล */}
-                    </div>
-                    <div className="max-w-md mx-auto">
-                        <label className="block uppercase tracking-wide text-sm font-medium text-gray-900 mb-2" htmlFor="description">
-                            อธิบายอาการของอุปกรณ์พอสังเขป
-                        </label>
-                        <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="description"  placeholder="กรุณากรอกข้อมูล"></textarea>
-                    </div>
-
-                    <div className="flex justify-center mt-6">
-                        <button
-                            type="submit"
-                            disabled={isLoading}
-                            onClick={handleSubmit} // เรียกใช้ฟังก์ชัน handleSubmit ในการตรวจสอบข้อมูล
-                            className="w-[200px] py-3 bg-[#FFCD4B] rounded-lg font-medium text-white uppercase focus:outline-none hover:bg-gray-700 hover:shadow-none"
-                        >
-                            จองคิว
-                        </button>
-                    </div>
-
-                    {/* Modal แจ้งเตือน */}
-                    {isMissingModalOpen && (
-                        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-75">
-                            <div className="bg-white p-6 rounded-lg text-center">
-                                <p className="text-red-500 text-lg mb-4">กรุณากรอกข้อมูลให้ครบถ้วน</p>
-                                <button
-                                    onClick={() => setIsMissingModalOpen(false)}
-                                    className="px-4 py-2 bg-red-500 text-white rounded-md focus:outline-none"
-                                >
-                                    ปิด
-                                </button>
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="bg-white w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto p-6 rounded-lg shadow-lg">
+                    <h2 className=" font-semibold text-xl lg:text-2xl text-gray-800 mb-4">
+                        จองคิวซ่อม
+                    </h2>
+                    <form >
+                        <div className="flex justify-center">
+                            <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+                                <div className='mb-2'>ชื่อ</div>
+                                <input
+                                    type="text" defaultValue={fname} onChange={(e) => setFname(e.target.value)}
+                                    className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                    placeholder="ชื่อ"
+                                />
+                            </div>
+                            <div className="relative mb-6" data-te-input-wrapper-init>
+                                <div className='mb-2'>นามสกุล</div>
+                                <input
+                                    type="text" defaultValue={lname} onChange={(e) => setLname(e.target.value)}
+                                    className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                    id="exampleFormControlInput3"
+                                    placeholder="นามสกุล" />
                             </div>
                         </div>
-                    )}
-                    
-                    {isModalOpen && (
-                        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
-                            <div className="bg-white p-6 rounded-lg">
-                                <p className="text-2xl font-semibold mb-4">ยืนยันการจองคิว</p>
-                                <p>คุณต้องการจองคิวหรือไม่?</p>
-                                <div className="mt-4 flex justify-end">
+                        <div className="flex justify-center">
+                            <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+                                <div className='mb-2'>อีเมล</div>
+                                <input
+                                    type="email" defaultValue={email} onChange={(e) => setEmail(e.target.value)}
+                                    className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                    placeholder="อีเมล" />
+
+                            </div>
+                            <div className="relative mb-6" data-te-input-wrapper-init>
+                                <div className='mb-2'>เบอร์โทรติดต่อ</div>
+                                <input
+                                    type="number" defaultValue={tel} onChange={(e) => setTel(e.target.value)}
+                                    className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                    id="exampleFormControlInput3"
+                                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                    placeholder="เบอร์โทรติดต่อ" />
+
+                            </div>
+                        </div>
+                        <div className="max-w-md mx-auto mb-4" data-te-input-wrapper-init>
+                            <div className='mb-2'>ต้องการจองคิววันที่</div>
+                            <input
+                                type="date" value={time} onChange={(e) => setTime(e.target.value)}
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                id="exampleFormControlInput3"
+                            />
+
+                        </div>
+
+                        <div className="max-w-md mx-auto mb-4">
+                            <label
+                                htmlFor="equipment"
+                                className="block mb-2 text-sm font-medium text-gray-900"
+                            >
+                                อุปกรณ์ที่ต้องการซ่อม
+                            </label>
+                            <select
+                                id="equipment"
+                                value={request}
+                                onChange={(e) => setRequest(e.target.value)}
+                                className="w-full p-2 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            >
+                                <option value="1" id="1">
+                                    เลือกอุปกรณ์ที่ต้องการซ่อม
+                                </option>
+                                <option value="computers" id="computers">
+                                    เช็คอุปกรณ์ คอมพิวเตอร์,โน๊ตบุ๊ค
+                                </option>
+                                <option value="cpu" id="cpu">
+                                    ซีพียู
+                                </option>
+                                <option value="motherboard" id="motherboard">
+                                    เมนบอร์ด
+                                </option>
+                                <option value="hdd" id="hdd">
+                                    ฮาร์ดดิส / ssd
+                                </option>
+                                <option value="ram" id="ram">
+                                    แรม
+                                </option>
+                                <option value="others" id="others">
+                                    อื่นๆ
+                                </option>
+                            </select>
+                            {/* เพิ่มปุ่มหรือเหตุการณ์เมื่อคลิกเพื่อบันทึกค่าในฐานข้อมูล */}
+                        </div>
+                        <div className="max-w-md mx-auto">
+                            <label className="block uppercase tracking-wide text-sm font-medium text-gray-900 mb-2" htmlFor="description">
+                                อธิบายอาการของอุปกรณ์พอสังเขป
+                            </label>
+                            <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="description" placeholder="กรุณากรอกข้อมูล"></textarea>
+                        </div>
+
+                        <div className="flex justify-center mt-6">
+                            <button
+                                type="submit"
+                                disabled={isLoading}
+                                onClick={handleSubmit} // เรียกใช้ฟังก์ชัน handleSubmit ในการตรวจสอบข้อมูล
+                                className="w-[200px] py-3 bg-[#FFCD4B] rounded-lg font-medium text-white uppercase focus:outline-none hover:bg-gray-700 hover:shadow-none"
+                            >
+                                จองคิว
+                            </button>
+                        </div>
+
+                        {/* Modal แจ้งเตือน */}
+                        {isMissingModalOpen && (
+                            <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-75">
+                                <div className="bg-white p-6 rounded-lg text-center">
+                                    <p className="text-red-500 text-lg mb-4">กรุณากรอกข้อมูลให้ครบถ้วน</p>
                                     <button
-                                        onClick={handleCloseModal} // เรียกใช้งานเมื่อกดปุ่ม "ยกเลิก"
-                                        className="px-4 py-2 bg-red-500 text-white rounded-md mr-2"
+                                        onClick={() => setIsMissingModalOpen(false)}
+                                        className="px-4 py-2 bg-red-500 text-white rounded-md focus:outline-none"
                                     >
-                                        ยกเลิก
-                                    </button>
-                                    <button
-                                        onClick={handleConfirm} // เรียกใช้งานเมื่อกดปุ่ม "ยืนยัน"
-                                        className="px-4 py-2 bg-green-500 text-white rounded-md"
-                                    >
-                                        ยืนยัน
+                                        ปิด
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                    )}
-                </form>
+                        )}
 
+                        {isModalOpen && (
+                            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+                                <div className="bg-white p-6 rounded-lg">
+                                    <p className="text-2xl font-semibold mb-4">ยืนยันการจองคิว</p>
+                                    <p>คุณต้องการจองคิวหรือไม่?</p>
+                                    <div className="mt-4 flex justify-end">
+                                        <button
+                                            onClick={handleCloseModal} // เรียกใช้งานเมื่อกดปุ่ม "ยกเลิก"
+                                            className="px-4 py-2 bg-red-500 text-white rounded-md mr-2"
+                                        >
+                                            ยกเลิก
+                                        </button>
+                                        <button
+                                            onClick={handleConfirm} // เรียกใช้งานเมื่อกดปุ่ม "ยืนยัน"
+                                            className="px-4 py-2 bg-green-500 text-white rounded-md"
+                                        >
+                                            ยืนยัน
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </form>
+
+                </div>
             </div>
-        </div>
-    
+
 
         </RootLayout>
     )

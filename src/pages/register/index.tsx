@@ -92,13 +92,13 @@ function RegisterFrom() {
                                 <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">ชื่อ</label>
                                 <input type="text"
                                     value={fname}
-                                    onChange={(e) => setFname(e.target.value)} id="first_name" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรุณากรอกชื่อ" pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
+                                    onChange={(e) => setFname(e.target.value)} id="first_name" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรูณากรอกชื่อ" pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
                             </div>
                             <div className='w-[50%]'>
                                 <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">นามสกุล</label>
                                 <input type="text"
                                     value={lname}
-                                    onChange={(e) => setLname(e.target.value)} id="last_name" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรุณากรอกนามสกุล" pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
+                                    onChange={(e) => setLname(e.target.value)} id="last_name" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรูณากรอกนามสกุล" pattern="^[A-Za-zก-๙\s]*$" title="กรุณากรอกข้อมูลให้ถูกต้อง" required />
                             </div>
 
                         </div>
@@ -106,19 +106,19 @@ function RegisterFrom() {
                             <label htmlFor="phone" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">เบอร์โทรศัพท์</label>
                             <input type="number"
                                 value={tel}
-                                onChange={(e) => setTel(e.target.value)} id="phone" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" title="กรุณากรอกเบอร์โทรเป็นตัวเลขเท่านั้น" required />
+                                onChange={(e) => setTel(e.target.value)} id="phone" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" title="กรุณากรอกเบอร์โทรเป็นตัวเลขเท่านั้น" required />
                         </div>
                         <div>
                             <label htmlFor="date" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">วัน/เดือน/ปี เกิด</label>
                             <input type="date"
                                 value={birthday}
-                                onChange={(e) => setBirthday(e.target.value)} id="website" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                onChange={(e) => setBirthday(e.target.value)} id="website" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                         </div>
                         <div className="mb-6 my-5">
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-white dark:text-gray-300">Email address</label>
                             <input type="email"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)} id="email" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email address" required />
+                                onChange={(e) => setEmail(e.target.value)} id="email" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email address" required />
                         </div>
                         <div>
                             <div className="mb-6">
@@ -128,7 +128,7 @@ function RegisterFrom() {
                                     value={password}
                                     onChange={handlePasswordChange}
                                     id="password"
-                                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="•••••••••"
                                     required
                                 />
@@ -140,7 +140,7 @@ function RegisterFrom() {
                                     value={confirmPassword}
                                     onChange={handleConfirmPasswordChange}
                                     id="confirm_password"
-                                    className={`bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 ${passwordsMatch ? '' : 'border-red-500'}`}
+                                    className={`bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${passwordsMatch ? '' : 'border-red-500'}`}
                                     placeholder="•••••••••"
                                     required
                                 />
@@ -159,7 +159,7 @@ function RegisterFrom() {
 
                         </div>
                         <button type="submit"
-                            className="group relative h-12 w-full text-white overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold ">
+                            className="group relative h-12 w-full overflow-hidden rounded-2xl bg-[#0F172A]  text-1xl font-bold ">
                             สมัครสมาชิก
                         </button>
                     </form>
