@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -8,15 +8,50 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade'; // เพิ่ม CSS effect-fade
 
-
+interface blog {
+    id: String,
+    title: String,
+    subtitle: string,
+    detail: String,
+    img: String,
+    author: String,
+    refer: String,
+    date: String,
+}
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import Link from 'next/link';
 
 export default function Slide() {
-    const [img1, setImg1] = useState('./images/banner 1.png'); // รูปภาพเริ่มต้น
-    const [img2, setImg2] = useState('./images/banner 2.png');
-    const [img3, setImg3] = useState('./images/blog.jpg');
+    const initialVisibleItems = 5; //ตัวตั้ง Limited จำนวนสำหรับการแสดงบนหน้าจอ
+    const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
+    const [blogData, setblogData] = useState<blog[]>([]); // Use the defined interface here
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
+
+
+    const handleLoadMore = () => {
+        setVisibleItems(visibleItems + 4);
+    };
+
+    const hasMoreDataToLoad =
+
+        useEffect(() => {
+            fetch('/api/blog')
+                .then((response) => response.json())
+                .then((data) => {
+                    setblogData(data.blog);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                });
+        }, []);
+
     return (
         <>
             <div className='slidestyles'>
@@ -34,18 +69,19 @@ export default function Slide() {
                     navigation={true}
                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
-                >
+                > {blogData.slice(0, visibleItems).map((blog) => (
                     <SwiperSlide className="relative">
-                        <img src={img1} alt="img1" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img1} alt="img1" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
+                         <Link href={`/blog/${blog.id}`} className="text-natural04 text-xs">
+                        <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blog.img ? blog.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`} alt="img1" className="absolute inset-0 w-full h-full object-cover " />
+                        </Link>
                     </SwiperSlide>
-
-                    <SwiperSlide className="relative">
-                        <img src={img2} alt="img2" className="absolute inset-0 w-full h-full object-cover blur-xl" />
-                        <img src={img2} alt="img2" className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                    </SwiperSlide>
+                ))}
                 </Swiper>
             </div>
         </>
     );
 }
+
+
+
+

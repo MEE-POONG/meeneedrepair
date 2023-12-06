@@ -37,14 +37,14 @@ const Navbar = () => {
       name: 'เกี่ยวกับเรา',
       link: 'about',
       children: [
-        { name: 'บริการของเรา', link: `./../about/${id}` },
-        { name: 'บริการของเรา', link: `./../news/${id}` },
-        { name: 'บริการของเรา', link: `./../blog/${id}` },
+        { name: 'เกี่ยวกับเรา', link: `./../about/${id}` },
+        { name: 'ข่าวสาร', link: `./../news/${id}` },
+        { name: 'บทความ', link: `./../blog/${id}` },
       ],
     },
     { name: 'บริการของเรา', link: `./../services/${id}` },
-    { name: 'บริการของเรา', link: `./../products/${id}`},
-    { name: 'บริการของเรา', link: `./../products/${id}` },
+    { name: 'สินค้า', link: `./../products/${id}` },
+    { name: 'ประวัติ', link: `./../products/${id}` },
   ];
 
   const [scroll, setScroll] = useState(0);
@@ -56,11 +56,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-
-
   const [isOpen, setIsOpen] = useState(false);
-
   const [open, setOpen] = useState(false);
   const toggleDropdown = () => {
     setOpen(!open);
@@ -69,7 +65,7 @@ const Navbar = () => {
   return (
     <nav className="font-fontTH01">
       <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] md:px-5 drop-shadow-lg " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
-      {/* <div className=" container  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}> */}
+        {/* <div className=" container  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}> */}
         <div className="flex items-center  py-2">
           <div onClick={() => setIsOpen(!isOpen)}
             className="md:hidden duration-700 ease-in-out"
@@ -138,13 +134,13 @@ const Navbar = () => {
 
         {/* login && badket */}
         <ul className="flex gap-3 font-semibold items-center text-base">
-         
+
           <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
             {id ? (
-               <Link href={`./../profile/${id}`} className="flex items-center">
-               <HiUser size={20} />
-               <span className="hidden lg:block">โปรไฟล์</span>
-             </Link>
+              <Link href={`./../profile/${id}`} className="flex items-center">
+                <HiUser size={20} />
+                <span className="hidden lg:block">โปรไฟล์</span>
+              </Link>
             ) : (
               <button className="flex items-center">
                 <HiUser size={20} />
