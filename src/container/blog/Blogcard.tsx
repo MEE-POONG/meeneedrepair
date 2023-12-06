@@ -13,7 +13,7 @@ interface blog {
     
     // Add other properties if there are more
 }
-
+//
 export default function BlogCard() {
 
 
