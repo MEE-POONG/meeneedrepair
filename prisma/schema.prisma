@@ -17,10 +17,11 @@ model User {
   brithday        String?
   email           String?
   password        String?
-  comfirmPassword String?
+  confirmPassword String?
   tel             String?
   facebook        String?
   google          String?
+  secretKey       String?
   Address         Address[]
   Reservation     Reservation[]
   Order           Order[]
