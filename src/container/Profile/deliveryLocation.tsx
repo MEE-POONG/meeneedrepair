@@ -244,7 +244,7 @@ export default function DeliveryLocation() {
                                 className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
                             /> */}
 
-                            <SelectAddress UserAddressData={UserAddressData} onSelectAddress={(addressId) => setSelectedAddressId(addressId)} />
+                            <SelectAddress UserAddressData={UserAddressData} onSelectAddress={(Id) => setSelectedAddressId(Id)} />
 
 
                         </p>

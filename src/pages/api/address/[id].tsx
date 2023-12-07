@@ -11,9 +11,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.user.findUnique({
+                const data = await prisma.address.findUnique({
                     where: {
                         id: id as string,
+                    },
+                    include:{
+                        User : true
                     },
                 });
 
@@ -27,9 +30,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.user.update({
+                const data = await prisma.address.update({
                     where: {
                         id: id as string,
+                    },
+                    include:{
+                        User : true
                     },
                     data: req.body,
                 });
@@ -44,7 +50,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.user.delete({
+                const data = await prisma.address.delete({
                     where: {
                         id: id as string,
                     },

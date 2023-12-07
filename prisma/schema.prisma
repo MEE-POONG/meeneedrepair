@@ -14,11 +14,12 @@ model User {
   id              String        @id @default(auto()) @map("_id") @db.ObjectId
   fname           String?
   lname           String?
-  brithday        String?
+  birthday        String?
   email           String?
   password        String?
   comfirmPassword String?
-  tel             String?
+  tel             String?  
+  secretKey       String?
   facebook        String?
   google          String?
   Address         Address[]
