@@ -18,7 +18,7 @@ model User {
   email           String?
   password        String?
   comfirmPassword String?
-  tel             String?  
+  tel             String?
   secretKey       String?
   facebook        String?
   google          String?
@@ -28,7 +28,7 @@ model User {
 }
 
 model Address {
-  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   name        String?
   lname       String?
   phonenumber String?
@@ -39,7 +39,7 @@ model Address {
   district    String?
   subdistrict String?
   note        String?
-  
+
   Reservation Reservation[]
   User        User?         @relation(fields: [userId], references: [id])
   userId      String?       @db.ObjectId
@@ -47,11 +47,12 @@ model Address {
 
 model Reservation {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  fname       String?
+  lname       String?
   time        String?
   request     String?
   message     String?
-  fname       String?
-  lname       String?
+  status      String?
   User        User?      @relation(fields: [userId], references: [id])
   userId      String?    @db.ObjectId
   Address     Address?   @relation(fields: [addressId], references: [id])

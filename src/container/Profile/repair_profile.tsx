@@ -7,43 +7,28 @@ import { User } from '@prisma/client';
 const RepairProfile = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
-    const [appointment, setAppointmentData] = useState<any[]>([]);
+
+
+    const [ReservationData, setAppointmentData] = useState<any[]>([]);
+
+
     const [isLoading, setIsLoading] = useState(true);
 
 
-
-    // useEffect(() => {
-    //     if (id) {
-    //         fetch(`/api/user/appointment/${id}`)
-    //             .then((response) => response.json())
-    //             .then((data) => {
-    //                 // console.log("ข้อมูลเริ่มต้นของ appointment");
-    //                 // console.log(data);
-    //                 // console.log(data.Appointment);
-    //                 setAppointmentData(data.Appointment);
-    //                 // console.log(data.AddressId);
-    //                 // console.log(data.Address);
-
-
-    //                 setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-
-    //             })
-    //             .catch((error) => {
-    //                 console.error('Error:', error);
-    //                 setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-
-    //             });
-
-    //     }
-    // }, [id]);
 
     useEffect(() => {
         if (id) {
             fetch(`/api/user/appointment/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    setAppointmentData(data.appointment); // กำหนดข้อมูลบทความข่าวที่ดึงมา
-                    //console.log(data);
+                    // console.log("ข้อมูลเริ่มต้นของ appointment");
+                    // console.log(data);
+                    // console.log(data.Appointment);
+                    setAppointmentData(data.Reservation);
+                    // console.log(data.AddressId);
+                    // console.log(data.Address);
+
+
                     setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 })
@@ -55,7 +40,8 @@ const RepairProfile = () => {
 
         }
     }, [id]);
- 
+
+
 
     return (
         <div className="">
@@ -75,17 +61,17 @@ const RepairProfile = () => {
 
             <div className="mt-10 rounded-lg md:p-8 text-secondary1 text-sm md:text-base ">
 
-                {appointment && appointment.map((appointment: any, index: number) => (
+                {ReservationData && ReservationData.map((reservation: any, index: number) => (
                     <div className="bg-secondary2 rounded-2xl p-3 grid grid-cols-12 mb-5" key={index}>
                         <img src="https://bleuwire.com/wp-content/uploads/2019/03/computer-repair-services.jpg" alt="" className="col-span-2 md:col-span-2 h-24 w-24 object-contain" />
                         <div className="col-span-4 md:col-span-5 self-center flex flex-wrap">
                             อุปกรณ์:
-                            <p className="md:ml-1 text-[#645cff]  self-center truncate">{appointment.request}</p>
+                            <p className="md:ml-1 text-[#645cff]  self-center truncate">{reservation.request}</p>
 
                         </div>
                         <div className="col-span-2 md:col-span-2 self-center  flex justify-center flex-wrap">
                             วันที่:
-                            <p className="md:ml-1 text-[#645cff] text-center"> {new Date(appointment.time).toLocaleDateString('th-TH', {
+                            <p className="md:ml-1 text-[#645cff] text-center"> {new Date(reservation.time).toLocaleDateString('th-TH', {
                                 year: 'numeric',
                                 month: 'long',
                                 // month: 'long',
@@ -96,10 +82,10 @@ const RepairProfile = () => {
 
                         <div className="col-span-3 md:col-span-2 self-center flex justify-center flex-wrap">
                             สถานะ:
-                            <p className={`self-center md:ml-1 text-${appointment.status === 'ยังไม่ซ่อม' ? 'orange-500' : appointment.status === 'ยกเลิก' ? 'red-500' : 'green-500'} text-center`}>{appointment.status}</p>
+                            <p className={`self-center md:ml-1 text-${reservation.status === 'ยังไม่ซ่อม' ? 'orange-500' : reservation.status === 'ยกเลิก' ? 'red-500' : 'green-500'} text-center`}>{reservation.status}</p>
                         </div>
                         <div className="flex items-center justify-center">
-                            <ModalRepair appointmentData={appointment} />
+                            <ModalRepair appointmentData={reservation} />
                         </div>
                     </div>
                 ))}
