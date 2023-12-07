@@ -60,7 +60,7 @@ const ReadUserDetail = () => {
         e.preventDefault();
 
         // ตรวจสอบว่าข้อมูลถูกกรอกครบถ้วน
-        if (!fname || !lname || !time || !request || !message) {
+        if (!fname || !lname || !email || !time || !request || !message) {
             // ถ้าข้อมูลไม่ครบถ้วน ให้แสดง modal แจ้งเตือน
             setIsMissingModalOpen(true);
             return;
@@ -75,6 +75,7 @@ const ReadUserDetail = () => {
                     lname,
                     time,
                     request,
+                    email,
                     message
                     // เพิ่มข้อมูลอื่น ๆ ตามที่ต้องการ
                 },
@@ -104,7 +105,7 @@ const ReadUserDetail = () => {
     const handleCloseModal = () => {
 
         window.location.reload();
-        setIsModalOpen(false);
+        // setIsModalOpen(false);
     };
     const handleConfirm = () => {
 
@@ -331,14 +332,15 @@ const ReadUserDetail = () => {
                             </div>
                         )}
 
-                        {isModalOpen && (
+                        {isModalOpen && 
+                        (
                             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
                                 <div className="bg-white p-6 rounded-lg">
                                     <p className="text-2xl font-semibold mb-4">ยืนยันการจองคิว</p>
                                     <p>คุณต้องการจองคิวหรือไม่?</p>
                                     <div className="mt-4 flex justify-end">
                                         <button
-                                            onClick={handleCloseModal} // เรียกใช้งานเมื่อกดปุ่ม "ยกเลิก"
+                                            onClick={() => setIsMissingModalOpen(false)}
                                             className="px-4 py-2 bg-red-500 text-white rounded-md mr-2"
                                         >
                                             ยกเลิก
@@ -352,7 +354,9 @@ const ReadUserDetail = () => {
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        )
+                        }
+
                     </form>
 
                 </div>

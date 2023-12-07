@@ -7,9 +7,9 @@ import Cardsevice from "../container/Home/Cardservice";
 import Menuservice from "../container/Home/Menuservice";
 import Slide from "../container/Home/Slide";
 import NewsCard from "../container/News/NewsCard";
-import BlogCard from "../container/Blog/Blogcard";
 import CardProductAll from "../container/Product/CardProductAll";
 import { useState } from "react";
+import BlogCard from "../container/blog/blogcard";
 
 
 export default function Home() {
