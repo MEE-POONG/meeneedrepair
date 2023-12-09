@@ -88,7 +88,7 @@ export default function ModalRepair({ appointmentData }: any) {
                                             </div> */}
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>วีดีโอ :</p>
-                                                <a  target="_blank" className='col-span-9 row-span-2  text-rose-500'><strong>{appointmentData.video}</strong></a>
+                                                <a href={appointmentData.video} target="_blank" className='col-span-9 row-span-2 text-rose-500'><strong>ดูวีดีโอ</strong></a>
                                             </div>
                                       
                                         </div>
