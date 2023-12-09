@@ -11,13 +11,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.reservation.findUnique({
+                const data = await prisma.appointment.findUnique({
                     where: {
                         id: id as string,
                     },
                     include:{
                         User : true
-                    }
+                    },
                 });
 
                 res.status(200).json(data);
@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.reservation.update({
+                const data = await prisma.appointment.update({
                     where: {
                         id: id as string,
                     },
@@ -50,12 +50,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const id = req.query.id;
 
-                const data = await prisma.reservation.delete({
+                const data = await prisma.appointment.delete({
                     where: {
                         id: id as string,
-                    },
-                    include:{
-                        User : true
                     },
                 });
 

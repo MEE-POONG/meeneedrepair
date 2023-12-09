@@ -10,6 +10,8 @@ import FavoriteProfile from '../../container/Profile/favorite_profile';
 import PasswordProfile from '../../container/Profile/password_profile';
 import RepairProfile from '../../container/Profile/repair_profile';
 import TabMenuMobile from '../../container/Profile/test/TabMenuMobile';
+import Home from '..';
+import ServicesID from '../services/[id]';
 
 function Tabs() {
     const [activeTab, setActiveTab] = useState(0);
@@ -107,6 +109,7 @@ function Tabs() {
                         ออกจากระบบ
                     </div>
                     </button>
+                    
 
                 </div>
 
@@ -124,6 +127,7 @@ function Tabs() {
                     {activeTab === 6 && <p><FavoriteProfile /></p>}
                     {activeTab === 7 && <p><PasswordProfile /></p>}
                     {activeTab === 8 && <p></p>}
+       
                 </div>
             </div>
         </RootLayout>

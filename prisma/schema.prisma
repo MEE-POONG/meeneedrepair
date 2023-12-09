@@ -10,23 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id              String        @id @default(auto()) @map("_id") @db.ObjectId
-  fname           String?
-  lname           String?
-  birthday        String?
-  email           String?
-  password        String?
-  comfirmPassword String?
-  tel             String?
-  secretKey       String?
-  facebook        String?
-  google          String?
-  Address         Address[]
-  Reservation     Reservation[]
-  Order           Order[]
-}
-
 model Address {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   name        String?
@@ -40,26 +23,29 @@ model Address {
   subdistrict String?
   note        String?
 
-  Reservation Reservation[]
+  Appointment Appointment[]
   User        User?         @relation(fields: [userId], references: [id])
   userId      String?       @db.ObjectId
 }
 
-model Reservation {
-  id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  fname       String?
-  lname       String?
-  time        String?
-  request     String?
-  message     String?
-  email       String?
-  status      String?    @default("รอการดำเนินงาน")
-  User        User?      @relation(fields: [userId], references: [id])
-  userId      String?    @db.ObjectId
+model Appointment {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  fname   String?
+  lname   String?
+  time    String?
+  tel     String?
+  request String?
+  message String?
+  email   String?
+  video   String?
+  status  String? @default("Wait")
+
   Address     Address?   @relation(fields: [addressId], references: [id])
   addressId   String?    @db.ObjectId
   Repairman   Repairman? @relation(fields: [repairmanId], references: [id])
   repairmanId String?    @db.ObjectId
+  User        User?      @relation(fields: [userId], references: [id])
+  userId      String?    @db.ObjectId
 }
 
 model Repairman {
@@ -69,7 +55,7 @@ model Repairman {
   brithday    String?
   email       String?
   tel         String?
-  Reservation Reservation[]
+  Appointment Appointment[]
 }
 
 model Order {
@@ -147,4 +133,21 @@ model Blog {
   img1     String?
   date     String?
   author   String?
+}
+
+model User {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  fname           String?
+  lname           String?
+  birthday        String?
+  email           String?
+  password        String?
+  comfirmPassword String?
+  tel             String?
+  secretKey       String?
+  facebook        String?
+  google          String?
+  Address         Address[]
+  Appointment     Appointment[]
+  Order           Order[]
 }

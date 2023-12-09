@@ -1,6 +1,8 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import ReactPlayer from 'react-player';
+import Link from 'next/link';
 
 export default function ModalRepair({ appointmentData }: any) {
     const [open, setOpen] = useState(false)
@@ -48,49 +50,51 @@ export default function ModalRepair({ appointmentData }: any) {
                                     <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                                         <div className='m-10 space-y-2'>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
-                                                <p className='col-span-3 row-span-2 text-right'>ชื่ออุปกรณ์ซ่อม :</p>
-                                                <p className='col-span-9 row-span-2'>{appointmentData.request}</p>
+                                                <p className='col-span-3 row-span-2 text-right'>ชื่ออุปกรณ์ซ่อม </p>
+                                                <p className='col-span-9 row-span-2 text-rose-500'><strong> {appointmentData.request}</strong></p>
                                             </div>
                                             {/* <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>ราคา :</p>
                                                 <p className='col-span-9 row-span-2'>250 บาท</p>
                                             </div> */}
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
-                                                <p className='col-span-3 row-span-2 text-right'>วันที่จองคิวซ่อม :</p>
-                                                <p className='col-span-9 row-span-2'>{new Date(appointmentData.time).toLocaleDateString('th-TH', {
+                                                <p className='col-span-3 row-span-2 text-right'>วันที่จองคิวซ่อม </p>
+                                                <p className='col-span-9 row-span-2 text-rose-500'> <strong>{new Date(appointmentData.time).toLocaleDateString('th-TH', {
                                                     year: 'numeric',
                                                     month: 'long',
                                                     // month: 'long',
                                                     day: 'numeric',
-                                                })}</p>
+                                                })}</strong></p>
                                             </div>
-                                            <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
+                                            {/* <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>หมายเลขคิวซ่อม :</p>
                                                 <p className='col-span-9 row-span-2'>{appointmentData.id}</p>
-                                            </div>
+                                            </div> */}
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>สถานะคำสั่งซื้อ :</p>
-                                                <p className='col-span-9 row-span-2'>{appointmentData.status}</p>
+                                                <p className='col-span-9 row-span-2 text-rose-500'> <strong> {appointmentData.status} </strong></p>
                                             </div>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>ชื่อผู้ส่งซ่อม :</p>
-                                                <p className='col-span-9 row-span-2'>{appointmentData.fname} {appointmentData.lname}</p>
+                                                <p className='col-span-9 row-span-2  text-rose-500'><strong>{appointmentData.fname} {appointmentData.lname}</strong></p>
                                             </div>
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>เบอร์โทรศัพท์ :</p>
-                                                <p className='col-span-9 row-span-2'>{appointmentData.tel}</p>
+                                                <p className='col-span-9 row-span-2  text-rose-500'><strong>{appointmentData.tel}</strong></p>
                                             </div>
                                             {/* <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>ที่อยู่ :</p>
                                                 <p className='col-span-9 row-span-2'>ร้านวันนี้ไม่มีขายพรุ่งนี้มาใหม่ บ้านเลขที่ 214/23 ซอยพัฒนาไทย ถนนพันธุระ ตำบลในเมือง อำเภอเมือง จังหวัดศรีษะเกษ 42150</p>
                                             </div> */}
-
-
+                                            <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
+                                                <p className='col-span-3 row-span-2 text-right'>วีดีโอ :</p>
+                                                <a  target="_blank" className='col-span-9 row-span-2  text-rose-500'><strong>{appointmentData.video}</strong></a>
+                                            </div>
+                                      
                                         </div>
 
 
-
-
+                                
                                         {/* <div className='grid grid-cols-12 m-10'>
                                             <div className=' text-right col-span-3 space-y-1'>
                                                 <p>ชื่อสินค้า :</p>

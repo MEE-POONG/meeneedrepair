@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 // import LatestUser from "../../container/User/LatestUser";
 
 
-const ReadUserDetail = () => {
+const Loginpage = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
@@ -137,4 +137,4 @@ const ReadUserDetail = () => {
         </RootLayout>
     )
 }
-export default ReadUserDetail;
+export default Loginpage;

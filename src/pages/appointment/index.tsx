@@ -6,7 +6,6 @@ function YourComponent() {
         { url: '/api/appointment', method: 'POST' },
         { manual: true }
     )
-
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [fname, setFname] = useState<string>("");
@@ -16,8 +15,6 @@ function YourComponent() {
     const [email, setEmail] = useState<string>("");
     const [request, setRequest] = useState<string>("");
     const [message, setMessage] = useState<string>("");
-
-
     const [isLoading, setIsLoading] = useState(false);
     const [isMissingModalOpen, setIsMissingModalOpen] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
