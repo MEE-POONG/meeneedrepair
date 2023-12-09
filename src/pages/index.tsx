@@ -9,24 +9,22 @@ import Slide from "../container/Home/Slide";
 import NewsCard from "../container/News/NewsCard";
 import CardProductAll from "../container/Product/CardProductAll";
 import { useState } from "react";
-import BlogCard from "../container/blog/blogcard";
+import BlogCard from "../container/Blog/Blogcard";
 
 
 export default function Home() {
 
   return (
     <div>
-           <RootLayout>
+      <RootLayout>
         <Head>
           <title>Mee Need Repair</title>
         </Head>
         <Slide />
         <div className=''>
           <Menuservice />
-
           {/* <CardProduct /> */}
           {/* <CardProductAll searchText={searchText} setSearchText={setSearchText} /> */}
-
           {/* <CardNews /> */}
           <div className="container mx-auto my-auto py-6 px-5 lg:px-24">
             <p className="text-xl md:text-3xl font-bold text-white mb-5 text-center md:text-left">อัพเดทข่าวสาร</p>
@@ -38,9 +36,7 @@ export default function Home() {
           </div>
           <Cardsevice />
         </div>
-      </RootLayout>  
-
-
+      </RootLayout>
     </div>
   )
 }
