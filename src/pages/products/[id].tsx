@@ -11,8 +11,6 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
-
-
 const ReadProductsDetail = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
@@ -43,7 +41,6 @@ const ReadProductsDetail = () => {
     };
 
     const [favorite, setFavorite] = useState(false);
-
 
     useEffect(() => {
         if (id) {
@@ -225,10 +222,6 @@ const ReadProductsDetail = () => {
                     </div>
 
 
-
-
-
-
                     <p className="text-[#FFCD4B] font-bold text-3xl my-10">คุณสมบัติสินค้า</p>
 
                     <div className="grid place-items-center space-y-5">
@@ -253,37 +246,6 @@ const ReadProductsDetail = () => {
                             <p>กลับสู่ด้านบน</p>
                         </button>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     <div className="mt-8 mx-4 xl:mx-0">
                         <h4 className="text-2xl md:text-4xl font-semibold text-white">{productsData.title}</h4>

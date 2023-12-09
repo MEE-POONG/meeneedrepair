@@ -6,7 +6,6 @@ import { HiBars3BottomLeft, HiOutlineXMark, HiUser, HiChevronDown, HiChevronUp, 
 
 
 const Navbar = () => {
-
   const router = useRouter();
   const { id } = router.query; // ดึงค่า id จาก query parameters
 
@@ -43,7 +42,7 @@ const Navbar = () => {
       ],
     },
     { name: 'บริการของเรา', link: `./../services/${id}` },
-    { name: 'สินค้า', link: `./../products/${id}` },
+    { name: 'สินค้า', link: `./../products` },
     { name: 'ประวัติ', link: `./../products/${id}` },
   ];
 
