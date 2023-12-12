@@ -132,7 +132,7 @@ const ReadUserDetail = () => {
                     setTel(data.tel);
                     setEmail(data.email);
                     setRequest(data.request)
-                    setuserId(data.userId)
+                    setuserId(data.id)
                     // setAddress(data);
                     // console.log(data);
 
@@ -206,6 +206,7 @@ const ReadUserDetail = () => {
                                 />
 
                             </div>
+                            
 
                             <div className="max-w-md mx-auto mb-4">
                                 <label
@@ -250,7 +251,6 @@ const ReadUserDetail = () => {
                                 </label>
                                 <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="description" placeholder="กรุณากรอกข้อมูล"></textarea>
                             </div>
-
                             <div className="flex justify-center mt-6">
                                 <button
                                     type="submit"
