@@ -4,6 +4,7 @@ import RootLayout from "../../components/layout";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import useAxios from "axios-hooks";
+import axios from "axios";
 
 // import LatestUser from "../../container/User/LatestUser";
 
@@ -81,6 +82,7 @@ const ReadUserDetail = () => {
                     tel,
                     message,
                     userId,
+                    status: "กำลังดำเนินการ",
                     // เพิ่มข้อมูลอื่น ๆ ตามที่ต้องการ
                 },
             });

@@ -38,7 +38,7 @@ model Appointment {
   message String?
   email   String?
   video   String?
-  status  String? @default("Wait")
+  status  String? 
 
   Address     Address?   @relation(fields: [addressId], references: [id])
   addressId   String?    @db.ObjectId
