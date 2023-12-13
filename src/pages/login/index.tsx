@@ -48,7 +48,6 @@ const LoginComponent: React.FC = () => {
             });
     }, []);
 
-
     return (
     <div className='login-page'>
         <RootLayout>

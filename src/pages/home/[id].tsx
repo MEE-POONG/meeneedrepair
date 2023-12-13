@@ -7,7 +7,7 @@ import Slide from "../../container/Home/Slide";
 import Menuservice from "../../container/Home/Menuservice";
 import NewsCard from "../../container/News/NewsCard";
 // import LatestUser from "../../container/User/LatestUser";
-import BlogCard from '../../container/Blog/Blogcard';
+import BlogCard from '../../container/Blog/blogcard';
 import Cardsevice from "../../container/Home/Cardservice";
 
 
