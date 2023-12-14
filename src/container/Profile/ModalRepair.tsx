@@ -148,7 +148,7 @@ export default function ModalRepair({ appointmentData }: any) {
                                                 onClick={() => deleteappointment(appointmentData.id)}
                                                 className="mt-3 inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                             >
-                                                ยกเลิกการซ่อม
+                                                ยกเลิกการจองคิว
                                             </button>
                                             <button
                                                 type="button"
