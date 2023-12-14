@@ -110,9 +110,17 @@ export default function ModalRepair({ appointmentData }: any) {
                                                 <p className='col-span-3 row-span-2 text-right'>ที่อยู่ :</p>
                                                 <p className='col-span-9 row-span-2'>ร้านวันนี้ไม่มีขายพรุ่งนี้มาใหม่ บ้านเลขที่ 214/23 ซอยพัฒนาไทย ถนนพันธุระ ตำบลในเมือง อำเภอเมือง จังหวัดศรีษะเกษ 42150</p>
                                             </div> */}
+                                    
+                                            {/* ถ้ามีข้อมูล หรือ วีดีโอในฐานข้อมูลจะแสดงคำว่าดูวีดีโอ ถ้าไม่มีจะแสดงคำว่า ไม่มีวีดีโอ */}
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>วีดีโอ :</p>
-                                                <a href={appointmentData.video} target="_blank" className='col-span-9 row-span-2 text-rose-500'><strong>ดูวีดีโอ</strong></a>
+                                                {appointmentData.video ? (
+                                                    <a href={appointmentData.video} target="_blank" className='col-span-9 row-span-2 text-rose-500'>
+                                                        <strong>ดูวีดีโอ</strong>
+                                                    </a>
+                                                ) : (
+                                                    <p className='col-span-9 row-span-2 text-rose-500'>ไม่มีวีดีโอ</p>
+                                                )}
                                             </div>
 
                                         </div>
