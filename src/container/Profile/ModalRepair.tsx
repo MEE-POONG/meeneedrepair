@@ -3,12 +3,36 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import ReactPlayer from 'react-player';
 import Link from 'next/link';
+import { Appointment } from '@prisma/client';
+import useAxios from "axios-hooks";
+import { useRouter } from 'next/router';
 
 export default function ModalRepair({ appointmentData }: any) {
     const [open, setOpen] = useState(false)
-
+    const router = useRouter();
     const cancelButtonRef = useRef(null)
 
+    const [
+        { loading: deleteappointmentLoading, error: deleteappointmentError },
+        executeappointmentDelete,
+    ] = useAxios({}, { manual: true });
+
+    const [filteredappointmentsData, setFilteredappointmentsData] = useState<
+        Appointment[]
+    >([]);
+    const deleteappointment = async (id: string): Promise<any> => {
+        try {
+            await executeappointmentDelete({
+                url: "/api/appointment/" + id,
+                method: "DELETE",
+            });
+
+            // ทำการรีเฟรชหน้าจอ
+            router.reload();
+        } catch (error) {
+            console.error("Error deleting appointment:", error);
+        }
+    };
     return (
         <>
             <button onClick={() => setOpen(true)}>
@@ -90,11 +114,11 @@ export default function ModalRepair({ appointmentData }: any) {
                                                 <p className='col-span-3 row-span-2 text-right'>วีดีโอ :</p>
                                                 <a href={appointmentData.video} target="_blank" className='col-span-9 row-span-2 text-rose-500'><strong>ดูวีดีโอ</strong></a>
                                             </div>
-                                      
+
                                         </div>
 
 
-                                
+
                                         {/* <div className='grid grid-cols-12 m-10'>
                                             <div className=' text-right col-span-3 space-y-1'>
                                                 <p>ชื่อสินค้า :</p>
@@ -118,8 +142,14 @@ export default function ModalRepair({ appointmentData }: any) {
 
                                         </div> */}
 
-                                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
 
+                                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                            <button
+                                                onClick={() => deleteappointment(appointmentData.id)}
+                                                className="mt-3 inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                            >
+                                                ยกเลิกการซ่อม
+                                            </button>
                                             <button
                                                 type="button"
                                                 className="mt-3 inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
