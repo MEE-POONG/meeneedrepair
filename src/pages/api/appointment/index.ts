@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const page: number = Number(req.query.page) || 1;
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
-                const appointment = await prisma.appointment.findMany({
+                const Appointment = await prisma.appointment    .findMany({
                     // skip: (page - 1) * pageSize,
                     // take: pageSize,
                     include: {
@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 const totaluser = await prisma.appointment.count();
                 const totalPage: number = Math.ceil(totaluser / pageSize);
-                res.status(200).json({ appointment });
+                res.status(200).json({ Appointment });
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the user" });
             }
