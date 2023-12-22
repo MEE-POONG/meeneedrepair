@@ -12,16 +12,18 @@ import RepairProfile from '../../container/Profile/repair_profile';
 import TabMenuMobile from '../../container/Profile/test/TabMenuMobile';
 import Home from '..';
 import ServicesID from '../services/[id]';
+import LogoutButton from '../../container/Profile/logoutButton';
 
 function Tabs() {
+    const [loggedInUser, setLoggedInUser] = useState<any>(null);
     const [activeTab, setActiveTab] = useState(0);
-
+    
     const handleTabClick = (index: number) => {
         setActiveTab(index);
     };
 
     return (
-        <RootLayout>
+        <RootLayout loggedInUser={loggedInUser}>
             <div className="lg:hidden">
                 <TabMenuMobile activeTab={activeTab} handleTabClick={handleTabClick} />
             </div>
@@ -126,7 +128,7 @@ function Tabs() {
                     {activeTab === 5 && <p><OrderProfile /></p>}
                     {activeTab === 6 && <p><FavoriteProfile /></p>}
                     {activeTab === 7 && <p><PasswordProfile /></p>}
-                    {activeTab === 8 && <p></p>}
+                    {activeTab === 8 && <p><LogoutButton/></p>}
        
                 </div>
             </div>
