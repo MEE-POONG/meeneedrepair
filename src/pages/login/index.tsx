@@ -5,6 +5,8 @@ import { FaFacebook, FaGoogle, FaInstagram, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FaXTwitter } from "react-icons/fa6";
+import Cookies from 'js-cookie';
+import Navbar from '../../components/Navbar';
 
 
 const LoginComponent: React.FC = () => {
@@ -14,20 +16,29 @@ const LoginComponent: React.FC = () => {
     const [loginSuccess, setLoginSuccess] = useState(false);
     const [loginMessage, setLoginMessage] = useState("");
     const router = useRouter();
+    const [loggedInUser, setLoggedInUser] = useState<any>(null);
 
     const handleLogin = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
+            // Fetch user data
             const response = await fetch("/api/user");
             const data = await response.json();
             const match = data?.user?.find((user: { email: string, password: string, id: string }) => {
                 return user.email === email && user.password === password;
             });
-
+    
             if (match) {
                 setLoginSuccess(true);
-            
-                router.push(`/home/${match.id}`);
+    
+                // Save user data to cookies
+                Cookies.set('user', JSON.stringify(match));
+    
+                // Save user data to local storage
+                localStorage.setItem('user', JSON.stringify(match));
+    
+                // Redirect to home page with user ID
+                router.push(`/`);
             } else {
                 setLoginSuccess(false);
                 setLoginMessage("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
@@ -38,19 +49,21 @@ const LoginComponent: React.FC = () => {
     };
 
     useEffect(() => {
-        fetch("/api/user")
-            .then((response) => response.json())
-            .then((data) => {
-                setData(data);
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error);
-            });
+        const fetchData = async () => {
+            const userDataFromCookies = Cookies.get('user');
+            if (userDataFromCookies) {
+                const parsedUser = JSON.parse(userDataFromCookies);
+                setLoggedInUser(parsedUser);
+            }
+        };
+    
+        fetchData();
     }, []);
 
     return (
     <div className='login-page'>
         <RootLayout>
+        
             <div className=" flex flex-col  sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <img src="/images/ear.gif" className="mx-auto" width='50%' />

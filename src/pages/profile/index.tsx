@@ -4,10 +4,12 @@ import ProductCategory from "../../container/Product/CategoryList";
 import CustomerProfile from "./custom_profile";
 import TabMenu from "../../container/Profile/test/TabMenu";
 import TabMenuMobile from "../../container/Profile/test/TabMenuMobile";
+import { useState } from "react";
 
 export default function ProfilePage() {
+    const [loggedInUser, setLoggedInUser] = useState<any>(null);
     return (
-        <RootLayout>
+        <RootLayout loggedInUser={loggedInUser}>
             {/* <ProductCategory /> */}
             <div className="xl:hidden">
                 <TabMenuMobile />
