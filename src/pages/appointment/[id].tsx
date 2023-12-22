@@ -10,6 +10,7 @@ import axios from "axios";
 
 
 const ReadUserDetail = () => {
+    const [loggedInUser, setLoggedInUser] = useState<any>(null);
     const [{ error: errorMessage, loading: IndexActivityLoading }, executeIndexActivity] = useAxios(
         { url: '/api/appointment', method: 'POST' },
         { manual: true }
@@ -153,7 +154,7 @@ const ReadUserDetail = () => {
  
 
         return (
-            <RootLayout>
+            <RootLayout loggedInUser={loggedInUser}>
 
                 <div className="flex justify-center items-center min-h-screen">
                     <div className="bg-white w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto p-6 rounded-lg shadow-lg">
@@ -191,7 +192,7 @@ const ReadUserDetail = () => {
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                     <div className='mb-2'>เบอร์โทรติดต่อ</div>
                                     <input
-                                        type="number" defaultValue={tel} disabled onChange={(e) => setTel(e.target.value)}
+                                        type="number" defaultValue={tel} onChange={(e) => setTel(e.target.value)}
                                         className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                         id="exampleFormControlInput3"
                                         pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
