@@ -1,12 +1,19 @@
 import { Mitr } from 'next/font/google'
-import React from "react";
+import React ,{ ReactNode } from "react";
 import FootPage from './MenuFootPaage';
 import Header from './Header';
 import BackToTopButton from './BactToTop';
 import Footer from './footer';
-import Navbar from './Navbar';
+
 import { useRouter } from "next/router";
 import ComponentsNavbar from './Thenavbar';
+import Navbar from './Navbar';
+
+
+interface RootLayoutProps {
+  loggedInUser: any;
+  children: ReactNode; // เพิ่มบรรทัดนี้
+}
 
 const fontMNR = Mitr({
   weight: "300",
@@ -15,19 +22,13 @@ const fontMNR = Mitr({
 })
 
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const router = useRouter();
-  const { id } = router.query; // ดึงค่า id จาก query parameters
+const RootLayout: React.FC<RootLayoutProps> = ({ loggedInUser, children }) => {
 
   return (
     <>
       <Header />
       <header className="sticky top-0 z-30 w-full sm:p-0 md:py-4 md:px-2">
-        {id ? (<Navbar />) : (<ComponentsNavbar />)}
+      <Navbar />
       </header>
       <main className={fontMNR.className}>
         {children}
@@ -40,3 +41,4 @@ export default function RootLayout({
     </>
   )
 }
+export default RootLayout;

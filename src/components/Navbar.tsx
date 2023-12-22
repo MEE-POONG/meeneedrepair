@@ -3,47 +3,46 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { HiBars3BottomLeft, HiOutlineXMark, HiUser, HiChevronDown, HiChevronUp, HiChevronRight } from "react-icons/hi2";
+import Cookies from 'js-cookie';
 
+interface NavbarProps {
+  user: { email: string, password: string, id: string } | null;
+}
 
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const router = useRouter();
   const { id } = router.query; // ดึงค่า id จาก query parameters
 
+  const [loggedInUser, setLoggedInUser] = useState<any>(null);
   const [userData, setUserData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (id) {
-      fetch(`/api/user/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setUserData(data); // กำหนดข้อมูลบทความข่าวที่ดึงมา
-          //console.log(data);
-          setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+    const fetchData = async () => {
+      const userDataFromCookies = Cookies.get('user');
+      if (userDataFromCookies) {
+        const parsedUser = JSON.parse(userDataFromCookies);
+        setLoggedInUser(parsedUser);
+      }
+    };
 
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
-
-        });
-    }
-  }, [id]);
+    fetchData();
+  }, []);
 
   const Links = [
-    { name: 'หน้าแรก', link: `/home/${id}` },
+    { name: 'หน้าแรก', link: `/` },
     {
       name: 'เกี่ยวกับเรา',
       link: 'about',
       children: [
-        { name: 'เกี่ยวกับเรา', link: `./../about/${id}` },
-        { name: 'ข่าวสาร', link: `./../news/${id}` },
-        { name: 'บทความ', link: `./../blog/${id}` },
+        { name: 'เกี่ยวกับเรา', link: `./../about` },
+        { name: 'ข่าวสาร', link: `./../news` },
+        { name: 'บทความ', link: `./../blog` },
       ],
     },
-    { name: 'บริการของเรา', link: `./../services/${id}` },
+    { name: 'บริการของเรา', link: `./../services` },
     { name: 'สินค้า', link: `./../products` },
-    { name: 'ประวัติ', link: `./../products/${id}` },
+    { name: 'ประวัติ', link: `./../products` },
   ];
 
   const [scroll, setScroll] = useState(0);
@@ -135,16 +134,15 @@ const Navbar = () => {
         <ul className="flex gap-3 font-semibold items-center text-base">
 
           <li className="hover:border-b-2 hover:border-natural04" style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
-            {id ? (
-              <Link href={`./../profile/${id}`} className="flex items-center">
+            {loggedInUser ? (
+              <Link href={`./../profile/${loggedInUser.id}`} className="flex items-center">
                 <HiUser size={20} />
-                <span className="hidden lg:block">โปรไฟล์</span>
+                <span className="hidden lg:block">{loggedInUser.email}</span>
               </Link>
             ) : (
               <button className="flex items-center">
                 <HiUser size={20} />
                 <a href="./login" className="hidden lg:block text-sm md:text-lg ">เข้าสู่ระบบ</a>
-
               </button>
             )}
           </li>
