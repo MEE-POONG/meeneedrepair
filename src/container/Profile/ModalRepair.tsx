@@ -7,6 +7,7 @@ import { Appointment } from '@prisma/client';
 import useAxios from "axios-hooks";
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import axios from 'axios';
 
 export default function ModalRepair({ appointmentData }: any) {
     const [open, setOpen] = useState(false)
@@ -29,7 +30,7 @@ export default function ModalRepair({ appointmentData }: any) {
             });
 
             // ทำการรีเฟรชหน้าจอ
-            router.reload();
+            //router.reload();
         } catch (error) {
             console.error("Error deleting appointment:", error);
         }
@@ -57,16 +58,17 @@ export default function ModalRepair({ appointmentData }: any) {
     const [repairmanId, setrepairmanId] = useState<string>("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [{ error: errorMessage, loading: IndexActivityLoading }, executeIndexActivity] = useAxios(
-        { url: '/api/appointment', method: 'POST' },
+        { url: '/api/appointment/repair', method: 'POST' },
         { manual: true }
     )
 
     const { id } = router.query; // ดึงค่า id จาก query parameters
     const handleSubmit = async (e: { preventDefault: () => void }) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         // ตั้งค่าเวลาเป็นวันที่ปัจจุบัน
         const currentDate = new Date();
+
         const formattedDate = currentDate.toISOString(); // ปรับรูปแบบตามต้องการ
 
         // ส่งข้อมูลไปยัง API
@@ -74,28 +76,27 @@ export default function ModalRepair({ appointmentData }: any) {
             setIsLoading(true);
             const response = await executeIndexActivity({
                 data: {
-                    fname,
-                    lname,
-                    time: formattedDate,
-                    request,
-                    email,
-                    tel,
-                    userId,
-                    repairmanId,
-                    status: "อยู่ระหว่างการซ่อม",
+                     fname,
+                lname,
+                time: formattedDate,
+                request,
+                email,
+                tel,
+                userId,
+                repairmanId,
+                status: "อยู่ระหว่างการซ่อม",
                 },
             });
+        
 
-            // ประมวลผลเมื่อสำเร็จ
-            setIsLoading(false);
             setIsSuccess(true);
             setMessage("สำเร็จ! คุณได้ทำการรับคิวซ่อมเรียบร้อยแล้ว");
             setIsModalOpen(true);
         } catch (error) {
-            // ประมวลผลเมื่อเกิดข้อผิดพลาด
-            setIsLoading(false);
             setIsSuccess(false);
             setMessage("เกิดข้อผิดพลาดในการรับคิวซ่อม");
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -128,6 +129,7 @@ export default function ModalRepair({ appointmentData }: any) {
 
         }
     }, [id]);
+
 
     //ถึงนี้
     return (
@@ -174,6 +176,10 @@ export default function ModalRepair({ appointmentData }: any) {
                                                 <p className='col-span-3 row-span-2 text-right'>ชื่ออุปกรณ์ซ่อม :</p>
                                                 <p className='col-span-9 row-span-2 text-rose-500'><strong>{appointmentData.request}</strong></p>
                                             </div>
+                                            <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
+                                                <p className='col-span-3 row-span-2 text-right'>ชื่อผู้ส่งซ่อม :</p>
+                                                <p className='col-span-9 row-span-2  text-rose-500'><strong>{appointmentData.request} {appointmentData.lname}</strong></p>
+                                            </div>
 
                                             {/* <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>ราคา :</p>
@@ -192,7 +198,7 @@ export default function ModalRepair({ appointmentData }: any) {
                                                 <p className='col-span-3 row-span-2 text-right'>หมายเลขคิวซ่อม :</p>
                                                 <p className='col-span-9 row-span-2'>{appointmentData.id}</p>
                                             </div> */}
-                                            
+
                                             <div className='grid grid-cols-12 grid-rows-2 space-x-1'>
                                                 <p className='col-span-3 row-span-2 text-right'>วันที่จองซ่อม :</p>
                                                 <p className='col-span-9 row-span-2 text-rose-500'>
@@ -281,7 +287,7 @@ export default function ModalRepair({ appointmentData }: any) {
                                             <button
                                                 type="submit"
                                                 disabled={isLoading}
-                                                onClick={handleSubmit} // เรียกใช้ฟังก์ชัน handleSubmit ในการตรวจสอบข้อมูล
+                                                 onClick={() => handleSubmit(appointmentData.id)}// เรียกใช้ฟังก์ชัน handleSubmit ในการตรวจสอบข้อมูล
                                                 className="w-[200px] py-3 bg-[#FFCD4B] rounded-lg font-medium text-white uppercase focus:outline-none hover:bg-gray-700 hover:shadow-none"
                                             >
                                                 รับคิว

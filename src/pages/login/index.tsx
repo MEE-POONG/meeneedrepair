@@ -18,6 +18,7 @@ const LoginComponent: React.FC = () => {
     const router = useRouter();
     const [loggedInUser, setLoggedInUser] = useState<any>(null);
 
+    
     const handleLogin = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
@@ -62,7 +63,7 @@ const LoginComponent: React.FC = () => {
 
     return (
     <div className='login-page'>
-        <RootLayout>
+        <RootLayout loggedInUser={loggedInUser}>
         
             <div className=" flex flex-col  sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
