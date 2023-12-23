@@ -1,7 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useAxios from "axios-hooks";
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
+
 
 function YourComponent() {
+    useEffect(() => {
+        const fetchData = async () => {
+            const userDataFromCookies = Cookies.get('user');
+            if (userDataFromCookies) {
+                try {
+                    const parsedUser = JSON.parse(userDataFromCookies);
+                    setLoggedInUser(parsedUser);
+                } catch (error) {
+                    console.error('Error parsing user data:', error);
+                }
+            }
+        };
+    
+        fetchData();
+    }, []);
+    
     const [{ error: errorMessage, loading: IndexActivityLoading }, executeIndexActivity] = useAxios(
         { url: '/api/appointment', method: 'POST' },
         { manual: true }
@@ -14,22 +33,36 @@ function YourComponent() {
     const [time, setTime] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [request, setRequest] = useState<string>("");
+    const [userId, setUserId] = useState<string>("");
+    const [loggedInUser, setLoggedInUser] = useState<any>(null);
+
     const [message, setMessage] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
     const [isMissingModalOpen, setIsMissingModalOpen] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [missingFields, setMissingFields] = useState<string[]>([]);
+    useEffect(() => {
+        if (loggedInUser) {
+            // ให้ทำการตั้งค่า state ต่าง ๆ ด้วยข้อมูลที่ได้จาก loggedInUser
+            setFname(loggedInUser.fname || ""); // ตั้งค่าเป็นค่า fname หรือว่าเป็นค่าว่างถ้าไม่มี
+            setLname(loggedInUser.lname || "");
+            setTel(loggedInUser.tel || "");
+            setEmail(loggedInUser.email || "");
+            setUserId(loggedInUser.id || "");
 
+            // ... (ตั้งค่า state อื่น ๆ ตามต้องการ)
+        }
+    }, [loggedInUser])
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-
+    
         // ตรวจสอบว่าข้อมูลถูกกรอกครบถ้วน
-        if (!fname || !lname || !tel || !email || !time || !request || !message) {
-            // ถ้าข้อมูลไม่ครบถ้วน ให้แสดง modal แจ้งเตือน
-            setIsMissingModalOpen(true);
-            return;
-        }
-
+        // if (!fname || !lname || !tel || !email || !time || !request || !message ) {
+        //     // ถ้าข้อมูลไม่ครบถ้วน ให้แสดง modal แจ้งเตือน
+        //     setIsMissingModalOpen(true);
+        //     return;
+        // }
+    
         // ส่งข้อมูลไปยัง API
         try {
             setIsLoading(true);
@@ -41,17 +74,19 @@ function YourComponent() {
                     email,
                     time,
                     request,
-                    message
+                    id,
+                    status: "กำลังดำเนินการ",
+                    message,
+         
                     // เพิ่มข้อมูลอื่น ๆ ตามที่ต้องการ
                 },
             });
+    
             // ประมวลผลเมื่อสำเร็จ
             setIsLoading(false);
             setIsSuccess(true);
             setMessage("สำเร็จ! คุณได้ทำการจองคิวเรียบร้อยแล้ว");
-
-            // setIsDataSent(true); 
-            // สร้าง state isDataSent และตั้งค่าเป็น true
+    
             setIsModalOpen(true);
         } catch (error) {
             // ประมวลผลเมื่อเกิดข้อผิดพลาด
@@ -60,6 +95,7 @@ function YourComponent() {
             setMessage("เกิดข้อผิดพลาดในการจองคิว");
         }
     };
+    
 
     // เรียกใช้งานฟังก์ชันเมื่อกดปุ่ม "จองคิว"
     const handleOpenModal = () => {
@@ -80,7 +116,46 @@ function YourComponent() {
         setIsModalOpen(false);
 
     };
+    const router = useRouter();
 
+    const { id } = router.query; // ดึงค่า id จาก query parameters
+    const [UserData, setUserData] = useState({
+        fname: "",
+        lname: "",
+        tel: "",
+        email: "",
+        id: ""
+    });
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log(data.id);
+                    setUserData(data);
+                    setFname(data.fname);
+                    setLname(data.lname);
+                    setTel(data.tel);
+                    setEmail(data.email);
+                    setRequest(data.request)
+                    setUserId(data.id)
+                    // setAddress(data);
+                    // console.log(data);
+
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+
+                });
+
+        }
+    }, [id]);
+
+ 
+    
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="bg-white w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto p-6 rounded-lg shadow-lg">
@@ -93,9 +168,9 @@ function YourComponent() {
                             <div className='mb-2'>ชื่อ</div>
                             <input
                                 type="text" value={fname} onChange={(e) => setFname(e.target.value)}
-                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none" 
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                                 placeholder="ชื่อ"
-                                />       
+                            />
                         </div>
                         <div className="relative mb-6" data-te-input-wrapper-init>
                             <div className='mb-2'>นามสกุล</div>
@@ -105,6 +180,14 @@ function YourComponent() {
                                 id="exampleFormControlInput3"
                                 placeholder="นามสกุล" />
 
+                        </div>
+                        <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
+                            <div className='mb-2'>ชื่อ</div>
+                            <input
+                                type="text" value={userId} onChange={(e) => setFname(e.target.value)}
+                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
+                                placeholder="ชื่อ"
+                            />
                         </div>
                     </div>
                     <div className="flex justify-center">
@@ -133,7 +216,7 @@ function YourComponent() {
                             type="date" value={time} onChange={(e) => setTime(e.target.value)}
                             className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
                             id="exampleFormControlInput3"
-                            />
+                        />
 
                     </div>
 
@@ -175,7 +258,7 @@ function YourComponent() {
                         <label className="block uppercase tracking-wide text-sm font-medium text-gray-900 mb-2" htmlFor="description">
                             อธิบายอาการของอุปกรณ์พอสังเขป
                         </label>
-                        <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="description"  placeholder="กรุณากรอกข้อมูล"></textarea>
+                        <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="description" placeholder="กรุณากรอกข้อมูล"></textarea>
                     </div>
 
                     <div className="flex justify-center mt-6">
