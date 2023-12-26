@@ -70,7 +70,7 @@ export default function Slide() {
                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                 > {blogData.slice(0, visibleItems).map((blog) => (
-                    <SwiperSlide className="">
+                    <SwiperSlide className="relative">
                          <Link href={`/blog/${blog.id}`} className="text-natural04 text-xs">
                         <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blog.img ? blog.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`} alt="img1" className="absolute inset-0 w-full h-full object-cover " />
                         </Link>
