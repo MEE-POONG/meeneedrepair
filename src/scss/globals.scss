@@ -15,10 +15,11 @@
 // @import 'slideproduct.scss';
 
 body {
-    background-image:url('/images/Back.jpg');
-        background-size: cover;
-        background-position: center;
+    background-image: url('/images/Back.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
+
 .product-category {
     svg {
         margin: auto;
