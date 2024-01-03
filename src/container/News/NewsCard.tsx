@@ -17,7 +17,7 @@ interface news {
 export default function NewsCard() {
 
 
-    const initialVisibleItems = 4;
+    const initialVisibleItems = 5;
     const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
     const [newsData, setnewsData] = useState<news[]>([]); // Use the defined interface here
     //   const [sliderRef, setSliderRef] = useState<Slider | null>(null);
@@ -26,7 +26,7 @@ export default function NewsCard() {
 
 
     const handleLoadMore = () => {
-        setVisibleItems(visibleItems + 4);
+        setVisibleItems(visibleItems + 5);
     };
 
     useEffect(() => {

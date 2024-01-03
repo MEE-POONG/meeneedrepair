@@ -27,7 +27,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ loggedInUser, children }) => {
   return (
     <>
       <Header />
-      <header className="sticky top-0 z-30 w-full sm:p-0 md:py-4 md:px-2">
+      <header className="sticky top-2 z-30 w-full sm:p-0  ">
       <Navbar />
       </header>
       <main className={fontMNR.className}>
