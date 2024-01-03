@@ -5,14 +5,15 @@
  
   
   .swiper {
-    width: 100%;
+    width: 1920px;
     height: 720px;
+
   }
 
   @media (max-width: 768px) {
     .swiper {
       height: 320px;
-    }
+    }             
   }
   
   .swiper-slide {
