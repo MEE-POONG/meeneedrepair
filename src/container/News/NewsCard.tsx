@@ -49,7 +49,7 @@ export default function NewsCard() {
             <div className="container mx-auto mt-5 px-6">
                 <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
                     {newsData.slice(0, visibleItems).map((news) => (
-                        <div key={news.id} className="bg-secondary1 shadow-xl rounded-md overflow-hidden p-2 md:p-4">
+                        <div key={news.id} className="bg-white shadow-xl rounded-md overflow-hidden p-2 md:p-4">
                             <div className="flex md:flex-wrap items-center">
                                 <div className="w-[350px] md:w-full h-[80px] md:h-[150px] rounded-l-md md:rounded-lg overflow-hidden ">
                                 <Link href={`/news/${news.id}`} className="text-natural04 text-xs">  <img className="w-full h-full object-cover"

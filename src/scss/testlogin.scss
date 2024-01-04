@@ -54,25 +54,7 @@ body {
   background-color: #c3d2e3;
 }
 
-.container {
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  width: 90%;
-  padding: 10px 0px;
-  text-align: center;
-  margin: auto;
-}
-.container .card {
-  max-width: 600px;
-  min-height: 140px;
-  min-width: 595px;
 
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid #e3e3e3;
-  margin: 0 auto;
-}
 .tabs {
   text-align: left;
   position: relative;
@@ -169,20 +151,6 @@ body {
   border-top: 1px solid #3b3d3f;
   background: hsl(232deg 16% 15%);
   position: relative;
-}
-
-.container .card {
-  max-width: 600px;
-  min-height: 140px;
-  border-radius: 10px;
-  border: none;
-  margin: 0 auto;
-  z-index: 4 !important;
-  position: relative;
-  background: linear-gradient(#141e30, #243b55);
-  background: #16181a;
-  border-top: 1px solid #3b3d3f;
-  background: hsl(232deg 18% 8%);
 }
 
 .content p {

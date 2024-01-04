@@ -17,7 +17,7 @@ interface blog {
 export default function BlogCard() {
 
 
-    const initialVisibleItems = 4;
+    const initialVisibleItems = 5;
     const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
     const [blogData, setblogData] = useState<blog[]>([]); // Use the defined interface here
     const [activeSlide, setActiveSlide] = useState(0);
@@ -25,7 +25,7 @@ export default function BlogCard() {
 
 
     const handleLoadMore = () => {
-        setVisibleItems(visibleItems + 4);
+        setVisibleItems(visibleItems + 5);
     };
 
     const hasMoreDataToLoad =
@@ -51,7 +51,7 @@ export default function BlogCard() {
 <div className="container mx-auto mt-5 px-6">
                 <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
                     {blogData.slice(0, visibleItems).map((blog) => (
-                        <div key={blog.id} className="bg-secondary1 shadow-xl rounded-md overflow-hidden p-2 md:p-4">
+                        <div key={blog.id} className="bg-white shadow-2xl rounded-md overflow-hidden p-2 md:p-4">
                             <div className="flex md:flex-wrap items-center">
                                 <div className="w-[350px] md:w-full h-[80px] md:h-[150px] rounded-l-md md:rounded-lg overflow-hidden ">
                                     <img className="w-full h-full object-cover"
