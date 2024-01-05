@@ -35,7 +35,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ loggedInUser, children }) => {
         <BackToTopButton />
       </main>
       <footer className='bottom-0 w-full mt-24'>
-        <FootPage />
+
         <Footer />
       </footer>
     </>

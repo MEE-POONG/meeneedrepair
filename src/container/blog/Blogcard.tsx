@@ -48,12 +48,12 @@ export default function BlogCard() {
     return (
         <>
 
-<div className="container mx-auto mt-5 px-6">
+<div className="container mx-auto px-10">
                 <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
                     {blogData.slice(0, visibleItems).map((blog) => (
-                        <div key={blog.id} className="bg-white shadow-2xl rounded-md overflow-hidden p-2 md:p-4">
+                        <div key={blog.id} className="bg-white shadow-xl rounded-md overflow-hidden ">
                             <div className="flex md:flex-wrap items-center">
-                                <div className="w-[350px] md:w-full h-[80px] md:h-[150px] rounded-l-md md:rounded-lg overflow-hidden ">
+                                <div className="w-[350px] md:w-full h-[80px] md:h-[220px] rounded-l-md md:rounded-lg overflow-hidden    ">
                                     <img className="w-full h-full object-cover"
                                         src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blog.img ? blog.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
                                         alt=""
@@ -70,7 +70,7 @@ export default function BlogCard() {
                                     </div>
 
                                     <div className="flex justify-between mt-5">
-                                        <p className="text-natural01 text-xs">
+                                        <p className="text-black text-xs">
                                             By: &nbsp;{blog.author}
                                         </p>
 
