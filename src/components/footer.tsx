@@ -20,7 +20,7 @@ const Footer = () => {
 
                     <div className="hidden md:block">
                         <p className="text-base lg:text-3xl font-extrabold text-transparent 
-                                      bg-gradient-to-r from-blue-600 to-sky-400
+                                      bg-gradient-to-r from-orange-400 to-blue-600
                                       bg-clip-text mb-1 "
                         >Mee Need Repair
                         </p>

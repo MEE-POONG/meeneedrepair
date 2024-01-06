@@ -1,6 +1,5 @@
 import { Mitr } from 'next/font/google'
 import React ,{ ReactNode } from "react";
-import FootPage from './MenuFootPaage';
 import Header from './Header';
 import BackToTopButton from './BactToTop';
 import Footer from './footer';

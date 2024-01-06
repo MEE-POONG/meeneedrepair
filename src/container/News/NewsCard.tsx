@@ -51,21 +51,23 @@ export default function NewsCard() {
                     {newsData.slice(0, visibleItems).map((news) => (
                         <div key={news.id} className="bg-white shadow-xl rounded-md overflow-hidden ">
                             <div className="flex md:flex-wrap items-center">
-                                <div className="w-[350px] md:w-full h-[80px] md:h-[220px] rounded-l-md md:rounded-lg overflow-hidden ">
-                                    <Link href={`/news/${news.id}`} className="text-natural04 text-xs">  <img className="w-full h-full object-cover"
-                                        src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
-                                        alt=""
-                                    /></Link>
+                                <div className="w-[350px] md:w-full h-[80px] md:h-[220px]  md:rounded-tr-lg md:rounded-tl-lg overflow-hidden ">
+                                    <Link href={`/news/${news.id}`} >
+                                        <img className="w-full h-full object-cover"
+                                            src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
+                                            alt=""
+                                        />
+                                    </Link>
                                 </div>
 
                                 <div className="ml-3 md:ml-0 w-[100%] md:mt-2 px-4">
                                     <div className="flex  justify-between mt-5 my-3">
-                                        <p className="text-black text-base">
-                                            &nbsp;{news.author}
+                                        <p className="text-black text-sm">
+                                            {news.author}
                                         </p>
 
                                         <p className="text-black text-sm">
-                                            &nbsp;{news.date}
+                                            {news.date}
                                         </p>
 
                                     </div>

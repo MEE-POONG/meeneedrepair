@@ -25,7 +25,7 @@ const BackToTopButton = () => {
         position: "fixed",
         bottom: 20,
         right: 20,
-        zIndex: 1,
+        zIndex: 1,  
         // backgroundColor: "#212529",
         color: "#fff",
         padding: "10px 15px",

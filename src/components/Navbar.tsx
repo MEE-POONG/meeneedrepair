@@ -63,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   return (
     <nav className="font-fontTH01">
       <div className="" style={{ backgroundColor: scroll > 50 ? "" : "#0f172a" }}>
-        <div className=" container mx-auto flex  justify-between md:rounded-[100px] md:px-5  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
+        <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] px-36" style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
           {/* <div className=" container  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}> */}
           <div className="flex items-center  py-5 ">
             <div onClick={() => setIsOpen(!isOpen)}
@@ -73,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
                 isOpen ? <HiOutlineXMark size={38} /> : <HiBars3BottomLeft size={38} />
               }
             </div>
-            <div className="flex mx-64" > 
+            <div className="" > 
               <Image
                 src="/images/logo.png"
                 width={100}
@@ -83,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           </div>
 
           {/* nav link here */}
-          <ul className="md:flex gap-5 hidden  font-medium text-sm md:text-lg items-center">
+          <ul className="md:flex gap-5 hidden mr-96 font-medium text-sm md:text-lg items-center">
             {Links.map((link) => (
               <li key={link.name} className="hover:border-b-2  hover:border-natural04"
                 style={{ color: scroll > 50 ? "" : "#F4F5F5" }}>
