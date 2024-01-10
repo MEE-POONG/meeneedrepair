@@ -13,11 +13,11 @@ import BlogCard from "../container/blog/blogcard";
 
 
 
-export default function Home() {
+export default function Home(props) {
 
   return (
     <div>
-      <RootLayout>
+      <>
         <Head>
           <title>Mee Need Repair</title>
         </Head>
@@ -37,7 +37,7 @@ export default function Home() {
           </div>
           <Cardsevice />
         </div>
-      </RootLayout>
+      </>
     </div>
   )
 }

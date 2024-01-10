@@ -6,6 +6,8 @@ import type { AppProps } from 'next/app'
 import { SessionProvider } from "next-auth/react"
 import RootLayout from '../components/layout'
 import LoginComponent from './login'
+import { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 
 
 // export default function App({ Component, pageProps }: AppProps) {
@@ -21,11 +23,29 @@ import LoginComponent from './login'
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
+
 }: any) {
+  const [loggedInUser, setLoggedInUser] = useState<any>(null);
+    console.log("User ID:", loggedInUser?.id);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const userDataFromCookies = Cookies.get('user');
+            if (userDataFromCookies) {
+                const parsedUser = JSON.parse(userDataFromCookies);
+                setLoggedInUser(parsedUser);
+            }
+        };
+
+        fetchData();
+    }, []);
   return (
-   
+
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <RootLayout loggedInUser={loggedInUser}>
+        <Component {...pageProps} />
+      </RootLayout>
     </SessionProvider>
   )
 }

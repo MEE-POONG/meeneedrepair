@@ -151,3 +151,19 @@ model User {
   Appointment     Appointment[]
   Order           Order[]
 }
+
+model About {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String?
+  imgLogo     String?
+  description String?
+  imgbanner   String?
+  subtitleOne String?
+  subtitleTwo String?
+  Address     String?
+  email       String?
+  phoneOne    String?
+  phoneTwo    String?
+  FBname      String?
+  line        String?
+}
