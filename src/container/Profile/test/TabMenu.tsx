@@ -7,7 +7,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >ข้อมูลส่วนตัว
                 </button>
             </div>
@@ -18,7 +18,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >จัดการข้อมูลส่วนตัว
                 </button>
             </div>
@@ -29,7 +29,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >จัดการที่อยู่จัดส่ง
                 </button>
             </div>
@@ -40,7 +40,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >ใบเสร็จ/ใบกำกับภาษี
                 </button>
             </div>
@@ -52,7 +52,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >รายการคำสั่งซื้อ
                 </button>
             </div>
@@ -63,7 +63,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >รายการโปรด
                 </button>
             </div>
@@ -75,7 +75,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >เปลี่ยนรหัสผ่าน
                 </button>
             </div>
@@ -86,7 +86,7 @@ const TabMenu = () => {
                 </svg>
                 <button
 
-                    className="text-secondary2 hover:underline text-[12px]"
+                    className="text-black hover:underline text-[12px]"
                 >ออกจากระบบ
                 </button>
             </div>
