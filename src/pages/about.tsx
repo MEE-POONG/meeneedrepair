@@ -16,6 +16,7 @@ const AboutPage: React.FC = (props) => {
     useEffect(() => {
         setFilteredAboutData(aboutData?.about ?? []);
     }, [aboutData]);
+    
     return (
         <>
             <div className='mb-10 relative bg-fixed'>
@@ -70,8 +71,38 @@ const AboutPage: React.FC = (props) => {
                         <span className="flex-grow block border-t border-blue-950" aria-hidden="true" role="presentation"></span>
                     </div>
 
-                    <RepairmanCard/>
-                    <ContactPage />
+                    <RepairmanCard />
+
+                    <div className="grid grid-flow-row lg:grid-cols-12 gap-5 mt-10">
+                        <div className="lg:col-span-7 mx-8 bg-secondary1 rounded-lg  relative">
+                            <div className="p-5">
+                            <h4 className="text-[46px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#081FF0] via-sky-300 to-[#13D1D1] mb-5">{about.title}</h4>
+                                <p className="text-[#F4F5F5] flex gap-3 mt-4">
+                                    <strong>Address:</strong> 46/3 Ratchanikun Rd, Mueang Nakhon Ratchasima District, Nakhon Ratchasima 30000
+                                </p>
+                                <p className="text-[#F4F5F5] flex gap-3 mt-4">
+                                    <strong>Email:</strong>
+                                </p>
+                                <p className="text-[#F4F5F5] flex gap-3 mt-4">
+                                    <strong>Phone:</strong>
+                                </p>
+                                <p className="text-[#F4F5F5] flex gap-3 mt-4">
+                                    <strong>Facebook:</strong>
+                                </p>
+
+                            </div>
+                            <div className="absolute hidden lg:block w-1 h-464 bg-gradient-to-b from-[#CA0808] to-[#0FC0E7] mx-auto mb-10 mt-24 right-0 -inset-y-1"></div>
+
+                        </div>
+                        <div className="lg:col-span-5 mx-8">
+                            <iframe className="rounded-lg w-full"
+                                src={`${about.linkmap}`}
+                                height="400"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
 
 
                 </div>

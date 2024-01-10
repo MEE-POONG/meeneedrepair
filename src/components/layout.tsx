@@ -3,9 +3,6 @@ import React ,{ ReactNode } from "react";
 import Header from './Header';
 import BackToTopButton from './BactToTop';
 import Footer from './footer';
-
-import { useRouter } from "next/router";
-import ComponentsNavbar from './Thenavbar';
 import Navbar from './Navbar';
 
 

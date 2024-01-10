@@ -38,7 +38,7 @@ model Appointment {
   message String?
   email   String?
   video   String?
-  status  String? 
+  status  String?
 
   Address     Address?   @relation(fields: [addressId], references: [id])
   addressId   String?    @db.ObjectId
@@ -158,8 +158,8 @@ model About {
   imgLogo     String?
   description String?
   imgbanner   String?
-  subtitleOne String?
-  subtitleTwo String?
+  subtitle    String?
+  linkmap     String?
   Address     String?
   email       String?
   phoneOne    String?

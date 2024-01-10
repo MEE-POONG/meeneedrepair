@@ -22,7 +22,6 @@ const AdviserService: React.FC = (props) => {
 
     return (
         <>
-
             <SlideServices />
             <Menuservice />
             <div className="container mx-auto mt-28 mb-24 px-3">
@@ -51,10 +50,6 @@ const AdviserService: React.FC = (props) => {
                     </div>
                 </div>
             </div>
-
-
-
-
         </>
     )
 }

@@ -33,7 +33,7 @@ export default function ContactPage() {
                         </div>
                         <div className="lg:col-span-5 mx-8">
                             <iframe className="rounded-lg w-full"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7708.821755171245!2d102.102017!3d14.96988!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31194d8e8317c351%3A0xd84c052ad6cf5c55!2sME%20PROMPT%20TECHNOLOGY!5e0!3m2!1sen!2sth!4v1691552612979!5m2!1sen!2sth"
+                                src={''}
                                 height="400"
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade">
