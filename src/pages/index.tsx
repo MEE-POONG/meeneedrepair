@@ -9,7 +9,8 @@ import Slide from "../container/Home/Slide";
 import NewsCard from "../container/News/NewsCard";
 import CardProductAll from "../container/Product/CardProductAll";
 import { useState } from "react";
-import BlogCard from '../container/blog/Blogcard';
+import BlogCard from "../container/blog/blogcard";
+
 
 
 export default function Home() {

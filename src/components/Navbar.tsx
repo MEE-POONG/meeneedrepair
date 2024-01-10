@@ -63,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   return (
     <nav className="font-fontTH01">
       <div className="" style={{ backgroundColor: scroll > 50 ? "" : "#0f172a" }}>
-        <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] px-36" style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
+        <div className=" container mx-auto flex items-center justify-between md:rounded-[100px] px-36 drop-shadow-2xl" style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}>
           {/* <div className=" container  " style={{ backgroundColor: scroll > 50 ? "#F4F5F5" : "" }}> */}
           <div className="flex items-center  py-5 ">
             <div onClick={() => setIsOpen(!isOpen)}
