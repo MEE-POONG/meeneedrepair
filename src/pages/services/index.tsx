@@ -42,12 +42,10 @@ const AdviserService: React.FC = (props) => {
 
             <div className=" bg-white w-full">
                 <div className="">
-                    <h1 className="text-black text-3xl md:text-5xl font-bold text-center py-10">
+                    <h1 className="text-black text-xl md:text-3xl font-bold text-center pt-5">
                         ตัวอย่างบริการของเรา
                     </h1>
-                    <div className="lg:p-20">
-                        <SlideServices2 />
-                    </div>
+                    <SlideServices2 />
                 </div>
             </div>
         </>
