@@ -21,7 +21,7 @@ const RepairmanCard: React.FC = () => {
     return (
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 px-2'>
             {fillrepairmanData.map((repairman) => (
-                <div className="bg-white shadow-md rounded-md overflow-hidden">
+                <div key={repairman.id} className="bg-white shadow-md rounded-md overflow-hidden">
                     <img src="/images/team/p2-1.jpg" alt="" className="w-full h-32 md:h-48 object-cover" />
                     <div className="p-1.5 lg:p-2.5 text-center">
                         <p className="text-sm lg:text-lg font-semibold">{repairman.fname} {repairman.lname}</p>
@@ -37,7 +37,7 @@ const RepairmanCard: React.FC = () => {
                             </Link>
                         </div>
                         <p className="text-amber-400 hover:text-amber-600 text-xs lg:text-sm flex items-center justify-center gap-2 mt-2">
-                            <BsFillTelephoneFill /> 055-555-1598
+                            <BsFillTelephoneFill /> {repairman.tel}
                         </p>
                     </div>
                 </div>
