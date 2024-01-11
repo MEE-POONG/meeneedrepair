@@ -1,13 +1,12 @@
 import Link from "next/link";
+import { LuReceipt } from "react-icons/lu"
 
 const ReceiptProfile = () => {
     return (
         <div className="">
             <div className="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 45 45" fill="none">
-                    <path d="M15 13.125H30M15 20.625H30M15 28.125H22.5M37.5 39.375V9.375C37.5 8.38044 37.1049 7.42661 36.4016 6.72335C35.6984 6.02009 34.7446 5.625 33.75 5.625H11.25C10.2554 5.625 9.30161 6.02009 8.59835 6.72335C7.89509 7.42661 7.5 8.38044 7.5 9.375V39.375L12.1875 35.625L17.8125 39.375L22.5 35.625L27.1875 39.375L32.8125 35.625L37.5 39.375Z" stroke="#F4F5F5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <h3 className="text-2xl text-secondary2 ml-2">ใบเสร็จ/ใบกำกับภาษี</h3>
+            <LuReceipt className='w-[30px] h-[30px]' />
+                <h3 className="text-2xl text-black ml-2">ใบเสร็จ/ใบกำกับภาษี</h3>
             </div>
 
             <div className="bg-secondary2 mt-10 rounded-lg p-8 text-secondary1">

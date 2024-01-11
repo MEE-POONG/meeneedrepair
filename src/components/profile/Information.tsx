@@ -6,7 +6,8 @@ interface User {
     fname: string;
     lname: string;
     email: string;
-    tel: string;
+    tel:  string;
+     
     // loca: string;
 }
 
@@ -109,7 +110,7 @@ export default function Information() {
                             <strong>อีเมล :</strong> {userData.email}
                         </p>
                         <p>
-                            <strong>เบอร์โทรศัพท์ :</strong> {userData.tel}
+                            <strong>เบอร์โทรศัพท์ :</strong> {userData.tel} { }
                         </p>
                         {/* <p>
                             <strong>ที่อยู่จัดส่ง :</strong> {userData.loca}

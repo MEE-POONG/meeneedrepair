@@ -63,7 +63,7 @@ const LoginComponent: React.FC = () => {
 
     return (
     <div className='login-page'>
-        <RootLayout loggedInUser={loggedInUser}>
+        
         
             <div className=" flex flex-col  sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -169,7 +169,7 @@ const LoginComponent: React.FC = () => {
             
 
             </div>
-        </RootLayout>
+
         </div>
 
 

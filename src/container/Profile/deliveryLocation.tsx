@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { User } from '@prisma/client';
 import SelectAddress from "./selectaddress_personaldata_profile";
 
+
 export default function DeliveryLocation() {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
@@ -179,24 +180,14 @@ export default function DeliveryLocation() {
                         <div className="mt-5 leading-loose">
                             <p>
                                 <strong>ชื่อผู้รับ : </strong> {CurrentAddress.name}  {CurrentAddress.lname}
-                                {/* {deliveryLocationData?.name} */}
-
-
-
-
                             </p>
-
-
                             <p>
                                 <strong>เบอร์โทรศัพท์ : </strong>
                                 {CurrentAddress.phonenumber}
-
                             </p>
-
                             <p>
                                 <strong>ที่อยู่จัดส่ง : </strong>
                                 {CurrentAddress.addressline} {CurrentAddress.district}  {CurrentAddress.province}  {CurrentAddress.subdistrict}  {CurrentAddress.zipcode}  {CurrentAddress.note}
-
                             </p>
                         </div>
                     </div>
@@ -205,6 +196,7 @@ export default function DeliveryLocation() {
 
 
                     <div className="mt-5 leading-loose">
+                        qaewdc aqsxrf4
                         {/* <p>
                             <strong>ชื่อผู้รับ :</strong>
                             <input
@@ -244,7 +236,7 @@ export default function DeliveryLocation() {
                                 className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
                             /> */}
 
-                            <SelectAddress UserAddressData={UserAddressData} onSelectAddress={(Id) => setSelectedAddressId(Id)} />
+                            <SelectAddress UserAddressData={UserAddressData} onSelectAddress={(id) => setSelectedAddressId(id)} />
 
 
                         </p>
