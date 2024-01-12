@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import { User } from '@prisma/client';
 import SelectAddress from "./selectaddress_personaldata_profile";
 
+interface Address {
+    name: string;
+    lname: string;
+    email: string;
+    tel:  string;
+}
 
 export default function DeliveryLocation() {
     const router = useRouter();
@@ -13,7 +19,7 @@ export default function DeliveryLocation() {
     // const [CurrentAddressId, setCurrentAddressId] = useState<String>();
     const [CurrentAddress, setCurrentAddress] = useState<any>({});
     const [UserAddressData, setUserAddressData] = useState<any>({});
-    const [selectedAddressId, setSelectedAddressId] = useState<string | null>(null);
+    const [selectedAddressid, setSelectedAddressId] = useState<string | null>(null);
 
 
     const [isLoading, setIsLoading] = useState(true);
@@ -42,11 +48,11 @@ export default function DeliveryLocation() {
 
                     // console.log(data.AddressId);
                     // console.log(data.Address);
-                    const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
-                    if (foundId) {
+                    const foundid = data.Address.find((address: { id: String; }) => address.id === data.Addressid);
+                    if (foundid) {
                         // ค้นเจอ ID ใน data.Address
                         // ทำสิ่งที่คุณต้องการกับ foundId
-                        setCurrentAddress(foundId);
+                        setCurrentAddress(foundid);
                         setUserAddressData(data.Address);
                         // console.log(foundId)
 
@@ -70,7 +76,7 @@ export default function DeliveryLocation() {
     }, [id]);
 
     const handleSave = () => {
-        if (!selectedAddressId) { // ตรวจสอบว่า selectedAddressId เป็น falsy หรือ null
+        if (!selectedAddressid) { // ตรวจสอบว่า selectedAddressId เป็น falsy หรือ null
             alert('กรุณาเลือกที่อยู่');
             return; // จบการทำงานของฟังก์ชัน
         }
@@ -84,7 +90,7 @@ export default function DeliveryLocation() {
                 },
                 body: JSON.stringify({
 
-                    AddressId: selectedAddressId,
+                    Addressid: selectedAddressid,
 
 
                 }),
@@ -117,21 +123,21 @@ export default function DeliveryLocation() {
     };
 
     const handleDelete = () => {
-        if (!selectedAddressId) { // ตรวจสอบว่า selectedAddressId เป็น falsy หรือ null
+        if (!selectedAddressid) { // ตรวจสอบว่า selectedAddressId เป็น falsy หรือ null
             alert('กรุณาเลือกที่อยู่');
             return; // จบการทำงานของฟังก์ชัน
         }
 
         if (id) {
 
-            fetch(`/api/address/${selectedAddressId}`, {
+            fetch(`/api/address/${selectedAddressid}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
 
-                    AddressId: selectedAddressId,
+                    AddressId: selectedAddressid,
 
 
                 }),
@@ -171,8 +177,8 @@ export default function DeliveryLocation() {
                                 onClick={() => setIsEditing(true)}
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 7H6C5.46957 7 4.96086 7.21071 4.58579 7.58579C4.21071 7.96086 4 8.46957 4 9V18C4 18.5304 4.21071 19.0391 4.58579 19.4142C4.96086 19.7893 5.46957 20 6 20H15C15.5304 20 16.0391 19.7893 16.4142 19.4142C16.7893 19.0391 17 18.5304 17 18V17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M16 4.99998L19 7.99998M20.385 6.58499C20.7788 6.19114 21.0001 5.65697 21.0001 5.09998C21.0001 4.543 20.7788 4.00883 20.385 3.61498C19.9912 3.22114 19.457 2.99988 18.9 2.99988C18.343 2.99988 17.8088 3.22114 17.415 3.61498L9 12V15H12L20.385 6.58499Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M7 7H6C5.46957 7 4.96086 7.21071 4.58579 7.58579C4.21071 7.96086 4 8.46957 4 9V18C4 18.5304 4.21071 19.0391 4.58579 19.4142C4.96086 19.7893 5.46957 20 6 20H15C15.5304 20 16.0391 19.7893 16.4142 19.4142C16.7893 19.0391 17 18.5304 17 18V17"  />
+                                    <path d="M16 4.99998L19 7.99998M20.385 6.58499C20.7788 6.19114 21.0001 5.65697 21.0001 5.09998C21.0001 4.543 20.7788 4.00883 20.385 3.61498C19.9912 3.22114 19.457 2.99988 18.9 2.99988C18.343 2.99988 17.8088 3.22114 17.415 3.61498L9 12V15H12L20.385 6.58499Z" />
                                 </svg>
                                 แก้ไข
                             </button>

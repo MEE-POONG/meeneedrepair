@@ -46,7 +46,7 @@ export default function Personalinformation() {
                     <h3 className="text-2xl text-black ml-2">ข้อมูลส่วนตัว</h3>
                 </div>
 
-                <div className="container  bg-secondary2 mt-10 rounded-lg p-8 text-secondary1">
+                <div className="container w-[800px] bg-secondary2 mt-10 rounded-lg p-8 text-secondary1">
                     <Information />
                     <DeliveryLocation />
                     <Tex />
