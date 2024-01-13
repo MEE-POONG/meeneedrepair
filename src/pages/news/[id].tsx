@@ -31,7 +31,7 @@ const ReadNewsDetail = () => {
     }, [id]);
 
     return (
-        <RootLayout>
+        <>
             <div className="container mx-auto"
             >
                 <div>
@@ -92,7 +92,7 @@ const ReadNewsDetail = () => {
                 </div>
 
             </div>
-        </RootLayout>
+        </>
     )
 }
 export default ReadNewsDetail;

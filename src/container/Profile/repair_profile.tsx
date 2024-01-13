@@ -74,7 +74,7 @@ const RepairProfile = () => {
 
                         <div className="col-span-3 md:col-span-2 self-center flex justify-center flex-wrap">
                             สถานะ:
-                            <strong className={`self-center md:ml-1 text-${appointment.status === 'กำลังดำเนินการ' ? 'orange-500' : appointment.status === 'ยกเลิก' ? 'red-500' : 'green-500'} text-center`}>{appointment.status}</strong>
+                            <strong className={`self-center md:ml-1 text-${appointment.status === 'กำลังดำเนินการ' ? 'yellow-400' : appointment.status === 'อยู่ระหว่างการซ่อม' ? 'green-500' : 'red-500'} text-center`}>{appointment.status}</strong>
                         </div>
                         <div className="flex items-center justify-center">
                             <ModalRepair appointmentData={appointment} />

@@ -15,7 +15,7 @@ import TabMenuMobile from "../../container/Profile/test/TabMenuMobile";
 
 export default function EditFavoritePage() {
     return (
-        <RootLayout>
+        <>
             {/* <ProductCategory /> */}
             <div className="xl:hidden">
                 <TabMenuMobile />
@@ -35,6 +35,6 @@ export default function EditFavoritePage() {
                 </div>
 
             </div>
-        </RootLayout>
+        </>
     )
 }

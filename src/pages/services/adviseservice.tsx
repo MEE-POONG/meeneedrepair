@@ -4,7 +4,7 @@ import RootLayout from "../../components/layout";
 export default function AdviserService() {
     return (
         <>
-            <RootLayout>
+            <>
 
                 <img src="../images/bgtest.png" alt="" className=" w-screen h-[400px]" />
 
@@ -121,7 +121,7 @@ export default function AdviserService() {
 
 
 
-            </RootLayout>
+            </>
         </>
     )
 }

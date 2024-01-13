@@ -90,7 +90,7 @@ function RegisterFrom() {
     };
 
     return (
-        <RootLayout>
+        <>
             <form className="mt-10 " method="POST" onSubmit={handleSubmit}>
                 {isDuplicate && <div className="error-message">ข้อมูลซ้ำกัน</div>}
                 <div className="mb-6 my-5">
@@ -161,7 +161,7 @@ function RegisterFrom() {
                 </div>
             )}
 
-        </RootLayout>
+        </>
     );
 }
 

@@ -10,7 +10,7 @@ export default function ProductPage() {
     const [searchText, setSearchText] = useState("");
 
     return (
-        <RootLayout>
+        <>
             {/* <div className="flex flex-col ">    
             <div className="grid place-items-center mx-2 my-20 sm:my-auto">
             <ProductCategory />
@@ -88,7 +88,7 @@ export default function ProductPage() {
 
             </div>
 
-        </RootLayout>
+        </>
     )
 }
 

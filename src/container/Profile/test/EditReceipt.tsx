@@ -8,7 +8,7 @@ import RootLayout from "../../../components/layout";
 
 export default function EditReceiptPage() {
     return (
-        <RootLayout>
+        <>
             {/* <ProductCategory /> */}
             <div className="xl:hidden">
                 <TabMenuMobile />
@@ -28,6 +28,6 @@ export default function EditReceiptPage() {
                 </div>
 
             </div>
-        </RootLayout>
+        </>
     )
 }

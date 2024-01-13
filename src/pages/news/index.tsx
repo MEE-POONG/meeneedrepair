@@ -18,7 +18,7 @@ interface NewsData {
 export default function NewsPage() {
 
     return (
-        <RootLayout>
+        <>
             <div className="mb-24">
                 <SlideNews />
             </div>
@@ -35,6 +35,6 @@ export default function NewsPage() {
             <div>
                 <NewsCard />
             </div>
-        </RootLayout>
+        </>
     )
 }

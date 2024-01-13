@@ -31,7 +31,7 @@ const Loginpage = () => {
     }, [id]);
 
     return (
-        <RootLayout>
+        <>
             <div className="container mx-auto"
             >
                 <div>
@@ -134,7 +134,7 @@ const Loginpage = () => {
                 </div>
 
             </div>
-        </RootLayout>
+        </>
     )
 }
 export default Loginpage;

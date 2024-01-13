@@ -37,7 +37,7 @@ const ReadUserDetail = () => {
     }, [id]);
 
     return (
-        <RootLayout>
+        <>
             <Head>
                 <title>Mee Need Repair</title>
             </Head>
@@ -108,7 +108,7 @@ const ReadUserDetail = () => {
 
 
 
-        </RootLayout >
+        </ >
     )
 }
 export default ReadUserDetail;

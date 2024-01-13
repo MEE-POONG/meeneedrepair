@@ -31,9 +31,9 @@ const ServicesID = () => {
     }, [id]);
 
     return (
-        <RootLayout>
-        <></>
-        </RootLayout>
+        <>
+        
+        </>
     )
 }
 export default ServicesID;

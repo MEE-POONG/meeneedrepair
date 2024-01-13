@@ -15,7 +15,7 @@ interface NewsData {
 const BlogsPage = () => {
 
     return (
-        <RootLayout>
+        <>
              <div className='relative flex items-center justify-center bg-gray-800'>
                 <div className=" xl:px-32 ">
                     <img src="/images/blog3.jpg" alt="" /></div>
@@ -50,7 +50,7 @@ const BlogsPage = () => {
                 </div>
                 </div>
             </div>
-        </RootLayout>
+        </>
     )
 }
 export default BlogsPage;

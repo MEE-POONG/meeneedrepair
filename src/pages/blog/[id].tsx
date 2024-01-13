@@ -29,7 +29,7 @@ const ReadBlogDetail = () => {
         }
     }, [id]);
     return (
-        <RootLayout>
+        <>
             <div className="container mx-auto"
             >
                 <div>
@@ -94,7 +94,7 @@ const ReadBlogDetail = () => {
                 </div>
 
      
-        </RootLayout>
+        </>
     )
 }
 export default ReadBlogDetail;

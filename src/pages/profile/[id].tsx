@@ -16,10 +16,20 @@ import LogoutButton from '../../container/Profile/logoutButton';
 import { LuNewspaper, LuUser2, LuMapPin, LuReceipt, LuHeart, LuUnlock, LuLogOut } from "react-icons/lu";
 import { AiOutlineTool } from "react-icons/ai";
 import { TbShoppingCartSearch } from "react-icons/tb";
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 function Tabs() {
     const [loggedInUser, setLoggedInUser] = useState<any>(null);
     const [activeTab, setActiveTab] = useState(0);
+    const router = useRouter();
+    const handleLogout = () => {
+        // ลบข้อมูลผู้ใช้ใน Cookies
+        Cookies.remove('user');
+    
+        // ทำการ redirect หน้าไปที่หน้า login หรือหน้าที่คุณต้องการ
+        router.push('/login');
+      };
 
     const handleTabClick = (index: number) => {
         setActiveTab(index);
@@ -81,7 +91,7 @@ function Tabs() {
 
                         </div>
                         </button>
-                        <button onClick={() => handleTabClick(8)} className={activeTab === 8 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-black hover:underline text-[18px] ">
+                        <button onClick={handleLogout} ><div className="ml-5 flex gap-1 items-center mt-2 text-black hover:underline text-[18px] ">
                             <LuLogOut className='w-[25px] h-[25px]' />
                             ออกจากระบบ
                         </div>
@@ -103,7 +113,7 @@ function Tabs() {
                         {activeTab === 5 && <p><OrderProfile /></p>}
                         {activeTab === 6 && <p><FavoriteProfile /></p>}
                         {activeTab === 7 && <p><PasswordProfile /></p>}
-                        {activeTab === 8 && <p><LogoutButton /></p>}
+
 
                     </div>
 

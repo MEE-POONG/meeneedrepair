@@ -60,7 +60,7 @@ const LoginComponent: React.FC = () => {
 
     return (
         <div className='login-page'>
-            <RootLayout>
+        
                 <div className=" antialiased bg-gradient-to-br ">
                     <div className="container px-6 mx-auto">
                         <div
@@ -183,7 +183,7 @@ const LoginComponent: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </RootLayout>
+            
         </div>
 
     );
