@@ -105,18 +105,17 @@ export default function Information() {
                 console.error('Error:', error);
             });
     };
+    const handleCancel = () => {
+        // เมื่อกด "ยกเลิก" ให้กลับค่า userData ให้เป็นค่าเริ่มต้น
+        setUserData(initialUserData);
+        setIsEditing(false);
 
-    const handleCancelImageChange = () => {
-        setImageFile(null);
-        setUserData({ ...userData, img: initialUserData.img });
     };
+
 
 
     return (
         <div>
-
-
-
             {!isEditing ? (
                 <div>
                     <div className="flex justify-between">
@@ -129,7 +128,7 @@ export default function Information() {
                             แก้ไข
                         </button>
                     </div>
-                    <div className="mt-5 leading-loose " 
+                    <div className="mt-5 leading-loose "
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                     >
@@ -140,7 +139,7 @@ export default function Information() {
                                     accept="image/*"
                                     onChange={handleImageChange}
                                     id="imageInput"
-                                    style={{ display: 'none' }} disabled
+                                    style={{ display: 'none' }}
                                 />
                                 <img
                                     src={userData.img}
@@ -152,6 +151,13 @@ export default function Information() {
                             </div>
                         ) : (
                             <div>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleImageChange}
+                                    id="imageInput"
+                                    style={{ display: 'none' }}
+                                />
                                 <FaUserCircle
                                     className="shadow rounded-full object-cover mx-auto"
                                     style={{ width: '150px', height: '150px', cursor: 'pointer' }}
@@ -162,7 +168,7 @@ export default function Information() {
 
                         {isHovered && !isEditing && (
                             <div className="text-natural04 text-center">
-                                
+
                             </div>
                         )}
 
@@ -197,13 +203,48 @@ export default function Information() {
                     </div>
                     <form>
                         <div className="mt-5 leading-loose">
+
+                            {userData.img ? (
+                                <div>
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                        id="imageInput"
+                                        style={{ display: 'none' }}
+                                    />
+                                    <img
+                                        src={userData.img}
+                                        alt="profile"
+                                        className="shadow rounded-full object-cover mx-auto"
+                                        style={{ width: '150px', height: '150px', cursor: 'pointer' }}
+                                        onClick={() => document.getElementById("imageInput")?.click()}
+                                    />
+                                </div>
+                            ) : (
+                                <div>
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                        id="imageInput"
+                                        style={{ display: 'none' }}
+                                    />
+                                    <FaUserCircle
+                                        className="shadow rounded-full object-cover mx-auto"
+                                        style={{ width: '150px', height: '150px', cursor: 'pointer' }}
+                                        onClick={() => document.getElementById("imageInput")?.click()}
+                                    />
+                                </div>
+                            )}
+
                             <p>
                                 <strong>ชื่อผู้รับ :</strong>
                                 <input
                                     type="text"
                                     value={userData.fname}
                                     onChange={(e) => setUserData({ ...userData, fname: e.target.value })}
-                                    className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
+                                    className="mt-5 border border-b-black focus:outline-none focus:border-b-blue-500 pl-2 mr-2"
                                 />
                                 <input
                                     type="text"
@@ -212,15 +253,7 @@ export default function Information() {
                                     className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2"
                                 />
                             </p>
-                            <p>
-                                <strong>อีเมล :</strong>
-                                <input
-                                    type="text"
-                                    value={userData.email}
-                                    onChange={(e) => setUserData({ ...userData, email: e.target.value })}
-                                    className="border border-b-black focus:outline-none focus:border-b-blue-500 pl-2"
-                                />
-                            </p>
+
                             <p>
                                 <strong>เบอร์โทรศัพท์ :</strong>
                                 <input
@@ -231,40 +264,8 @@ export default function Information() {
 
                                 />
                             </p>
-                            
-                                {userData.img ? (
-                                    <div>
-                                        <input
-                                            type="file"
-                                            accept="image/*"
-                                            onChange={handleImageChange}
-                                            id="imageInput"
-                                            style={{ display: 'none' }}
-                                        />
-                                        <img
-                                            src={userData.img}
-                                            alt="profile"
-                                            className="shadow rounded-full object-cover mx-auto"
-                                            style={{ width: '150px', height: '150px', cursor: 'pointer' }}
-                                            onClick={() => document.getElementById("imageInput")?.click()}
-                                        />
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <FaUserCircle
-                                            className="shadow rounded-full object-cover mx-auto"
-                                            style={{ width: '150px', height: '150px', cursor: 'pointer' }}
-                                            onClick={() => document.getElementById("imageInput")?.click()}
-                                        />
-                                    </div>
-                                )}
 
-                                {isHovered && !isEditing && (
-                                    <div className="text-natural04 text-center">
-                                        แก้ไข
-                                    </div>
-                                )}
-                            
+
                             {/* <p>
                                 <strong>ที่อยู่จัดส่ง :</strong>
                                 <input
@@ -280,7 +281,7 @@ export default function Information() {
 
                     <div className="my-2">
                         <button onClick={handleSave} className="bg-green-500 text-white w-16 h-8 rounded">บันทึก</button>
-                        <button onClick={handleCancelImageChange} className="ml-2 bg-red-500 text-white w-16 h-8 rounded">ยกเลิก</button>
+                        <button onClick={handleCancel} className="ml-2 bg-red-500 text-white w-16 h-8 rounded">ยกเลิก</button>
                     </div>
                     <div className="w-full h-0.5 bg-gradient-to-r from-[#CA0808] to-[#0FC0E7] mx-auto mt-5"></div>
                 </div>
