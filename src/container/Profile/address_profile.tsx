@@ -2,18 +2,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { LuMapPin } from "react-icons/lu";
+import { Address } from '@prisma/client';
 
 const AddressProfile = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
-
     const [UserId, setUserId] = useState<String>();
     const [AddressData, setAddressData] = useState<any>(); // กำหนดประเภทของข้อมูลบทความข่าว
     const [CurrentAddressId, setCurrentAddressId] = useState<String>();
     const [IsDefaultAddress, setIsDefaultAddress] = useState<boolean>();
-
     const [isLoading, setIsLoading] = useState(true);
-
     const [Name, setName] = useState<String>("");
     const [Lname, setLname] = useState<String>("");
     const [PhoneNumber, setPhoneNumber] = useState<String>("");
@@ -24,11 +22,8 @@ const AddressProfile = () => {
     const [District, setDistrict] = useState<String>("");
     const [SubDistrict, setSubDistrict] = useState<String>("");
     const [Note, setNote] = useState<String>("");
-
     const [CheckDefault, setCheckDefault] = useState(false);
     const [DefaultAddress, setDefaultAddress] = useState<String>("");
-
-
     const [provinces, setProvinces] = useState<any[]>([]);
     const [districts, setDistricts] = useState<any[]>([]);
     const [subdistricts, setSubDistricts] = useState<any[]>([]);
@@ -97,9 +92,9 @@ const AddressProfile = () => {
                 .then((data) => {
                     // console.log(data.id);
                     setUserId(data.id)
-                    // console.log(data.AddressId);
                     // console.log(data.Address);
-                    const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
+                    // console.log(data.Address);
+                    const foundId = data.Address.find((address: { id: String; }) => address.id === data.Address);
                     if (foundId) {
                         // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้ามีเป็น true
                         setIsDefaultAddress(true);
@@ -164,7 +159,7 @@ const AddressProfile = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ AddressId: data2.id }),
+                    body: JSON.stringify({ Address: data2.id }),
                 })
                     .then((response) => {
                         if (response.ok) {

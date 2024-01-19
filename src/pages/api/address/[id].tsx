@@ -15,8 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     where: {
                         id: id as string,
                     },
-                    include:{
-                        User : true
+                    include: {
+                        User: true
                     },
                 });
 
@@ -26,26 +26,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
             break;
 
+
         case 'PUT':
             try {
                 const id = req.query.id;
 
-                const data = await prisma.address.update({
+                const updatedAddress = await prisma.address.update({
                     where: {
                         id: id as string,
                     },
-                    include:{
-                        User : true
+                    include: {
+                        User: true,
                     },
                     data: req.body,
                 });
 
-                res.status(200).json(data);
+                res.status(200).json(updatedAddress);
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while updating the data" });
             }
             break;
-
+            
         case 'DELETE':
             try {
                 const id = req.query.id;
