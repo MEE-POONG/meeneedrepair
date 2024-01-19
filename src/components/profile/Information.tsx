@@ -139,7 +139,7 @@ export default function Information() {
                                     accept="image/*"
                                     onChange={handleImageChange}
                                     id="imageInput"
-                                    style={{ display: 'none' }}
+                                    style={{ display: 'none' }} disabled
                                 />
                                 <img
                                     src={userData.img}
