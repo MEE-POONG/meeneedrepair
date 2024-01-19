@@ -10,6 +10,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  fname           String?
+  lname           String?
+  birthday        String?
+  email           String?
+  password        String?
+  comfirmPassword String?
+  img             String?
+  tel             String?
+  secretKey       String?
+  facebook        String?
+  google          String?
+  Address         Address[]
+  Appointment     Appointment[]
+  Order           Order[]
+}
+
 model Address {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   name        String?
@@ -22,7 +40,6 @@ model Address {
   district    String?
   subdistrict String?
   note        String?
-
   Appointment Appointment[]
   User        User?         @relation(fields: [userId], references: [id])
   userId      String?       @db.ObjectId
@@ -133,23 +150,6 @@ model Blog {
   img1     String?
   date     String?
   author   String?
-}
-
-model User {
-  id              String        @id @default(auto()) @map("_id") @db.ObjectId
-  fname           String?
-  lname           String?
-  birthday        String?
-  email           String?
-  password        String?
-  comfirmPassword String?
-  tel             String?
-  secretKey       String?
-  facebook        String?
-  google          String?
-  Address         Address[]
-  Appointment     Appointment[]
-  Order           Order[]
 }
 
 model About {
