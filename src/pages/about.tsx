@@ -50,7 +50,7 @@ const AboutPage: React.FC = (props) => {
                             <div className='md:col-span-2'>
                                 <p className='text-lg text-secondary2 text-center md:text-left my-5'>ทำความรู้จัก</p>
                                 <div className='flex items-end'>
-                                    <h3 className='text-xl md:text-5xl font-semibold text-orange-500'
+                                    <h3 className='text-xl md:text-4xl font-semibold text-orange-500'
                                     > {about.title}
                                     </h3>
 
