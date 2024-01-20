@@ -18,6 +18,7 @@ import { AiOutlineTool } from "react-icons/ai";
 import { TbShoppingCartSearch } from "react-icons/tb";
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import DeliveryLocations from '../../container/Profile/deliveryprofile';
 
 function Tabs() {
     const [loggedInUser, setLoggedInUser] = useState<any>(null);
@@ -106,7 +107,7 @@ function Tabs() {
 
                     <div className="tab-content mx-5 col-span-18 p-5 lg:p-0 lg:col-span-10 pt-5 mb-10 lg:mb-0 lg:pt-0 my-10 ">
                         {activeTab === 0 && <Personalinformation />}
-                        {activeTab === 1 && <p><PersonalData /></p>}
+                        {activeTab === 1 && <p><DeliveryLocations /></p>}
                         {activeTab === 2 && <p><AddressProfile /></p>}
                         {activeTab === 3 && <p><ReceiptProfile /></p>}
                         {activeTab === 4 && <p><RepairProfile /></p>}
