@@ -29,7 +29,7 @@ model User {
 }
 
 model Address {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
   name        String?
   lname       String?
   phonenumber String?
@@ -87,22 +87,29 @@ model Order {
 }
 
 model OrderList {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
   date      String?
   discount  String?
-  Order     Order?   @relation(fields: [orderId], references: [id])
-  orderId   String?  @db.ObjectId
-  Product   Product? @relation(fields: [productId], references: [id])
-  productId String?  @db.ObjectId
+  Order     Order?    @relation(fields: [orderId], references: [id])
+  orderId   String?   @db.ObjectId
+  Products  Products? @relation(fields: [productId], references: [id])
+  productId String?   @db.ObjectId
 }
 
-model Product {
-  id     String  @id @default(auto()) @map("_id") @db.ObjectId
-  name   String?
-  price  String?
-  amount String?
-  img    String?
-  detail String?
+model Products {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  productname  String?
+  productbrand String?
+  productmodel String?
+  description  String?
+  productcost  String?
+  price        String?
+  stock        String?
+  imgFirst     String?
+  imgSecond    String?
+  imgThird     String?
+  imgFourth    String?
+  imgFifth     String?
 
   OrderList      OrderList[]
   Category       Category?     @relation(fields: [categoryId], references: [id])
@@ -112,9 +119,9 @@ model Product {
 }
 
 model Productbrand {
-  id      String    @id @default(auto()) @map("_id") @db.ObjectId
-  name    String?
-  Product Product[]
+  id       String     @id @default(auto()) @map("_id") @db.ObjectId
+  name     String?
+  Products Products[]
 }
 
 model Payment {
@@ -125,9 +132,9 @@ model Payment {
 }
 
 model Category {
-  id      String    @id @default(auto()) @map("_id") @db.ObjectId
-  name    String?
-  Product Product[]
+  id       String     @id @default(auto()) @map("_id") @db.ObjectId
+  name     String?
+  Products Products[]
 }
 
 model News {

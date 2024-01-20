@@ -3,6 +3,12 @@ import RootLayout from "../../components/layout";
 import CategoryList from "../../container/Product/CategoryList";
 import CardProductAll from "../../container/Product/CardProductAll";
 import { FiSearch } from "react-icons/fi";
+import Slide from "../../container/Home/Slide";
+import Slideproduct from "../../container/Product/Slideproduct";
+import Link from "next/link";
+import NewsCard from "../../container/News/NewsCard";
+import PromoteCard from "../../container/Product/Promote";
+import ShowproductsCard from "../../container/Product/ShowProduct";
 
 
 
@@ -11,48 +17,25 @@ export default function ProductPage() {
 
     return (
         <>
-            {/* <div className="flex flex-col ">    
-            <div className="grid place-items-center mx-2 my-20 sm:my-auto">
-            <ProductCategory />
-           <h2 className=" text-white text-xl mt-4">test</h2>
-            <div className="flex w-[1500px]  text-gray-800">
-                <div className="sidebar w-[300px] -translate-x-full transform  bg-slate-700 p-4 transition-transform duration-150 ease-in md:translate-x-0 md:shadow-md">
-                    <div className="my-4 ">
-                        <h1 className="text-[#FFCD4B] text-2xl">หมวดหมู่สินค้า</h1>
-                        <h2 className=" text-white text-xl mt-4">สินค้าทั้งหมด</h2>
-                        <h2 className=" text-white text-xl">คอมพิวเตอร์</h2>
-                        <h2 className=" text-white text-xl">สินค้าทั้งหมด</h2>
-                    </div>
+       
+            <Slideproduct />
+            <div className="container mt-5 mx-auto font-fontTH01">
+                <div className="mx-auto text-center text-[50px]">
+                    <p>Promotion</p>
                 </div>
-   
-                <div className="main -ml-48 flex flex-grow flex-col p-4 transition-all duration-150 ease-in md:ml-0">
-                    <div className="flex h-full ">
-                        <div className=" mx-3">
-                        <CardProductAll/>
-                        </div>
-                        <div className=" mx-3">
-                        <CardProductAll/>
-                        </div>
-                        <div className=" mx-3">
-                        <CardProductAll/>
-                        </div>
-                        <div className=" mx-3">
-                        <CardProductAll/>
-                        </div>
+                <div className="container mx-auto my-auto py-6 px-5 lg:">
+                    <div className="flex justify-between">
+                        <p className="text-xl md:text-3xl font-bold text-black mb-5 text-center md:text-left">สินค้าแนะนำ</p>
+                        <Link href='news' className="text-sx md:text-xl flex items-center hover:underline hover:decoration-sky-500 ">เพิ่มเติม</Link>
                     </div>
+                    <PromoteCard />
                 </div>
-            </div>
-            </div>
-            </div> */}
-
-            <div className="container mx-auto font-fontTH01">
-                <img src="/images/bannercomputer.png" alt="" className=" mx-auto my-10 w-[1300px]" />
-
                 {/* Card Product */}
                 <div className="grid md:grid-cols-12 gap-3">
 
                     {/* Category */}
                     <div className="col-span-3 hidden md:block">
+                        <p>สินค้าทั้งหมด</p>
                         <CategoryList />
                     </div>
 
@@ -72,11 +55,22 @@ export default function ProductPage() {
                                 </div>
                             </div>
                         </div>
+                        <div className="container mx-auto my-auto  px-5 lg:">
+                            <div className="flex justify-between">
+                                <ShowproductsCard />
+                            </div>
+                        </div>
+
+                        <div className="container mt-5 mx-auto my-auto  px-5 lg:">
+                            <div className="flex justify-between">
+                                <ShowproductsCard />
+                            </div>
+                        </div>
 
                         {/* Product */}
 
                         <div className="">
-                            <CardProductAll searchText={searchText} setSearchText={setSearchText} />
+                            {/* <CardProductAll searchText={searchText} setSearchText={setSearchText} /> */}
 
                         </div>
 
