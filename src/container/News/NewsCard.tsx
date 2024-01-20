@@ -16,7 +16,6 @@ interface news {
 
 export default function NewsCard() {
 
-
     const initialVisibleItems = 5;
     const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
     const [newsData, setnewsData] = useState<news[]>([]); // Use the defined interface here
@@ -46,41 +45,43 @@ export default function NewsCard() {
 
     return (
         <>
-            <div className="container mx-auto px-10">
-                <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5  justify-center gap-5">
+            <div className="container mx-auto">
+                <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
                     {newsData.slice(0, visibleItems).map((news) => (
                         <div key={news.id} className="bg-white shadow-xl rounded-md overflow-hidden ">
-                            <div className="flex md:flex-wrap items-center">
-                                <div className="w-[350px] md:w-full h-[80px] md:h-[220px]  md:rounded-tr-lg md:rounded-tl-lg overflow-hidden ">
-                                    <Link href={`/news/${news.id}`} >
+                            <Link href={`/news/${news.id}`} >
+                                <div className="flex md:flex-wrap items-center">
+                                    <div className="w-[350px] md:w-full h-[100px] md:h-[220px]  md:rounded-tr-lg md:rounded-tl-lg overflow-hidden ">
+
                                         <img className="w-full h-full object-cover"
                                             src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
                                             alt=""
                                         />
-                                    </Link>
-                                </div>
-
-                                <div className="ml-3 md:ml-0 w-[100%] md:mt-2 px-4">
-                                    <div className="flex  justify-between mt-5 my-3">
-                                        <p className="text-black text-sm">
-                                            {news.author}
-                                        </p>
-
-                                        <p className="text-black text-sm">
-                                            {news.date}
-                                        </p>
 
                                     </div>
-                                    <p className="text-[34px] lg:text-2xl line-clamp-2  text-black hover:text-amber-400 my-3">
-                                        {news.title}
-                                    </p>
 
-                                    <div className="hidden md:block text-black text-xs md:text-sm mt-2 my-10">
-                                        <p className="line-clamp-2 text-sm">{news.subtitle}</p>
+                                    <div className="ml-0 w-[100%] md:mt-2 px-3">
+                                        <div className="flex flex-wrap justify-between md:mt-5">
+                                            <p className="text-black text-xs">
+                                                by: {news.author}
+                                            </p>
+
+                                            <p className="text-orange-600 text-xs">
+                                                {news.date}
+                                            </p>
+
+                                        </div>
+                                        <p className="text-xs md:text-base font-bold line-clamp-2 text-black hover:text-amber-400 mt-2">
+                                            {news.title}
+                                        </p>
+
+                                        <div className="hidden md:block text-black text-xs md:text-sm py-3">
+                                            <p className="line-clamp-2 text-sm">{news.subtitle}</p>
+                                        </div>
+
                                     </div>
-
                                 </div>
-                            </div>
+                            </Link>
 
                         </div>
                     ))}
