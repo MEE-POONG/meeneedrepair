@@ -15,14 +15,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     where: {
                         id: id as string,
                     },
-                    include:{
-                        User : true
+                    include: {
+                        User: true,
+                        Address: true
                     },
                 });
 
                 res.status(200).json(data);
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the data" });
+            }
+            break;
+
+        case 'POST':
+            try {
+                const newuser = await prisma.appointment.create({
+                    include: {
+
+                        User: true,
+                        Address: true
+                    },
+                    data: req.body,
+                });
+
+                res.status(201).json(newuser);
+            } catch (error) {
+                res.status(500).json({ error: "An error occurred while creating the user" });
             }
             break;
 
@@ -34,8 +52,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     where: {
                         id: id as string,
                     },
-                    include:{
-                        User : true
+                    include: {
+                        User: true,
+                        Address: true
                     },
                     data: req.body,
                 });
@@ -63,7 +82,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             break;
 
         default:
-            res.setHeader('Allow', ['GET', 'PUT', 'DELETE']);
+            res.setHeader('Allow', ['GET', 'PUT', 'DELETE','POST']);
             res.status(405).end(`Method ${method} Not Allowed`);
     }
+
 }

@@ -32,7 +32,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const newuser = await prisma.appointment.create({
                     include: {
-                        User: true
+                       
+                        User : true,
+                        Address : true
                     },
                     data: req.body,
                 });

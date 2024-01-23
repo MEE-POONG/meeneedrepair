@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import useAxios from "axios-hooks";
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import SelectAddress from './address';
 
 
 function YourComponent() {
+
     useEffect(() => {
         const fetchData = async () => {
             const userDataFromCookies = Cookies.get('user');
@@ -17,14 +19,17 @@ function YourComponent() {
                 }
             }
         };
-    
+
         fetchData();
     }, []);
-    
+
     const [{ error: errorMessage, loading: IndexActivityLoading }, executeIndexActivity] = useAxios(
         { url: '/api/appointment', method: 'POST' },
         { manual: true }
     )
+    const router = useRouter();
+
+    const { id } = router.query; // ดึงค่า id จาก query parameters
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [fname, setFname] = useState<string>("");
@@ -34,13 +39,21 @@ function YourComponent() {
     const [email, setEmail] = useState<string>("");
     const [request, setRequest] = useState<string>("");
     const [userId, setUserId] = useState<string>("");
-    const [loggedInUser, setLoggedInUser] = useState<any>(null);
+    const [addressId,setAddressId]= useState<string>("");
 
+    const [UserAddressData, setUserAddressData] = useState<any>({});
+    const [selectedAddressId, setSelectedAddressId] = useState<string | null>(null);
+    const [CurrentAddress, setCurrentAddress] = useState<any>({});
+    const [selectedAddress, setSelectedAddress] = useState<any | null>(null)
+
+   
+    const [loggedInUser, setLoggedInUser] = useState<any>(null);
     const [message, setMessage] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
     const [isMissingModalOpen, setIsMissingModalOpen] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [missingFields, setMissingFields] = useState<string[]>([]);
+
     useEffect(() => {
         if (loggedInUser) {
             // ให้ทำการตั้งค่า state ต่าง ๆ ด้วยข้อมูลที่ได้จาก loggedInUser
@@ -49,20 +62,22 @@ function YourComponent() {
             setTel(loggedInUser.tel || "");
             setEmail(loggedInUser.email || "");
             setUserId(loggedInUser.id || "");
-
+            
             // ... (ตั้งค่า state อื่น ๆ ตามต้องการ)
         }
     }, [loggedInUser])
+   
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
     
+
         // ตรวจสอบว่าข้อมูลถูกกรอกครบถ้วน
         // if (!fname || !lname || !tel || !email || !time || !request || !message ) {
         //     // ถ้าข้อมูลไม่ครบถ้วน ให้แสดง modal แจ้งเตือน
         //     setIsMissingModalOpen(true);
         //     return;
         // }
-    
+
         // ส่งข้อมูลไปยัง API
         try {
             setIsLoading(true);
@@ -77,25 +92,26 @@ function YourComponent() {
                     id,
                     status: "กำลังดำเนินการ",
                     message,
-         
+                    // UserAddressData
                     // เพิ่มข้อมูลอื่น ๆ ตามที่ต้องการ
                 },
             });
-    
+
             // ประมวลผลเมื่อสำเร็จ
             setIsLoading(false);
             setIsSuccess(true);
             setMessage("สำเร็จ! คุณได้ทำการจองคิวเรียบร้อยแล้ว");
-    
+
             setIsModalOpen(true);
         } catch (error) {
             // ประมวลผลเมื่อเกิดข้อผิดพลาด
             setIsLoading(false);
             setIsSuccess(false);
             setMessage("เกิดข้อผิดพลาดในการจองคิว");
+            console.error('Error:', error);
         }
     };
-    
+
 
     // เรียกใช้งานฟังก์ชันเมื่อกดปุ่ม "จองคิว"
     const handleOpenModal = () => {
@@ -116,9 +132,7 @@ function YourComponent() {
         setIsModalOpen(false);
 
     };
-    const router = useRouter();
 
-    const { id } = router.query; // ดึงค่า id จาก query parameters
     const [UserData, setUserData] = useState({
         fname: "",
         lname: "",
@@ -126,6 +140,28 @@ function YourComponent() {
         email: "",
         id: ""
     });
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/address/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const foundAddress = data.Address.find((address: { id: string; }) => address.id === selectedAddressId);
+
+                    if (foundAddress) {
+                        setCurrentAddress(foundAddress);
+                        setSelectedAddress(foundAddress);
+                    }
+
+                    setUserAddressData(data.Address);
+                    setIsLoading(false);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false);
+                });
+        }
+    }, [loggedInUser?.id, selectedAddressId]);
+
     useEffect(() => {
         if (id) {
             fetch(`/api/user/${id}`)
@@ -154,8 +190,8 @@ function YourComponent() {
         }
     }, [id]);
 
- 
-    
+
+
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="bg-white w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto p-6 rounded-lg shadow-lg">
@@ -181,14 +217,6 @@ function YourComponent() {
                                 placeholder="นามสกุล" />
 
                         </div>
-                        <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
-                            <div className='mb-2'>ชื่อ</div>
-                            <input
-                                type="text" value={userId} onChange={(e) => setFname(e.target.value)}
-                                className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-10 resize-none"
-                                placeholder="ชื่อ"
-                            />
-                        </div>
                     </div>
                     <div className="flex justify-center">
                         <div className="relative mb-6 mr-6" data-te-input-wrapper-init>
@@ -210,7 +238,10 @@ function YourComponent() {
 
                         </div>
                     </div>
-                    <div className="max-w-md mx-auto mb-4" data-te-input-wrapper-init>
+                    <div>
+                        <SelectAddress UserAddressData={UserAddressData} onSelectAddress={(id) => setSelectedAddressId(id)} />
+                    </div>
+                    <div className="max-w-md mx-auto mb-4 mt-5" data-te-input-wrapper-init>
                         <div className='mb-2'>ต้องการจองคิววันที่</div>
                         <input
                             type="date" value={time} onChange={(e) => setTime(e.target.value)}
@@ -231,7 +262,7 @@ function YourComponent() {
                             id="equipment"
                             value={request}
                             onChange={(e) => setRequest(e.target.value)}
-                            className="w-full p-2 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            className="w-full p-2 bg-gray-200 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                         >
                             <option value="computers" id="computers">
                                 เช็คอุปกรณ์ คอมพิวเตอร์,โน๊ตบุ๊ค
@@ -315,4 +346,4 @@ function YourComponent() {
     );
 }
 
-export default YourComponent;
+export default YourComponent; 
