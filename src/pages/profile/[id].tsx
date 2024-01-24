@@ -100,11 +100,6 @@ function Tabs() {
 
 
                     </div>
-
-
-
-
-
                     <div className="tab-content mx-5 col-span-18 p-5 lg:p-0 lg:col-span-10 pt-5 mb-10 lg:mb-0 lg:pt-0 my-10 ">
                         {activeTab === 0 && <Personalinformation />}
                         {activeTab === 1 && <p><DeliveryLocations /></p>}
@@ -114,8 +109,6 @@ function Tabs() {
                         {activeTab === 5 && <p><OrderProfile /></p>}
                         {activeTab === 6 && <p><FavoriteProfile /></p>}
                         {activeTab === 7 && <p><PasswordProfile /></p>}
-
-
                     </div>
 
                 </div>

@@ -43,9 +43,6 @@ export default function DeliveryLocations() {
     >([]);
     const [filteredAddressData, setFilteredAddressData] = useState<Address[]>([]);
 
-    useEffect(() => {
-        setFilteredAddressData(addressData?.news ?? []);
-    }, [addressData]);
 
 
     const deleteAddress = (id: string): Promise<any> => {
@@ -59,24 +56,6 @@ export default function DeliveryLocations() {
             router.reload();
         });
     };
-
-    //
-    useEffect(() => {
-        if (id) {
-            fetch(`/api/user/address/${id}`)
-                .then((response) => response.json())
-                .then((data) => {
-                    setUserAddressData(data.Address);
-                    setIsLoading(false);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    setIsLoading(false);
-                });
-        }
-    }, [id]);
-
-
     const handleSave = () => {
         if (!selectedAddressId) {
             alert('กรุณาเลือกที่อยู่');
@@ -137,6 +116,27 @@ export default function DeliveryLocations() {
                 });
         }
     };
+    //
+    useEffect(() => {
+        if (id) {
+            fetch(`/api/user/address/${id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    setUserAddressData(data.Address);
+                    setIsLoading(false);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    setIsLoading(false);
+                });
+        }
+    }, [id]);
+
+    useEffect(() => {
+        setFilteredAddressData(addressData?.news ?? []);
+    }, [addressData]);
+
+
     ///
     return (
         <>

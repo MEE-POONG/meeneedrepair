@@ -13,17 +13,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const pageSize: number = Number(req.query.pageSize) || 10;
 
                 const orderlists = await prisma.orderList.findMany({
-                    // skip: (page - 1) * pageSize,
-                    // take: pageSize,
+                    skip: (page - 1) * pageSize,
+                    take: pageSize,
                     include: {
                         Order: true,
-                      },
+                        Products: true,
+                    },
                 });
 
                 const totalorderlists = await prisma.orderList.count();
                 const totalPage: number = Math.ceil(totalorderlists / pageSize);
-                res.status(200).json({ orderlists });
+
+                res.status(200).json({ orderlists, totalPage, currentPage: page });
             } catch (error) {
+                console.error('An error occurred:', error);
                 res.status(500).json({ error: "An error occurred while fetching the product" });
             }
             break;
@@ -33,12 +36,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const neworderlists = await prisma.orderList.create({
                     include: {
                         Order: true,
-                      },
+                        Products: true,
+                    },
                     data: req.body,
                 });
 
                 res.status(201).json(neworderlists);
             } catch (error) {
+                console.error('An error occurred:', error);
                 res.status(500).json({ error: "An error occurred while creating the product" });
             }
             break;

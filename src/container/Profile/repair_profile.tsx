@@ -8,11 +8,7 @@ import { AiOutlineTool } from "react-icons/ai";
 const RepairProfile = () => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
-
-
     const [AppointmentData, setAppointmentData] = useState<any[]>([]);
-
-
     const [isLoading, setIsLoading] = useState(true);
 
 

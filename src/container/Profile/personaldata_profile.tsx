@@ -53,7 +53,7 @@ const PersonalData = () => {
                     // console.log(data.Address);
 
 
-                    // const foundId = data.Address.find((address: { id: String; }) => address.id === data.AddressId);
+                    // const foundId = data.Address.find((address: { id: String; }) => address.id === data.addressId);
                     // if (foundId) {
                     //     // เช็คว่ามีที่อยู่ดั่งเดิมไหมถ้ามีเป็น true
                     //     setIsDefaultAddress(true);
@@ -124,7 +124,7 @@ const PersonalData = () => {
                         lname: LastName,
                         tel: Telephone,
                         email: Email,
-                        AddressId: selectedAddressId,
+                        addressId: selectedAddressId,
 
 
                     }),

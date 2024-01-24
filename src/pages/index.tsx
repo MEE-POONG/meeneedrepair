@@ -3,8 +3,8 @@ import Cardsevice from "../container/Home/Cardservice";
 import Menuservice from "../container/Home/Menuservice";
 import Slide from "../container/Home/Slide";
 import NewsCard from "../container/News/NewsCard";
-import BlogCard from "../container/blog/blogcard";
 import Link from "next/link";
+import BlogCard from "../container/blog/Blogcard";
 
 
 

@@ -17,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     },
                     include: {
                         Order: true,
+                        Products:true,
                       },
                 });
 
@@ -36,6 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     },
                     include: {
                         Order: true,
+                        Products:true,
                       },
                     data: req.body,
                 });
@@ -56,6 +58,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     },
                     include: {
                         Order: true,
+                        Products:true,
                       },
                 });
 

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { HiBars3BottomLeft, HiOutlineXMark, HiUser, HiChevronDown, HiChevronUp, HiChevronRight } from "react-icons/hi2";
 import Cookies from 'js-cookie';
@@ -10,13 +9,8 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
-  const router = useRouter();
-  const { id } = router.query; // ดึงค่า id จาก query parameters
 
   const [loggedInUser, setLoggedInUser] = useState<any>(null);
-  const [userData, setUserData] = useState<any>({}); // กำหนดประเภทของข้อมูลบทความข่าว
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       const userDataFromCookies = Cookies.get('user');
@@ -73,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
                 isOpen ? <HiOutlineXMark size={38} /> : <HiBars3BottomLeft size={38} />
               }
             </div>
-            <div className="" > 
+            <div className="" >
               <Image
                 src="/images/logo.png"
                 width={100}
@@ -150,7 +144,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             <div className="bg-natural04 w-[1px] h-10 "></div>
 
             <li className="mr-5 ">
-              <a href="./shoppingCart">
+              <Link href="./shoppingCart">
                 <svg xmlns="http://www.w3.org/500/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
                   <path d="M8.5 18H6.5V26H8.5V18Z" fill="url(#paint0_linear_220_322)" />
                   <path d="M13.5 18H11.5V26H13.5V18Z" fill="url(#paint1_linear_220_322)" />
@@ -180,17 +174,10 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
                     </linearGradient>
                   </defs>
                 </svg>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
-
-
-
-
-        {/* nav link for mobile here */}
-
-        
       </div>
     </nav>
   );

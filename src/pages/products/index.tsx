@@ -67,7 +67,7 @@ export default function ProductPage() {
                 </div>
 
                 {/* Card Product section */}
-                <div className="flex mx-auto bg-secondary2 p-4 rounded-lg">
+                <div className="flex mx-auto bg-secondary2 rounded-lg">
                     <div className="container w-[250px] h-[100%] tab-buttons hidden lg:flex flex-col grid-cols-5 md:gap-2 my-10 mx-10">        <h3 className="text-3xl text-black mb-8">หมวดหมู่สินค้า</h3>
                         <button onClick={() => handleTabClick(0)} className={activeTab === 0 ? 'active' : ''}><div className="ml-5 flex gap-1 text-black hover:underline text-[18px] ">
                             <p className='w-[25px] h-[25px]' />
@@ -99,8 +99,8 @@ export default function ProductPage() {
                         <button onClick={() => handleTabClick(5)} className={activeTab === 5 ? 'active' : ''}> <div className="ml-5 flex gap-1 items-center mt-2 text-black hover:underline text-[18px] ">
                             <p className='w-[25px] h-[25px]' />
                             พาวเวอร์ซัพพลาย
-
-                        </div></button>
+                        </div>
+                        </button>
                         <button onClick={() => handleTabClick(6)} className={activeTab === 6 ? 'active' : ''}><div className="ml-5 flex gap-1 items-center mt-2 text-black hover:underline text-[18px] ">
                             <p className='w-[25px] h-[25px]' />
                             โน๊ตบุ๊ค

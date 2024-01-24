@@ -2,8 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { User } from '@prisma/client';
-import DeliveryLocation from "./deliveryLocation";
-import Tex from "../../components/profile/Tex";
 import Information from "../../components/profile/Information";
 import { LuNewspaper } from "react-icons/lu";
 
@@ -48,9 +46,7 @@ export default function Personalinformation() {
 
                 <div className="container w-[800px] bg-secondary2 mt-10 rounded-lg p-8 text-secondary1">
                     <Information />
-                    <DeliveryLocation />
-                    <Tex />
-
+                    {/* <DeliveryLocation /> */}
 
                 </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Blog } from "@prisma/client";
 import Link from "next/link";
 
@@ -11,31 +11,29 @@ interface NewsData {
     date: string;
 }
 
-const BlogsPage = () => {
+const BlogsPage: React.FC = () => {
     const initialVisibleItems = 4;
-    const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
+    // const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
     const [blogData, setblogData] = useState<Blog[]>([]); // Use the defined interface here
-    const [activeSlide, setActiveSlide] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
 
-    const handleLoadMore = () => {
-        setVisibleItems(visibleItems + 4);
-    };
+    // const handleLoadMore = () => {
+    //     setVisibleItems(visibleItems + 4);
+    // };
 
     const hasMoreDataToLoad =
-
         useEffect(() => {
             fetch('/api/blog')
                 .then((response) => response.json())
                 .then((data) => {
                     setblogData(data.blog);
-                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+                    // setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
+                    // setIsLoading(false); // ตั้งค่า isLoading เป็น false เมื่อโหลดเสร็จสมบูรณ์
 
                 });
         }, []);
@@ -62,7 +60,8 @@ const BlogsPage = () => {
                 </div>
 
                 <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
-                    {blogData.slice(0, visibleItems).map((blog) => (
+                {/* {blogData.slice(0, visibleItems).map((blog) => ( */}
+                    {blogData.slice(0).map((blog) => (
                         <div key={blog.id} className="bg-white shadow-xl rounded-md overflow-hidden ">
                             <Link href={`/blog/${blog.id}`} >
                                 <div className="flex md:flex-wrap items-center">
@@ -102,12 +101,12 @@ const BlogsPage = () => {
                     ))}
                 </div>
 
-                <div className="py-9">
+                {/* <div className="py-9">
                     <button className="group relative h-8 w-36 md:h-12 md:w-48 overflow-hidden rounded-lg bg-white md:text-base text-sm shadow">
                         <div className="absolute inset-0 w-3 bg-slate-700 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                         <span className="relative text-black group-hover:text-white" onClick={handleLoadMore} >โหลดเพิ่มเติม</span>
                     </button>
-                </div>
+                </div> */}
             </div>
         </>
     )

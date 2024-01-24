@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { LiaHeartSolid } from "react-icons/lia";
+import Cookies from 'js-cookie';
+import axios from "axios";
 
 interface Products {
   id: number;
@@ -18,6 +20,8 @@ interface Products {
 export default function ShowproductsCard() {
   const [newsData, setNewsData] = useState<Products[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [loggedInUser, setLoggedInUser] = useState<any>(null);
+  const [productsSentToRepairman, setproductsSentToRepairman] = useState<string[]>([]);
 
   useEffect(() => {
     fetch('/api/products')
@@ -31,6 +35,40 @@ export default function ShowproductsCard() {
         setIsLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userDataFromCookies = Cookies.get('user');
+      if (userDataFromCookies) {
+        const parsedUser = JSON.parse(userDataFromCookies);
+        setLoggedInUser(parsedUser);
+      }
+    };
+    fetchData();
+  }, []);
+
+  async function Addtocart(productId: any) {
+  try {
+    if (!productsSentToRepairman.includes(productId)) {
+      // ทำการเรียก API หรือทำอย่างอื่นที่ต้องการ เพื่อทำการเก็บค่า products.id ไว้ใน orderlist
+      // ตัวอย่างเช่น
+      await axios.post('/api/orderlist', {
+        productId: productId,
+        userId: loggedInUser.id,
+      });
+
+      // ทำการอัปเดต state ของ productsSentToRepairman
+      setproductsSentToRepairman((prevSent) => [...prevSent, productId]);
+
+      // รีโหลดหน้าหลังจากที่ทำการเพิ่มข้อมูลใน orderlist เพื่อให้แสดงผลลัพธ์ล่าสุด
+      window.location.reload();
+    } else {
+      console.warn('ใส่ตะกร้าเรียบร้อยแล้วค่ะ.');
+    }
+  } catch (error) {
+    console.error('เกิดข้อผิดพลาดในการเพิ่มสินค้า', error);
+  }
+}
 
   return (
     <>
@@ -59,13 +97,20 @@ export default function ShowproductsCard() {
                     {products.description}
                   </p>
 
-                  <div className="flex flex-wrap justify-between md:mt-2">
+                  <div className="flex flex-wrap my-3 justify-between md:mt-2">
                     <p className="text-red-400 text-[16px]" style={{ marginTop: 'auto', textShadow: '1px 2px 2px rgba(0, 0, 0, 0.5)' }}>
                       {products.price} Bath
                     </p>
-
+                    <button
+                      className="text-red-400 hover:text-red-900"
+                      onClick={() => Addtocart(products.id)}
+                    >
+                      <p className="text-orange-600 text-[16px]" style={{ marginTop: 'auto' }}>
+                        <LiaCartArrowDownSolid className="text-[20px] ml-32" />
+                      </p>
+                    </button>
                     <p className="text-orange-600 text-[16px]" style={{ marginTop: 'auto' }}>
-                      <LiaHeartSolid />
+                      <LiaHeartSolid className="text-[20px]" />
                     </p>
                   </div>
                 </div>
