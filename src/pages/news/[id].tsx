@@ -3,9 +3,10 @@ import RootLayout from "../../components/layout";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import LatestNews from "../../container/News/LatestNews";
+import { CiUser } from "react-icons/ci";
 
 
-const ReadNewsDetail = () => {
+const ReadNewsDetail = (props) => {
     const router = useRouter();
     const { id } = router.query; // ดึงค่า id จาก query parameters
 
@@ -37,7 +38,7 @@ const ReadNewsDetail = () => {
                 <div>
                     <img className="w-full h-[300px] md:h-[400px] object-cover" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`} alt={newsData.img} />
                     <div className="mt-8 mx-4 xl:mx-0">
-                        <h4 className="text-lg md:text-3xl font-semibold text-white">{newsData.title}</h4>
+                        <h4 className="text-base md:text-3xl font-bold text-blue-950">{newsData.title}</h4>
                         <div className="flex mt-8 gap-10">
                             <div className="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 50 50" fill="none">
@@ -49,14 +50,12 @@ const ReadNewsDetail = () => {
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                                <span className="text-amber-400">{newsData.date}</span>
+                                <span className="text-amber-700 font-bold">{newsData.date}</span>
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 50 50" fill="none">
-                                    <path d="M22.619 41.6665H41.6666M36.9047 15.476L39.2856 17.8569M40.4761 9.52361C40.9452 9.99256 41.3173 10.5493 41.5712 11.1621C41.8251 11.7749 41.9558 12.4317 41.9558 13.095C41.9558 13.7583 41.8251 14.4151 41.5712 15.0279C41.3173 15.6407 40.9452 16.1975 40.4761 16.6665L17.8571 39.2855L8.33325 41.6665L10.7142 32.276L33.3428 9.53313C34.2347 8.63687 35.431 8.10876 36.6942 8.05362C37.9574 7.99849 39.1952 8.42037 40.1618 9.23551L40.4761 9.52361Z" stroke="#F4F5F5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                                <span className="text-cyan-600"> {newsData.author}</span>
+                            <CiUser />
+                                <span className="text-black">: {newsData.author}</span>
                             </div>
 
                         </div>
@@ -68,12 +67,12 @@ const ReadNewsDetail = () => {
                         {/* Left Content */}
                         <div className="col-span-7 bg-[#F4F5F5] mt-10 rounded-lg">
                             <div className="p-3 md:p-12">
-                                <img className="w-[726px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg"
+                                <img className="w-[480px] px-2 md:px-0 mx-auto rounded-sm drop-shadow-lg"
                                     src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${newsData.img}/public`}
                                     alt={newsData.img}
                                 />
                                 <article className="prose-sm lg:prose-md md:mx-auto mt-5 lg:mt-8 px-2 md:px-0">
-                                    <h2>{newsData.subtitle}</h2>
+                                    <h3>{newsData.subtitle}</h3>
                                     <p className="indent-8 leading-snug text-justify">
                                         {newsData.detail}
                                     </p>

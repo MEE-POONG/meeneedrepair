@@ -95,22 +95,21 @@ const LatestNews = () => {
             <div className="col-span-2 bg-[#1E293B] mt-10 rounded-lg p-6">
                 <p className="text-white text-xl">ข่าวแนะนำ</p>
                 {newsData.slice(-1).map((news) => (
-                    <div className="bg-[#F4F5F5] rounded-[20px] mx-auto my-5 md:w-[270px] lg:w-[270px]  " key={news.id}>
+                    <div className="bg-[#F4F5F5] rounded-[20px] mx-auto my-5 md:w-[270px] " key={news.id}>
 
                         <div className="p-3">
                             <img
-                                className='rounded-[20px] w-full h-[150px]'
+                                className='rounded-[10px] w-full h-[120px]'
                                 src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
                                 alt='indexActivity image'
                             />
                         </div>
                         <div className="px-4 py-2">
-                            <p className="text-2xl truncate font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#081FF0] to-[#13D1D1] ">{news.title}</p>
-                            <div className="flex justify-between px-2 text-sm">
-                                <p> By &nbsp; {news.refer}</p>
-                                <p>{news.date}</p>
+                            <p className="md:text-xl truncate font-bold ">{news.title}</p>
+                            <div className="text-xs">
+                                <p className='text-amber-700'>{news.date}</p>
                             </div>
-                            <p className="mt-2 truncate">{news.detail}</p>
+                            <p className="mt-2 truncate text-sm">{news.detail}</p>
                             <Link href={`/news/${news.id}`} passHref>
                                 <p className="bg-yellow-500 p-2 rounded-full text-center mt-3 ">
                                     อ่าน
