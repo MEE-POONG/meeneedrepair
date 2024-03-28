@@ -7,7 +7,7 @@ export default function Menuservice() {
   return (
     <>
       <div className="container mx-auto ">
-        <p className="flex justify-center gap-2 mt-12 text-xl md:text-5xl">
+        <p className="flex justify-center gap-2 mt-12 text-lg md:text-3xl">
           <span className="text-black font-bold capitalize">Menu </span>
           <span className="text-orange-500 font-bold capitalize">Service</span>
         </p>

@@ -12,16 +12,14 @@ const Footer = () => {
                 <div className="md:grid grid-flow-col gap-3 mx-5 md:mx-16">
                     <div className="">
                         <img
-                            className="w-28 lg:w-36 hidden md:block"
+                            className="w-24 hidden md:block"
                             src="../images/logo/logoMR7.png"
                             alt=""
                         />
                     </div>
 
                     <div className="hidden md:block">
-                        <p className="text-base lg:text-3xl font-extrabold text-transparent 
-                                      bg-gradient-to-r from-orange-400 to-blue-600
-                                      bg-clip-text mb-1 "
+                        <p className="text-base lg:text-3xl font-extrabold text-blue-950 mb-1 "
                         >Mee Need Repair
                         </p>
                         <div className=" lg:flex items-start gap-2 hidden">

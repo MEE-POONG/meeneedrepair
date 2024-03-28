@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SlideNews from "../../container/News/Slidenews";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { News } from "@prisma/client";
 
 interface NewsData {
@@ -12,7 +12,7 @@ interface NewsData {
     date: string;
 }
 
-export default function NewsPage() {
+const NewsPage: React.FC = (props) => {
     const initialVisibleItems = 5;
     const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
     const [newsData, setnewsData] = useState<News[]>([]); // Use the defined interface here
@@ -46,20 +46,15 @@ export default function NewsPage() {
                 <SlideNews />
             </div>
             <div className="container mx-auto px-6 md:px-24">
-                <div className="flex items-center justify-center">
-                    <div className="h-0.5 w-full bg-blue-950"></div>
-                    <h2 className="w-full text-lg md:text-4xl text-center p-3 font-semibold text-blue-950">
-                        News
-                    </h2>
-                    <div className="h-0.5 w-full bg-blue-950"></div>
-                </div>
-
-                <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5">
+                <h2 className="w-full text-base md:text-2xl text-center p-1.5 font-medium text-white bg-gray-950 rounded">
+                    ข่าวที่น่าสนใจ
+                </h2>
+                <div className="grid grid-col md:grid-cols-3 lg:grid-cols-5 justify-center gap-5 mt-6">
                     {newsData.slice(0, visibleItems).map((news) => (
                         <div key={news.id} className="bg-white shadow-xl rounded-md overflow-hidden ">
                             <Link href={`/news/${news.id}`} >
                                 <div className="flex md:flex-wrap items-center">
-                                    <div className="w-[350px] md:w-full h-[100px] md:h-[220px]  md:rounded-tr-lg md:rounded-tl-lg overflow-hidden ">
+                                    <div className="w-[350px] md:w-full h-[100px] md:h-[150px]  md:rounded-tr-lg md:rounded-tl-lg overflow-hidden ">
 
                                         <img className="w-full h-full object-cover"
                                             src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
@@ -68,9 +63,9 @@ export default function NewsPage() {
 
                                     </div>
 
-                                    <div className="ml-0 w-[100%] md:mt-2 px-3">
-                                        <div className="flex flex-wrap justify-between md:mt-5">
-                                            <p className="text-black text-xs">
+                                    <div className="w-[100%] md:mt-2 px-3 py-2">
+                                        <div className="flex flex-wrap justify-between ">
+                                            <p className="text-black text-[10px]">
                                                 by: {news.author}
                                             </p>
 
@@ -82,10 +77,10 @@ export default function NewsPage() {
                                         <p className="text-xs md:text-base font-bold line-clamp-2 text-black hover:text-amber-400 mt-2">
                                             {news.title}
                                         </p>
-
+                                        {/* 
                                         <div className="hidden md:block text-black text-xs md:text-sm py-3">
                                             <p className="line-clamp-2 text-sm">{news.subtitle}</p>
-                                        </div>
+                                        </div> */}
 
                                     </div>
                                 </div>
@@ -95,7 +90,7 @@ export default function NewsPage() {
                     ))}
                 </div>
                 <div className="py-9">
-                    <button className="group relative h-8 w-36 md:h-12 md:w-48 overflow-hidden rounded-lg bg-white md:text-base text-sm shadow">
+                    <button className="group relative h-6 w-28 md:h-12 md:w-48 overflow-hidden rounded-lg bg-white text-xs md:text-base shadow">
                         <div className="absolute inset-0 w-3 bg-slate-700 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                         <span className="relative text-black group-hover:text-white" onClick={handleLoadMore} >โหลดเพิ่มเติม</span>
                     </button>
@@ -104,3 +99,4 @@ export default function NewsPage() {
         </>
     )
 }
+export default NewsPage;

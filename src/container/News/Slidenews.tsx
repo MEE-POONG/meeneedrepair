@@ -1,23 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade'; // เพิ่ม CSS effect-fade
-
-
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Link from 'next/link';
 
 interface news {
     id: number;
-    title:string;
+    title: string;
     img: string;
 }
 
@@ -67,25 +59,33 @@ export default function SlideNews() {
                 >
 
 
-{newsData.slice(0, visibleItems).map((news) => (
-                    <SwiperSlide className="relative">
-                        <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`} alt="img1" className="absolute inset-0 w-full h-full  object-cover blur-xl" />
-                        <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`} alt="img1" className="absolute inset-0 w-full h-full  object-contain drop-shadow-[0_1.2px_10px_rgba(0,0,0,0.8)]" />
-                       
-                        <Link key={news.id} href={`/news/${news.id}`} passHref>
-                            <h1 className="absolute md:text-2xl bottom-0 left-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                            {news.title} {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>            
-                        
-                   
-                        
-                        <h1 className="absolute md:text-2xl bottom-0 right-0 text-white p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                             อ่านต่อ  {/* เปลี่ยนเป็นข้อมูลจริงที่คุณต้องการแสดง */}
-                        </h1>
-                        </Link>
-                    </SwiperSlide>
+                    {newsData.slice(0, visibleItems).map((news) => (
+                        <SwiperSlide className="relative">
+                            <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img
+                                ? news.img
+                                : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`}
+                                alt="img1"
+                                className="object-cover w-full min-h-full"
+                            />
+                            {/* <img src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img ? news.img : 'f701ce08-7ebe-4af2-c4ec-2b3967392900'}/public`} alt="img1" className="absolute inset-0 w-full h-full " /> */}
+
+                            <Link key={news.id} href={`/news/${news.id}`} passHref>
+                                <p className="absolute md:text-2xl lg:text-4xl font-medium left-0 text-white p-2
+                                 w-3/4 backdrop-brightness-50 bg-white/5 pl-10 "
+                                >
+                                    {news.title}
+                                </p>
+                            </Link>
+                            <Link key={news.id} href={`/news/${news.id}`} passHref>
+                                <p className="absolute text-xs md:text-lg bottom-2 right-2 text-white p-2 rounded-xl 
+                                 bg-blue-950 hover:bg-blue-900"
+                                >
+                                    อ่านต่อ
+                                </p>
+                            </Link>
+                        </SwiperSlide>
                     ))}
-                
+
                 </Swiper>
             </div>
         </>
